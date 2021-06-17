@@ -1,0 +1,16 @@
+{
+    "name": "Custom",
+    "alias": "custom",
+    "description": "",
+    "keywords": [],
+    "priority": 1,
+    "providers": [
+        "Modules\\Custom\\Providers\\CustomServiceProvider",
+        "Modules\\Custom\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "helpers.php"
+    ],
+    "requires": []
+}

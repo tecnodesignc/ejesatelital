@@ -1,0 +1,18 @@
+url: https://github.com/EncoreCms/Platform
+versions:
+    "1.0.0":
+        added:
+            - Initial release
+    "1.0.1":
+        added:
+            - Controler Api Admin
+    "1.0.2":
+        added:
+            - Changed by encore
+    "1.0.3":
+        added:
+            - PermissionsController
+            - Profile Controller
+            - fake fields column for profile Data
+            - Media integration for profile Photo
+            -

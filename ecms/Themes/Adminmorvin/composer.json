@@ -1,0 +1,35 @@
+{
+  "name": "tecnodesignc/adminmorvin-theme",
+  "type": "encore-theme",
+  "description": "An EncoreCMS administration theme",
+  "keywords": [
+    "encore-cms"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Marcos Rativa",
+      "email": "info@tecnodesign.com.co",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "composer/installers": ">=2"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "php artisan stylist:publish"
+    ],
+    "post-update-cmd": [
+      "php artisan stylist:publish"
+    ]
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
