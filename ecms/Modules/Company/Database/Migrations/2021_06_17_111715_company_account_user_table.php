@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCompanyAccountTypesTable extends Migration
+class CompanyAccountUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +13,11 @@ class CreateCompanyAccountTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('company__accounttypes', function (Blueprint $table) {
+        Schema::create('company__account_user', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->text('options');
-            $table->timestamps();
+            $table->integer('account_id')->unsigned();
+            $table->integer('user_id')->unsigned();
         });
     }
 
@@ -27,6 +28,6 @@ class CreateCompanyAccountTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('company__accounttypes');
+        Schema::dropIfExists('company__account_user');
     }
 }

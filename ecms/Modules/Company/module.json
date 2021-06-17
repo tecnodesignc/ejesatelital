@@ -6,7 +6,6 @@
     "priority": 1,
     "providers": [
         "Modules\\Company\\Providers\\CompanyServiceProvider",
-        "Modules\\Company\\Providers\\EventServiceProvider",
         "Modules\\Company\\Providers\\RouteServiceProvider"
     ],
     "aliases": {},

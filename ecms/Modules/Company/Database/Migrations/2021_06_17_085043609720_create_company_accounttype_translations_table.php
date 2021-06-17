@@ -15,8 +15,7 @@ class CreateCompanyAccountTypeTranslationsTable extends Migration
         Schema::create('company__accounttype_translations', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            // Your translatable fields
-
+            $table->string('name');
             $table->integer('accounttype_id')->unsigned();
             $table->string('locale')->index();
             $table->unique(['accounttype_id', 'locale']);
