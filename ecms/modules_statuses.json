@@ -10,5 +10,6 @@
     "User": true,
     "Workshop": true,
     "Blog": true,
-    "Custom": true
+    "Custom": true,
+    "Company": true
 }

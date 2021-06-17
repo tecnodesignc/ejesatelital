@@ -1,0 +1,15 @@
+{
+    "name": "Company",
+    "alias": "company",
+    "description": "",
+    "keywords": [],
+    "priority": 1,
+    "providers": [
+        "Modules\\Company\\Providers\\CompanyServiceProvider",
+        "Modules\\Company\\Providers\\EventServiceProvider",
+        "Modules\\Company\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

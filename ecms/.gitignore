@@ -17,3 +17,5 @@ yarn.lock
 .php_cs.cache
 .idea
 .git/
+/ecms/Themes/Adminlte/
+/public_html/themes/

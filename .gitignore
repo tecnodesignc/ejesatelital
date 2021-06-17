@@ -2,3 +2,5 @@
 .idea
 .git/
 /ecms/Themes/Adminlte/
+/public_html/themes/
+/public_html/modules/
