@@ -2,14 +2,11 @@
 
 namespace Modules\Company\Entities;
 
-use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
 class Contact extends Model
 {
-    use Translatable;
 
     protected $table = 'company__contacts';
-    public $translatedAttributes = [];
-    protected $fillable = [];
+    protected $fillable = ['first_name','last_name', 'email','phone','mobile','street','city','state','country','options'];
 }

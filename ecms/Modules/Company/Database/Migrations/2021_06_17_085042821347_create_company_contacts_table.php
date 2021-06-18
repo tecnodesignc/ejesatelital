@@ -24,6 +24,7 @@ class CreateCompanyContactsTable extends Migration
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('country')->nullable();
+            $table->integer('account_id')->unsigned();
             $table->text('options')->nullable();
 
             $table->timestamps();

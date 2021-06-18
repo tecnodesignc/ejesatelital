@@ -31,9 +31,9 @@ class AccountTypeController extends AdminBaseController
      */
     public function index()
     {
-        //$accounttypes = $this->accounttype->all();
+        $accounttypes = $this->accounttype->all();
 
-        return view('company::admin.accounttypes.index', compact(''));
+        return view('company::admin.accounttypes.index', compact('accounttypes'));
     }
 
     /**

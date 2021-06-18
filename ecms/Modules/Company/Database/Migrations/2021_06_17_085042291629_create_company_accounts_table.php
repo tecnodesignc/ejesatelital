@@ -19,7 +19,7 @@ class CreateCompanyAccountsTable extends Migration
             $table->string('nit');
             $table->text('account_site');
             $table->integer('parent');
-            $table->integer('account_type_id');
+            $table->integer('account_type_id')->unsigned();
             $table->string('phone');
             $table->text('street');
             $table->string('city');

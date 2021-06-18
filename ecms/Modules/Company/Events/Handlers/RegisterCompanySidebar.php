@@ -41,7 +41,7 @@ class RegisterCompanySidebar implements \Maatwebsite\Sidebar\SidebarExtender
                 $item->icon('fa fa-copy');
                 $item->weight(10);
                 $item->authorize(
-                     /* append */
+                    $this->auth->hasAccess('company.contacts.index') || $this->auth->hasAccess('company.accounts.index') || $this->auth->hasAccess('company.accounttypes.index')
                 );
                 $item->item(trans('company::accounts.title.accounts'), function (Item $item) {
                     $item->icon('fa fa-copy');
