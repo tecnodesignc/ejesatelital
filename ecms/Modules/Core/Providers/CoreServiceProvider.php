@@ -176,7 +176,6 @@ class CoreServiceProvider extends ServiceProvider
                 'frontend' => $themeManager->find(setting('core::template', null, 'Encore'))->getPath(),
             ];
         }
-
         foreach ($this->app['modules']->getOrdered() as $module) {
             $this->registerViewNamespace($module, $themes);
             $this->registerLanguageNamespace($module);
@@ -192,7 +191,6 @@ class CoreServiceProvider extends ServiceProvider
     {
         $hints = [];
         $moduleName = $module->getLowerName();
-
         if (is_core_module($moduleName)) {
             $configFile = 'config';
             $configKey = 'encore.' . $moduleName . '.' . $configFile;
@@ -201,6 +199,7 @@ class CoreServiceProvider extends ServiceProvider
             $moduleConfig = $this->app['config']->get($configKey . '.useViewNamespaces');
 
             if (count($themes) > 0) {
+
                 if ($themes['backend'] !== null && Arr::get($moduleConfig, 'backend-theme') === true) {
                     $hints[] = $themes['backend'] . '/views/modules/' . $moduleName;
                 }

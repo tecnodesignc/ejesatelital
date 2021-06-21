@@ -4,7 +4,7 @@ namespace Modules\Page\Transformers;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class AccountTransformer extends JsonResource
+class ContactTransformer extends JsonResource
 {
     public function toArray($request)
     {

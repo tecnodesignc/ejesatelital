@@ -5,9 +5,12 @@
         {{ trans('dashboard::dashboard.name') }}
     </h4>
     <ol class="breadcrumb m-0">
-        <li class="breadcrumb-item"><a data-mode="0" href="{{url('/')}}">{{ trans('dashboard::dashboard.name') }}</a>
+        <li class="breadcrumb-item">
+            <a data-mode="0" href="{{route('dashboard.index')}}">
+                {{ trans('core::core.breadcrumb.home') }}
+            </a>
+        </li>
     </ol>
-    <div class="clearfix"></div>
 @stop
 
 @push('css-stack')

@@ -135,7 +135,7 @@ return [
     |
     | useViewNamespaces.backend-theme needs to be enabled at module level
     */
-    'enable-theme-overrides' => false,
+    'enable-theme-overrides' => true,
 
     /*
     |--------------------------------------------------------------------------

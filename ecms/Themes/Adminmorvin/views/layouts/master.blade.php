@@ -16,6 +16,7 @@
     @foreach($cssFiles as $css)
         <link media="all" type="text/css" rel="stylesheet" href="{{ URL::asset($css) }}">
     @endforeach
+    {!! Theme::script('libs/jquery/jquery.min.js') !!}
     @include('partials.encore-globals')
     @section('styles')
     @show
@@ -43,7 +44,7 @@
 
 <!-- Begin page -->
 
-<div class="layout-wrappe" id="app">
+<div class="layout-wrappe">
     <header class="main-header">
         <a href="{{ route('dashboard.index') }}" class="logo">
             <span class="logo-mini">

@@ -22,8 +22,9 @@ class AccountTransformer extends JsonResource
             'country' => $this->when($this->country, $this->country),
             'options' => $this->when($this->options, $this->options),
             'contacts'=>AccountTransformer::collection($this->whenLoaded('contacts')),
-            'urls' => [
-                'deleteUrl' => route('api.company.account.destroy', $this->resource->id),
+            'links' => [
+                'delete' => route('api.company.account.destroy', $this->resource->id),
+                'edit' => route('company.account.edit', $this->resource->id),
             ]
         ];
 

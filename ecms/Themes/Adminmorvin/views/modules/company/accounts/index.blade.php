@@ -1,14 +1,20 @@
 @extends('layouts.master')
 
 @section('content-header')
-    <h1>
+    <h4>
         {{ trans('company::accounts.title.accounts') }}
-    </h1>
+    </h4>
     <ol class="breadcrumb m-0">
         <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}"><i
-                    class="fa fa-dashboard"></i> {{ trans('core::core.breadcrumb.home') }}</a></li>
+                    class="fas fa-dashboard"></i> {{ trans('core::core.breadcrumb.home') }}</a></li>
         <li class="breadcrumb-item active">{{ trans('company::accounts.title.accounts') }}</li>
     </ol>
+    <div class="col-sm-6">
+        <div class="float-end d-none d-sm-block">
+            <a href="{{ route('admin.company.account.create') }}"
+               class="btn btn-success"> {{ trans('company::accounts.button.create account') }}</a>
+        </div>
+    </div>
 @stop
 
 @section('content')
@@ -16,13 +22,6 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="btn-group pull-right" style="margin: 0 15px 15px 0;">
-                        <a href="{{ route('admin.company.account.create') }}" class="btn btn-primary btn-flat"
-                           style="padding: 4px 10px;">
-                            <i class="fa fa-pencil"></i> {{ trans('company::accounts.button.create account') }}
-                        </a>
-                    </div>
-
                     <table id="datatable" class="table table-bordered dt-responsive nowrap"
                            style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
@@ -42,7 +41,7 @@
                                     </td>
                                     <td>
 
-                                        <div class="btn-group" role="group" >
+                                        <div class="btn-group" role="group">
                                             <a href="{{ route('admin.company.account.edit', [$account->id]) }}"
                                                class="btn btn-default btn-flat"><i class="fas fa-pencil"></i></a>
                                             <button class="btn btn-danger btn-flat" data-toggle="modal"
@@ -54,34 +53,17 @@
                                 </tr>
                             @endforeach
                         @endif
-
-
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
-                        </tr>
                         </tbody>
+                        <tfoot>
+                        <tr>
+                            <th>{{ trans('core::core.table.created at') }}</th>
+                            <th>{{ trans('core::core.table.actions') }}</th>
+                        </tr>
+                        </tfoot>
                     </table>
-
-
                 </div>
             </div>
 
-
-            <div class="row">
-
-
-                <div class="btn-group pull-right" style="margin: 0 15px 15px 0;">
-                    <a href="{{ route('admin.company.account.create') }}" class="btn btn-primary btn-flat"
-                       style="padding: 4px 10px;">
-                        <i class="fa fa-pencil"></i> {{ trans('company::accounts.button.create account') }}
-                    </a>
-                </div>
-            </div>
             <div class="box box-primary">
                 <div class="box-header">
                 </div>

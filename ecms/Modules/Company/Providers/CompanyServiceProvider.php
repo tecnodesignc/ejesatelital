@@ -7,6 +7,7 @@ use Modules\Core\Traits\CanPublishConfiguration;
 use Modules\Core\Events\BuildingSidebar;
 use Modules\Core\Events\LoadingBackendTranslations;
 use Modules\Company\Events\Handlers\RegisterCompanySidebar;
+use Illuminate\Support\Arr;
 
 class CompanyServiceProvider extends ServiceProvider
 {
