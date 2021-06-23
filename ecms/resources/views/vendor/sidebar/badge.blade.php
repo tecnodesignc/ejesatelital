@@ -1,1 +1,1 @@
-<small class="badge rounded-pill {{ $badge->getClass() }} float-end">{{ $badge->getValue() }}</small>
+<small class="badge pull-right {{ $badge->getClass() }}">{{ $badge->getValue() }}</small>

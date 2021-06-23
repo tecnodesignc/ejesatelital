@@ -2,6 +2,8 @@
 
 namespace Modules\User\Permissions;
 
+use Modules\User\Repositories\RoleRepository;
+use Modules\User\Repositories\UserRepository;
 use Nwidart\Modules\Contracts\RepositoryInterface;
 
 class PermissionManager
@@ -90,5 +92,24 @@ class PermissionManager
         $cleanedPermission = $this->getState($uniquePermission);
 
         return $cleanedPermission === false;
+    }
+
+    public function buildPermissionList($user_id=null,$role_id=null)
+    {
+        $roleRepository = app(RoleRepository::class);
+        $userRepository = app(UserRepository::class);
+        if (isset($user_id) && !empty($user_id)){
+            $user=$userRepository->find($user_id);
+        }else{
+            $user= auth()->user();
+        }
+        if (isset($role_id) && !empty($role_id)){
+        $role=$roleRepository->find($role_id);
+        }else{
+            $role=$user->roles->first();
+        }
+        $list =  $user->permissions + $role->permissions;
+
+        return $list;
     }
 }

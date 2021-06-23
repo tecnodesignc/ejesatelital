@@ -44,7 +44,7 @@
 
 <!-- Begin page -->
 
-<div class="layout-wrappe">
+<div class="layout-wrappe" id="app">
     <header class="main-header">
         <a href="{{ route('dashboard.index') }}" class="logo">
             <span class="logo-mini">

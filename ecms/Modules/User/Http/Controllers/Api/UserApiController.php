@@ -58,6 +58,7 @@ class UserApiController extends BaseApiController
         } catch (\Exception $e) {
             $status = $this->getStatusError($e->getCode());
             $response = ["errors" => $e->getMessage()];
+            dd($e);
         }
 
         //Return response

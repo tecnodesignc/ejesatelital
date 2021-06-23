@@ -1,4 +1,4 @@
-<ul class="sidebar-menu" data-widget="tree">
+<ul class="metismenu list-unstyled" id="side-menu">
     @foreach($groups as $group)
         {!! $group !!}
     @endforeach
