@@ -179,7 +179,46 @@ class UserApiController extends BaseApiController
         return response()->json($response, $status ?? 200);
     }
 
+    /**
+     * UPDATE ITEM
+     *
+     * @param $criteria
+     * @param Request $request
+     * @return mixed
+     */
+    public function delete($criteria, Request $request)
+    {
+        \DB::beginTransaction(); //DB Transaction
+        try {
 
+            //Validate permissions
+            $this->validatePermission($request, 'user.users.delete');
+            $data = $request->input('attributes');//Get data
+            //Get Parameters from URL.
+            $params = $this->getParamsRequest($request);
+
+            //Request to Repository
+            $user = $this->user->getItem($criteria, $params);
+
+            //Break if no found item
+            if (!$user) throw new \Exception('Item not found', 400);
+
+            $this->user->delete($user->id);
+
+            //Response
+            $response = ["data" =>['msg'=>trans('user::messages.user deleted')]];
+
+            \DB::commit();//Commit to DataBase
+        } catch (\Exception $e) {
+            \Log::error($e);
+            \DB::rollback();//Rollback to Data Base
+            $status = $this->getStatusError($e->getCode());
+            $response = ["errors" => $e->getMessage()];
+        }
+
+        //Return response
+        return response()->json($response, $status ?? 200);
+    }
 
 
     /**
