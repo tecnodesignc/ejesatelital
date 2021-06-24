@@ -18,7 +18,7 @@ $router->group(['prefix' => '/auth'], function (Router $router) {
 
   $router->post('register', [
     'as' =>  'api.auth.register',
-    'uses' => 'UserApiController@register',
+    'uses' => 'AuthApiController@register',
   ]);
 
   /** @var Router $router */

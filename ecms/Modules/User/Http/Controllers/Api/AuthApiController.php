@@ -3,6 +3,8 @@
 namespace Modules\User\Http\Controllers\Api;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Support\Facades\DB;
+use Lcobucci\JWT\Encoding\JoseEncoder;
 use Modules\Core\Http\Controllers\Api\BaseApiController;
 use Modules\User\Exceptions\InvalidOrExpiredResetCode;
 use Modules\User\Exceptions\UserNotFoundException;
@@ -15,16 +17,23 @@ use Modules\User\Services\UserResetter;
 use Modules\User\Transformers\UserLoginTransformer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Lcobucci\JWT\Parser;
+use Lcobucci\JWT\Token\Parser;
+use Modules\User\Repositories\UserRepository;
+use Exception;
 
 
 class AuthApiController extends BaseApiController
 {
     use DispatchesJobs;
 
-    public function __construct()
+    private $user;
+
+    public function __construct(UserRepository $user)
     {
         parent::__construct();
+        $this->user = $user;
+        $this->clearTokens();//CLear tokens
+
     }
 
     public function login(Request $request)
@@ -34,15 +43,15 @@ class AuthApiController extends BaseApiController
                 'email' => $request->input('email'),
                 'password' => $request->input('password')
             ];
-            $this->validateRequestApi(new LoginRequest($credentials));
+
             $user = auth()->attempt($credentials);
             if (!$user) {
                 throw new \Exception('User or Password invalid', 401);
             }
             $token = $this->getToken($user);
-            $response=[
-                'userData'=> new UserLoginTransformer($user),
-                'userToken' =>  'Bearer ' . $token->accessToken,
+            $response = [
+                'userData' => new UserLoginTransformer($user),
+                'userToken' => 'Bearer ' . $token->accessToken,
                 'expiresIn' => $token->token->expires_at,
             ];
         } catch (\Exception $e) {
@@ -53,26 +62,6 @@ class AuthApiController extends BaseApiController
         //Return response
         return response()->json($response ?? ["data" => "Request successful"], $status ?? 200);
 
-    }
-
-    public function reset(ResetRequest $request)
-    {
-        try {
-
-            app(UserResetter::class)->startReset($request->all());
-
-            $response = ['data' => [
-                'msj' => trans('user::messages.check email to reset password')
-            ]];
-
-        } catch (UserNotFoundException $ex) {
-            $status = $this->getStatusError($ex->getCode());
-            $response = ["errors" => trans('user::messages.no user found')];
-        } catch (\Exception $e) {
-            \Log::error($e);
-            $status = $this->getStatusError($e->getCode());
-            $response = ["errors" => $e->getMessage()];
-        }
     }
 
     /**
@@ -95,24 +84,83 @@ class AuthApiController extends BaseApiController
     }
 
 
-    public function resetComplete($userId, $code, ResetCompleteRequest $request)
+    public function register(Request $request)
     {
         try {
-            app(UserResetter::class)->finishReset(
-                array_merge($request->all(), ['userId' => $userId, 'code' => $code])
-            );
-        } catch (UserNotFoundException $e) {
-            return redirect()->back()->withInput()
-                ->withError(trans('user::messages.user no longer exists'));
-        } catch (InvalidOrExpiredResetCode $e) {
-            return redirect()->back()->withInput()
-                ->withError(trans('user::messages.invalid reset code'));
+            $data = $request->input('attributes') ?? [];//Get data
+
+            $this->validateRequestApi(new RegisterRequest($data));
+
+            app(UserRegistration::class)->register($data);
+            $response = ["data" => ['msg' => trans('user::messages.account created check email for activation'), 'email' => $data['email']]];
+        } catch (\Exception $e) {
+            \Log::error($e);
+            $status = $this->getStatusError($e->getCode());
+            $response = ["errors" => $e->getMessage()];
         }
 
-        return redirect()->route('login')
-            ->withSuccess(trans('user::messages.password reset'));
+//Return response
+        return response()->json($response ?? ["data" => "Request successful"], $status ?? 200);
     }
 
+
+    public function reset(Request $request)
+    {
+        try {
+
+            $data = $request->input('attributes') ?? [];//Get data
+            $this->validateRequestApi(new ResetRequest($data));
+            app(UserResetter::class)->startReset($data);
+
+            $response = ['data' => [
+                'msj' => trans('user::messages.check email to reset password')
+            ]];
+        } catch (UserNotFoundException $ex) {
+            $status = $this->getStatusError($ex->getCode());
+            $response = ["errors" => trans('user::messages.no user found')];
+        } catch (Exception $e) {
+            \Log::error($e);
+            $status = $this->getStatusError($e->getCode());
+            $response = ["errors" => $e->getMessage()];
+        }
+
+        //Return response
+        return response()->json($response ?? ["data" => "Request successful"], $status ?? 200);
+    }
+
+
+    public function resetComplete(Request $request)
+    {
+        try {
+            $credentials = [ //Get credentials
+                'password' => $request->input('password'),
+                'password_confirmation' => $request->input('passwordConfirmation'),
+                'userId' => $request->input('userId'),
+                'code' => $request->input('token')
+            ];
+            $this->validateRequestApi(new ResetCompleteRequest($credentials));
+            app(UserResetter::class)->finishReset($credentials);
+
+            $user = $this->user->find($request->input('userId'));
+
+            $response = ["data" => ['email' => $user->email]];//Response
+
+        } catch (UserNotFoundException $e) {
+            \Log::error($e->getMessage());
+            $status = $this->getStatusError(404);
+            $response = ["errors" => trans('user::messages.no user found')];
+
+        } catch (InvalidOrExpiredResetCode $e) {
+            $status = $this->getStatusError(402);
+            $response = ["errors" => trans('user::messages.invalid reset code')];
+        } catch (Exception $e) {
+            $status = $this->getStatusError($e->getCode());
+            $response = ["errors" => $e->getMessage()];
+        }
+
+        //Return response
+        return response()->json($response ?? ["data" => "Request successful"], $status ?? 200);
+    }
 
 
     /**
@@ -125,8 +173,11 @@ class AuthApiController extends BaseApiController
             $value = $request->bearerToken();//Get from request
 
             if ($value) {
-                $id = (new Parser())->parse($value)->getHeader('jti');//Decode and get ID
-                $token = \DB::table('oauth_access_tokens')->where('id', $id)->first();//Find data Token
+
+                $tokenId = (new Parser(new JoseEncoder()))->parse($value)->claims()
+                    ->all()['jti'];
+                $token = \DB::table('oauth_access_tokens')->where('id', $tokenId)->first();//Find data Token
+
                 $success = true;//Default state
 
                 //Validate if exist token
@@ -145,9 +196,10 @@ class AuthApiController extends BaseApiController
                 }
 
                 $response = ['data' => $token];//Response Token ID decode
-                \DB::commit();//Commit to DataBase
+                DB::commit();//Commit to DataBase
             } else throw new Exception('Unauthorized', 401);//Throw unautorize
         } catch (Exception $e) {
+            \Log::error($e);
             $status = $this->getStatusError($e->getCode());
             $response = ["errors" => $e->getMessage()];
         }
@@ -155,6 +207,19 @@ class AuthApiController extends BaseApiController
         //Return response
         return response()->json($response, $status ?? 200);
     }
+
+
+    /**
+     * Provate method Clear Tokens
+     */
+    private function clearTokens()
+    {
+        //Delete all tokens expirateds or revoked
+        DB::table('oauth_access_tokens')->where('expires_at', '<=', now())
+            ->orWhere('revoked', 1)
+            ->delete();
+    }
+
     /**
      * @param $user
      * @return bool

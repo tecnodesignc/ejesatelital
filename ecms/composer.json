@@ -48,7 +48,8 @@
         "tecnodesignc/encore-theme": "dev-master",
         "tightenco/ziggy": "0.9",
         "yajra/laravel-datatables-oracle": "^9.15",
-        "ext-json": "*"
+        "ext-json": "*",
+        "lcobucci/jwt":"4.1.4"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",
