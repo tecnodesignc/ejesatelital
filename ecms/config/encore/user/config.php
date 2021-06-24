@@ -65,6 +65,45 @@ return [
     ],
     /*
     |--------------------------------------------------------------------------
+    | Fillable user fields
+    |--------------------------------------------------------------------------
+    | Set the fillable user fields, those fields will be mass assigned
+    */
+    'fields' => [
+        'identification'=>[
+            'type'=>'text',
+            'description'=>'User Identification',
+        ],
+        'bio'=>[
+            'type'=>'textarea',
+            'description'=>'Biographies',
+        ],
+        'facebook'=>[
+            'type'=>'text',
+            'description'=>'Facebook',
+        ],
+        'twitter'=>[
+            'type'=>'text',
+            'description'=>'Twitter',
+        ],
+        'instagram'=>[
+            'type'=>'text',
+            'description'=>'Instagram',
+        ],
+        'address'=>[
+            'type'=>'array',
+            'description'=>'User Address',
+        ],
+        'birthdate'=>[
+            'type'=>'date',
+            'description'=>'Birthdate',
+        ],
+    ],
+    'rules'=>[
+        'identification' => 'required|min:3',
+    ],
+    /*
+    |--------------------------------------------------------------------------
     | Custom date fields
     |--------------------------------------------------------------------------
     | Set the fields that will be cast to Carbon dates
@@ -79,6 +118,7 @@ return [
     */
     'casts' => [
         'permissions' => 'json',
+        'fields'=> 'json',
     ],
     /*
      |--------------------------------------------------------------------------
@@ -118,7 +158,7 @@ return [
         'backend-theme' => false,
         // Read module views from /Themes/<frontend-theme-name>/views/modules/<module-name>
         'frontend-theme' => false,
-        // Read module views from /resources/views/asgard/<module-name>
+        // Read module views from /resources/views/encore/<module-name>
         'resources' => true,
     ],
 ];

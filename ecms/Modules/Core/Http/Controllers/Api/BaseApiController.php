@@ -24,6 +24,7 @@ class BaseApiController extends BasePublicController
     {
         $defaultValues = (object)$params;//Convert to object the params
         $this->permissionsController = new PermissionsApiController();
+        $setting = $request->input('setting') ? (is_string($request->input('setting')) ? json_decode($request->input('setting')) : (is_array($request->input('setting')) ? json_decode(json_encode($request->input('setting'))) : $request->input('setting'))) : false;
 
         //Set default values
         $default = (object)[

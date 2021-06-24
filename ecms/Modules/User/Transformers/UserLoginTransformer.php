@@ -21,7 +21,6 @@ class UserLoginTransformer extends JsonResource
             'created_at' => $this->created_at,
             'permissions' => $permissions,
             'roles' => $this->roles->pluck('id'),
-
             'urls' => [
                 'logout' => route('api.user.logout'),
             ],

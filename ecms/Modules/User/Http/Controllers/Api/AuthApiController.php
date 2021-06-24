@@ -39,20 +39,22 @@ class AuthApiController extends BaseApiController
     public function login(Request $request)
     {
         try {
-            $credentials = [ //Get credentials
-                'email' => $request->input('email'),
-                'password' => $request->input('password')
-            ];
+            $data = $request->input('attributes') ?? [];//Get data
 
-            $user = auth()->attempt($credentials);
+            $this->validateRequestApi(new LoginRequest($data));
+
+
+
+            $user = auth()->attempt($data);
             if (!$user) {
-                throw new \Exception('User or Password invalid', 401);
+                throw new \Exception(trans('user::messages.user or password invalid'), 401);
             }
             $token = $this->getToken($user);
             $response = [
                 'userData' => new UserLoginTransformer($user),
                 'userToken' => 'Bearer ' . $token->accessToken,
                 'expiresIn' => $token->token->expires_at,
+                'msg'=>trans('user::messages.successfully logged in')
             ];
         } catch (\Exception $e) {
             $status = $this->getStatusError($e->getCode());
@@ -65,7 +67,7 @@ class AuthApiController extends BaseApiController
     }
 
     /**
-     * Logout Api Controller
+     * logout Api Controller
      * @param Request $request
      * @return mixed
      */
@@ -74,13 +76,41 @@ class AuthApiController extends BaseApiController
         try {
             $token = $this->validateResponseApi($this->getRequestToken($request));//Get Token
             DB::table('oauth_access_tokens')->where('id', $token->id)->delete();//Delete Token
+            $response = ["msg" => trans('user::messages.successfully logged out')];
+
         } catch (Exception $e) {
             $status = $this->getStatusError($e->getCode());
             $response = ["errors" => $e->getMessage()];
         }
 
         //Return response
-        return response()->json($response ?? ["data" => "You have been successfully logged out!"], $status ?? 200);
+        return response()->json($response ?? ["data" => "Request successful"], $status ?? 200);
+    }
+
+    /**
+     * logout All Sessions Api Controller
+     * @param Request $request
+     * @return mixed
+     */
+    public function logoutAllSessions(Request $request)
+    {
+        try {
+            $data = $request->input('attributes') ?? [];//Get data
+
+            if (isset($data['user_id'])) {
+                //Delete all tokens of this user
+                DB::table('oauth_access_tokens')->where('user_id', $data['user_id'])->delete();
+            }else{
+                throw new \Exception(trans('user::messages.user invalid'), 404);
+            }
+            $response = ["msg" => trans('user::messages.successfully logged out')];
+        } catch (Exception $e) {
+            $status = $this->getStatusError($e->getCode());
+            $response = ["errors" => $e->getMessage()];
+        }
+
+        //Return response
+        return response()->json($response ?? ["data" => "Request successful"], $status ?? 200);
     }
 
 
@@ -132,18 +162,11 @@ class AuthApiController extends BaseApiController
     public function resetComplete(Request $request)
     {
         try {
-            $credentials = [ //Get credentials
-                'password' => $request->input('password'),
-                'password_confirmation' => $request->input('passwordConfirmation'),
-                'userId' => $request->input('userId'),
-                'code' => $request->input('token')
-            ];
-            $this->validateRequestApi(new ResetCompleteRequest($credentials));
-            app(UserResetter::class)->finishReset($credentials);
+            $data = $request->input('attributes') ?? [];//Get data
+            $this->validateRequestApi(new ResetCompleteRequest($data));
+            app(UserResetter::class)->finishReset($data);
 
-            $user = $this->user->find($request->input('userId'));
-
-            $response = ["data" => ['email' => $user->email]];//Response
+            $response = ["data" => ['msg' =>trans('user::messages.password reset')]];//Response
 
         } catch (UserNotFoundException $e) {
             \Log::error($e->getMessage());

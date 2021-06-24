@@ -337,12 +337,6 @@ class SentinelUserRepository implements UserRepository
                 });
             }
 
-            //Filter by user ID
-            if (isset($filter->userId) && count($filter->userId)) {
-                $query->whereIn('users.id', $filter->userId);
-            }
-
-
             //filter by Role ID
             if (isset($filter->roleId) && ((int)$filter->roleId) != 0) {
                 $query->whereIn('id', function ($query) use ($filter) {
