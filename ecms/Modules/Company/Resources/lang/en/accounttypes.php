@@ -18,6 +18,10 @@ return [
     'form' => [
     ],
     'messages' => [
+        'account type created'=>'Account Type successfully created.',
+        'account type not found' => 'Account Type not found.',
+        'account type updated' => 'Account Type successfully updated.',
+        'account type deleted' => 'Account Type successfully deleted.',
     ],
     'validation' => [
     ],

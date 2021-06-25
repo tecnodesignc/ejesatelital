@@ -16,15 +16,16 @@ class CreateCompanyAccountsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->text('name');
-            $table->string('nit');
-            $table->text('account_site');
-            $table->integer('parent');
+            $table->string('nit')->nullable();
+            $table->text('account_site')->nullable();
+            $table->integer('parent_id')->default(0);
+            $table->boolean('active')->default(-1);
             $table->integer('account_type_id')->unsigned();
-            $table->string('phone');
-            $table->text('street');
-            $table->string('city');
-            $table->string('state');
-            $table->string('country');
+            $table->string('phone')->nullable();
+            $table->text('street')->nullable();
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
+            $table->string('country')->nullable();
             $table->text('options')->nullable();
 
 

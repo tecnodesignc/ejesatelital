@@ -3,7 +3,7 @@
 use Illuminate\Routing\Router;
 /** @var Router $router */
 
-$router->group(['prefix' =>'/account'], function (Router $router) {
+$router->group(['prefix' =>'/accounts'], function (Router $router) {
 //Route create
     $router->post('/', [
         'as' => 'api.company.account.create',
@@ -27,14 +27,14 @@ $router->group(['prefix' =>'/account'], function (Router $router) {
 
     //Route update
     $router->put('/{criteria}', [
-        'as' => 'api.company.account.update',
+        'as' => 'api.company.account.edit',
         'uses' => 'AccountApiController@update',
         'middleware' => ['auth:api']
     ]);
 
     //Route delete
     $router->delete('/{criteria}', [
-        'as' => 'api.company.account.delete',
+        'as' => 'api.company.account.destroy',
         'uses' => 'AccountApiController@delete',
         'middleware' => ['auth:api']
     ]);

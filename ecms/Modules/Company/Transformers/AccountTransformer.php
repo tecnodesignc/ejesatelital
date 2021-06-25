@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Page\Transformers;
+namespace Modules\Company\Transformers;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -24,7 +24,7 @@ class AccountTransformer extends JsonResource
             'contacts'=>AccountTransformer::collection($this->whenLoaded('contacts')),
             'links' => [
                 'delete' => route('api.company.account.destroy', $this->resource->id),
-                'edit' => route('company.account.edit', $this->resource->id),
+                'edit' => route('api.company.account.edit', $this->resource->id),
             ]
         ];
 

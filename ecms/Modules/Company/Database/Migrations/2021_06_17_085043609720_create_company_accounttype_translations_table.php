@@ -16,10 +16,10 @@ class CreateCompanyAccountTypeTranslationsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name');
-            $table->integer('accounttype_id')->unsigned();
+            $table->integer('account_type_id')->unsigned();
             $table->string('locale')->index();
-            $table->unique(['accounttype_id', 'locale']);
-            $table->foreign('accounttype_id')->references('id')->on('company__accounttypes')->onDelete('cascade');
+            $table->unique(['account_type_id', 'locale']);
+            $table->foreign('account_type_id')->references('id')->on('company__accounttypes')->onDelete('cascade');
         });
     }
 
@@ -31,7 +31,7 @@ class CreateCompanyAccountTypeTranslationsTable extends Migration
     public function down()
     {
         Schema::table('company__accounttype_translations', function (Blueprint $table) {
-            $table->dropForeign(['accounttype_id']);
+            $table->dropForeign(['account_type_id']);
         });
         Schema::dropIfExists('company__accounttype_translations');
     }

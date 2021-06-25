@@ -13,7 +13,7 @@ class CreateAccountTypeRequest extends BaseFormRequest
 
     public function translationRules()
     {
-        return [];
+        return ['name'=>'required|min:3'];
     }
 
     public function authorize()

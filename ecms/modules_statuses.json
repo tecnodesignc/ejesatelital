@@ -11,5 +11,6 @@
     "Workshop": true,
     "Blog": true,
     "Custom": true,
-    "Company": true
+    "Company": true,
+    "Location": true
 }

@@ -3,7 +3,7 @@
 use Illuminate\Routing\Router;
 /** @var Router $router */
 
-$router->group(['prefix' =>'/account-type'], function (Router $router) {
+$router->group(['prefix' =>'/account-types'], function (Router $router) {
 //Route create
     $router->post('/', [
         'as' => 'api.company.accounttype.create',

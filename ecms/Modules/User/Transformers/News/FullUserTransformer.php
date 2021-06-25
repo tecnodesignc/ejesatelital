@@ -18,6 +18,7 @@ class FullUserTransformer extends JsonResource
             'full_name' => $this->when($this->present()->fullname,$this->present()->fullname),
             'email' => $this->when($this->email,$this->email),
             'fields'=>$this->fields,
+            'main_image'=>$this->mainImage,
             'is_activated' => $this->isActivated(),
             'created_at' => $this->when($this->created_at,$this->created_at),
             'updated_at' => $this->when($this->updated_at,$this->updated_at),

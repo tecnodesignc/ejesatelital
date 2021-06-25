@@ -14,8 +14,7 @@ class CompanyAccountUserTable extends Migration
     public function up()
     {
         Schema::create('company__account_user', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('id');
+            $table->id();
             $table->integer('account_id')->unsigned();
             $table->integer('user_id')->unsigned();
         });

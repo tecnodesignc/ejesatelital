@@ -60,13 +60,13 @@ class UserApiController extends BaseApiController
             //If request pagination add meta-page
             $params->page ? $response["meta"] = ["page" => $this->pageTransformer($users)] : false;
         } catch (\Exception $e) {
+            \Log::Error($e);
             $status = $this->getStatusError($e->getCode());
             $response = ["errors" => $e->getMessage()];
-            dd($e);
         }
 
         //Return response
-        return response()->json($response, $status ?? 200);
+        return response()->json($response ?? ["data" => "Request successful"], $status ?? 200);
     }
 
     /**

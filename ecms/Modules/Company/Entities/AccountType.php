@@ -13,7 +13,18 @@ class AccountType extends Model
     public $translatedAttributes = ['name'];
     protected $fillable = ['name', 'options'];
 
-    public function children()
+
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'options' => 'array'
+    ];
+
+
+    public function accounts()
     {
         return $this->hasMany(Account::class, 'account_type_id');
     }

@@ -20,6 +20,7 @@ class CreateCompanyContactsTable extends Migration
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->string('mobile')->nullable();
+            $table->boolean('active')->default(-1);
             $table->text('street')->nullable();
             $table->string('city')->nullable();
             $table->string('state')->nullable();
