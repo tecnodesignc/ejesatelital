@@ -13,11 +13,12 @@ class FullRoleTransformer extends JsonResource
         $permissions = $this->buildPermissionList($permissionsManager->all());
 
         $data = [
-            'id' => $this->id,
-            'name' => $this->name,
-            'slug' => $this->slug,
-            'created_at' => $this->created_at,
-            'permissions' => $permissions,
+            'id' => $this->when($this->id,$this->id),
+            'name' => $this->when($this->name,$this->name),
+            'slug' => $this->when($this->slug,$this->slug),
+            'created_at' => $this->when($this->created_at,$this->created_at),
+            'updated_at' => $this->when($this->updated_at,$this->updated_at),
+            'permissions' => $this->when($this->permissions,$permissions),
             'users' => UserTransformer::collection($this->whenLoaded('users')),
             'urls' => [
                 'delete_url' => route('api.user.role.destroy', $this->id??'0'),

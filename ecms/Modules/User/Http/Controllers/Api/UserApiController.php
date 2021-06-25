@@ -291,7 +291,7 @@ class UserApiController extends BaseApiController
 
     protected function mergeRequestWithPermissions($data)
     {
-        $permissions = $this->permissions->clean($data);
+        $permissions = $this->permissions->clean($data['permissions']);
         return array_merge($data, ['permissions' => $permissions]);
     }
 

@@ -8,6 +8,7 @@ $router->group(['prefix' => '/roles', 'middleware' => ['auth:api']], function (R
         'as' => 'api.user.roles.create',
         'uses' => 'RoleApiController@create',
     ]);
+
     $router->get('/', [
         'as' => 'api.user.roles.index',
         'uses' => 'RoleApiController@index',

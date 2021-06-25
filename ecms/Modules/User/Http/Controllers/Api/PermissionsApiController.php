@@ -21,8 +21,6 @@ class PermissionsApiController extends BaseApiController
 
     public function index()
     {
-        dd($this->permissionManager->all());
-
         return response()->json([
             'permissions' => $this->permissionManager->all(),
         ]);

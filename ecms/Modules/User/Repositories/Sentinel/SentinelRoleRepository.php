@@ -138,7 +138,7 @@ class SentinelRoleRepository implements RoleRepository
     public function getItemsBy($params = false)
     {
         /*== initialize query ==*/
-        $query = $this->model->query();
+        $query = $this->role->query();
 
         /*== RELATIONSHIPS ==*/
         if (in_array('*', $params->include)) {//If Request all relationships
@@ -205,13 +205,13 @@ class SentinelRoleRepository implements RoleRepository
     public function getItem($criteria, $params = false)
     {
         //Initialize query
-        $query = $this->model->query();
+        $query = $this->role->query();
 
         /*== RELATIONSHIPS ==*/
         if (in_array('*', $params->include)) {//If Request all relationships
-            $query->with(['settings']);
+            $query->with(['users']);
         } else {//Especific relationships
-            $includeDefault = ['settings'];//Default relationships
+            $includeDefault = [];//Default relationships
             if (isset($params->include))//merge relations with default relationships
                 $includeDefault = array_merge($includeDefault, $params->include);
             $query->with($includeDefault);//Add Relationships to query
