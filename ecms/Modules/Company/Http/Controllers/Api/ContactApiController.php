@@ -4,25 +4,24 @@ namespace Modules\Company\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use Mockery\CountValidator\Exception;
-use Modules\Company\Http\Requests\CreateAccountTypeRequest;
-use Modules\Company\Repositories\AccountTypeRepository;
-use Modules\Company\Transformers\AccountTypeTransformer;
-use Modules\Company\Transformers\CityTransformer;
+use Modules\Company\Http\Requests\CreateContactRequest;
+use Modules\Company\Repositories\ContactRepository;
+use Modules\Company\Transformers\ContactTransformer;
 use Modules\Core\Http\Controllers\Api\BaseApiController;
 use Route;
 use Log;
 
-class AccountTypeApiController extends BaseApiController
+class ContactApiController extends BaseApiController
 {
     /**
-     * @var AccountTypeRepository
+     * @var ContactRepository
      */
-    private $type;
+    private $contact;
 
-    public function __construct(AccountTypeRepository $type)
+    public function __construct(ContactRepository $contact)
     {
         parent::__construct();
-        $this->type = $type;
+        $this->contact = $contact;
     }
 
     /**
@@ -34,19 +33,19 @@ class AccountTypeApiController extends BaseApiController
     {
         try {
             //Validate permissions
-            $this->validatePermission($request, 'company.accounttypes.index');
+            $this->validatePermission($request, 'company.contacts.index');
 
             //Get Parameters from URL.
             $params = $this->getParamsRequest($request);
 
             //Request to Repository
-            $types = $this->type->getItemsBy($params);
+            $contacts = $this->contact->getItemsBy($params);
 
             //Response
-            $response = ["data" => AccountTypeTransformer::collection($types)];
+            $response = ["data" => ContactTransformer::collection($contacts)];
 
             //If request pagination add meta-page
-            $params->page ? $response["meta"] = ["page" => $this->pageTransformer($types)] : false;
+            $params->page ? $response["meta"] = ["page" => $this->pageTransformer($contacts)] : false;
         } catch (\Exception $e) {
             Log::Error($e);
             $status = $this->getStatusError($e->getCode());
@@ -67,18 +66,18 @@ class AccountTypeApiController extends BaseApiController
     {
       try {
           //Validate permissions
-          $this->validatePermission($request, 'company.accounttypes.index');
+          $this->validatePermission($request, 'company.contacts.index');
         //Get Parameters from URL.
         $params = $this->getParamsRequest($request);
 
         //Request to Repository
-        $type = $this->type->getItem($criteria, $params);
+        $contact = $this->contact->getItem($criteria, $params);
 
         //Break if no found item
-        if(!$type) throw new Exception(trans('company::accounttypes.messages.account type not found'),404);
+        if(!$contact) throw new Exception(trans('company::contacts.messages.contact not found'),404);
 
         //Response
-        $response = ["data" => new AccountTypeTransformer($type)];
+        $response = ["data" => new ContactTransformer($contact)];
 
       } catch (\Exception $e) {
             \Log::error($e);
@@ -101,17 +100,17 @@ class AccountTypeApiController extends BaseApiController
         \DB::beginTransaction();
         try {
             //Validate permissions
-            $this->validatePermission($request, 'company.accounttypes.create');
+            $this->validatePermission($request, 'company.contacts.create');
 
             $data = $request->input('attributes') ?? [];//Get data
             //Validate Request
-            $this->validateRequestApi(new CreateAccountTypeRequest($data));
+            $this->validateRequestApi(new CreateContactRequest($data));
 
             //Create item
-            $type = $this->type->create($data);
+            $contact = $this->contact->create($data);
 
             //Response
-            $response = ["data" => ['msg' => trans('company::accounttypes.messages.account type created')]];
+            $response = ["data" => ['msg' => trans('company::contacts.messages.contact created')]];
             \DB::commit(); //Commit to Data Base
         } catch (\Exception $e) {
             Log::Error($e);
@@ -135,28 +134,27 @@ class AccountTypeApiController extends BaseApiController
         \DB::beginTransaction(); //DB Transaction
         try {
             //Validate permissions
-            $this->validatePermission($request, 'company.accounttypes.edit');
-
+            $this->validatePermission($request, 'company.contacts.edit');
             //Get data
             $data = $request->input('attributes') ?? [];//Get data
 
             //Validate Request
-            $this->validateRequestApi(new CreateAccountTypeRequest($data));
+            $this->validateRequestApi(new CreateContactRequest($data));
 
             //Get Parameters from URL.
             $params = $this->getParamsRequest($request);
 
             //Request to Repository
-            $type = $this->type->getItem($criteria, $params);
+            $contact = $this->contact->getItem($criteria, $params);
 
             //Break if no found item
-            if(!$type) throw new Exception(trans('company::accounttypes.messages.account type not found'),404);
+            if(!$contact) throw new Exception(trans('company::contacts.messages.contact not found'),404);
 
             //Request to Repository
-            $this->type->update($type, $data);
+            $this->contact->update($contact, $data);
 
             //Response
-            $response = ["data" =>['msg'=>trans('company::accounttypes.messages.account type updated')]];
+            $response = ["data" => ['msg' => trans('company::contacts.messages.contact updated')]];
             \DB::commit();//Commit to DataBase
         } catch (\Exception $e) {
             \Log::error($e);
@@ -180,24 +178,24 @@ class AccountTypeApiController extends BaseApiController
         \DB::beginTransaction();
         try {
             //Validate permissions
-            $this->validatePermission($request, 'company.accounttypes.delete');
+            $this->validatePermission($request, 'company.contacts.delete');
             //Get params
             $params = $this->getParamsRequest($request);
 
             //Request to Repository
-            $type = $this->type->getItem($criteria, $params);
+            $contact = $this->contact->getItem($criteria, $params);
 
             //Break if no found item
-            if(!$type) throw new Exception(trans('company::accounttypes.messages.account type not found'),404);
+            if(!$contact) throw new Exception(trans('company::contacts.messages.contact not found'),404);
 
             //call Method delete
-            $this->type->destroy($type);
+            $this->contact->destroy($contact);
 
             //Response
-            $response = ["data" =>['msg'=>trans('company::accounttypes.messages.account type deleted')]];
+            $response = ["data" => ['msg' => trans('company::contacts.messages.contact destroy')]];
             \DB::commit();//Commit to Data Base
         } catch (\Exception $e) {
-            Log::Error($e);
+            Log::error($e);
             \DB::rollback();//Rollback to Data Base
             $status = $this->getStatusError($e->getCode());
             $response = ["errors" => $e->getMessage()];

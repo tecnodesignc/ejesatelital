@@ -32,6 +32,9 @@ class AccountApiController extends BaseApiController
     public function index(Request $request)
     {
         try {
+            //Validate permissions
+            $this->validatePermission($request, 'company.accounts.index');
+
             //Get Parameters from URL.
             $params = $this->getParamsRequest($request);
 
@@ -62,6 +65,8 @@ class AccountApiController extends BaseApiController
     public function show($criteria,Request $request)
     {
       try {
+          //Validate permissions
+          $this->validatePermission($request, 'company.accounts.index');
         //Get Parameters from URL.
         $params = $this->getParamsRequest($request);
 
@@ -69,12 +74,13 @@ class AccountApiController extends BaseApiController
         $account = $this->account->getItem($criteria, $params);
 
         //Break if no found item
-        if(!$account) throw new Exception('Item not found',404);
+        if(!$account) throw new Exception(trans('company::accounts.messages.account not found'),404);
 
         //Response
         $response = ["data" => new AccountTransformer($account)];
 
       } catch (\Exception $e) {
+            \Log::error($e);
         $status = $this->getStatusError($e->getCode());
         $response = ["errors" => $e->getMessage()];
       }
@@ -93,6 +99,9 @@ class AccountApiController extends BaseApiController
     {
         \DB::beginTransaction();
         try {
+            //Validate permissions
+            $this->validatePermission($request, 'company.accounts.create');
+
             $data = $request->input('attributes') ?? [];//Get data
             //Validate Request
             $this->validateRequestApi(new CreateAccountRequest($data));
@@ -101,7 +110,7 @@ class AccountApiController extends BaseApiController
             $account = $this->account->create($data);
 
             //Response
-            $response = ["data" => new AccountTransformer($account)];
+            $response = ["data" => ['msg' => trans('company::accounts.messages.account created')]];
             \DB::commit(); //Commit to Data Base
         } catch (\Exception $e) {
             Log::Error($e);
@@ -124,6 +133,8 @@ class AccountApiController extends BaseApiController
     {
         \DB::beginTransaction(); //DB Transaction
         try {
+            //Validate permissions
+            $this->validatePermission($request, 'company.accounts.edit');
             //Get data
             $data = $request->input('attributes') ?? [];//Get data
 
@@ -132,16 +143,21 @@ class AccountApiController extends BaseApiController
 
             //Get Parameters from URL.
             $params = $this->getParamsRequest($request);
+
             //Request to Repository
             $account = $this->account->getItem($criteria, $params);
+
+            //Break if no found item
+            if(!$account) throw new Exception(trans('company::accounts.messages.account not found'),404);
+
             //Request to Repository
             $this->account->update($account, $data);
 
             //Response
-            $response = ["data" => trans('blog::common.messages.resource updated')];
+            $response = ["data" => ['msg' => trans('company::accounts.messages.account updated')]];
             \DB::commit();//Commit to DataBase
         } catch (\Exception $e) {
-            Log::Error($e);
+            \Log::error($e);
             \DB::rollback();//Rollback to Data Base
             $status = $this->getStatusError($e->getCode());
             $response = ["errors" => $e->getMessage()];
@@ -161,20 +177,25 @@ class AccountApiController extends BaseApiController
     {
         \DB::beginTransaction();
         try {
+            //Validate permissions
+            $this->validatePermission($request, 'company.accounts.delete');
             //Get params
             $params = $this->getParamsRequest($request);
 
             //Request to Repository
             $account = $this->account->getItem($criteria, $params);
 
+            //Break if no found item
+            if(!$account) throw new Exception(trans('company::accounts.messages.account not found'),404);
+
             //call Method delete
             $this->account->destroy($account);
 
             //Response
-            $response = ["data" => trans('blog::common.messages.resource deleted')];
+            $response = ["data" => ['msg' => trans('company::accounts.messages.account destroy')]];
             \DB::commit();//Commit to Data Base
         } catch (\Exception $e) {
-            Log::Error($e);
+            Log::error($e);
             \DB::rollback();//Rollback to Data Base
             $status = $this->getStatusError($e->getCode());
             $response = ["errors" => $e->getMessage()];

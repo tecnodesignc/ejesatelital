@@ -9,16 +9,16 @@ class AccountWasDeleted implements DeletingMedia
     /**
      * @var string
      */
-    private $postClass;
+    private $accountClass;
     /**
      * @var int
      */
     private $postId;
 
-    public function __construct($postId, $postClass)
+    public function __construct($accountId, $accountClass)
     {
-        $this->postClass = $postClass;
-        $this->postId = $postId;
+        $this->accountClass = $accountClass;
+        $this->accountId = $accountId;
     }
 
     /**
@@ -27,7 +27,7 @@ class AccountWasDeleted implements DeletingMedia
      */
     public function getEntityId()
     {
-        return $this->postId;
+        return $this->accountId;
     }
 
     /**
@@ -36,6 +36,6 @@ class AccountWasDeleted implements DeletingMedia
      */
     public function getClassName()
     {
-        return $this->postClass;
+        return $this->accountClass;
     }
 }

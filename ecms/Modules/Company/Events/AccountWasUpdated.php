@@ -2,7 +2,7 @@
 
 namespace Modules\Company\Events;
 
-use Modules\Company\Entities\Post;
+use Modules\Company\Entities\Account;
 use Modules\Media\Contracts\StoringMedia;
 
 class AccountWasUpdated implements StoringMedia
@@ -12,14 +12,14 @@ class AccountWasUpdated implements StoringMedia
      */
     public $data;
     /**
-     * @var Post
+     * @var Account
      */
-    public $post;
+    public $account;
 
-    public function __construct(Post $post, array $data)
+    public function __construct($account, array $data)
     {
         $this->data = $data;
-        $this->post = $post;
+        $this->account = $account;
     }
 
     /**
@@ -28,7 +28,7 @@ class AccountWasUpdated implements StoringMedia
      */
     public function getEntity()
     {
-        return $this->post;
+        return $this->account;
     }
 
     /**

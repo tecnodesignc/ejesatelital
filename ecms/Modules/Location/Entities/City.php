@@ -22,7 +22,7 @@ class City extends Model
 
     public function country()
     {
-        return $this->belongsTo(Country::class,"country_id","country_code");
+        return $this->belongsTo(Country::class,'country_id');
     }
 
     public function province()
@@ -33,7 +33,7 @@ class City extends Model
     public function __call($method, $parameters)
     {
         #i: Convert array to dot notation
-        $config = implode('.', ['asgard.ilocations.config.relations.city', $method]);
+        $config = implode('.', ['encore.location.config.relations.city', $method]);
 
         #i: Relation method resolver
         if (config()->has($config)) {

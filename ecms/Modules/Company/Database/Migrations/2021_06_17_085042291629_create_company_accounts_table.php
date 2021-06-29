@@ -23,9 +23,9 @@ class CreateCompanyAccountsTable extends Migration
             $table->integer('account_type_id')->unsigned();
             $table->string('phone')->nullable();
             $table->text('street')->nullable();
-            $table->string('city')->nullable();
-            $table->string('state')->nullable();
-            $table->string('country')->nullable();
+            $table->integer('city_id')->unsigned()->nullable();
+            $table->integer('province_id')->unsigned()->nullable();
+            $table->integer('country_id')->unsigned()->nullable();
             $table->text('options')->nullable();
 
 

@@ -22,9 +22,9 @@ class CreateCompanyContactsTable extends Migration
             $table->string('mobile')->nullable();
             $table->boolean('active')->default(-1);
             $table->text('street')->nullable();
-            $table->string('city')->nullable();
-            $table->string('state')->nullable();
-            $table->string('country')->nullable();
+            $table->integer('city_id')->unsigned()->nullable();
+            $table->integer('province_id')->unsigned()->nullable();
+            $table->integer('country_id')->unsigned()->nullable();
             $table->integer('account_id')->unsigned();
             $table->text('options')->nullable();
 

@@ -5,6 +5,9 @@ namespace Modules\Company\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Modules\Core\Traits\NamespacedEntity;
+use Modules\Location\Entities\City;
+use Modules\Location\Entities\Country;
+use Modules\Location\Entities\Province;
 use Modules\Media\Support\Traits\MediaRelation;
 use Modules\User\Entities\Sentinel\User;
 
@@ -14,7 +17,7 @@ class Account extends Model
     use MediaRelation, NamespacedEntity;
 
     protected $table = 'company__accounts';
-    protected $fillable = ['name', 'nit', 'account_site', 'parent_id', 'active', 'account_type_id', 'phone', 'street', 'city', 'state', 'country', 'options'];
+    protected $fillable = ['name', 'nit', 'account_site', 'parent_id', 'active', 'account_type_id', 'phone', 'street', 'city_id', 'province_id', 'country_id', 'options'];
     protected static string $entityNamespace = 'encorecms/account';
 
 
@@ -55,6 +58,19 @@ class Account extends Model
     public function users()
     {
        return $this->belongsToMany(User::class,'company__account_user');
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class,'country_id');
+    }
+    public function province()
+    {
+        return $this->belongsTo(Province::class,'province_id');
+    }
+    public function city()
+    {
+        return $this->belongsTo(City::class,'city_id');
     }
 
     /**

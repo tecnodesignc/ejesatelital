@@ -3,6 +3,10 @@
 namespace Modules\Company\Transformers;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Modules\Location\Transformers\CityTransformer;
+use Modules\Location\Transformers\CountryTransformer;
+use Modules\Location\Transformers\ProvinceTransformer;
+use Modules\User\Transformers\News\UserTransformer;
 
 class AccountTransformer extends JsonResource
 {
@@ -17,11 +21,16 @@ class AccountTransformer extends JsonResource
             'accountTypeId'=>$this->when($this->account_type_id, $this->account_type_id),
             'phone' => $this->when($this->phone, $this->phone),
             'street' => $this->when($this->street, $this->street),
-            'city' => $this->when($this->city, $this->city),
-            'state' => $this->when($this->state, $this->state),
-            'country' => $this->when($this->country, $this->country),
+            'city_id' => $this->when($this->city_id, $this->city_id),
+            'province_id' => $this->when($this->province_id, $this->province_id),
+            'country_id' => $this->when($this->country_id, $this->country_id),
             'options' => $this->when($this->options, $this->options),
             'contacts'=>AccountTransformer::collection($this->whenLoaded('contacts')),
+            'users'=>UserTransformer::collection($this->whenLoaded('users')),
+            'type'=> new AccountTypeTransformer($this->whenLoaded('type')),
+            'country' => new CountryTransformer($this->whenLoaded('country')),
+            'province' => new ProvinceTransformer($this->whenLoaded('province')),
+            'city' => new CityTransformer($this->whenLoaded('city')),
             'links' => [
                 'delete' => route('api.company.account.destroy', $this->resource->id),
                 'edit' => route('api.company.account.edit', $this->resource->id),

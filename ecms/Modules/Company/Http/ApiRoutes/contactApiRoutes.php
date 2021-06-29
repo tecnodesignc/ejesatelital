@@ -3,7 +3,7 @@
 use Illuminate\Routing\Router;
 /** @var Router $router */
 
-$router->group(['prefix' =>'/contact'], function (Router $router) {
+$router->group(['prefix' =>'/contacts'], function (Router $router) {
 //Route create
     $router->post('/', [
         'as' => 'api.company.contact.create',

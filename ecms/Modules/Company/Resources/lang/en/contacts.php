@@ -18,6 +18,10 @@ return [
     'form' => [
     ],
     'messages' => [
+        'contact created'=>'Contact successfully created.',
+        'contact not found' => 'Contact not found.',
+        'contact updated' => 'Contact successfully updated.',
+        'contact deleted' => 'Contact successfully deleted.',
     ],
     'validation' => [
     ],
