@@ -16,7 +16,7 @@ class CreateLocationNeighborhoodsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('city_id')->unsigned();
-            $table->foreign('city_id')->references('id')->on('ilocations__cities')->onDelete('cascade');
+            $table->foreign('city_id')->references('id')->on('location__cities')->onDelete('cascade');
             $table->timestamps();
         });
     }

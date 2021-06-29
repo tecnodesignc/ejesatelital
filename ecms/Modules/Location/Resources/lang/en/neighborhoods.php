@@ -18,6 +18,10 @@ return [
     'form' => [
     ],
     'messages' => [
+        'neighborhood created'=>'Neighborhood successfully created.',
+        'neighborhood not found' => 'Neighborhood not found.',
+        'neighborhood updated' => 'Neighborhood successfully updated.',
+        'neighborhood deleted' => 'Neighborhood successfully deleted.',
     ],
     'validation' => [
     ],

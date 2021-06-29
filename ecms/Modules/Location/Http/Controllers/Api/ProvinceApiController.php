@@ -1,27 +1,27 @@
 <?php
 
-namespace Modules\Company\Http\Controllers\Api;
+namespace Modules\Location\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use Mockery\CountValidator\Exception;
-use Modules\Company\Http\Requests\CreateAccountTypeRequest;
-use Modules\Company\Repositories\AccountTypeRepository;
-use Modules\Company\Transformers\CityTransformer;
+use Modules\Location\Http\Requests\CreateProvinceRequest;
+use Modules\Location\Repositories\ProvinceRepository;
+use Modules\Location\Transformers\ProvinceTransformer;
 use Modules\Core\Http\Controllers\Api\BaseApiController;
 use Route;
 use Log;
 
-class AccountTypeApiController extends BaseApiController
+class ProvinceApiController extends BaseApiController
 {
     /**
-     * @var AccountTypeRepository
+     * @var ProvinceRepository
      */
-    private $type;
+    private $province;
 
-    public function __construct(AccountTypeRepository $type)
+    public function __construct(ProvinceRepository $province)
     {
         parent::__construct();
-        $this->type = $type;
+        $this->province = $province;
     }
 
     /**
@@ -32,20 +32,17 @@ class AccountTypeApiController extends BaseApiController
     public function index(Request $request)
     {
         try {
-            //Validate permissions
-            $this->validatePermission($request, 'user.users.index');
-
             //Get Parameters from URL.
             $params = $this->getParamsRequest($request);
 
             //Request to Repository
-            $types = $this->type->getItemsBy($params);
+            $provinces = $this->province->getItemsBy($params);
 
             //Response
-            $response = ["data" => CityTransformer::collection($types)];
+            $response = ["data" => ProvinceTransformer::collection($provinces)];
 
             //If request pagination add meta-page
-            $params->page ? $response["meta"] = ["page" => $this->pageTransformer($types)] : false;
+            $params->page ? $response["meta"] = ["page" => $this->pageTransformer($provinces)] : false;
         } catch (\Exception $e) {
             Log::Error($e);
             $status = $this->getStatusError($e->getCode());
@@ -69,16 +66,15 @@ class AccountTypeApiController extends BaseApiController
         $params = $this->getParamsRequest($request);
 
         //Request to Repository
-        $type = $this->type->getItem($criteria, $params);
+        $province = $this->province->getItem($criteria, $params);
 
         //Break if no found item
-        if(!$type) throw new Exception('Item not found',404);
+        if(!$province) throw new Exception(trans('location::provinces.messages.province not found'),404);
 
         //Response
-        $response = ["data" => new CityTransformer($type)];
+        $response = ["data" => new ProvinceTransformer($province)];
 
       } catch (\Exception $e) {
-            \Log::error($e);
         $status = $this->getStatusError($e->getCode());
         $response = ["errors" => $e->getMessage()];
       }
@@ -99,13 +95,13 @@ class AccountTypeApiController extends BaseApiController
         try {
             $data = $request->input('attributes') ?? [];//Get data
             //Validate Request
-            $this->validateRequestApi(new CreateAccountTypeRequest($data));
+            $this->validateRequestApi(new CreateProvinceRequest($data));
 
             //Create item
-            $type = $this->type->create($data);
+            $province = $this->province->create($data);
 
             //Response
-            $response = ["data" => ['msg' => trans('company::accounttypes.messages.account type created')]];
+            $response = ["data"=> ['msg' => trans('location::provinces.messages.province created')]];
             \DB::commit(); //Commit to Data Base
         } catch (\Exception $e) {
             Log::Error($e);
@@ -128,26 +124,28 @@ class AccountTypeApiController extends BaseApiController
     {
         \DB::beginTransaction(); //DB Transaction
         try {
-            //Validate permissions
-            $this->validatePermission($request, 'profile.user.edit');
             //Get data
             $data = $request->input('attributes') ?? [];//Get data
 
             //Validate Request
-            $this->validateRequestApi(new CreateAccountTypeRequest($data));
+            $this->validateRequestApi(new CreateProvinceRequest($data));
 
             //Get Parameters from URL.
             $params = $this->getParamsRequest($request);
+
             //Request to Repository
-            $type = $this->type->getItem($criteria, $params);
+            $province = $this->province->getItem($criteria, $params);
+
+            //Break if no found item
+            if(!$province) throw new Exception(trans('location::provinces.messages.province not found'),404);
             //Request to Repository
-            $this->type->update($type, $data);
+            $this->province->update($province, $data);
 
             //Response
-            $response = ["data" => trans('blog::common.messages.resource updated')];
+            $response = ["data"=> ['msg' => trans('location::provinces.messages.province updated')]];
             \DB::commit();//Commit to DataBase
         } catch (\Exception $e) {
-            \Log::error($e);
+            Log::Error($e);
             \DB::rollback();//Rollback to Data Base
             $status = $this->getStatusError($e->getCode());
             $response = ["errors" => $e->getMessage()];
@@ -171,13 +169,16 @@ class AccountTypeApiController extends BaseApiController
             $params = $this->getParamsRequest($request);
 
             //Request to Repository
-            $type = $this->type->getItem($criteria, $params);
+            $province = $this->province->getItem($criteria, $params);
+
+            //Break if no found item
+            if(!$province) throw new Exception(trans('location::provinces.messages.province not found'),404);
 
             //call Method delete
-            $this->type->destroy($type);
+            $this->province->destroy($province);
 
             //Response
-            $response = ["data" =>['msg'=>trans('user::messages.user deleted')]];
+            $response = ["data" => ['msg' =>  trans('location::provinces.messages.province deleted')]];
             \DB::commit();//Commit to Data Base
         } catch (\Exception $e) {
             Log::Error($e);

@@ -16,7 +16,7 @@ class CreateLocationCountryTranslationsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name');
-            $table->string('full_name');
+            $table->string('full_name')->nullable();
             $table->integer('country_id')->unsigned();
             $table->string('locale')->index();
             $table->unique(['country_id', 'locale']);

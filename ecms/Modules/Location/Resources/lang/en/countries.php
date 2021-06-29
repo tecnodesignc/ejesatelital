@@ -18,6 +18,10 @@ return [
     'form' => [
     ],
     'messages' => [
+        'country created'=>'Country successfully created.',
+        'country not found' => 'Country not found.',
+        'country updated' => 'Country successfully updated.',
+        'country deleted' => 'Country successfully deleted.',
     ],
     'validation' => [
     ],

@@ -18,6 +18,10 @@ return [
     'form' => [
     ],
     'messages' => [
+        'city created'=>'City successfully created.',
+        'city not found' => 'City not found.',
+        'city updated' => 'City successfully updated.',
+        'city deleted' => 'City successfully deleted.',
     ],
     'validation' => [
     ],

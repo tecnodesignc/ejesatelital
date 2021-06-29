@@ -18,8 +18,8 @@ class CreateLocationNeighborhoodTranslationsTable extends Migration
             $table->string('name');
             $table->integer('neighborhood_id')->unsigned();
             $table->string('locale')->index();
-            $table->unique(['neighborhood_id', 'locale']);
-            $table->foreign('neighborhood_id')->references('id')->on('location__neighborhoods')->onDelete('cascade');
+            $table->unique(['neighborhood_id', 'locale'],'location__neighborhood__id_locale_unique');
+            $table->foreign('neighborhood_id','location__neighborhood_translations')->references('id')->on('location__neighborhoods')->onDelete('cascade');
         });
     }
 
@@ -31,8 +31,9 @@ class CreateLocationNeighborhoodTranslationsTable extends Migration
     public function down()
     {
         Schema::table('location__neighborhood_translations', function (Blueprint $table) {
-            $table->dropForeign(['neighborhood_id']);
+            $table->dropForeign('location__neighborhood_translations');
         });
         Schema::dropIfExists('location__neighborhood_translations');
     }
 }
+

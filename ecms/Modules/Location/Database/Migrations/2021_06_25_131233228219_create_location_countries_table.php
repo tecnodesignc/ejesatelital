@@ -16,17 +16,17 @@ class CreateLocationCountriesTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->boolean('status')->default('1');
-            $table->string('currency');
-            $table->text('currency_symbol');
-            $table->text('currency_code');
-            $table->text('currency_sub_unit');
+            $table->string('currency')->nullable();
+            $table->text('currency_symbol')->nullable();
+            $table->text('currency_code')->nullable();
+            $table->text('currency_sub_unit')->nullable();
 
-            $table->text('region_code');
-            $table->text('sub_region_code');
+            $table->text('region_code')->nullable();
+            $table->text('sub_region_code')->nullable();
 
             $table->integer('country_code')->unsigned();
-            $table->string('iso_2',2);
-            $table->string('iso_3',3);
+            $table->string('iso_2',2)->nullable();
+            $table->string('iso_3',3)->nullable();
             $table->integer('calling_code')->unsigned();
             $table->timestamps();
         });

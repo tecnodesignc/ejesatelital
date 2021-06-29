@@ -18,6 +18,10 @@ return [
     'form' => [
     ],
     'messages' => [
+        'polygon created'=>'Polygon successfully created.',
+        'polygon not found' => 'Polygon not found.',
+        'polygon updated' => 'Polygon successfully updated.',
+        'polygon deleted' => 'Polygon successfully deleted.',
     ],
     'validation' => [
     ],

@@ -1,0 +1,6722 @@
+{
+    "1": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "001",
+        "name": "MEDELLIN"
+    },
+    "2": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "002",
+        "name": "ABEJORRAL"
+    },
+    "3": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "004",
+        "name": "ABRIAQUI"
+    },
+    "4": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "021",
+        "name": "ALEJANDRIA"
+    },
+    "5": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "030",
+        "name": "AMAGA"
+    },
+    "6": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "031",
+        "name": "AMALFI"
+    },
+    "7": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "034",
+        "name": "ANDES"
+    },
+    "8": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "036",
+        "name": "ANGELOPOLIS"
+    },
+    "9": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "038",
+        "name": "ANGOSTURA"
+    },
+    "10": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "040",
+        "name": "ANORI"
+    },
+    "11": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "042",
+        "name": "SANTAFE DE ANTIOQUIA"
+    },
+    "12": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "044",
+        "name": "ANZA"
+    },
+    "13": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "045",
+        "name": "APARTADO"
+    },
+    "14": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "051",
+        "name": "ARBOLETES"
+    },
+    "15": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "055",
+        "name": "ARGELIA"
+    },
+    "16": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "059",
+        "name": "ARMENIA"
+    },
+    "17": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "079",
+        "name": "BARBOSA"
+    },
+    "18": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "086",
+        "name": "BELMIRA"
+    },
+    "19": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "088",
+        "name": "BELLO"
+    },
+    "20": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "091",
+        "name": "BETANIA"
+    },
+    "21": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "093",
+        "name": "BETULIA"
+    },
+    "22": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "101",
+        "name": "CIUDAD BOLIVAR"
+    },
+    "23": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "107",
+        "name": "BRICEÑO"
+    },
+    "24": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "113",
+        "name": "BURITICA"
+    },
+    "25": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "120",
+        "name": "CACERES"
+    },
+    "26": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "125",
+        "name": "CAICEDO"
+    },
+    "27": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "129",
+        "name": "CALDAS"
+    },
+    "28": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "134",
+        "name": "CAMPAMENTO"
+    },
+    "29": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "138",
+        "name": "CAÑASGORDAS"
+    },
+    "30": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "142",
+        "name": "CARACOLI"
+    },
+    "31": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "145",
+        "name": "CARAMANTA"
+    },
+    "32": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "147",
+        "name": "CAREPA"
+    },
+    "33": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "148",
+        "name": "EL CARMEN DE VIBORAL"
+    },
+    "34": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "150",
+        "name": "CAROLINA"
+    },
+    "35": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "154",
+        "name": "CAUCASIA"
+    },
+    "36": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "172",
+        "name": "CHIGORODO"
+    },
+    "37": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "190",
+        "name": "CISNEROS"
+    },
+    "38": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "197",
+        "name": "COCORNA"
+    },
+    "39": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "206",
+        "name": "CONCEPCION"
+    },
+    "40": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "209",
+        "name": "CONCORDIA"
+    },
+    "41": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "212",
+        "name": "COPACABANA"
+    },
+    "42": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "234",
+        "name": "DABEIBA"
+    },
+    "43": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "237",
+        "name": "DON MATIAS"
+    },
+    "44": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "240",
+        "name": "EBEJICO"
+    },
+    "45": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "250",
+        "name": "EL BAGRE"
+    },
+    "46": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "264",
+        "name": "ENTRERRIOS"
+    },
+    "47": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "266",
+        "name": "ENVIGADO"
+    },
+    "48": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "282",
+        "name": "FREDONIA"
+    },
+    "49": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "284",
+        "name": "FRONTINO"
+    },
+    "50": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "306",
+        "name": "GIRALDO"
+    },
+    "51": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "308",
+        "name": "GIRARDOTA"
+    },
+    "52": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "310",
+        "name": "GOMEZ PLATA"
+    },
+    "53": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "313",
+        "name": "GRANADA"
+    },
+    "54": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "315",
+        "name": "GUADALUPE"
+    },
+    "55": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "318",
+        "name": "GUARNE"
+    },
+    "56": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "321",
+        "name": "GUATAPE"
+    },
+    "57": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "347",
+        "name": "HELICONIA"
+    },
+    "58": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "353",
+        "name": "HISPANIA"
+    },
+    "59": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "360",
+        "name": "ITAGUI"
+    },
+    "60": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "361",
+        "name": "ITUANGO"
+    },
+    "61": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "364",
+        "name": "JARDIN"
+    },
+    "62": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "368",
+        "name": "JERICO"
+    },
+    "63": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "376",
+        "name": "LA CEJA"
+    },
+    "64": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "380",
+        "name": "LA ESTRELLA"
+    },
+    "65": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "390",
+        "name": "LA PINTADA"
+    },
+    "66": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "400",
+        "name": "LA UNION"
+    },
+    "67": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "411",
+        "name": "LIBORINA"
+    },
+    "68": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "425",
+        "name": "MACEO"
+    },
+    "69": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "440",
+        "name": "MARINILLA"
+    },
+    "70": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "467",
+        "name": "MONTEBELLO"
+    },
+    "71": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "475",
+        "name": "MURINDO"
+    },
+    "72": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "480",
+        "name": "MUTATA"
+    },
+    "73": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "483",
+        "name": "NARIÑO"
+    },
+    "74": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "490",
+        "name": "NECOCLI"
+    },
+    "75": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "495",
+        "name": "NECHI"
+    },
+    "76": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "501",
+        "name": "OLAYA"
+    },
+    "77": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "541",
+        "name": "PEÐOL"
+    },
+    "78": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "543",
+        "name": "PEQUE"
+    },
+    "79": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "576",
+        "name": "PUEBLORRICO"
+    },
+    "80": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "579",
+        "name": "PUERTO BERRIO"
+    },
+    "81": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "585",
+        "name": "PUERTO NARE"
+    },
+    "82": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "591",
+        "name": "PUERTO TRIUNFO"
+    },
+    "83": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "604",
+        "name": "REMEDIOS"
+    },
+    "84": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "607",
+        "name": "RETIRO"
+    },
+    "85": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "615",
+        "name": "RIONEGRO"
+    },
+    "86": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "628",
+        "name": "SABANALARGA"
+    },
+    "87": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "631",
+        "name": "SABANETA"
+    },
+    "88": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "642",
+        "name": "SALGAR"
+    },
+    "89": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "647",
+        "name": "SAN ANDRES DE CUERQUIA"
+    },
+    "90": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "649",
+        "name": "SAN CARLOS"
+    },
+    "91": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "652",
+        "name": "SAN FRANCISCO"
+    },
+    "92": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "656",
+        "name": "SAN JERONIMO"
+    },
+    "93": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "658",
+        "name": "SAN JOSE DE LA MONTAÑA"
+    },
+    "94": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "659",
+        "name": "SAN JUAN DE URABA"
+    },
+    "95": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "660",
+        "name": "SAN LUIS"
+    },
+    "96": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "664",
+        "name": "SAN PEDRO"
+    },
+    "97": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "665",
+        "name": "SAN PEDRO DE URABA"
+    },
+    "98": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "667",
+        "name": "SAN RAFAEL"
+    },
+    "99": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "670",
+        "name": "SAN ROQUE"
+    },
+    "100": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "674",
+        "name": "SAN VICENTE"
+    },
+    "101": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "679",
+        "name": "SANTA BARBARA"
+    },
+    "102": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "686",
+        "name": "SANTA ROSA DE OSOS"
+    },
+    "103": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "690",
+        "name": "SANTO DOMINGO"
+    },
+    "104": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "697",
+        "name": "EL SANTUARIO"
+    },
+    "105": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "736",
+        "name": "SEGOVIA"
+    },
+    "106": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "756",
+        "name": "SONSON"
+    },
+    "107": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "761",
+        "name": "SOPETRAN"
+    },
+    "108": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "789",
+        "name": "TAMESIS"
+    },
+    "109": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "790",
+        "name": "TARAZA"
+    },
+    "110": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "792",
+        "name": "TARSO"
+    },
+    "111": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "809",
+        "name": "TITIRIBI"
+    },
+    "112": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "819",
+        "name": "TOLEDO"
+    },
+    "113": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "837",
+        "name": "TURBO"
+    },
+    "114": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "842",
+        "name": "URAMITA"
+    },
+    "115": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "847",
+        "name": "URRAO"
+    },
+    "116": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "854",
+        "name": "VALDIVIA"
+    },
+    "117": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "856",
+        "name": "VALPARAISO"
+    },
+    "118": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "858",
+        "name": "VEGACHI"
+    },
+    "119": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "861",
+        "name": "VENECIA"
+    },
+    "120": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "873",
+        "name": "VIGIA DEL FUERTE"
+    },
+    "121": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "885",
+        "name": "YALI"
+    },
+    "122": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "887",
+        "name": "YARUMAL"
+    },
+    "123": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "890",
+        "name": "YOLOMBO"
+    },
+    "124": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "893",
+        "name": "YONDO"
+    },
+    "125": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "895",
+        "name": "ZARAGOZA"
+    },
+    "126": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "001",
+        "name": "BARRANQUILLA"
+    },
+    "127": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "078",
+        "name": "BARANOA"
+    },
+    "128": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "137",
+        "name": "CAMPO DE LA CRUZ"
+    },
+    "129": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "141",
+        "name": "CANDELARIA"
+    },
+    "130": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "296",
+        "name": "GALAPA"
+    },
+    "131": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "372",
+        "name": "JUAN DE ACOSTA"
+    },
+    "132": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "421",
+        "name": "LURUACO"
+    },
+    "133": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "433",
+        "name": "MALAMBO"
+    },
+    "134": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "436",
+        "name": "MANATI"
+    },
+    "135": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "520",
+        "name": "PALMAR DE VARELA"
+    },
+    "136": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "549",
+        "name": "PIOJO"
+    },
+    "137": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "558",
+        "name": "POLONUEVO"
+    },
+    "138": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "560",
+        "name": "PONEDERA"
+    },
+    "139": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "573",
+        "name": "PUERTO COLOMBIA"
+    },
+    "140": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "606",
+        "name": "REPELON"
+    },
+    "141": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "634",
+        "name": "SABANAGRANDE"
+    },
+    "142": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "638",
+        "name": "SABANALARGA"
+    },
+    "143": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "675",
+        "name": "SANTA LUCIA"
+    },
+    "144": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "685",
+        "name": "SANTO TOMAS"
+    },
+    "145": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "758",
+        "name": "SOLEDAD"
+    },
+    "146": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "770",
+        "name": "SUAN"
+    },
+    "147": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "832",
+        "name": "TUBARA"
+    },
+    "148": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ANT",
+        "code": "849",
+        "name": "USIACURI"
+    },
+    "149": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-DC",
+        "code": "001",
+        "name": "BOGOTA"
+    },
+    "150": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "001",
+        "name": "CARTAGENA"
+    },
+    "151": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "006",
+        "name": "ACHI"
+    },
+    "152": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "030",
+        "name": "ALTOS DEL ROSARIO"
+    },
+    "153": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "042",
+        "name": "ARENAL"
+    },
+    "154": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "052",
+        "name": "ARJONA"
+    },
+    "155": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "062",
+        "name": "ARROYOHONDO"
+    },
+    "156": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "074",
+        "name": "BARRANCO DE LOBA"
+    },
+    "157": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "140",
+        "name": "CALAMAR"
+    },
+    "158": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "160",
+        "name": "CANTAGALLO"
+    },
+    "159": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "188",
+        "name": "CICUCO"
+    },
+    "160": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "212",
+        "name": "CORDOBA"
+    },
+    "161": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "222",
+        "name": "CLEMENCIA"
+    },
+    "162": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "244",
+        "name": "EL CARMEN DE BOLIVAR"
+    },
+    "163": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "248",
+        "name": "EL GUAMO"
+    },
+    "164": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "268",
+        "name": "EL PEÑON"
+    },
+    "165": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "300",
+        "name": "HATILLO DE LOBA"
+    },
+    "166": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "430",
+        "name": "MAGANGUE"
+    },
+    "167": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "433",
+        "name": "MAHATES"
+    },
+    "168": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "440",
+        "name": "MARGARITA"
+    },
+    "169": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "442",
+        "name": "MARIA LA BAJA"
+    },
+    "170": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "458",
+        "name": "MONTECRISTO"
+    },
+    "171": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "468",
+        "name": "MOMPOS"
+    },
+    "172": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "490",
+        "name": "NOROSI"
+    },
+    "173": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "473",
+        "name": "MORALES"
+    },
+    "174": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "549",
+        "name": "PINILLOS"
+    },
+    "175": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "580",
+        "name": "REGIDOR"
+    },
+    "176": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "600",
+        "name": "RIO VIEJO"
+    },
+    "177": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "620",
+        "name": "SAN CRISTOBAL"
+    },
+    "178": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "647",
+        "name": "SAN ESTANISLAO"
+    },
+    "179": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "650",
+        "name": "SAN FERNANDO"
+    },
+    "180": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "654",
+        "name": "SAN JACINTO"
+    },
+    "181": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "655",
+        "name": "SAN JACINTO DEL CAUCA"
+    },
+    "182": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "657",
+        "name": "SAN JUAN NEPOMUCENO"
+    },
+    "183": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "667",
+        "name": "SAN MARTIN DE LOBA"
+    },
+    "184": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "670",
+        "name": "SAN PABLO"
+    },
+    "185": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "673",
+        "name": "SANTA CATALINA"
+    },
+    "186": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "683",
+        "name": "SANTA ROSA"
+    },
+    "187": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "688",
+        "name": "SANTA ROSA DEL SUR"
+    },
+    "188": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "744",
+        "name": "SIMITI"
+    },
+    "189": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "760",
+        "name": "SOPLAVIENTO"
+    },
+    "190": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "780",
+        "name": "TALAIGUA NUEVO"
+    },
+    "191": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "810",
+        "name": "TIQUISIO"
+    },
+    "192": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "836",
+        "name": "TURBACO"
+    },
+    "193": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "838",
+        "name": "TURBANA"
+    },
+    "194": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "873",
+        "name": "VILLANUEVA"
+    },
+    "195": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOL",
+        "code": "894",
+        "name": "ZAMBRANO"
+    },
+    "196": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "001",
+        "name": "TUNJA"
+    },
+    "197": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "022",
+        "name": "ALMEIDA"
+    },
+    "198": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "047",
+        "name": "AQUITANIA"
+    },
+    "199": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "051",
+        "name": "ARCABUCO"
+    },
+    "200": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "087",
+        "name": "BELEN"
+    },
+    "201": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "090",
+        "name": "BERBEO"
+    },
+    "202": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "092",
+        "name": "BETEITIVA"
+    },
+    "203": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "097",
+        "name": "BOAVITA"
+    },
+    "204": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "104",
+        "name": "BOYACA"
+    },
+    "205": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "106",
+        "name": "BRICEÑO"
+    },
+    "206": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "109",
+        "name": "BUENAVISTA"
+    },
+    "207": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "114",
+        "name": "BUSBANZA"
+    },
+    "208": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "131",
+        "name": "CALDAS"
+    },
+    "209": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "135",
+        "name": "CAMPOHERMOSO"
+    },
+    "210": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "162",
+        "name": "CERINZA"
+    },
+    "211": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "172",
+        "name": "CHINAVITA"
+    },
+    "212": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "176",
+        "name": "CHIQUINQUIRA"
+    },
+    "213": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "180",
+        "name": "CHISCAS"
+    },
+    "214": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "183",
+        "name": "CHITA"
+    },
+    "215": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "185",
+        "name": "CHITARAQUE"
+    },
+    "216": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "187",
+        "name": "CHIVATA"
+    },
+    "217": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "189",
+        "name": "CIENEGA"
+    },
+    "218": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "204",
+        "name": "COMBITA"
+    },
+    "219": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "212",
+        "name": "COPER"
+    },
+    "220": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "215",
+        "name": "CORRALES"
+    },
+    "221": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "218",
+        "name": "COVARACHIA"
+    },
+    "222": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "223",
+        "name": "CUBARA"
+    },
+    "223": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "224",
+        "name": "CUCAITA"
+    },
+    "224": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "226",
+        "name": "CUITIVA"
+    },
+    "225": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "232",
+        "name": "CHIQUIZA"
+    },
+    "226": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "236",
+        "name": "CHIVOR"
+    },
+    "227": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "238",
+        "name": "DUITAMA"
+    },
+    "228": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "244",
+        "name": "EL COCUY"
+    },
+    "229": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "248",
+        "name": "EL ESPINO"
+    },
+    "230": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "272",
+        "name": "FIRAVITOBA"
+    },
+    "231": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "276",
+        "name": "FLORESTA"
+    },
+    "232": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "293",
+        "name": "GACHANTIVA"
+    },
+    "233": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "296",
+        "name": "GAMEZA"
+    },
+    "234": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "299",
+        "name": "GARAGOA"
+    },
+    "235": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "317",
+        "name": "GUACAMAYAS"
+    },
+    "236": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "322",
+        "name": "GUATEQUE"
+    },
+    "237": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "325",
+        "name": "GUAYATA"
+    },
+    "238": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "332",
+        "name": "GsICAN"
+    },
+    "239": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "362",
+        "name": "IZA"
+    },
+    "240": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "367",
+        "name": "JENESANO"
+    },
+    "241": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "368",
+        "name": "JERICO"
+    },
+    "242": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "377",
+        "name": "LABRANZAGRANDE"
+    },
+    "243": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "380",
+        "name": "LA CAPILLA"
+    },
+    "244": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "401",
+        "name": "LA VICTORIA"
+    },
+    "245": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "403",
+        "name": "LA UVITA"
+    },
+    "246": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "407",
+        "name": "VILLA DE LEYVA"
+    },
+    "247": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "425",
+        "name": "MACANAL"
+    },
+    "248": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "442",
+        "name": "MARIPI"
+    },
+    "249": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "455",
+        "name": "MIRAFLORES"
+    },
+    "250": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "464",
+        "name": "MONGUA"
+    },
+    "251": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "466",
+        "name": "MONGUI"
+    },
+    "252": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "469",
+        "name": "MONIQUIRA"
+    },
+    "253": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "476",
+        "name": "MOTAVITA"
+    },
+    "254": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "480",
+        "name": "MUZO"
+    },
+    "255": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "491",
+        "name": "NOBSA"
+    },
+    "256": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "494",
+        "name": "NUEVO COLON"
+    },
+    "257": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "500",
+        "name": "OICATA"
+    },
+    "258": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "507",
+        "name": "OTANCHE"
+    },
+    "259": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "511",
+        "name": "PACHAVITA"
+    },
+    "260": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "514",
+        "name": "PAEZ"
+    },
+    "261": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "516",
+        "name": "PAIPA"
+    },
+    "262": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "518",
+        "name": "PAJARITO"
+    },
+    "263": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "522",
+        "name": "PANQUEBA"
+    },
+    "264": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "531",
+        "name": "PAUNA"
+    },
+    "265": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "533",
+        "name": "PAYA"
+    },
+    "266": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "537",
+        "name": "PAZ DE RIO"
+    },
+    "267": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "542",
+        "name": "PESCA"
+    },
+    "268": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "550",
+        "name": "PISBA"
+    },
+    "269": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "572",
+        "name": "PUERTO BOYACA"
+    },
+    "270": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "580",
+        "name": "QUIPAMA"
+    },
+    "271": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "599",
+        "name": "RAMIRIQUI"
+    },
+    "272": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "600",
+        "name": "RAQUIRA"
+    },
+    "273": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "621",
+        "name": "RONDON"
+    },
+    "274": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "632",
+        "name": "SABOYA"
+    },
+    "275": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "638",
+        "name": "SACHICA"
+    },
+    "276": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "646",
+        "name": "SAMACA"
+    },
+    "277": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "660",
+        "name": "SAN EDUARDO"
+    },
+    "278": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "664",
+        "name": "SAN JOSE DE PARE"
+    },
+    "279": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "667",
+        "name": "SAN LUIS DE GACENO"
+    },
+    "280": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "673",
+        "name": "SAN MATEO"
+    },
+    "281": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "676",
+        "name": "SAN MIGUEL DE SEMA"
+    },
+    "282": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "681",
+        "name": "SAN PABLO DE BORBUR"
+    },
+    "283": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "686",
+        "name": "SANTANA"
+    },
+    "284": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "690",
+        "name": "SANTA MARIA"
+    },
+    "285": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "693",
+        "name": "SANTA ROSA DE VITERBO"
+    },
+    "286": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "696",
+        "name": "SANTA SOFIA"
+    },
+    "287": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "720",
+        "name": "SATIVANORTE"
+    },
+    "288": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "723",
+        "name": "SATIVASUR"
+    },
+    "289": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "740",
+        "name": "SIACHOQUE"
+    },
+    "290": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "753",
+        "name": "SOATA"
+    },
+    "291": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "755",
+        "name": "SOCOTA"
+    },
+    "292": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "757",
+        "name": "SOCHA"
+    },
+    "293": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "759",
+        "name": "SOGAMOSO"
+    },
+    "294": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "761",
+        "name": "SOMONDOCO"
+    },
+    "295": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "762",
+        "name": "SORA"
+    },
+    "296": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "763",
+        "name": "SOTAQUIRA"
+    },
+    "297": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "764",
+        "name": "SORACA"
+    },
+    "298": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "774",
+        "name": "SUSACON"
+    },
+    "299": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "776",
+        "name": "SUTAMARCHAN"
+    },
+    "300": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "778",
+        "name": "SUTATENZA"
+    },
+    "301": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "790",
+        "name": "TASCO"
+    },
+    "302": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "798",
+        "name": "TENZA"
+    },
+    "303": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "804",
+        "name": "TIBANA"
+    },
+    "304": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "806",
+        "name": "TIBASOSA"
+    },
+    "305": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "808",
+        "name": "TINJACA"
+    },
+    "306": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "810",
+        "name": "TIPACOQUE"
+    },
+    "307": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "814",
+        "name": "TOCA"
+    },
+    "308": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "816",
+        "name": "TOGsI"
+    },
+    "309": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "820",
+        "name": "TOPAGA"
+    },
+    "310": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "822",
+        "name": "TOTA"
+    },
+    "311": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "832",
+        "name": "TUNUNGUA"
+    },
+    "312": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "835",
+        "name": "TURMEQUE"
+    },
+    "313": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "837",
+        "name": "TUTA"
+    },
+    "314": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "839",
+        "name": "TUTAZA"
+    },
+    "315": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "842",
+        "name": "UMBITA"
+    },
+    "316": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "861",
+        "name": "VENTAQUEMADA"
+    },
+    "317": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "879",
+        "name": "VIRACACHA"
+    },
+    "318": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-BOY",
+        "code": "897",
+        "name": "ZETAQUIRA"
+    },
+    "319": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "001",
+        "name": "MANIZALES"
+    },
+    "320": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "013",
+        "name": "AGUADAS"
+    },
+    "321": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "042",
+        "name": "ANSERMA"
+    },
+    "322": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "050",
+        "name": "ARANZAZU"
+    },
+    "323": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "088",
+        "name": "BELALCAZAR"
+    },
+    "324": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "174",
+        "name": "CHINCHINA"
+    },
+    "325": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "272",
+        "name": "FILADELFIA"
+    },
+    "326": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "380",
+        "name": "LA DORADA"
+    },
+    "327": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "388",
+        "name": "LA MERCED"
+    },
+    "328": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "433",
+        "name": "MANZANARES"
+    },
+    "329": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "442",
+        "name": "MARMATO"
+    },
+    "330": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "444",
+        "name": "MARQUETALIA"
+    },
+    "331": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "446",
+        "name": "MARULANDA"
+    },
+    "332": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "486",
+        "name": "NEIRA"
+    },
+    "333": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "495",
+        "name": "NORCASIA"
+    },
+    "334": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "513",
+        "name": "PACORA"
+    },
+    "335": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "524",
+        "name": "PALESTINA"
+    },
+    "336": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "541",
+        "name": "PENSILVANIA"
+    },
+    "337": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "614",
+        "name": "RIOSUCIO"
+    },
+    "338": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "616",
+        "name": "RISARALDA"
+    },
+    "339": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "653",
+        "name": "SALAMINA"
+    },
+    "340": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "662",
+        "name": "SAMANA"
+    },
+    "341": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "665",
+        "name": "SAN JOSE"
+    },
+    "342": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "777",
+        "name": "SUPIA"
+    },
+    "343": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "867",
+        "name": "VICTORIA"
+    },
+    "344": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "873",
+        "name": "VILLAMARIA"
+    },
+    "345": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAL",
+        "code": "877",
+        "name": "VITERBO"
+    },
+    "346": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAQ",
+        "code": "001",
+        "name": "FLORENCIA"
+    },
+    "347": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAQ",
+        "code": "029",
+        "name": "ALBANIA"
+    },
+    "348": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAQ",
+        "code": "094",
+        "name": "BELEN DE LOS ANDAQUIES"
+    },
+    "349": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAQ",
+        "code": "150",
+        "name": "CARTAGENA DEL CHAIRA"
+    },
+    "350": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAQ",
+        "code": "205",
+        "name": "CURILLO"
+    },
+    "351": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAQ",
+        "code": "247",
+        "name": "EL DONCELLO"
+    },
+    "352": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAQ",
+        "code": "256",
+        "name": "EL PAUJIL"
+    },
+    "353": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAQ",
+        "code": "410",
+        "name": "LA MONTAÑITA"
+    },
+    "354": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAQ",
+        "code": "460",
+        "name": "MILAN"
+    },
+    "355": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAQ",
+        "code": "479",
+        "name": "MORELIA"
+    },
+    "356": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAQ",
+        "code": "592",
+        "name": "PUERTO RICO"
+    },
+    "357": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAQ",
+        "code": "610",
+        "name": "SAN JOSE DEL FRAGUA"
+    },
+    "358": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAQ",
+        "code": "753",
+        "name": "SAN VICENTE DEL CAGUAN"
+    },
+    "359": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAQ",
+        "code": "756",
+        "name": "SOLANO"
+    },
+    "360": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAQ",
+        "code": "785",
+        "name": "SOLITA"
+    },
+    "361": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAQ",
+        "code": "860",
+        "name": "VALPARAISO"
+    },
+    "362": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "001",
+        "name": "POPAYAN"
+    },
+    "363": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "022",
+        "name": "ALMAGUER"
+    },
+    "364": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "050",
+        "name": "ARGELIA"
+    },
+    "365": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "075",
+        "name": "BALBOA"
+    },
+    "366": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "100",
+        "name": "BOLIVAR"
+    },
+    "367": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "110",
+        "name": "BUENOS AIRES"
+    },
+    "368": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "130",
+        "name": "CAJIBIO"
+    },
+    "369": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "137",
+        "name": "CALDONO"
+    },
+    "370": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "142",
+        "name": "CALOTO"
+    },
+    "371": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "212",
+        "name": "CORINTO"
+    },
+    "372": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "256",
+        "name": "EL TAMBO"
+    },
+    "373": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "290",
+        "name": "FLORENCIA"
+    },
+    "374": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "300",
+        "name": "GUACHENE"
+    },
+    "375": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "318",
+        "name": "GUAPI"
+    },
+    "376": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "355",
+        "name": "INZA"
+    },
+    "377": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "364",
+        "name": "JAMBALO"
+    },
+    "378": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "392",
+        "name": "LA SIERRA"
+    },
+    "379": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "397",
+        "name": "LA VEGA"
+    },
+    "380": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "418",
+        "name": "LOPEZ"
+    },
+    "381": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "450",
+        "name": "MERCADERES"
+    },
+    "382": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "455",
+        "name": "MIRANDA"
+    },
+    "383": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "473",
+        "name": "MORALES"
+    },
+    "384": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "513",
+        "name": "PADILLA"
+    },
+    "385": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "517",
+        "name": "PAEZ"
+    },
+    "386": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "532",
+        "name": "PATIA"
+    },
+    "387": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "533",
+        "name": "PIAMONTE"
+    },
+    "388": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "548",
+        "name": "PIENDAMO"
+    },
+    "389": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "573",
+        "name": "PUERTO TEJADA"
+    },
+    "390": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "585",
+        "name": "PURACE"
+    },
+    "391": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "622",
+        "name": "ROSAS"
+    },
+    "392": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "693",
+        "name": "SAN SEBASTIAN"
+    },
+    "393": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "698",
+        "name": "SANTANDER DE QUILICHAO"
+    },
+    "394": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "701",
+        "name": "SANTA ROSA"
+    },
+    "395": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "743",
+        "name": "SILVIA"
+    },
+    "396": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "760",
+        "name": "SOTARA"
+    },
+    "397": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "780",
+        "name": "SUAREZ"
+    },
+    "398": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "785",
+        "name": "SUCRE"
+    },
+    "399": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "807",
+        "name": "TIMBIO"
+    },
+    "400": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "809",
+        "name": "TIMBIQUI"
+    },
+    "401": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "821",
+        "name": "TORIBIO"
+    },
+    "402": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "824",
+        "name": "TOTORO"
+    },
+    "403": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAU",
+        "code": "845",
+        "name": "VILLA RICA"
+    },
+    "404": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "001",
+        "name": "VALLEDUPAR"
+    },
+    "405": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "011",
+        "name": "AGUACHICA"
+    },
+    "406": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "013",
+        "name": "AGUSTIN CODAZZI"
+    },
+    "407": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "032",
+        "name": "ASTREA"
+    },
+    "408": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "045",
+        "name": "BECERRIL"
+    },
+    "409": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "060",
+        "name": "BOSCONIA"
+    },
+    "410": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "175",
+        "name": "CHIMICHAGUA"
+    },
+    "411": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "178",
+        "name": "CHIRIGUANA"
+    },
+    "412": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "228",
+        "name": "CURUMANI"
+    },
+    "413": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "238",
+        "name": "EL COPEY"
+    },
+    "414": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "250",
+        "name": "EL PASO"
+    },
+    "415": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "295",
+        "name": "GAMARRA"
+    },
+    "416": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "310",
+        "name": "GONZALEZ"
+    },
+    "417": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "383",
+        "name": "LA GLORIA"
+    },
+    "418": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "400",
+        "name": "LA JAGUA DE IBIRICO"
+    },
+    "419": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "443",
+        "name": "MANAURE"
+    },
+    "420": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "517",
+        "name": "PAILITAS"
+    },
+    "421": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "550",
+        "name": "PELAYA"
+    },
+    "422": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "570",
+        "name": "PUEBLO BELLO"
+    },
+    "423": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "614",
+        "name": "RIO DE ORO"
+    },
+    "424": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "621",
+        "name": "LA PAZ"
+    },
+    "425": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "710",
+        "name": "SAN ALBERTO"
+    },
+    "426": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "750",
+        "name": "SAN DIEGO"
+    },
+    "427": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "770",
+        "name": "SAN MARTIN"
+    },
+    "428": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CES",
+        "code": "787",
+        "name": "TAMALAMEQUE"
+    },
+    "429": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "001",
+        "name": "MONTERIA"
+    },
+    "430": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "068",
+        "name": "AYAPEL"
+    },
+    "431": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "079",
+        "name": "BUENAVISTA"
+    },
+    "432": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "090",
+        "name": "CANALETE"
+    },
+    "433": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "162",
+        "name": "CERETE"
+    },
+    "434": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "168",
+        "name": "CHIMA"
+    },
+    "435": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "182",
+        "name": "CHINU"
+    },
+    "436": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "189",
+        "name": "CIENAGA DE ORO"
+    },
+    "437": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "300",
+        "name": "COTORRA"
+    },
+    "438": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "350",
+        "name": "LA APARTADA"
+    },
+    "439": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "417",
+        "name": "LORICA"
+    },
+    "440": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "419",
+        "name": "LOS CORDOBAS"
+    },
+    "441": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "464",
+        "name": "MOMIL"
+    },
+    "442": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "466",
+        "name": "MONTELIBANO"
+    },
+    "443": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "500",
+        "name": "MOÑITOS"
+    },
+    "444": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "555",
+        "name": "PLANETA RICA"
+    },
+    "445": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "570",
+        "name": "PUEBLO NUEVO"
+    },
+    "446": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "574",
+        "name": "PUERTO ESCONDIDO"
+    },
+    "447": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "580",
+        "name": "PUERTO LIBERTADOR"
+    },
+    "448": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "586",
+        "name": "PURISIMA"
+    },
+    "449": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "660",
+        "name": "SAHAGUN"
+    },
+    "450": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "670",
+        "name": "SAN ANDRES SOTAVENTO"
+    },
+    "451": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "672",
+        "name": "SAN ANTERO"
+    },
+    "452": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "675",
+        "name": "SAN BERNARDO DEL VIENTO"
+    },
+    "453": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "678",
+        "name": "SAN CARLOS"
+    },
+    "454": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "686",
+        "name": "SAN PELAYO"
+    },
+    "455": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "807",
+        "name": "TIERRALTA"
+    },
+    "456": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-COR",
+        "code": "855",
+        "name": "VALENCIA"
+    },
+    "457": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "001",
+        "name": "AGUA DE DIOS"
+    },
+    "458": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "019",
+        "name": "ALBAN"
+    },
+    "459": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "035",
+        "name": "ANAPOIMA"
+    },
+    "460": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "040",
+        "name": "ANOLAIMA"
+    },
+    "461": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "053",
+        "name": "ARBELAEZ"
+    },
+    "462": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "086",
+        "name": "BELTRAN"
+    },
+    "463": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "095",
+        "name": "BITUIMA"
+    },
+    "464": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "099",
+        "name": "BOJACA"
+    },
+    "465": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "120",
+        "name": "CABRERA"
+    },
+    "466": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "123",
+        "name": "CACHIPAY"
+    },
+    "467": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "126",
+        "name": "CAJICA"
+    },
+    "468": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "148",
+        "name": "CAPARRAPI"
+    },
+    "469": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "151",
+        "name": "CAQUEZA"
+    },
+    "470": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "154",
+        "name": "CARMEN DE CARUPA"
+    },
+    "471": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "168",
+        "name": "CHAGUANI"
+    },
+    "472": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "175",
+        "name": "CHIA"
+    },
+    "473": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "178",
+        "name": "CHIPAQUE"
+    },
+    "474": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "181",
+        "name": "CHOACHI"
+    },
+    "475": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "183",
+        "name": "CHOCONTA"
+    },
+    "476": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "200",
+        "name": "COGUA"
+    },
+    "477": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "214",
+        "name": "COTA"
+    },
+    "478": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "224",
+        "name": "CUCUNUBA"
+    },
+    "479": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "245",
+        "name": "EL COLEGIO"
+    },
+    "480": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "258",
+        "name": "EL PEÑON"
+    },
+    "481": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "260",
+        "name": "EL ROSAL"
+    },
+    "482": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "269",
+        "name": "FACATATIVA"
+    },
+    "483": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "279",
+        "name": "FOMEQUE"
+    },
+    "484": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "281",
+        "name": "FOSCA"
+    },
+    "485": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "286",
+        "name": "FUNZA"
+    },
+    "486": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "288",
+        "name": "FUQUENE"
+    },
+    "487": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "290",
+        "name": "FUSAGASUGA"
+    },
+    "488": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "293",
+        "name": "GACHALA"
+    },
+    "489": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "295",
+        "name": "GACHANCIPA"
+    },
+    "490": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "297",
+        "name": "GACHETA"
+    },
+    "491": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "299",
+        "name": "GAMA"
+    },
+    "492": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "307",
+        "name": "GIRARDOT"
+    },
+    "493": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "312",
+        "name": "GRANADA"
+    },
+    "494": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "317",
+        "name": "GUACHETA"
+    },
+    "495": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "320",
+        "name": "GUADUAS"
+    },
+    "496": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "322",
+        "name": "GUASCA"
+    },
+    "497": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "324",
+        "name": "GUATAQUI"
+    },
+    "498": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "326",
+        "name": "GUATAVITA"
+    },
+    "499": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "328",
+        "name": "GUAYABAL DE SIQUIMA"
+    },
+    "500": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "335",
+        "name": "GUAYABETAL"
+    },
+    "501": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "339",
+        "name": "GUTIERREZ"
+    },
+    "502": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "368",
+        "name": "JERUSALEN"
+    },
+    "503": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "372",
+        "name": "JUNIN"
+    },
+    "504": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "377",
+        "name": "LA CALERA"
+    },
+    "505": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "386",
+        "name": "LA MESA"
+    },
+    "506": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "394",
+        "name": "LA PALMA"
+    },
+    "507": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "398",
+        "name": "LA PEÑA"
+    },
+    "508": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "402",
+        "name": "LA VEGA"
+    },
+    "509": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "407",
+        "name": "LENGUAZAQUE"
+    },
+    "510": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "426",
+        "name": "MACHETA"
+    },
+    "511": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "430",
+        "name": "MADRID"
+    },
+    "512": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "436",
+        "name": "MANTA"
+    },
+    "513": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "438",
+        "name": "MEDINA"
+    },
+    "514": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "473",
+        "name": "MOSQUERA"
+    },
+    "515": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "483",
+        "name": "NARIÑO"
+    },
+    "516": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "486",
+        "name": "NEMOCON"
+    },
+    "517": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "488",
+        "name": "NILO"
+    },
+    "518": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "489",
+        "name": "NIMAIMA"
+    },
+    "519": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "491",
+        "name": "NOCAIMA"
+    },
+    "520": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "506",
+        "name": "VENECIA"
+    },
+    "521": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "513",
+        "name": "PACHO"
+    },
+    "522": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "518",
+        "name": "PAIME"
+    },
+    "523": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "524",
+        "name": "PANDI"
+    },
+    "524": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "530",
+        "name": "PARATEBUENO"
+    },
+    "525": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "535",
+        "name": "PASCA"
+    },
+    "526": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "572",
+        "name": "PUERTO SALGAR"
+    },
+    "527": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "580",
+        "name": "PULI"
+    },
+    "528": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "592",
+        "name": "QUEBRADANEGRA"
+    },
+    "529": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "594",
+        "name": "QUETAME"
+    },
+    "530": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "596",
+        "name": "QUIPILE"
+    },
+    "531": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "599",
+        "name": "APULO"
+    },
+    "532": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "612",
+        "name": "RICAURTE"
+    },
+    "533": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "645",
+        "name": "SAN ANTONIO DEL TEQUENDAMA"
+    },
+    "534": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "649",
+        "name": "SAN BERNARDO"
+    },
+    "535": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "653",
+        "name": "SAN CAYETANO"
+    },
+    "536": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "658",
+        "name": "SAN FRANCISCO"
+    },
+    "537": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "662",
+        "name": "SAN JUAN DE RIO SECO"
+    },
+    "538": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "718",
+        "name": "SASAIMA"
+    },
+    "539": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "736",
+        "name": "SESQUILE"
+    },
+    "540": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "740",
+        "name": "SIBATE"
+    },
+    "541": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "743",
+        "name": "SILVANIA"
+    },
+    "542": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "745",
+        "name": "SIMIJACA"
+    },
+    "543": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "754",
+        "name": "SOACHA"
+    },
+    "544": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "758",
+        "name": "SOPO"
+    },
+    "545": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "769",
+        "name": "SUBACHOQUE"
+    },
+    "546": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "772",
+        "name": "SUESCA"
+    },
+    "547": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "777",
+        "name": "SUPATA"
+    },
+    "548": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "779",
+        "name": "SUSA"
+    },
+    "549": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "781",
+        "name": "SUTATAUSA"
+    },
+    "550": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "785",
+        "name": "TABIO"
+    },
+    "551": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "793",
+        "name": "TAUSA"
+    },
+    "552": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "797",
+        "name": "TENA"
+    },
+    "553": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "799",
+        "name": "TENJO"
+    },
+    "554": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "805",
+        "name": "TIBACUY"
+    },
+    "555": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "807",
+        "name": "TIBIRITA"
+    },
+    "556": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "815",
+        "name": "TOCAIMA"
+    },
+    "557": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "817",
+        "name": "TOCANCIPA"
+    },
+    "558": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "823",
+        "name": "TOPAIPI"
+    },
+    "559": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "839",
+        "name": "UBALA"
+    },
+    "560": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "841",
+        "name": "UBAQUE"
+    },
+    "561": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "843",
+        "name": "VILLA DE SAN DIEGO DE UBATE"
+    },
+    "562": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "845",
+        "name": "UNE"
+    },
+    "563": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "851",
+        "name": "UTICA"
+    },
+    "564": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "862",
+        "name": "VERGARA"
+    },
+    "565": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "867",
+        "name": "VIANI"
+    },
+    "566": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "871",
+        "name": "VILLAGOMEZ"
+    },
+    "567": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "873",
+        "name": "VILLAPINZON"
+    },
+    "568": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "875",
+        "name": "VILLETA"
+    },
+    "569": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "878",
+        "name": "VIOTA"
+    },
+    "570": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "885",
+        "name": "YACOPI"
+    },
+    "571": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "898",
+        "name": "ZIPACON"
+    },
+    "572": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CUN",
+        "code": "899",
+        "name": "ZIPAQUIRA"
+    },
+    "573": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "001",
+        "name": "QUIBDO"
+    },
+    "574": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "006",
+        "name": "ACANDI"
+    },
+    "575": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "025",
+        "name": "ALTO BAUDO"
+    },
+    "576": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "050",
+        "name": "ATRATO"
+    },
+    "577": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "073",
+        "name": "BAGADO"
+    },
+    "578": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "075",
+        "name": "BAHIA SOLANO"
+    },
+    "579": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "077",
+        "name": "BAJO BAUDO"
+    },
+    "580": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "099",
+        "name": "BOJAYA"
+    },
+    "581": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "135",
+        "name": "EL CANTON DEL SAN PABLO"
+    },
+    "582": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "150",
+        "name": "CARMEN DEL DARIEN"
+    },
+    "583": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "160",
+        "name": "CERTEGUI"
+    },
+    "584": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "205",
+        "name": "CONDOTO"
+    },
+    "585": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "245",
+        "name": "EL CARMEN DE ATRATO"
+    },
+    "586": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "250",
+        "name": "EL LITORAL DEL SAN JUAN"
+    },
+    "587": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "361",
+        "name": "ISTMINA"
+    },
+    "588": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "372",
+        "name": "JURADO"
+    },
+    "589": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "413",
+        "name": "LLORO"
+    },
+    "590": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "425",
+        "name": "MEDIO ATRATO"
+    },
+    "591": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "430",
+        "name": "MEDIO BAUDO"
+    },
+    "592": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "450",
+        "name": "MEDIO SAN JUAN"
+    },
+    "593": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "491",
+        "name": "NOVITA"
+    },
+    "594": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "495",
+        "name": "NUQUI"
+    },
+    "595": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "580",
+        "name": "RIO IRO"
+    },
+    "596": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "600",
+        "name": "RIO QUITO"
+    },
+    "597": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "615",
+        "name": "RIOSUCIO"
+    },
+    "598": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "660",
+        "name": "SAN JOSE DEL PALMAR"
+    },
+    "599": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "745",
+        "name": "SIPI"
+    },
+    "600": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "787",
+        "name": "TADO"
+    },
+    "601": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "800",
+        "name": "UNGUIA"
+    },
+    "602": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CHO",
+        "code": "810",
+        "name": "UNION PANAMERICANA"
+    },
+    "603": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "001",
+        "name": "NEIVA"
+    },
+    "604": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "006",
+        "name": "ACEVEDO"
+    },
+    "605": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "013",
+        "name": "AGRADO"
+    },
+    "606": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "016",
+        "name": "AIPE"
+    },
+    "607": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "020",
+        "name": "ALGECIRAS"
+    },
+    "608": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "026",
+        "name": "ALTAMIRA"
+    },
+    "609": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "078",
+        "name": "BARAYA"
+    },
+    "610": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "132",
+        "name": "CAMPOALEGRE"
+    },
+    "611": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "206",
+        "name": "COLOMBIA"
+    },
+    "612": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "244",
+        "name": "ELIAS"
+    },
+    "613": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "298",
+        "name": "GARZON"
+    },
+    "614": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "306",
+        "name": "GIGANTE"
+    },
+    "615": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "319",
+        "name": "GUADALUPE"
+    },
+    "616": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "349",
+        "name": "HOBO"
+    },
+    "617": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "357",
+        "name": "IQUIRA"
+    },
+    "618": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "359",
+        "name": "ISNOS"
+    },
+    "619": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "378",
+        "name": "LA ARGENTINA"
+    },
+    "620": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "396",
+        "name": "LA PLATA"
+    },
+    "621": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "483",
+        "name": "NATAGA"
+    },
+    "622": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "503",
+        "name": "OPORAPA"
+    },
+    "623": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "518",
+        "name": "PAICOL"
+    },
+    "624": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "524",
+        "name": "PALERMO"
+    },
+    "625": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "530",
+        "name": "PALESTINA"
+    },
+    "626": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "548",
+        "name": "PITAL"
+    },
+    "627": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "551",
+        "name": "PITALITO"
+    },
+    "628": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "615",
+        "name": "RIVERA"
+    },
+    "629": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "660",
+        "name": "SALADOBLANCO"
+    },
+    "630": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "668",
+        "name": "SAN AGUSTIN"
+    },
+    "631": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "676",
+        "name": "SANTA MARIA"
+    },
+    "632": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "770",
+        "name": "SUAZA"
+    },
+    "633": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "791",
+        "name": "TARQUI"
+    },
+    "634": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "797",
+        "name": "TESALIA"
+    },
+    "635": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "799",
+        "name": "TELLO"
+    },
+    "636": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "801",
+        "name": "TERUEL"
+    },
+    "637": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "807",
+        "name": "TIMANA"
+    },
+    "638": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "872",
+        "name": "VILLAVIEJA"
+    },
+    "639": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-HUI",
+        "code": "885",
+        "name": "YAGUARA"
+    },
+    "640": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-LAG",
+        "code": "001",
+        "name": "RIOHACHA"
+    },
+    "641": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-LAG",
+        "code": "035",
+        "name": "ALBANIA"
+    },
+    "642": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-LAG",
+        "code": "078",
+        "name": "BARRANCAS"
+    },
+    "643": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-LAG",
+        "code": "090",
+        "name": "DIBULLA"
+    },
+    "644": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-LAG",
+        "code": "098",
+        "name": "DISTRACCION"
+    },
+    "645": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-LAG",
+        "code": "110",
+        "name": "EL MOLINO"
+    },
+    "646": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-LAG",
+        "code": "279",
+        "name": "FONSECA"
+    },
+    "647": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-LAG",
+        "code": "378",
+        "name": "HATONUEVO"
+    },
+    "648": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-LAG",
+        "code": "420",
+        "name": "LA JAGUA DEL PILAR"
+    },
+    "649": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-LAG",
+        "code": "430",
+        "name": "MAICAO"
+    },
+    "650": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-LAG",
+        "code": "560",
+        "name": "MANAURE"
+    },
+    "651": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-LAG",
+        "code": "650",
+        "name": "SAN JUAN DEL CESAR"
+    },
+    "652": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-LAG",
+        "code": "847",
+        "name": "URIBIA"
+    },
+    "653": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-LAG",
+        "code": "855",
+        "name": "URUMITA"
+    },
+    "654": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-LAG",
+        "code": "874",
+        "name": "VILLANUEVA"
+    },
+    "655": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "001",
+        "name": "SANTA MARTA"
+    },
+    "656": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "030",
+        "name": "ALGARROBO"
+    },
+    "657": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "053",
+        "name": "ARACATACA"
+    },
+    "658": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "058",
+        "name": "ARIGUANI"
+    },
+    "659": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "161",
+        "name": "CERRO SAN ANTONIO"
+    },
+    "660": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "170",
+        "name": "CHIBOLO"
+    },
+    "661": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "189",
+        "name": "CIENAGA"
+    },
+    "662": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "205",
+        "name": "CONCORDIA"
+    },
+    "663": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "245",
+        "name": "EL BANCO"
+    },
+    "664": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "258",
+        "name": "EL PIÑON"
+    },
+    "665": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "268",
+        "name": "EL RETEN"
+    },
+    "666": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "288",
+        "name": "FUNDACION"
+    },
+    "667": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "318",
+        "name": "GUAMAL"
+    },
+    "668": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "460",
+        "name": "NUEVA GRANADA"
+    },
+    "669": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "541",
+        "name": "PEDRAZA"
+    },
+    "670": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "545",
+        "name": "PIJIÑO DEL CARMEN"
+    },
+    "671": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "551",
+        "name": "PIVIJAY"
+    },
+    "672": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "555",
+        "name": "PLATO"
+    },
+    "673": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "570",
+        "name": "PUEBLOVIEJO"
+    },
+    "674": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "605",
+        "name": "REMOLINO"
+    },
+    "675": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "660",
+        "name": "SABANAS DE SAN ANGEL"
+    },
+    "676": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "675",
+        "name": "SALAMINA"
+    },
+    "677": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "692",
+        "name": "SAN SEBASTIAN DE BUENAVISTA"
+    },
+    "678": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "703",
+        "name": "SAN ZENON"
+    },
+    "679": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "707",
+        "name": "SANTA ANA"
+    },
+    "680": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "720",
+        "name": "SANTA BARBARA DE PINTO"
+    },
+    "681": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "745",
+        "name": "SITIONUEVO"
+    },
+    "682": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "798",
+        "name": "TENERIFE"
+    },
+    "683": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "960",
+        "name": "ZAPAYAN"
+    },
+    "684": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MAG",
+        "code": "980",
+        "name": "ZONA BANANERA"
+    },
+    "685": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "001",
+        "name": "VILLAVICENCIO"
+    },
+    "686": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "006",
+        "name": "ACACIAS"
+    },
+    "687": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "110",
+        "name": "BARRANCA DE UPIA"
+    },
+    "688": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "124",
+        "name": "CABUYARO"
+    },
+    "689": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "150",
+        "name": "CASTILLA LA NUEVA"
+    },
+    "690": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "223",
+        "name": "CUBARRAL"
+    },
+    "691": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "226",
+        "name": "CUMARAL"
+    },
+    "692": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "245",
+        "name": "EL CALVARIO"
+    },
+    "693": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "251",
+        "name": "EL CASTILLO"
+    },
+    "694": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "270",
+        "name": "EL DORADO"
+    },
+    "695": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "287",
+        "name": "FUENTE DE ORO"
+    },
+    "696": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "313",
+        "name": "GRANADA"
+    },
+    "697": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "318",
+        "name": "GUAMAL"
+    },
+    "698": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "325",
+        "name": "MAPIRIPAN"
+    },
+    "699": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "330",
+        "name": "MESETAS"
+    },
+    "700": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "350",
+        "name": "LA MACARENA"
+    },
+    "701": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "370",
+        "name": "URIBE"
+    },
+    "702": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "400",
+        "name": "LEJANIAS"
+    },
+    "703": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "450",
+        "name": "PUERTO CONCORDIA"
+    },
+    "704": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "568",
+        "name": "PUERTO GAITAN"
+    },
+    "705": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "573",
+        "name": "PUERTO LOPEZ"
+    },
+    "706": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "577",
+        "name": "PUERTO LLERAS"
+    },
+    "707": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "590",
+        "name": "PUERTO RICO"
+    },
+    "708": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "606",
+        "name": "RESTREPO"
+    },
+    "709": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "680",
+        "name": "SAN CARLOS DE GUAROA"
+    },
+    "710": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "683",
+        "name": "SAN JUAN DE ARAMA"
+    },
+    "711": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "686",
+        "name": "SAN JUANITO"
+    },
+    "712": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "689",
+        "name": "SAN MARTIN"
+    },
+    "713": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-MET",
+        "code": "711",
+        "name": "VISTAHERMOSA"
+    },
+    "714": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "001",
+        "name": "PASTO"
+    },
+    "715": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "019",
+        "name": "ALBAN"
+    },
+    "716": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "022",
+        "name": "ALDANA"
+    },
+    "717": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "036",
+        "name": "ANCUYA"
+    },
+    "718": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "051",
+        "name": "ARBOLEDA"
+    },
+    "719": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "079",
+        "name": "BARBACOAS"
+    },
+    "720": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "083",
+        "name": "BELEN"
+    },
+    "721": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "110",
+        "name": "BUESACO"
+    },
+    "722": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "203",
+        "name": "COLON"
+    },
+    "723": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "207",
+        "name": "CONSACA"
+    },
+    "724": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "210",
+        "name": "CONTADERO"
+    },
+    "725": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "215",
+        "name": "CORDOBA"
+    },
+    "726": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "224",
+        "name": "CUASPUD"
+    },
+    "727": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "227",
+        "name": "CUMBAL"
+    },
+    "728": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "233",
+        "name": "CUMBITARA"
+    },
+    "729": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "240",
+        "name": "CHACHAGsI"
+    },
+    "730": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "250",
+        "name": "EL CHARCO"
+    },
+    "731": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "254",
+        "name": "EL PEÑOL"
+    },
+    "732": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "256",
+        "name": "EL ROSARIO"
+    },
+    "733": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "258",
+        "name": "EL TABLON DE GOMEZ"
+    },
+    "734": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "260",
+        "name": "EL TAMBO"
+    },
+    "735": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "287",
+        "name": "FUNES"
+    },
+    "736": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "317",
+        "name": "GUACHUCAL"
+    },
+    "737": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "320",
+        "name": "GUAITARILLA"
+    },
+    "738": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "323",
+        "name": "GUALMATAN"
+    },
+    "739": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "352",
+        "name": "ILES"
+    },
+    "740": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "354",
+        "name": "IMUES"
+    },
+    "741": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "356",
+        "name": "IPIALES"
+    },
+    "742": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "378",
+        "name": "LA CRUZ"
+    },
+    "743": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "381",
+        "name": "LA FLORIDA"
+    },
+    "744": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "385",
+        "name": "LA LLANADA"
+    },
+    "745": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "390",
+        "name": "LA TOLA"
+    },
+    "746": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "399",
+        "name": "LA UNION"
+    },
+    "747": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "405",
+        "name": "LEIVA"
+    },
+    "748": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "411",
+        "name": "LINARES"
+    },
+    "749": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "418",
+        "name": "LOS ANDES"
+    },
+    "750": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "427",
+        "name": "MAGsI"
+    },
+    "751": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "435",
+        "name": "MALLAMA"
+    },
+    "752": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "473",
+        "name": "MOSQUERA"
+    },
+    "753": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "480",
+        "name": "NARIÑO"
+    },
+    "754": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "490",
+        "name": "OLAYA HERRERA"
+    },
+    "755": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "506",
+        "name": "OSPINA"
+    },
+    "756": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "520",
+        "name": "FRANCISCO PIZARRO"
+    },
+    "757": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "540",
+        "name": "POLICARPA"
+    },
+    "758": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "560",
+        "name": "POTOSI"
+    },
+    "759": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "565",
+        "name": "PROVIDENCIA"
+    },
+    "760": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "573",
+        "name": "PUERRES"
+    },
+    "761": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "585",
+        "name": "PUPIALES"
+    },
+    "762": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "612",
+        "name": "RICAURTE"
+    },
+    "763": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "621",
+        "name": "ROBERTO PAYAN"
+    },
+    "764": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "678",
+        "name": "SAMANIEGO"
+    },
+    "765": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "683",
+        "name": "SANDONA"
+    },
+    "766": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "685",
+        "name": "SAN BERNARDO"
+    },
+    "767": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "687",
+        "name": "SAN LORENZO"
+    },
+    "768": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "693",
+        "name": "SAN PABLO"
+    },
+    "769": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "694",
+        "name": "SAN PEDRO DE CARTAGO"
+    },
+    "770": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "696",
+        "name": "SANTA BARBARA"
+    },
+    "771": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "699",
+        "name": "SANTACRUZ"
+    },
+    "772": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "720",
+        "name": "SAPUYES"
+    },
+    "773": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "786",
+        "name": "TAMINANGO"
+    },
+    "774": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "788",
+        "name": "TANGUA"
+    },
+    "775": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "835",
+        "name": "SAN ANDRES DE TUMACO"
+    },
+    "776": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "838",
+        "name": "TUQUERRES"
+    },
+    "777": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NAR",
+        "code": "885",
+        "name": "YACUANQUER"
+    },
+    "778": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "001",
+        "name": "CUCUTA"
+    },
+    "779": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "003",
+        "name": "ABREGO"
+    },
+    "780": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "051",
+        "name": "ARBOLEDAS"
+    },
+    "781": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "099",
+        "name": "BOCHALEMA"
+    },
+    "782": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "109",
+        "name": "BUCARASICA"
+    },
+    "783": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "125",
+        "name": "CACOTA"
+    },
+    "784": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "128",
+        "name": "CACHIRA"
+    },
+    "785": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "172",
+        "name": "CHINACOTA"
+    },
+    "786": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "174",
+        "name": "CHITAGA"
+    },
+    "787": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "206",
+        "name": "CONVENCION"
+    },
+    "788": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "223",
+        "name": "CUCUTILLA"
+    },
+    "789": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "239",
+        "name": "DURANIA"
+    },
+    "790": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "245",
+        "name": "EL CARMEN"
+    },
+    "791": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "250",
+        "name": "EL TARRA"
+    },
+    "792": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "261",
+        "name": "EL ZULIA"
+    },
+    "793": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "313",
+        "name": "GRAMALOTE"
+    },
+    "794": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "344",
+        "name": "HACARI"
+    },
+    "795": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "347",
+        "name": "HERRAN"
+    },
+    "796": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "377",
+        "name": "LABATECA"
+    },
+    "797": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "385",
+        "name": "LA ESPERANZA"
+    },
+    "798": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "398",
+        "name": "LA PLAYA"
+    },
+    "799": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "405",
+        "name": "LOS PATIOS"
+    },
+    "800": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "418",
+        "name": "LOURDES"
+    },
+    "801": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "480",
+        "name": "MUTISCUA"
+    },
+    "802": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "498",
+        "name": "OCAÑA"
+    },
+    "803": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "518",
+        "name": "PAMPLONA"
+    },
+    "804": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "520",
+        "name": "PAMPLONITA"
+    },
+    "805": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "553",
+        "name": "PUERTO SANTANDER"
+    },
+    "806": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "599",
+        "name": "RAGONVALIA"
+    },
+    "807": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "660",
+        "name": "SALAZAR"
+    },
+    "808": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "670",
+        "name": "SAN CALIXTO"
+    },
+    "809": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "673",
+        "name": "SAN CAYETANO"
+    },
+    "810": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "680",
+        "name": "SANTIAGO"
+    },
+    "811": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "720",
+        "name": "SARDINATA"
+    },
+    "812": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "743",
+        "name": "SILOS"
+    },
+    "813": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "800",
+        "name": "TEORAMA"
+    },
+    "814": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "810",
+        "name": "TIBU"
+    },
+    "815": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "820",
+        "name": "TOLEDO"
+    },
+    "816": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "871",
+        "name": "VILLA CARO"
+    },
+    "817": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-NSA",
+        "code": "874",
+        "name": "VILLA DEL ROSARIO"
+    },
+    "818": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-QUI",
+        "code": "001",
+        "name": "ARMENIA"
+    },
+    "819": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-QUI",
+        "code": "111",
+        "name": "BUENAVISTA"
+    },
+    "820": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-QUI",
+        "code": "130",
+        "name": "CALARCA"
+    },
+    "821": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-QUI",
+        "code": "190",
+        "name": "CIRCASIA"
+    },
+    "822": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-QUI",
+        "code": "212",
+        "name": "CORDOBA"
+    },
+    "823": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-QUI",
+        "code": "272",
+        "name": "FILANDIA"
+    },
+    "824": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-QUI",
+        "code": "302",
+        "name": "GENOVA"
+    },
+    "825": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-QUI",
+        "code": "401",
+        "name": "LA TEBAIDA"
+    },
+    "826": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-QUI",
+        "code": "470",
+        "name": "MONTENEGRO"
+    },
+    "827": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-QUI",
+        "code": "548",
+        "name": "PIJAO"
+    },
+    "828": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-QUI",
+        "code": "594",
+        "name": "QUIMBAYA"
+    },
+    "829": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-QUI",
+        "code": "690",
+        "name": "SALENTO"
+    },
+    "830": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-RIS",
+        "code": "001",
+        "name": "PEREIRA"
+    },
+    "831": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-RIS",
+        "code": "045",
+        "name": "APIA"
+    },
+    "832": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-RIS",
+        "code": "075",
+        "name": "BALBOA"
+    },
+    "833": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-RIS",
+        "code": "088",
+        "name": "BELEN DE UMBRIA"
+    },
+    "834": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-RIS",
+        "code": "170",
+        "name": "DOSQUEBRADAS"
+    },
+    "835": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-RIS",
+        "code": "318",
+        "name": "GUATICA"
+    },
+    "836": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-RIS",
+        "code": "383",
+        "name": "LA CELIA"
+    },
+    "837": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-RIS",
+        "code": "400",
+        "name": "LA VIRGINIA"
+    },
+    "838": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-RIS",
+        "code": "440",
+        "name": "MARSELLA"
+    },
+    "839": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-RIS",
+        "code": "456",
+        "name": "MISTRATO"
+    },
+    "840": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-RIS",
+        "code": "572",
+        "name": "PUEBLO RICO"
+    },
+    "841": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-RIS",
+        "code": "594",
+        "name": "QUINCHIA"
+    },
+    "842": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-RIS",
+        "code": "682",
+        "name": "SANTA ROSA DE CABAL"
+    },
+    "843": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-RIS",
+        "code": "687",
+        "name": "SANTUARIO"
+    },
+    "844": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "001",
+        "name": "BUCARAMANGA"
+    },
+    "845": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "013",
+        "name": "AGUADA"
+    },
+    "846": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "020",
+        "name": "ALBANIA"
+    },
+    "847": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "051",
+        "name": "ARATOCA"
+    },
+    "848": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "077",
+        "name": "BARBOSA"
+    },
+    "849": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "079",
+        "name": "BARICHARA"
+    },
+    "850": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "081",
+        "name": "BARRANCABERMEJA"
+    },
+    "851": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "092",
+        "name": "BETULIA"
+    },
+    "852": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "101",
+        "name": "BOLIVAR"
+    },
+    "853": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "121",
+        "name": "CABRERA"
+    },
+    "854": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "132",
+        "name": "CALIFORNIA"
+    },
+    "855": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "147",
+        "name": "CAPITANEJO"
+    },
+    "856": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "152",
+        "name": "CARCASI"
+    },
+    "857": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "160",
+        "name": "CEPITA"
+    },
+    "858": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "162",
+        "name": "CERRITO"
+    },
+    "859": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "167",
+        "name": "CHARALA"
+    },
+    "860": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "169",
+        "name": "CHARTA"
+    },
+    "861": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "176",
+        "name": "CHIMA"
+    },
+    "862": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "179",
+        "name": "CHIPATA"
+    },
+    "863": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "190",
+        "name": "CIMITARRA"
+    },
+    "864": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "207",
+        "name": "CONCEPCION"
+    },
+    "865": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "209",
+        "name": "CONFINES"
+    },
+    "866": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "211",
+        "name": "CONTRATACION"
+    },
+    "867": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "217",
+        "name": "COROMORO"
+    },
+    "868": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "229",
+        "name": "CURITI"
+    },
+    "869": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "235",
+        "name": "EL CARMEN DE CHUCURI"
+    },
+    "870": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "245",
+        "name": "EL GUACAMAYO"
+    },
+    "871": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "250",
+        "name": "EL PEÑON"
+    },
+    "872": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "255",
+        "name": "EL PLAYON"
+    },
+    "873": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "264",
+        "name": "ENCINO"
+    },
+    "874": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "266",
+        "name": "ENCISO"
+    },
+    "875": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "271",
+        "name": "FLORIAN"
+    },
+    "876": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "276",
+        "name": "FLORIDABLANCA"
+    },
+    "877": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "296",
+        "name": "GALAN"
+    },
+    "878": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "298",
+        "name": "GAMBITA"
+    },
+    "879": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "307",
+        "name": "GIRON"
+    },
+    "880": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "318",
+        "name": "GUACA"
+    },
+    "881": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "320",
+        "name": "GUADALUPE"
+    },
+    "882": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "322",
+        "name": "GUAPOTA"
+    },
+    "883": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "324",
+        "name": "GUAVATA"
+    },
+    "884": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "327",
+        "name": "GsEPSA"
+    },
+    "885": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "344",
+        "name": "HATO"
+    },
+    "886": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "368",
+        "name": "JESUS MARIA"
+    },
+    "887": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "370",
+        "name": "JORDAN"
+    },
+    "888": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "377",
+        "name": "LA BELLEZA"
+    },
+    "889": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "385",
+        "name": "LANDAZURI"
+    },
+    "890": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "397",
+        "name": "LA PAZ"
+    },
+    "891": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "406",
+        "name": "LEBRIJA"
+    },
+    "892": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "418",
+        "name": "LOS SANTOS"
+    },
+    "893": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "425",
+        "name": "MACARAVITA"
+    },
+    "894": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "432",
+        "name": "MALAGA"
+    },
+    "895": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "444",
+        "name": "MATANZA"
+    },
+    "896": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "464",
+        "name": "MOGOTES"
+    },
+    "897": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "468",
+        "name": "MOLAGAVITA"
+    },
+    "898": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "498",
+        "name": "OCAMONTE"
+    },
+    "899": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "500",
+        "name": "OIBA"
+    },
+    "900": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "502",
+        "name": "ONZAGA"
+    },
+    "901": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "522",
+        "name": "PALMAR"
+    },
+    "902": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "524",
+        "name": "PALMAS DEL SOCORRO"
+    },
+    "903": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "533",
+        "name": "PARAMO"
+    },
+    "904": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "547",
+        "name": "PIEDECUESTA"
+    },
+    "905": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "549",
+        "name": "PINCHOTE"
+    },
+    "906": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "572",
+        "name": "PUENTE NACIONAL"
+    },
+    "907": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "573",
+        "name": "PUERTO PARRA"
+    },
+    "908": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "575",
+        "name": "PUERTO WILCHES"
+    },
+    "909": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "615",
+        "name": "RIONEGRO"
+    },
+    "910": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "655",
+        "name": "SABANA DE TORRES"
+    },
+    "911": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "669",
+        "name": "SAN ANDRES"
+    },
+    "912": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "673",
+        "name": "SAN BENITO"
+    },
+    "913": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "679",
+        "name": "SAN GIL"
+    },
+    "914": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "682",
+        "name": "SAN JOAQUIN"
+    },
+    "915": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "684",
+        "name": "SAN JOSE DE MIRANDA"
+    },
+    "916": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "686",
+        "name": "SAN MIGUEL"
+    },
+    "917": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "689",
+        "name": "SAN VICENTE DE CHUCURI"
+    },
+    "918": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "705",
+        "name": "SANTA BARBARA"
+    },
+    "919": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "720",
+        "name": "SANTA HELENA DEL OPON"
+    },
+    "920": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "745",
+        "name": "SIMACOTA"
+    },
+    "921": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "755",
+        "name": "SOCORRO"
+    },
+    "922": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "770",
+        "name": "SUAITA"
+    },
+    "923": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "773",
+        "name": "SUCRE"
+    },
+    "924": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "780",
+        "name": "SURATA"
+    },
+    "925": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "820",
+        "name": "TONA"
+    },
+    "926": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "855",
+        "name": "VALLE DE SAN JOSE"
+    },
+    "927": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "861",
+        "name": "VELEZ"
+    },
+    "928": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "867",
+        "name": "VETAS"
+    },
+    "929": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "872",
+        "name": "VILLANUEVA"
+    },
+    "930": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAN",
+        "code": "895",
+        "name": "ZAPATOCA"
+    },
+    "931": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "001",
+        "name": "SINCELEJO"
+    },
+    "932": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "110",
+        "name": "BUENAVISTA"
+    },
+    "933": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "124",
+        "name": "CAIMITO"
+    },
+    "934": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "204",
+        "name": "COLOSO"
+    },
+    "935": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "215",
+        "name": "COROZAL"
+    },
+    "936": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "221",
+        "name": "COVEÑAS"
+    },
+    "937": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "230",
+        "name": "CHALAN"
+    },
+    "938": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "233",
+        "name": "EL ROBLE"
+    },
+    "939": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "235",
+        "name": "GALERAS"
+    },
+    "940": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "265",
+        "name": "GUARANDA"
+    },
+    "941": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "400",
+        "name": "LA UNION"
+    },
+    "942": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "418",
+        "name": "LOS PALMITOS"
+    },
+    "943": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "429",
+        "name": "MAJAGUAL"
+    },
+    "944": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "473",
+        "name": "MORROA"
+    },
+    "945": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "508",
+        "name": "OVEJAS"
+    },
+    "946": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "523",
+        "name": "PALMITO"
+    },
+    "947": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "670",
+        "name": "SAMPUES"
+    },
+    "948": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "678",
+        "name": "SAN BENITO ABAD"
+    },
+    "949": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "702",
+        "name": "SAN JUAN DE BETULIA"
+    },
+    "950": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "708",
+        "name": "SAN MARCOS"
+    },
+    "951": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "713",
+        "name": "SAN ONOFRE"
+    },
+    "952": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "717",
+        "name": "SAN PEDRO"
+    },
+    "953": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "742",
+        "name": "SAN LUIS DE SINCE"
+    },
+    "954": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "771",
+        "name": "SUCRE"
+    },
+    "955": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "820",
+        "name": "SANTIAGO DE TOLU"
+    },
+    "956": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SUC",
+        "code": "823",
+        "name": "TOLU VIEJO"
+    },
+    "957": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "001",
+        "name": "IBAGUE"
+    },
+    "958": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "024",
+        "name": "ALPUJARRA"
+    },
+    "959": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "026",
+        "name": "ALVARADO"
+    },
+    "960": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "030",
+        "name": "AMBALEMA"
+    },
+    "961": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "043",
+        "name": "ANZOATEGUI"
+    },
+    "962": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "055",
+        "name": "ARMERO"
+    },
+    "963": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "067",
+        "name": "ATACO"
+    },
+    "964": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "124",
+        "name": "CAJAMARCA"
+    },
+    "965": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "148",
+        "name": "CARMEN DE APICALA"
+    },
+    "966": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "152",
+        "name": "CASABIANCA"
+    },
+    "967": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "168",
+        "name": "CHAPARRAL"
+    },
+    "968": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "200",
+        "name": "COELLO"
+    },
+    "969": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "217",
+        "name": "COYAIMA"
+    },
+    "970": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "226",
+        "name": "CUNDAY"
+    },
+    "971": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "236",
+        "name": "DOLORES"
+    },
+    "972": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "268",
+        "name": "ESPINAL"
+    },
+    "973": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "270",
+        "name": "FALAN"
+    },
+    "974": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "275",
+        "name": "FLANDES"
+    },
+    "975": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "283",
+        "name": "FRESNO"
+    },
+    "976": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "319",
+        "name": "GUAMO"
+    },
+    "977": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "347",
+        "name": "HERVEO"
+    },
+    "978": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "349",
+        "name": "HONDA"
+    },
+    "979": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "352",
+        "name": "ICONONZO"
+    },
+    "980": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "408",
+        "name": "LERIDA"
+    },
+    "981": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "411",
+        "name": "LIBANO"
+    },
+    "982": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "443",
+        "name": "MARIQUITA"
+    },
+    "983": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "449",
+        "name": "MELGAR"
+    },
+    "984": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "461",
+        "name": "MURILLO"
+    },
+    "985": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "483",
+        "name": "NATAGAIMA"
+    },
+    "986": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "504",
+        "name": "ORTEGA"
+    },
+    "987": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "520",
+        "name": "PALOCABILDO"
+    },
+    "988": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "547",
+        "name": "PIEDRAS"
+    },
+    "989": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "555",
+        "name": "PLANADAS"
+    },
+    "990": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "563",
+        "name": "PRADO"
+    },
+    "991": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "585",
+        "name": "PURIFICACION"
+    },
+    "992": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "616",
+        "name": "RIOBLANCO"
+    },
+    "993": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "622",
+        "name": "RONCESVALLES"
+    },
+    "994": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "624",
+        "name": "ROVIRA"
+    },
+    "995": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "671",
+        "name": "SALDAÑA"
+    },
+    "996": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "675",
+        "name": "SAN ANTONIO"
+    },
+    "997": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "678",
+        "name": "SAN LUIS"
+    },
+    "998": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "686",
+        "name": "SANTA ISABEL"
+    },
+    "999": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "770",
+        "name": "SUAREZ"
+    },
+    "1000": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "854",
+        "name": "VALLE DE SAN JUAN"
+    },
+    "1001": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "861",
+        "name": "VENADILLO"
+    },
+    "1002": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "870",
+        "name": "VILLAHERMOSA"
+    },
+    "1003": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-TOL",
+        "code": "873",
+        "name": "VILLARRICA"
+    },
+    "1004": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "001",
+        "name": "CALI"
+    },
+    "1005": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "020",
+        "name": "ALCALA"
+    },
+    "1006": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "036",
+        "name": "ANDALUCIA"
+    },
+    "1007": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "041",
+        "name": "ANSERMANUEVO"
+    },
+    "1008": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "054",
+        "name": "ARGELIA"
+    },
+    "1009": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "100",
+        "name": "BOLIVAR"
+    },
+    "1010": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "109",
+        "name": "BUENAVENTURA"
+    },
+    "1011": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "111",
+        "name": "GUADALAJARA DE BUGA"
+    },
+    "1012": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "113",
+        "name": "BUGALAGRANDE"
+    },
+    "1013": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "122",
+        "name": "CAICEDONIA"
+    },
+    "1014": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "126",
+        "name": "CALIMA"
+    },
+    "1015": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "130",
+        "name": "CANDELARIA"
+    },
+    "1016": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "147",
+        "name": "CARTAGO"
+    },
+    "1017": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "233",
+        "name": "DAGUA"
+    },
+    "1018": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "243",
+        "name": "EL AGUILA"
+    },
+    "1019": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "246",
+        "name": "EL CAIRO"
+    },
+    "1020": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "248",
+        "name": "EL CERRITO"
+    },
+    "1021": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "250",
+        "name": "EL DOVIO"
+    },
+    "1022": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "275",
+        "name": "FLORIDA"
+    },
+    "1023": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "306",
+        "name": "GINEBRA"
+    },
+    "1024": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "318",
+        "name": "GUACARI"
+    },
+    "1025": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "364",
+        "name": "JAMUNDI"
+    },
+    "1026": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "377",
+        "name": "LA CUMBRE"
+    },
+    "1027": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "400",
+        "name": "LA UNION"
+    },
+    "1028": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "403",
+        "name": "LA VICTORIA"
+    },
+    "1029": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "497",
+        "name": "OBANDO"
+    },
+    "1030": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "520",
+        "name": "PALMIRA"
+    },
+    "1031": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "563",
+        "name": "PRADERA"
+    },
+    "1032": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "606",
+        "name": "RESTREPO"
+    },
+    "1033": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "616",
+        "name": "RIOFRIO"
+    },
+    "1034": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "622",
+        "name": "ROLDANILLO"
+    },
+    "1035": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "670",
+        "name": "SAN PEDRO"
+    },
+    "1036": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "736",
+        "name": "SEVILLA"
+    },
+    "1037": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "823",
+        "name": "TORO"
+    },
+    "1038": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "828",
+        "name": "TRUJILLO"
+    },
+    "1039": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "834",
+        "name": "TULUA"
+    },
+    "1040": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "845",
+        "name": "ULLOA"
+    },
+    "1041": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "863",
+        "name": "VERSALLES"
+    },
+    "1042": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "869",
+        "name": "VIJES"
+    },
+    "1043": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "890",
+        "name": "YOTOCO"
+    },
+    "1044": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "892",
+        "name": "YUMBO"
+    },
+    "1045": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAC",
+        "code": "895",
+        "name": "ZARZAL"
+    },
+    "1046": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ARA",
+        "code": "001",
+        "name": "ARAUCA"
+    },
+    "1047": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ARA",
+        "code": "065",
+        "name": "ARAUQUITA"
+    },
+    "1048": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ARA",
+        "code": "220",
+        "name": "CRAVO NORTE"
+    },
+    "1049": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ARA",
+        "code": "300",
+        "name": "FORTUL"
+    },
+    "1050": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ARA",
+        "code": "591",
+        "name": "PUERTO RONDON"
+    },
+    "1051": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ARA",
+        "code": "736",
+        "name": "SARAVENA"
+    },
+    "1052": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-ARA",
+        "code": "794",
+        "name": "TAME"
+    },
+    "1053": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAS",
+        "code": "001",
+        "name": "YOPAL"
+    },
+    "1054": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAS",
+        "code": "010",
+        "name": "AGUAZUL"
+    },
+    "1055": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAS",
+        "code": "015",
+        "name": "CHAMEZA"
+    },
+    "1056": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAS",
+        "code": "125",
+        "name": "HATO COROZAL"
+    },
+    "1057": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAS",
+        "code": "136",
+        "name": "LA SALINA"
+    },
+    "1058": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAS",
+        "code": "139",
+        "name": "MANI"
+    },
+    "1059": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAS",
+        "code": "162",
+        "name": "MONTERREY"
+    },
+    "1060": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAS",
+        "code": "225",
+        "name": "NUNCHIA"
+    },
+    "1061": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAS",
+        "code": "230",
+        "name": "OROCUE"
+    },
+    "1062": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAS",
+        "code": "250",
+        "name": "PAZ DE ARIPORO"
+    },
+    "1063": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAS",
+        "code": "263",
+        "name": "PORE"
+    },
+    "1064": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAS",
+        "code": "279",
+        "name": "RECETOR"
+    },
+    "1065": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAS",
+        "code": "300",
+        "name": "SABANALARGA"
+    },
+    "1066": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAS",
+        "code": "315",
+        "name": "SACAMA"
+    },
+    "1067": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAS",
+        "code": "325",
+        "name": "SAN LUIS DE PALENQUE"
+    },
+    "1068": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAS",
+        "code": "400",
+        "name": "TAMARA"
+    },
+    "1069": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAS",
+        "code": "410",
+        "name": "TAURAMENA"
+    },
+    "1070": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAS",
+        "code": "430",
+        "name": "TRINIDAD"
+    },
+    "1071": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-CAS",
+        "code": "440",
+        "name": "VILLANUEVA"
+    },
+    "1072": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-PUT",
+        "code": "001",
+        "name": "MOCOA"
+    },
+    "1073": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-PUT",
+        "code": "219",
+        "name": "COLON"
+    },
+    "1074": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-PUT",
+        "code": "320",
+        "name": "ORITO"
+    },
+    "1075": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-PUT",
+        "code": "568",
+        "name": "PUERTO ASIS"
+    },
+    "1076": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-PUT",
+        "code": "569",
+        "name": "PUERTO CAICEDO"
+    },
+    "1077": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-PUT",
+        "code": "571",
+        "name": "PUERTO GUZMAN"
+    },
+    "1078": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-PUT",
+        "code": "573",
+        "name": "LEGUIZAMO"
+    },
+    "1079": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-PUT",
+        "code": "749",
+        "name": "SIBUNDOY"
+    },
+    "1080": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-PUT",
+        "code": "755",
+        "name": "SAN FRANCISCO"
+    },
+    "1081": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-PUT",
+        "code": "757",
+        "name": "SAN MIGUEL"
+    },
+    "1082": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-PUT",
+        "code": "760",
+        "name": "SANTIAGO"
+    },
+    "1083": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-PUT",
+        "code": "865",
+        "name": "VALLE DEL GUAMUEZ"
+    },
+    "1084": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-PUT",
+        "code": "885",
+        "name": "VILLAGARZON"
+    },
+    "1085": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAP",
+        "code": "001",
+        "name": "SAN ANDRES"
+    },
+    "1086": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-SAP",
+        "code": "564",
+        "name": "PROVIDENCIA"
+    },
+    "1087": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-AMA",
+        "code": "001",
+        "name": "LETICIA"
+    },
+    "1088": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-AMA",
+        "code": "263",
+        "name": "EL ENCANTO"
+    },
+    "1089": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-AMA",
+        "code": "405",
+        "name": "LA CHORRERA"
+    },
+    "1090": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-AMA",
+        "code": "407",
+        "name": "LA PEDRERA"
+    },
+    "1091": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-AMA",
+        "code": "430",
+        "name": "LA VICTORIA"
+    },
+    "1092": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-AMA",
+        "code": "460",
+        "name": "MIRITI - PARANA"
+    },
+    "1093": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-AMA",
+        "code": "530",
+        "name": "PUERTO ALEGRIA"
+    },
+    "1094": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-AMA",
+        "code": "536",
+        "name": "PUERTO ARICA"
+    },
+    "1095": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-AMA",
+        "code": "540",
+        "name": "PUERTO NARIÑO"
+    },
+    "1096": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-AMA",
+        "code": "669",
+        "name": "PUERTO SANTANDER"
+    },
+    "1097": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-AMA",
+        "code": "798",
+        "name": "TARAPACA"
+    },
+    "1098": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-GUA",
+        "code": "001",
+        "name": "INIRIDA"
+    },
+    "1099": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-GUA",
+        "code": "343",
+        "name": "BARRANCO MINAS"
+    },
+    "1100": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-GUA",
+        "code": "663",
+        "name": "MAPIRIPANA"
+    },
+    "1101": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-GUA",
+        "code": "883",
+        "name": "SAN FELIPE"
+    },
+    "1102": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-GUA",
+        "code": "884",
+        "name": "PUERTO COLOMBIA"
+    },
+    "1103": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-GUA",
+        "code": "885",
+        "name": "LA GUADALUPE"
+    },
+    "1104": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-GUA",
+        "code": "886",
+        "name": "CACAHUAL"
+    },
+    "1105": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-GUA",
+        "code": "887",
+        "name": "PANA PANA"
+    },
+    "1106": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-GUA",
+        "code": "888",
+        "name": "MORICHAL"
+    },
+    "1107": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-GUV",
+        "code": "001",
+        "name": "SAN JOSE DEL GUAVIARE"
+    },
+    "1108": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-GUV",
+        "code": "015",
+        "name": "CALAMAR"
+    },
+    "1109": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-GUV",
+        "code": "025",
+        "name": "EL RETORNO"
+    },
+    "1110": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-GUV",
+        "code": "200",
+        "name": "MIRAFLORES"
+    },
+    "1111": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAU",
+        "code": "001",
+        "name": "MITU"
+    },
+    "1112": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAU",
+        "code": "161",
+        "name": "CARURU"
+    },
+    "1113": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAU",
+        "code": "511",
+        "name": "PACOA"
+    },
+    "1114": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAU",
+        "code": "666",
+        "name": "TARAIRA"
+    },
+    "1115": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAU",
+        "code": "777",
+        "name": "PAPUNAUA"
+    },
+    "1116": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VAU",
+        "code": "889",
+        "name": "YAVARATE"
+    },
+    "1117": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VID",
+        "code": "001",
+        "name": "PUERTO CARREÑO"
+    },
+    "1118": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VID",
+        "code": "524",
+        "name": "LA PRIMAVERA"
+    },
+    "1119": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VID",
+        "code": "624",
+        "name": "SANTA ROSALIA"
+    },
+    "1120": {
+        "country_iso_2": "CO",
+        "province_iso_2": "CO-VID",
+        "code": "773",
+        "name": "CUMARIBO"
+    }
+}

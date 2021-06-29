@@ -18,6 +18,10 @@ return [
     'form' => [
     ],
     'messages' => [
+        'province created'=>'Province successfully created.',
+        'province not found' => 'Province not found.',
+        'province updated' => 'Province successfully updated.',
+        'province deleted' => 'Province successfully deleted.',
     ],
     'validation' => [
     ],

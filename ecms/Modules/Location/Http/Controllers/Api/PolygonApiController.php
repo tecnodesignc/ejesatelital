@@ -1,27 +1,27 @@
 <?php
 
-namespace Modules\Company\Http\Controllers\Api;
+namespace Modules\Location\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use Mockery\CountValidator\Exception;
-use Modules\Company\Http\Requests\CreateAccountTypeRequest;
-use Modules\Company\Repositories\AccountTypeRepository;
-use Modules\Company\Transformers\CityTransformer;
+use Modules\Location\Http\Requests\CreatePolygonRequest;
+use Modules\Location\Repositories\PolygonRepository;
+use Modules\Location\Transformers\PolygonTransformer;
 use Modules\Core\Http\Controllers\Api\BaseApiController;
 use Route;
 use Log;
 
-class AccountTypeApiController extends BaseApiController
+class PolygonApiController extends BaseApiController
 {
     /**
-     * @var AccountTypeRepository
+     * @var PolygonRepository
      */
-    private $type;
+    private $polygon;
 
-    public function __construct(AccountTypeRepository $type)
+    public function __construct(PolygonRepository $polygon)
     {
         parent::__construct();
-        $this->type = $type;
+        $this->polygon = $polygon;
     }
 
     /**
@@ -32,20 +32,17 @@ class AccountTypeApiController extends BaseApiController
     public function index(Request $request)
     {
         try {
-            //Validate permissions
-            $this->validatePermission($request, 'user.users.index');
-
             //Get Parameters from URL.
             $params = $this->getParamsRequest($request);
 
             //Request to Repository
-            $types = $this->type->getItemsBy($params);
+            $polygons = $this->polygon->getItemsBy($params);
 
             //Response
-            $response = ["data" => CityTransformer::collection($types)];
+            $response = ["data" => PolygonTransformer::collection($polygons)];
 
             //If request pagination add meta-page
-            $params->page ? $response["meta"] = ["page" => $this->pageTransformer($types)] : false;
+            $params->page ? $response["meta"] = ["page" => $this->pageTransformer($polygons)] : false;
         } catch (\Exception $e) {
             Log::Error($e);
             $status = $this->getStatusError($e->getCode());
@@ -69,16 +66,15 @@ class AccountTypeApiController extends BaseApiController
         $params = $this->getParamsRequest($request);
 
         //Request to Repository
-        $type = $this->type->getItem($criteria, $params);
+        $polygon = $this->polygon->getItem($criteria, $params);
 
         //Break if no found item
-        if(!$type) throw new Exception('Item not found',404);
+        if(!$polygon) throw new Exception(trans('location::polygons.messages.polygon not found'),404);
 
         //Response
-        $response = ["data" => new CityTransformer($type)];
+        $response = ["data" => new PolygonTransformer($polygon)];
 
       } catch (\Exception $e) {
-            \Log::error($e);
         $status = $this->getStatusError($e->getCode());
         $response = ["errors" => $e->getMessage()];
       }
@@ -99,13 +95,13 @@ class AccountTypeApiController extends BaseApiController
         try {
             $data = $request->input('attributes') ?? [];//Get data
             //Validate Request
-            $this->validateRequestApi(new CreateAccountTypeRequest($data));
+            $this->validateRequestApi(new CreatePolygonRequest($data));
 
             //Create item
-            $type = $this->type->create($data);
+            $polygon = $this->polygon->create($data);
 
             //Response
-            $response = ["data" => ['msg' => trans('company::accounttypes.messages.account type created')]];
+            $response = ["data"=> ['msg' => trans('location::polygons.messages.polygon created')]];
             \DB::commit(); //Commit to Data Base
         } catch (\Exception $e) {
             Log::Error($e);
@@ -128,26 +124,28 @@ class AccountTypeApiController extends BaseApiController
     {
         \DB::beginTransaction(); //DB Transaction
         try {
-            //Validate permissions
-            $this->validatePermission($request, 'profile.user.edit');
             //Get data
             $data = $request->input('attributes') ?? [];//Get data
 
             //Validate Request
-            $this->validateRequestApi(new CreateAccountTypeRequest($data));
+            $this->validateRequestApi(new CreatePolygonRequest($data));
 
             //Get Parameters from URL.
             $params = $this->getParamsRequest($request);
+
             //Request to Repository
-            $type = $this->type->getItem($criteria, $params);
+            $polygon = $this->polygon->getItem($criteria, $params);
+
+            //Break if no found item
+            if(!$polygon) throw new Exception(trans('location::polygons.messages.polygon not found'),404);
             //Request to Repository
-            $this->type->update($type, $data);
+            $this->polygon->update($polygon, $data);
 
             //Response
-            $response = ["data" => trans('blog::common.messages.resource updated')];
+            $response = ["data"=> ['msg' => trans('location::polygons.messages.polygon updated')]];
             \DB::commit();//Commit to DataBase
         } catch (\Exception $e) {
-            \Log::error($e);
+            Log::Error($e);
             \DB::rollback();//Rollback to Data Base
             $status = $this->getStatusError($e->getCode());
             $response = ["errors" => $e->getMessage()];
@@ -171,13 +169,16 @@ class AccountTypeApiController extends BaseApiController
             $params = $this->getParamsRequest($request);
 
             //Request to Repository
-            $type = $this->type->getItem($criteria, $params);
+            $polygon = $this->polygon->getItem($criteria, $params);
+
+            //Break if no found item
+            if(!$polygon) throw new Exception(trans('location::polygons.messages.polygon not found'),404);
 
             //call Method delete
-            $this->type->destroy($type);
+            $this->polygon->destroy($polygon);
 
             //Response
-            $response = ["data" =>['msg'=>trans('user::messages.user deleted')]];
+            $response = ["data" => ['msg' =>  trans('location::polygons.messages.polygon deleted')]];
             \DB::commit();//Commit to Data Base
         } catch (\Exception $e) {
             Log::Error($e);
