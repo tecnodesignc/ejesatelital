@@ -7,6 +7,7 @@ use Modules\Core\Traits\CanPublishConfiguration;
 use Modules\Core\Events\BuildingSidebar;
 use Modules\Core\Events\LoadingBackendTranslations;
 use Modules\Location\Events\Handlers\RegisterLocationSidebar;
+use Illuminate\Support\Arr;
 
 class LocationServiceProvider extends ServiceProvider
 {

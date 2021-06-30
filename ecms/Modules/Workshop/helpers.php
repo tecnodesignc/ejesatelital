@@ -7,7 +7,7 @@ if (! function_exists('module_version')) {
             return \Modules\Core\Foundation\EncoreCms::VERSION;
         }
 
-        return $module->version;
+        return $module->get("version");
     }
 }
 

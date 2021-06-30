@@ -12,5 +12,6 @@
     "Blog": true,
     "Custom": true,
     "Company": true,
-    "Location": true
+    "Location": true,
+    "Notification": true
 }
