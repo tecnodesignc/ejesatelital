@@ -1,18 +1,6 @@
 # Notification module
 
-[![Latest Version](https://img.shields.io/packagist/v/asgardcms/notification-module.svg?style=flat-square)](https://github.com/asgardcms/notification/releases)
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/AsgardCms/Notification/master.svg?style=flat-square)](https://travis-ci.org/AsgardCms/Notification)
-[![Quality Score](https://img.shields.io/scrutinizer/g/asgardcms/notification.svg?style=flat-square)](https://scrutinizer-ci.com/g/asgardcms/notification)
-[![SensioLabs Insight](https://img.shields.io/sensiolabs/i/0d8f61c7-0e2f-46b2-9f63-91f4d5abeca5.svg)](https://insight.sensiolabs.com/projects/0d8f61c7-0e2f-46b2-9f63-91f4d5abeca5)
-
-[![Total Downloads](https://img.shields.io/packagist/dd/asgardcms/notification-module.svg?style=flat-square)](https://packagist.org/packages/asgardcms/notification-module)
-[![Total Downloads](https://img.shields.io/packagist/dm/asgardcms/notification-module.svg?style=flat-square)](https://packagist.org/packages/asgardcms/notification-module)
-[![Total Downloads](https://img.shields.io/packagist/dt/asgardcms/notification-module.svg?style=flat-square)](https://packagist.org/packages/asgardcms/notification-module)
-[![Slack](http://slack.asgardcms.com/badge.svg)](http://slack.asgardcms.com/)
-
-
-Quickly send (real-time) notifications to your AsgardCms application.
+Quickly send (real-time) notifications to your EncoreCms application.
 
 
   ``` php
@@ -38,7 +26,7 @@ public function push($title, $message, $icon, $link = null);
 
 ### Module Download
 
-Using AsgardCMS's module download command:
+Using EncoreCMS's module download command:
 
 ``` bash
 php artisan asgard:download:module asgardcms/notification --migrations
@@ -53,7 +41,7 @@ This is the recommended way if you wish to customise the fields, views, etc.
 Execute the following command in your terminal:
 
 ``` bash
-composer require asgardcms/notification-module
+composer require tecnodesignc/notification-module
 ```
 
 **Note: After installation you'll have to give you the required permissions to get to the blog module pages in the backend.**
@@ -74,7 +62,7 @@ php artisan module:publish-config notification
 
 If you want real time notifications over websockets, you need to configure the `broadcasting.php` config file. After that is done, set the `asgard.notification.config.real-time` option to `true`.
 
-Currently, [Laravel broadcasting](https://laravel.com/docs/5.5/broadcasting) supports Pusher and Redis, but AsgardCms only has the front-end integration for Pusher. More integrations are welcome via pull-request. Look at the [Pusher integration](https://github.com/AsgardCms/Notification/blob/master/Assets/js/pusherNotifications.js) for inspiration.
+Currently, [Laravel broadcasting](https://laravel.com/docs/5.5/broadcasting) supports Pusher and Redis, but EncoreCms only has the front-end integration for Pusher. More integrations are welcome via pull-request. Look at the [Pusher integration](https://github.com/EncoreCms/Notification/blob/master/Assets/js/pusherNotifications.js) for inspiration.
 
 For configuring Pusher, you can add the following lines to your `.env` file:
 

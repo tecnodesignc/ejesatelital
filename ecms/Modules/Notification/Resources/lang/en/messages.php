@@ -12,4 +12,10 @@ return [
     'delete all' => 'Delete all',
     'all notifications deleted' => 'All your notifications were successfully deleted.',
     'all notifications marked as read' => 'All your notifications were successfully marked as read.',
+    'messages' => [
+        'notification created'=>'Notification successfully created.',
+        'notification not found' => 'Notification not found.',
+        'notification updated' => 'Notification successfully updated.',
+        'notification deleted' => 'Notification successfully deleted.',
+    ],
 ];
