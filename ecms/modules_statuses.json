@@ -13,5 +13,6 @@
     "Custom": true,
     "Company": true,
     "Location": true,
-    "Notification": true
+    "Notification": true,
+    "Vehicle": true
 }
