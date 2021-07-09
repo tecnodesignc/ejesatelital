@@ -1,121 +1,80 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated class="bg-white">
+    <q-header  class="bg-white q-py-lg">
       <q-toolbar>
         <q-btn
           flat
           dense
-          round
+          color="secondary"
           icon="menu"
           aria-label="Menu"
-          @click="toggleLeftDrawer"
+          @click="drawer=!drawer"
         />
+        <header-left/>
 
-        <q-toolbar-title>
-          <q-btn flat color="secondary" icon="email" />
-          <q-btn flat color="secondary" icon="mark_chat_unread" />
-          <q-btn flat color="secondary" icon="event" />
-        </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <div><header-right/></div>
+        <q-btn dense flat icon="fas fa-cog" color="secondary" @click="rightDrawerOpen=!rightDrawerOpen" />
       </q-toolbar>
     </q-header>
 
     <q-drawer
-      v-model="leftDrawerOpen"
+      v-model="drawer"
       show-if-above
-      bordered
-      class="bg-grey-1"
+      :width="260"
+      :breakpoint="400"
     >
-      <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
-        >
-          Essential Links
-        </q-item-label>
+      <q-scroll-area style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd">
+        <sidebar/>
+      </q-scroll-area>
 
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
+      <user-sidebar/>
     </q-drawer>
-
+    <q-drawer show-if-above v-model="rightDrawerOpen" behavior="mobile" side="right" bordered>
+      <pre>{{rightDrawerOpen}}</pre>
+    </q-drawer>
     <q-page-container>
-      <router-view />
+      <router-view/>
     </q-page-container>
   </q-layout>
 </template>
 
 <script lang="ts">
-import EssentialLink from 'components/EssentialLink.vue'
+import Sidebar from 'components/Sidebar.vue'
+import UserSidebar from 'src/modules/user/_components/UserSidebar.vue'
+import HeaderLeft from "components/HeaderLeft.vue";
+import HeaderRight from "components/HeaderRight.vue";
 
-const linksList = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
-];
+import {ref} from 'vue'
 
-import { defineComponent, ref } from 'vue'
 
-export default defineComponent({
+export default{
   name: 'MainLayout',
 
   components: {
-    EssentialLink
+    HeaderRight,
+    HeaderLeft,
+    Sidebar,
+    UserSidebar
   },
 
-  setup () {
-    const leftDrawerOpen = ref(false)
-
+  setup() {
+    const drawer = ref(false)
+    const rightDrawerOpen = ref(false)
     return {
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
+      drawer,
+      rightDrawerOpen,
     }
   }
-})
+}
 </script>
+
+<style lang="scss">
+.user-sidebar {
+  background-color: $primary;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 20px 0;
+}
+</style>

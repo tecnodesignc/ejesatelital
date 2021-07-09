@@ -1,1 +1,12 @@
 // app global css in SCSS form
+
+body{
+  font-family: $font-family
+}
+
+.auht {
+  //background-image: url(../title-img.png);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}

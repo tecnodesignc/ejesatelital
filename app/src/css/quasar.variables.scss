@@ -12,6 +12,8 @@
 // to match your app's branding.
 // Tip: Use the "Theme Builder" on Quasar's documentation website.
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
 $primary   : #525ce5;
 $secondary : #74788d;
 $accent    : #9C27B0;
@@ -22,3 +24,6 @@ $positive  : #34c38f;
 $negative  : #f46a6a;
 $info      : #5ba4e5;
 $warning   : #f1b44c;
+
+$font-family: "Inter";
+

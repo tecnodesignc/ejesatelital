@@ -12,24 +12,24 @@ const routes: RouteRecordRaw[] = [
     ],
   },
   {
-    path: 'auth/',
+    path: '/auth',
     component: () => import('layouts/AuthLayout.vue'),
     children: [
       {
-        path: 'login',
-        component: () => import('modules/user/page/Login.vue')
+        path: '/auth/login',
+        component: () => import('src/modules/user/pages/auth/Login.vue')
       },
       {
-        path: 'register',
-        component: () => import('modules/user/page/Register.vue')
+        path: '/auth/register',
+        component: () => import('src/modules/user/pages/auth/Register.vue')
       },
       {
-        path: 'reset-password',
-        component: () => import('modules/user/page/ResetPassword.vue')
+        path: '/auth/reset-password',
+        component: () => import('src/modules/user/pages/auth/Recover.vue')
       },
       {
-        path: 'complete-password',
-        component: () => import('modules/user/page/CompletePassword.vue')
+        path: '/auth/complete-password',
+        component: () => import('src/modules/user/pages/auth/Reset.vue')
       }
     ],
   },
