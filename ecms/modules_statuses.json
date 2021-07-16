@@ -14,5 +14,6 @@
     "Company": true,
     "Location": true,
     "Notification": true,
-    "Vehicle": true
+    "Vehicle": true,
+    "Polls": true
 }
