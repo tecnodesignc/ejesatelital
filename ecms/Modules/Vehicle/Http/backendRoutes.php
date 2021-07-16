@@ -37,6 +37,40 @@ $router->group(['prefix' =>'/vehicle'], function (Router $router) {
         'uses' => 'VehicleController@destroy',
         'middleware' => 'can:vehicle.vehicles.destroy'
     ]);
+    $router->bind('brand', function ($id) {
+        return app('Modules\Vehicle\Repositories\BrandRepository')->find($id);
+    });
+    $router->get('brands', [
+        'as' => 'admin.vehicle.brand.index',
+        'uses' => 'BrandController@index',
+        'middleware' => 'can:vehicle.brands.index'
+    ]);
+    $router->get('brands/create', [
+        'as' => 'admin.vehicle.brand.create',
+        'uses' => 'BrandController@create',
+        'middleware' => 'can:vehicle.brands.create'
+    ]);
+    $router->post('brands', [
+        'as' => 'admin.vehicle.brand.store',
+        'uses' => 'BrandController@store',
+        'middleware' => 'can:vehicle.brands.create'
+    ]);
+    $router->get('brands/{brand}/edit', [
+        'as' => 'admin.vehicle.brand.edit',
+        'uses' => 'BrandController@edit',
+        'middleware' => 'can:vehicle.brands.edit'
+    ]);
+    $router->put('brands/{brand}', [
+        'as' => 'admin.vehicle.brand.update',
+        'uses' => 'BrandController@update',
+        'middleware' => 'can:vehicle.brands.edit'
+    ]);
+    $router->delete('brands/{brand}', [
+        'as' => 'admin.vehicle.brand.destroy',
+        'uses' => 'BrandController@destroy',
+        'middleware' => 'can:vehicle.brands.destroy'
+    ]);
 // append
+
 
 });
