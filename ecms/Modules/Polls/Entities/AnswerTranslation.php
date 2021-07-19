@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class AnswerTranslation extends Model
 {
     public $timestamps = false;
-    protected $fillable = [];
+    protected $fillable = ['title','caption'];
     protected $table = 'polls__answer_translations';
 }

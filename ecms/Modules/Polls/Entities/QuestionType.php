@@ -10,6 +10,6 @@ class QuestionType extends Model
     use Translatable;
 
     protected $table = 'polls__questiontypes';
-    public $translatedAttributes = [];
-    protected $fillable = [];
+    public $translatedAttributes = ['name'];
+    protected $fillable = ['name', 'options'];
 }

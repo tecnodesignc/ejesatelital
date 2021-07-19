@@ -15,7 +15,10 @@ class CreatePollsQuestionsTable extends Migration
         Schema::create('polls__questions', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            // Your fields
+            $table->text('options')->nullable();
+            $table->integer('type_id')->unsigned();
+            $table->integer('account_id')->unsigned()->nullable();
+            $table->foreign('type_id')->references('id')->on('polls__question_types')->onDelete('cascade');
             $table->timestamps();
         });
     }

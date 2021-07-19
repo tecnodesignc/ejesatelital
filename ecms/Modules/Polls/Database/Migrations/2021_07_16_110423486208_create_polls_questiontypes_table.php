@@ -12,10 +12,10 @@ class CreatePollsQuestionTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('polls__questiontypes', function (Blueprint $table) {
+        Schema::create('polls__question_types', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            // Your fields
+            $table->text('options')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreatePollsQuestionTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('polls__questiontypes');
+        Schema::dropIfExists('polls__question_types');
     }
 }

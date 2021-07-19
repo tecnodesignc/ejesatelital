@@ -12,11 +12,10 @@ class CreatePollsQuestionTypeTranslationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('polls__questiontype_translations', function (Blueprint $table) {
+        Schema::create('polls__question_type_translations', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            // Your translatable fields
-
+            $table->string('name');
             $table->integer('questiontype_id')->unsigned();
             $table->string('locale')->index();
             $table->unique(['questiontype_id', 'locale']);
@@ -31,9 +30,9 @@ class CreatePollsQuestionTypeTranslationsTable extends Migration
      */
     public function down()
     {
-        Schema::table('polls__questiontype_translations', function (Blueprint $table) {
+        Schema::table('polls__question_type_translations', function (Blueprint $table) {
             $table->dropForeign(['questiontype_id']);
         });
-        Schema::dropIfExists('polls__questiontype_translations');
+        Schema::dropIfExists('polls__question_type_translations');
     }
 }

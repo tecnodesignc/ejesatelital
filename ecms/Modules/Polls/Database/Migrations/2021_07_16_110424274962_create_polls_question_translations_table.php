@@ -15,8 +15,8 @@ class CreatePollsQuestionTranslationsTable extends Migration
         Schema::create('polls__question_translations', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            // Your translatable fields
-
+            $table->text('statement');
+            $table->text('description')->nullable();
             $table->integer('question_id')->unsigned();
             $table->string('locale')->index();
             $table->unique(['question_id', 'locale']);
