@@ -6,7 +6,6 @@
     "priority": 1,
     "providers": [
         "Modules\\Polls\\Providers\\PollsServiceProvider",
-        "Modules\\Polls\\Providers\\EventServiceProvider",
         "Modules\\Polls\\Providers\\RouteServiceProvider"
     ],
     "aliases": {},

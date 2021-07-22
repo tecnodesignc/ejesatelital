@@ -1,6 +1,11 @@
 export default function () {
   return {
     authStatus:false,
-    user:[]
+    user:[],
+    impersonating : false,
+    Token: null,
+    userId: null,
+    permissions: null,
+    selectedRoleId : false,
   }
 }

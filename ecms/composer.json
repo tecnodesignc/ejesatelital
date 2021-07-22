@@ -11,6 +11,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.4|^8.0",
+        "ext-json": "*",
         "astrotomic/laravel-translatable": "^11.9",
         "cartalyst/sentinel": "^5.1",
         "composer/installers": "^1.9",
@@ -25,6 +26,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.1",
         "laravelcollective/html": "^6.2",
+        "lcobucci/jwt": "4.1.4",
         "maatwebsite/laravel-sidebar": "^2.4",
         "mcamara/laravel-localization": "^1.6",
         "nwidart/laravel-modules": "^8.2",
@@ -36,6 +38,7 @@
         "tecnodesignc/comment-module": "dev-master",
         "tecnodesignc/core-module": "^1.0",
         "tecnodesignc/dashboard-module": "^1.0",
+        "tecnodesignc/encore-theme": "dev-master",
         "tecnodesignc/media-module": "^1.0",
         "tecnodesignc/menu-module": "^1.0",
         "tecnodesignc/page-module": "^1.0",
@@ -45,11 +48,8 @@
         "tecnodesignc/translation-module": "^1.0",
         "tecnodesignc/user-module": "^1.0",
         "tecnodesignc/workshop-module": "^1.0",
-        "tecnodesignc/encore-theme": "dev-master",
         "tightenco/ziggy": "0.9",
-        "yajra/laravel-datatables-oracle": "^9.15",
-        "ext-json": "*",
-        "lcobucci/jwt":"4.1.4"
+        "yajra/laravel-datatables-oracle": "^9.15"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",

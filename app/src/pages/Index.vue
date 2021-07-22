@@ -25,7 +25,7 @@
 
 import { defineComponent, ref } from 'vue';
 
-export default defineComponent({
+export default {
   name: 'PageIndex',
   components: {},
   setup() {
@@ -33,13 +33,11 @@ export default defineComponent({
 
     };
   }
-});
+};
 </script>
 <style lang="scss">
 .page-title-box{
-  background: url(~assets/title-img.png);
-  background-position: center;
-  background-color: $primary;
+  background: $primary url(~assets/title-img.png) center;
   margin: 0 -24px 23px -24px;
   padding: 24px 24px 92px 24px;
   background-size: cover;

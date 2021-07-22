@@ -66,6 +66,7 @@
 import {useStore} from 'vuex'
 
 import {ref} from 'vue';
+import { useRouter, useRoute } from 'vue-router'
 
 export default {
   name: 'Login',
@@ -74,22 +75,27 @@ export default {
     const email = ref(null)
     const password = ref(null)
     const recorder = ref(true)
-    const store=useStore();
+    const store = useStore();
+    const router = useRouter()
+    const route = useRoute()
 
     const login = () => {
       const params = {
         attributes: {
-          email: email,
-          password: password
+          email: email.value,
+          password: password.value
         }
       }
-      store.dispatch('authModule/login',params)
+      console.log()
+      let login = store.dispatch('auth/login', params)
+      if (login) {
+        router.push({name:'app.home'})
+      }
 
     }
     const onReset = () => {
       email.value = null,
         password.value = null
-
     }
     return {email, password, recorder, login, onReset};
   }
