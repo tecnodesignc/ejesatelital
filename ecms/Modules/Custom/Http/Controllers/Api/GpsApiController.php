@@ -33,6 +33,7 @@ class GpsApiController extends BaseApiController
     {
         try {
             $response =$request->all();
+            \Log::info(json_encode($response));
         } catch (\Exception $e) {
             Log::Error($e);
             $status = $this->getStatusError($e->getCode());

@@ -8,6 +8,7 @@ use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Laracasts\Presenter\PresentableTrait;
 use Laravel\Scout\Searchable;
+use Modules\Company\Entities\Account;
 use Modules\Media\Support\Traits\MediaRelation;
 use Modules\User\Entities\UserInterface;
 use Modules\User\Entities\UserToken;
@@ -59,7 +60,10 @@ class User extends EloquentUser implements UserInterface, AuthenticatableContrac
 
         parent::__construct($attributes);
     }
-
+    public function accounts()
+    {
+        return $this->belongsToMany(Account::class, 'company__account_user');
+    }
     /**
      * @inheritdoc
      */
