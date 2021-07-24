@@ -1,141 +1,57 @@
-import { LocalStorage, SessionStorage } from 'quasar'
+import {LocalStorage} from 'quasar'
 
 class localCache {
-  constructor () {
-    if (process.env.CLIENT) {
-      //Order config to localForage
-      let configDrivers = () => {
-        let drivers = env('LOCALFORAGE_DRIVERS', 'INDEXEDDB,LOCALSTORAGE,WEBSQL').split(',')
-        let data = []
-        drivers.forEach((driver) => {
-          data.push(LocalStorage[driver])
-        })
-        return data
-      }
-
-      //Config for LocalStorage
-      LocalStorage.config({
-        driver: configDrivers(),
-        name: this.nameDB(),
-        version: 1,
-        storeName: 'storage',
+  get(index) {
+    if (index) {
+      return new Promise((resolve, reject) => {
+        if (!process.env.CLIENT) return resolve(undefined) //Validate if is side Server
+        resolve (LocalStorage.getItem(index))
       })
-    }
-
-    //Contructor of method get
-    this.get = {
-      //Return data by index name
-      item: (index) => {
-        return new Promise((resolve, reject) => {
-          if (index) {
-            if (!process.env.CLIENT) return resolve(undefined) //Validate if is side Server
-            LocalStorage.getItem(index)
-          } else {
-            return reject('Error: index requiered')
-          }
-        })
-      },
-      //Return data of one or more items
-      //param type {array} require
-      items: (items) => {
-        if (Array.isArray(items) && items.length) {
-          return new Promise(async (resolve, reject) => {
-            if (!process.env.CLIENT) return resolve(undefined) //Validate if is side Server
-
-            let dataItems = {}
-
-            //Get data from all items
-            for (var index in items) {
-              dataItems[items[index]] = await LocalStorage.getItem(items[index])
-            }
-
-            resolve(dataItems) //Return data
-          })
-        } else {
-          return 'Error: param type {array} require'
-        }
-      },
-      //return all data
-      all: () => {
-        return new Promise((resolve, reject) => {
-          if (!process.env.CLIENT) return resolve(undefined) //Validate if is side Server
-
-          //Get all keys in storage
-          LocalStorage.keys().then(function (keys) {
-            if (keys.length) {
-              let allStorage = {}
-              //Get data by key
-              keys.forEach((key, index) => {
-                LocalStorage.getItem(key).then(value => {
-                  allStorage[key] = value //Add data from storage
-                  if (keys.length == index) {
-                    resolve(allStorage)
-                  }
-                })
-              })
-            } else {
-              resolve(allStorage)
-            }
-          })
-        })
-      }
     }
   }
 
   //Insert or update
-  set (index, data) {
+  set(index, data) {
     if (index) {
       return new Promise((resolve, reject) => {
         if (!process.env.CLIENT) return resolve(undefined) //Validate if is side Server
-
-        LocalStorage.setItem(index, data).then(value => {
-          resolve(value)
-        }).catch(error => {
-          console.error('Error: Localforage method SET. ', error)
-          reject(error)
-        })
+        LocalStorage.set(index, data)
       })
     }
   }
 
   //Remove an item from storage
-  remove (index) {
+  remove(index) {
     if (index) {
       return new Promise((resolve, reject) => {
         if (!process.env.CLIENT) return resolve(undefined) //Validate if is side Server
-
-        LocalStorage.removeItem(index).then(value => {
-          resolve(true)
-        })
+        LocalStorage.remove(index)
+        resolve(true)
       })
     }
   }
 
   //Return all keys fron storage
-  keys () {
+  keys() {
     return new Promise((resolve, reject) => {
       if (!process.env.CLIENT) return resolve(undefined) //Validate if is side Server
-
-      LocalStorage.keys().then(value => {
-        resolve(value)
-      })
+      resolve(LocalStorage.getAll())
     })
 
   }
 
   //Remove all items from storage
-  clear () {
+  clear() {
     return new Promise((resolve, reject) => {
       if (!process.env.CLIENT) return resolve(undefined) //Validate if is side Server
+      LocalStorage.clear()
+      resolve(true)
 
-      LocalStorage.clear().then(value => {
-        resolve(true)
-      })
     })
   }
 
   //Restore cache, save any data
-  restore (keys = []) {
+  restore(keys = []) {
     return new Promise((resolve, reject) => {
       if (!process.env.CLIENT) return resolve(undefined) //Validate if is side Server
 
@@ -166,7 +82,7 @@ class localCache {
   }
 
   //Return name to DB according to domain
-  nameDB () {
+  nameDB() {
     let hostname = window.location.host.split('.')
     let response = hostname
 
@@ -188,4 +104,4 @@ const cache = new localCache()
 
 export default cache
 
-export { cache }
+export {cache}

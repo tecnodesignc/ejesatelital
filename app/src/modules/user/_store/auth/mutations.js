@@ -34,7 +34,7 @@ export function setSettings (state, payload){
   state.settings = payload
 }
 
-export function RESET(state, payload){
+export function reset(state, payload){
   state.token = null
   state.userId = null
   state.user = null

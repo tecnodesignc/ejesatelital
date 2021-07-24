@@ -5,21 +5,20 @@ export default boot(async ({router, store, Vue}) => {
     let redirectTo = false
 
     //===== Validate authentication
-    if (to.meta.authenticated) {
+    if (to.meta.requireAuth) {
       // Validate auth
-      let isAuthenticated = process.env.CLIENT ? store.state.quserAuth.authenticated : true
+      let isAuthenticated = process.env.CLIENT ? store.state.auth.authStatus : true
 
       //try login If isn't authenticated
-      if (!isAuthenticated) isAuthenticated = await store.dispatch('auth/login')
+      if (!isAuthenticated) isAuthenticated = await store.dispatch('auth/authTryAutoLogin')
 
       //Validate route to redirect
       if (isAuthenticated) {
         //Update data of user
-        store.dispatch('auth/AUTH_UPDATE')
-
+        //store.dispatch('auth/authUpdate')
         //Validate permission of route
         if (to.meta && to.meta.permission) {
-          if (!store.getters['quserAuth/hasAccess'](to.meta.permission)) redirectTo = {name: 'app.home'}
+          if (!store.getters['auth/hasAccess'](to.meta.permission)) redirectTo = {name: 'app.home'}
         }
 
         // if page is login redirect to home
@@ -29,10 +28,10 @@ export default boot(async ({router, store, Vue}) => {
       }
     }
 
-    store.commit('app/SET_CURRENT_ROUTE', (redirectTo || to))//Update current route
+    store.commit('app/setCurrentRoute', (redirectTo || to))//Update current route
 
     //====== Define redirec route, and set language
-    let defaultLangue = store.state.qsiteSettings.defaultLocale
+    let defaultLangue = process.env.LOCALE
 
     if (redirectTo && (redirectTo.name != to.name)) {
       redirectTo.query = {lang: defaultLangue}

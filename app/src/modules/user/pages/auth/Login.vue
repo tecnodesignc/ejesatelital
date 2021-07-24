@@ -72,6 +72,7 @@ export default {
   name: 'Login',
   components: {},
   setup() {
+    console.log(process.env.CLIENT)
     const email = ref(null)
     const password = ref(null)
     const recorder = ref(true)
