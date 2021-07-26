@@ -72,26 +72,29 @@ export default {
   name: 'Login',
   components: {},
   setup() {
-    console.log(process.env.CLIENT)
     const email = ref(null)
     const password = ref(null)
     const recorder = ref(true)
     const store = useStore();
     const router = useRouter()
-    const route = useRoute()
 
-    const login = () => {
-      const params = {
-        attributes: {
-          email: email.value,
-          password: password.value
+    const login = async () => {
+      try {
+        const params = {
+          attributes: {
+            email: email.value,
+            password: password.value
+          }
         }
+        let login =  await store.dispatch('auth/login', params)
+
+        if (login) {
+          await router.push({name: 'app.home'})
+        }
+      }catch (error) {
+        console.error('[Auth Login] ', error)
       }
-      console.log()
-      let login = store.dispatch('auth/login', params)
-      if (login) {
-        router.push({name:'app.home'})
-      }
+
 
     }
     const onReset = () => {

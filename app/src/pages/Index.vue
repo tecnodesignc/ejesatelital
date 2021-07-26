@@ -1,5 +1,5 @@
 <template>
-  <q-page class="row">
+  <q-page padding class="row">
     <div class="page-title-box">
       <div class="container-fluid">
         <div class="row align-items-center">
@@ -8,11 +8,7 @@
               <h4 style="
     margin-right: 77px;
 ">Dashboard</h4>
-              <ol class="breadcrumb m-0">
-                <li class="breadcrumb-item"><a href="javascript: void(0);">Morvin</a></li>
-                <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
-                <li class="breadcrumb-item active">Dashboard</li>
-              </ol>
+              <breadcrumb :items="breadcrumb"/>
             </div>
           </div>
         </div>
@@ -23,23 +19,27 @@
 
 <script>
 
-import { defineComponent, ref } from 'vue';
+import {defineComponent, ref} from 'vue';
+import Breadcrumb from 'src/components/Breadcrumb.vue'
+
 
 export default {
   name: 'PageIndex',
-  components: {},
+  components: {Breadcrumb},
   setup() {
+    const breadcrumb = [
+      {
+        name: "Dashboard",
+        to: 'app.home',
+        active: false
+      }
+    ]
     return {
-
+      breadcrumb
     };
   }
 };
 </script>
 <style lang="scss">
-.page-title-box{
-  background: $primary url(~assets/title-img.png) center;
-  margin: 0 -24px 23px -24px;
-  padding: 24px 24px 92px 24px;
-  background-size: cover;
-}
+
 </style>

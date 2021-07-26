@@ -11,7 +11,7 @@ import routes from './routes'
  * with the Router instance.
  */
 
-export default route(function ({ store }) {
+export default route( function ({ store }) {
   const createHistory = process.env.SERVER
     ? createMemoryHistory
     : (process.env.VUE_ROUTER_MODE === 'history' ? createWebHistory : createWebHashHistory)
@@ -26,7 +26,9 @@ export default route(function ({ store }) {
     history: createHistory(process.env.MODE === 'ssr' ? void 0 : process.env.VUE_ROUTER_BASE)
   })
 
-  Router.beforeEach((to, from, next) => {
+   Router.beforeEach(async(to, from, next) => {
+
+    await store.dispatch('auth/authTryAutoLogin')
     if (to.matched.some(record => record.meta.requireAuth) && !store.getters['auth/isAuthorized']) {
       next({ name: 'auth-login', query: { next: to.fullPath } })
     } else {
