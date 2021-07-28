@@ -73,14 +73,13 @@ class Array {
    */
   select (dataArray, fields = { label: 'title', id: 'id' }) {
     let response = []
-    dataArray.forEach((item) => {
+     for (let item in dataArray){
       response.push({
-        label: item[fields.label],
-        id: item[fields.id],
-        value: item[fields.id]
+        label: dataArray[item][fields.label],
+        id: dataArray[item][fields.id],
+        value: dataArray[item][fields.id]
       })
-    })
-
+    }
     return response
   }
 

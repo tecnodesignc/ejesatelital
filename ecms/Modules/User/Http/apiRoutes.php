@@ -126,6 +126,6 @@ $router->group(['prefix' => '/user/v1'], function (Router $router) {
     $router->get('/permissions', [
         'as' => 'api.user.permissions',
         'uses' => 'PermissionsApiController@index',
-        'middleware' => ['auth:api']
+        //'middleware' => ['auth:api']
     ]);
 });

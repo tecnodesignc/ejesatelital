@@ -21,7 +21,6 @@
             <q-card>
               <q-card-section>
                 <h4 class="header-title">Crear Usuario</h4>
-                <pre>{{permissions_list.length}}</pre>
                 <form class="needs-validation" novalidate>
                   <q-tabs
                     v-model="tab"
@@ -35,7 +34,6 @@
                     <q-tab name="pane-2" label="Permisos"/>
                   </q-tabs>
                   <q-separator/>
-
                   <q-tab-panels v-model="tab" animated>
                     <q-tab-panel name="pane-0">
                       <div class="text-h6">Datos</div>
@@ -74,6 +72,7 @@
                             outlined
                             v-model="email"
                             stack-label
+                            type="email"
                             dense
                             placeholder="Correo Electronico"
                             lazy-rules
@@ -84,10 +83,10 @@
                       <div class="row">
                         <div class="col-12 q-pt-sm">
                           <q-toggle
-                            name="music_genre"
+                            name="is_activate"
                             v-model="is_activated"
                             :true-value="true"
-                            label="Pop"
+                            label="Activar Usuario"
                           />
                         </div>
                       </div>
@@ -96,7 +95,8 @@
                           <p class="text-subtitle2">Contraseña</p>
                           <q-input
                             outlined
-                            v-model="email"
+                            v-model="password"
+                            type="password"
                             stack-label
                             dense
                             placeholder="Contraseña"
@@ -111,7 +111,8 @@
                           <p class="text-subtitle2">Confirmación de contraseña</p>
                           <q-input
                             outlined
-                            v-model="email"
+                            type="password"
+                            v-model="password_confirmation"
                             stack-label
                             dense
                             placeholder="Confirmación de contraseña"
@@ -125,6 +126,7 @@
                     <q-tab-panel name="pane-1">
                       <div class="text-h6">Roles</div>
                       <div class="row">
+                        <pre> {{roles_list}}</pre>
                         <div class="col-12 q-pt-sm">
                           <q-select
                             outlined
@@ -140,96 +142,13 @@
 
                     <q-tab-panel name="pane-2">
                       <div class="text-h6">Permisos</div>
-                      <div class="row">
-                        <p class="pull-right">
-                          <q-btn
-                            flat
-                            color="primary"
-                            @click="changeStateForAll(1)"
-                            label=" allow all">
-
-                          </q-btn>
-                          <q-btn
-                            flat
-                            color="primary"
-                            @click="changeStateForAll(0)"
-                            label="inherit all"
-                          />
-                          <q-btn
-                            flat
-                            color="primary"
-                            @click="changeStateForAll(-1)"
-                            label="deny all"
-                          />
-                        </p>
-
-                        <div v-if="permissions_list.length" v-for="(value, name) in permissions_list" :key="name">
-                          <pre>{{name}}</pre>
-                          <h3>{{ name }}</h3>
-                          <div v-for="(permissionActions, subPermissionTitle) in value" :key="subPermissionTitle">
-                            <div class="row">
-                              <div class="col-md-12">
-                                <div class="row">
-                                  <div class="col-md-3"><h4 class="pull-left">{{ ucfirst(subPermissionTitle) }}</h4>
-                                  </div>
-                                  <div class="col-md-9">
-                                    <p style="margin-top: 10px;">
-                                      <q-btn
-                                        flat
-                                        color="primary"
-                                                 @click="changeState(subPermissionTitle, permissionActions, 1)" label="allow all"/>
-                                      <q-btn
-                                        flat
-                                        color="primary"
-                                                 @click="changeState(subPermissionTitle, permissionActions, 0)" label="inherit all"/>
-
-                                      <q-btn flat
-                                             color="primary"
-                                                 @click="changeState(subPermissionTitle, permissionActions, -1)" label="deny all"/>
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-12" v-for="(label, permissionAction) in permissionActions"
-                                   :key="permissionAction">
-                                <div class="row">
-                                  <div class="col-md-3">
-                                    <div class="visible-sm-block visible-md-block visible-lg-block">
-                                      <label class="control-label text-right"
-                                             style="display: block">{{ label }}</label>
-                                    </div>
-                                    <div class="visible-xs-block">
-                                      <label class="control-label">{{ label }}</label>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-9">
-                                    <q-btn-toggle
-                                      v-model="permissions[`${subPermissionTitle}.${permissionAction}`]"
-                                      class="my-custom-toggle"
-                                      no-caps
-                                      rounded
-                                      unelevated
-                                      toggle-color="primary"
-                                      color="white"
-                                      text-color="primary"
-                                      :options="[
-                                          {label: 'allow', value: '1'},
-                                          {label: 'inherit', value: '0'},
-                                          {label: 'deny', value: '-1'}
-                                      ]"
-                                    />
-
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                        <permissions/>
                     </q-tab-panel>
                   </q-tab-panels>
+                  <div class="q-pa-md q-gutter-sm">
+                  <q-btn unelevated color="primary" @click="register" label="Guardar" />
+                  <q-btn outline color="primary" label="Cancelar" />
+                  </div>
                 </form>
               </q-card-section>
             </q-card>
@@ -249,13 +168,13 @@ import {useRouter, useRoute} from 'vue-router'
 import {useQuasar} from "quasar";
 import Breadcrumb from 'src/components/Breadcrumb.vue'
 import {api} from "boot/axios";
-import {Loading, Notify} from "quasar";
 import {computed, onMounted} from 'vue'
-import axios from "axios";
+import Permissions from "src/modules/user/_components/admin/Permissions";
+import array from "src/plugins/array";
 
 export default {
   name: 'Create User',
-  components: {Breadcrumb},
+  components: {Breadcrumb,Permissions},
   setup() {
     const $q = useQuasar();
     const breadcrumb = [
@@ -274,49 +193,14 @@ export default {
     const last_name = ref(null)
     const email = ref(null)
     const is_activated = ref(false)
-    const roles = ref(null)
+    const roles = ref([])
     const password = ref(null)
     const password_confirmation = ref(null)
-    const permissions = ref(null)
-    const permissions_list = ref([])
-    const roles_list = ref(null)
+    const roles_list = ref([])
+    const success = ref(false)
     //const store = useStore();
     const router = useRouter()
     const tab = ref('pane-0')
-    const getPermissionKey = async (subPermissionTitle, permissionAction) => {
-      return `${subPermissionTitle}.${permissionAction}`;
-    }
-    const changeState = async (permissionPart, actions, state) => {
-      _.forEach(actions, (translationKey, key) => {
-        permissions.value[`${permissionPart}.${key}`] = state;
-      });
-    }
-    const changeStateForAll = async (state) => {
-      _.forEach(this.permissions, (index, permission) => {
-        permissions.value[permission] = state;
-      });
-    }
-    const getPermission = async () => {
-      $q.loading.show()
-      return new Promise(async (resolve, reject) => {
-        api.get('/user/v1/permissions').then(response => {
-          $q.loading.hide()
-          permissions_list.value=response.data.permissions
-          console.log(permissions_list.value)
-          resolve(true)
-        }).catch(error => {
-          $q.notify({
-            color: 'negative',
-            position: 'bottom-right',
-            message: 'Error en la consulta de permisos',
-            icon: 'report_problem'
-          })
-          $q.loading.hide()
-          reject(error)
-        })
-      })
-    }
-
     const register = async () => {
       try {
         const params = {
@@ -332,11 +216,10 @@ export default {
 
           }
         }
+        console.warn(params)
       } catch (error) {
         console.error('Register Login', error)
       }
-
-
     }
     const onReset = () => {
       first_name.value = null,
@@ -345,11 +228,25 @@ export default {
         is_activated.value = null
       password.value = null
     }
-
+    const getRoles=()=>{
+      return new Promise(async (resolve, reject) => {
+        api.get('/user/v1/roles').then(response => {
+        roles_list.value=array.select(response.data.data,{ label: 'name', id: 'id'})
+        }).catch(error => {
+          $q.notify({
+            color: 'negative',
+            position: 'bottom-right',
+            message: 'Error en la consulta de Roles',
+            icon: 'report_problem'
+          })
+          $q.loading.hide()
+          reject(error)
+        });
+      })
+    }
     onMounted(() => {
-      getPermission()
+      getRoles()
     });
-
     return {
       first_name,
       last_name,
@@ -358,20 +255,19 @@ export default {
       password,
       password_confirmation,
       roles,
-      permissions,
       breadcrumb,
       tab,
-      permissions_list,
       roles_list,
+      success,
       register,
-      changeStateForAll,
-      changeState,
       onReset
     };
   }
 };
 </script>
 
-<style>
-
+<style lang="scss">
+.permission-toggle {
+  border:1px solid $primary
+}
 </style>

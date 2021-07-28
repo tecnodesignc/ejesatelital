@@ -111,7 +111,6 @@ export function authLogout({commit, dispatch, state}) {
   })
 }
 
-
 //Set permission of user
 export function setPermissions({dispatch, commit, state}) {
   return new Promise(async (resolve, reject) => {
