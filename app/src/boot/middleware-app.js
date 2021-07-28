@@ -33,8 +33,6 @@ export default boot(async ({router, store, Vue}) => {
     //====== Define redirec route, and set language
     let defaultLangue = process.env.LOCALE
 
-    console.error(to.meta.requireAuth, redirectTo)
-
     if (redirectTo && (redirectTo.name != to.name)) {
 
       redirectTo.query = {lang: defaultLangue}
@@ -48,9 +46,7 @@ export default boot(async ({router, store, Vue}) => {
       if ((redirectTo.path == '/') || (from.path != redirectTo.path)) return router.push(redirectTo)
 
     } else {
-
       return next()
-
     }
   })
 })

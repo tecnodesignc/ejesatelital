@@ -18,84 +18,218 @@
 
         <div class="row">
           <div class="col-lg-12">
-            <q-card >
+            <q-card>
               <q-card-section>
-                <h4 class="header-title">Bootstrap Validation - Normal</h4>
-                <p class="card-title-desc">For custom Bootstrap form validation messages, you’ll need to add the <code>novalidate</code>
-                  boolean attribute to your <code>&lt;form&gt;</code>.</p>
-
+                <h4 class="header-title">Crear Usuario</h4>
+                <pre>{{permissions_list.length}}</pre>
                 <form class="needs-validation" novalidate>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="mb-3">
-                        <label for="validationCustom01" class="form-label">First name</label>
-                        <input type="text" class="form-control" id="validationCustom01"
-                               placeholder="First name" value="Mark" required>
-                        <div class="valid-feedback">
-                          Looks good!
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="mb-3">
-                        <label for="validationCustom02" class="form-label">Last name</label>
-                        <input type="text" class="form-control" id="validationCustom02"
-                               placeholder="Last name" value="Otto" required>
-                        <div class="valid-feedback">
-                          Looks good!
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-4">
-                      <div class="mb-3">
-                        <label for="validationCustom03" class="form-label">State</label>
-                        <select class="form-select" id="validationCustom03" required>
-                          <option selected disabled value="">Choose...</option>
-                          <option>...</option>
-                        </select>
-                        <div class="invalid-feedback">
-                          Please select a valid state.
-                        </div>
+                  <q-tabs
+                    v-model="tab"
+                    dense
+                    align="left"
+                    class="bg-primary text-white shadow-2"
+                    :breakpoint="0"
+                  >
+                    <q-tab name="pane-0" label="Datos"/>
+                    <q-tab name="pane-1" label="Roles"/>
+                    <q-tab name="pane-2" label="Permisos"/>
+                  </q-tabs>
+                  <q-separator/>
 
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="mb-3">
-                        <label for="validationCustom04" class="form-label">City</label>
-                        <input type="text" class="form-control" id="validationCustom04"
-                               placeholder="City" required>
-                        <div class="invalid-feedback">
-                          Please provide a valid city.
+                  <q-tab-panels v-model="tab" animated>
+                    <q-tab-panel name="pane-0">
+                      <div class="text-h6">Datos</div>
+                      <div class="row">
+                        <div class="col-12 q-pt-sm">
+                          <p class="text-subtitle2">Nombres</p>
+                          <q-input
+                            outlined
+                            v-model="first_name"
+                            stack-label
+                            dense
+                            placeholder="Nombres"
+                            lazy-rules
+                            :rules="[val => !!val || 'Campo requerido']"
+                          />
                         </div>
                       </div>
-                    </div>
+                      <div class="row">
+                        <div class="col-12 q-pt-sm">
+                          <p class="text-subtitle2">Apellidos</p>
+                          <q-input
+                            outlined
+                            v-model="last_name"
+                            stack-label
+                            dense
+                            placeholder="Apellidos"
+                            lazy-rules
+                            :rules="[val => !!val || 'Campo requerido']"
+                          />
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12 q-pt-sm">
+                          <p class="text-subtitle2">Correo Electronico</p>
+                          <q-input
+                            outlined
+                            v-model="email"
+                            stack-label
+                            dense
+                            placeholder="Correo Electronico"
+                            lazy-rules
+                            :rules="[val => !!val || 'Campo requerido']"
+                          />
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12 q-pt-sm">
+                          <q-toggle
+                            name="music_genre"
+                            v-model="is_activated"
+                            :true-value="true"
+                            label="Pop"
+                          />
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12 q-pt-sm">
+                          <p class="text-subtitle2">Contraseña</p>
+                          <q-input
+                            outlined
+                            v-model="email"
+                            stack-label
+                            dense
+                            placeholder="Contraseña"
+                            lazy-rules
+                            :rules="[ val => val && val.length > 0 || 'Campo Obligatorio',
+                                      val => val.length > 8 || 'Por favor use minimo 8 caracteres',]"
+                          />
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12 q-pt-sm">
+                          <p class="text-subtitle2">Confirmación de contraseña</p>
+                          <q-input
+                            outlined
+                            v-model="email"
+                            stack-label
+                            dense
+                            placeholder="Confirmación de contraseña"
+                            lazy-rules
+                            :rules="[val => val && val.length > 0 || 'Campo Obligatorio',
+                                      val => val === password || 'La Contraseña no Coincide']"
+                          />
+                        </div>
+                      </div>
+                    </q-tab-panel>
+                    <q-tab-panel name="pane-1">
+                      <div class="text-h6">Roles</div>
+                      <div class="row">
+                        <div class="col-12 q-pt-sm">
+                          <q-select
+                            outlined
+                            dense
+                            v-model="roles"
+                            multiple
+                            :options="roles_list"
+                            placeholder="Roles"
+                          />
+                        </div>
+                      </div>
+                    </q-tab-panel>
 
-                    <div class="col-md-4">
-                      <div class="mb-3">
-                        <label for="validationCustom05" class="form-label">Zip</label>
-                        <input type="text" class="form-control" id="validationCustom05"
-                               placeholder="Zip" required>
-                        <div class="invalid-feedback">
-                          Please provide a valid zip.
+                    <q-tab-panel name="pane-2">
+                      <div class="text-h6">Permisos</div>
+                      <div class="row">
+                        <p class="pull-right">
+                          <q-btn
+                            flat
+                            color="primary"
+                            @click="changeStateForAll(1)"
+                            label=" allow all">
+
+                          </q-btn>
+                          <q-btn
+                            flat
+                            color="primary"
+                            @click="changeStateForAll(0)"
+                            label="inherit all"
+                          />
+                          <q-btn
+                            flat
+                            color="primary"
+                            @click="changeStateForAll(-1)"
+                            label="deny all"
+                          />
+                        </p>
+
+                        <div v-if="permissions_list.length" v-for="(value, name) in permissions_list" :key="name">
+                          <pre>{{name}}</pre>
+                          <h3>{{ name }}</h3>
+                          <div v-for="(permissionActions, subPermissionTitle) in value" :key="subPermissionTitle">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="row">
+                                  <div class="col-md-3"><h4 class="pull-left">{{ ucfirst(subPermissionTitle) }}</h4>
+                                  </div>
+                                  <div class="col-md-9">
+                                    <p style="margin-top: 10px;">
+                                      <q-btn
+                                        flat
+                                        color="primary"
+                                                 @click="changeState(subPermissionTitle, permissionActions, 1)" label="allow all"/>
+                                      <q-btn
+                                        flat
+                                        color="primary"
+                                                 @click="changeState(subPermissionTitle, permissionActions, 0)" label="inherit all"/>
+
+                                      <q-btn flat
+                                             color="primary"
+                                                 @click="changeState(subPermissionTitle, permissionActions, -1)" label="deny all"/>
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12" v-for="(label, permissionAction) in permissionActions"
+                                   :key="permissionAction">
+                                <div class="row">
+                                  <div class="col-md-3">
+                                    <div class="visible-sm-block visible-md-block visible-lg-block">
+                                      <label class="control-label text-right"
+                                             style="display: block">{{ label }}</label>
+                                    </div>
+                                    <div class="visible-xs-block">
+                                      <label class="control-label">{{ label }}</label>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-9">
+                                    <q-btn-toggle
+                                      v-model="permissions[`${subPermissionTitle}.${permissionAction}`]"
+                                      class="my-custom-toggle"
+                                      no-caps
+                                      rounded
+                                      unelevated
+                                      toggle-color="primary"
+                                      color="white"
+                                      text-color="primary"
+                                      :options="[
+                                          {label: 'allow', value: '1'},
+                                          {label: 'inherit', value: '0'},
+                                          {label: 'deny', value: '-1'}
+                                      ]"
+                                    />
+
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                  <div class="form-check mb-3">
-                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck"
-                           required>
-                    <label class="form-check-label" for="invalidCheck">
-                      Agree to terms and conditions
-                    </label>
-                    <div class="invalid-feedback">
-                      You must agree before submitting.
-                    </div>
-                  </div>
-                  <div>
-                    <button class="btn btn-primary" type="submit">Submit form</button>
-                  </div>
+                    </q-tab-panel>
+                  </q-tab-panels>
                 </form>
               </q-card-section>
             </q-card>
@@ -112,31 +246,76 @@
 
 import {ref} from 'vue';
 import {useRouter, useRoute} from 'vue-router'
-//import {useQuasar} from "quasar";
+import {useQuasar} from "quasar";
 import Breadcrumb from 'src/components/Breadcrumb.vue'
+import {api} from "boot/axios";
+import {Loading, Notify} from "quasar";
+import {computed, onMounted} from 'vue'
+import axios from "axios";
 
 export default {
   name: 'Create User',
   components: {Breadcrumb},
   setup() {
-    const breadcrumb=[
+    const $q = useQuasar();
+    const breadcrumb = [
       {
-        name:"Dashboard",
-        to:'app.home',
-        active:false
+        name: "Dashboard",
+        to: 'app.home',
+        active: false
       },
       {
-        name:"user",
-        to:'user.create',
-        active:true
+        name: "user",
+        to: 'user.create',
+        active: true
       }
     ]
     const first_name = ref(null)
     const last_name = ref(null)
     const email = ref(null)
+    const is_activated = ref(false)
+    const roles = ref(null)
     const password = ref(null)
+    const password_confirmation = ref(null)
+    const permissions = ref(null)
+    const permissions_list = ref([])
+    const roles_list = ref(null)
     //const store = useStore();
     const router = useRouter()
+    const tab = ref('pane-0')
+    const getPermissionKey = async (subPermissionTitle, permissionAction) => {
+      return `${subPermissionTitle}.${permissionAction}`;
+    }
+    const changeState = async (permissionPart, actions, state) => {
+      _.forEach(actions, (translationKey, key) => {
+        permissions.value[`${permissionPart}.${key}`] = state;
+      });
+    }
+    const changeStateForAll = async (state) => {
+      _.forEach(this.permissions, (index, permission) => {
+        permissions.value[permission] = state;
+      });
+    }
+    const getPermission = async () => {
+      $q.loading.show()
+      return new Promise(async (resolve, reject) => {
+        api.get('/user/v1/permissions').then(response => {
+          $q.loading.hide()
+          permissions_list.value=response.data.permissions
+          console.log(permissions_list.value)
+          resolve(true)
+        }).catch(error => {
+          $q.notify({
+            color: 'negative',
+            position: 'bottom-right',
+            message: 'Error en la consulta de permisos',
+            icon: 'report_problem'
+          })
+          $q.loading.hide()
+          reject(error)
+        })
+      })
+    }
 
     const register = async () => {
       try {
@@ -145,7 +324,12 @@ export default {
             first_name: first_name.value,
             last_name: last_name.value,
             email: email.value,
-            password: password.value
+            password: password.value,
+            password_confirmation: password_confirmation.value,
+            is_activated: is_activated.value,
+            roles: roles.value,
+            permissions: permissions.value
+
           }
         }
       } catch (error) {
@@ -158,9 +342,32 @@ export default {
       first_name.value = null,
         last_name.value = null,
         email.value = null,
-        password.value = null
+        is_activated.value = null
+      password.value = null
     }
-    return {email, password, breadcrumb, register, onReset};
+
+    onMounted(() => {
+      getPermission()
+    });
+
+    return {
+      first_name,
+      last_name,
+      email,
+      is_activated,
+      password,
+      password_confirmation,
+      roles,
+      permissions,
+      breadcrumb,
+      tab,
+      permissions_list,
+      roles_list,
+      register,
+      changeStateForAll,
+      changeState,
+      onReset
+    };
   }
 };
 </script>

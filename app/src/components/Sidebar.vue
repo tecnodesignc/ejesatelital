@@ -8,6 +8,14 @@
         Dashboard
       </q-item-section>
     </q-item>
+    <q-item clickable v-ripple :to="{name:'user.create'}" active-class="active" exact>
+      <q-item-section avatar>
+        <q-icon name="inbox" />
+      </q-item-section>
+      <q-item-section>
+        User
+      </q-item-section>
+    </q-item>
   </q-list>
 </template>
 

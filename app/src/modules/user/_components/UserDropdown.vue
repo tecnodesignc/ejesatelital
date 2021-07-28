@@ -29,7 +29,7 @@
           <q-item-section avatar>
             <q-icon name="power" />
           </q-item-section>
-          <q-item-section>Cerrar Sesión</q-item-section>
+          <q-item-section @click="logut">Cerrar Sesión</q-item-section>
         </q-item>
       </q-list>
     </q-btn-dropdown>
@@ -38,11 +38,15 @@
 
 <script lang="ts">
 //import {defineComponent} from 'vue';
-
+import {useStore} from 'vuex'
 export default {
   name: 'UserDropdown',
   setup() {
-    return {};
+    const store = useStore();
+    const logut=async () =>{
+      await store.dispatch('auth/authLogout')
+    }
+    return {logut};
   },
 };
 </script>

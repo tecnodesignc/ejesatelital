@@ -83,7 +83,8 @@ export function authUpdate({commit,dispatch, state}, data) {
       await dispatch('setPermissions')//Set Permissions
       await dispatch('setSettings')//Set settings
       //Set default headers to axios
-      axios.defaults.headers.common['Authorization'] = data.userToken
+      api.defaults.headers.common['Authorization'] = data.userToken
+
       return resolve(true)//Resolve
     } else {
       console.info('[authSuccess]::logout')
