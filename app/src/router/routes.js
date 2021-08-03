@@ -41,14 +41,69 @@ const routes = [
   },
   {
     path: '/users',
-    meta: {requireAuth: false},
+    meta: {
+      requireAuth: true
+    },
     name: 'users',
     component: () => import('layouts/MainLayout.vue'),
     children: [
       {
+        path: '/users',
+        name: 'user.index',
+        component: () => import('src/modules/user/pages/users/index.vue'),
+        meta: {
+          requireAuth: true
+        },
+      },
+      {
         path: '/users/create',
         name: 'user.create',
-        component: () => import('src/modules/user/pages/users/create.vue')
+        component: () => import('src/modules/user/pages/users/create.vue'),
+        meta: {
+          requireAuth: true
+        },
+      },
+      {
+        path: '/users/edit/:id',
+        name: 'user.edit',
+        component: () => import('src/modules/user/pages/users/edit.vue'),
+        meta: {
+          requireAuth: true
+        },
+      }
+    ]
+  },
+  {
+    path: '/roles',
+    meta: {
+      requireAuth: true
+    },
+    name: 'role',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      {
+        path: '/roles',
+        name: 'role.index',
+        component: () => import('src/modules/user/pages/roles/index.vue'),
+        meta: {
+          requireAuth: true
+        },
+      },
+      {
+        path: '/roles/create',
+        name: 'role.create',
+        component: () => import('src/modules/user/pages/roles/create.vue'),
+        meta: {
+          requireAuth: true
+        },
+      },
+      {
+        path: '/roles/edit/:id',
+        name: 'role.edit',
+        component: () => import('src/modules/user/pages/users/create.vue'),
+        meta: {
+          requireAuth: true
+        },
       }
     ]
   },

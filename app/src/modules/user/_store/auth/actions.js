@@ -101,7 +101,7 @@ export function authLogout({commit, dispatch, state}) {
       if (state.authStatus)//Request to Logout in backend
         await api.get('/user/v1/auth/logout').catch(() => {
         })
-      await dispatch('reset')//Reset Store
+      await commit('reset')//Reset Store
       await cache.restore()//Reset cache
       resolve(true)
     } catch (e) {

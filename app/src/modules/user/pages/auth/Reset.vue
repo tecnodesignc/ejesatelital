@@ -5,7 +5,7 @@
         <q-card-section>
           <div class="row text-center">
             <div class="col-12 q-mt-md">
-              <img src="~assets/logo.png" alt="Logo" height="22">
+              <img src="~assets/logo.png" alt="Logo" height="41">
             </div>
             <div class="col-12 text-primary"><h5 class="q-mb-sm q-mt-lg">
               Reiniciar la contraseña!

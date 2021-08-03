@@ -11,6 +11,7 @@ class FullUserTransformer extends JsonResource
     {
         $permissionsManager = app(PermissionManager::class);
         $permissions =$permissionsManager->buildPermissionList();
+
         $data = [
             'id' => $this->id,
             'first_name' => $this->when($this->first_name,$this->first_name),

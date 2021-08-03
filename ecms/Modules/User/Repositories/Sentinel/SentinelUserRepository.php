@@ -161,7 +161,6 @@ class SentinelUserRepository implements UserRepository
         $user->save();
 
         event(new UserWasUpdated($user,$data));
-
         if (!empty($roles)) {
             $user->roles()->sync($roles);
         }

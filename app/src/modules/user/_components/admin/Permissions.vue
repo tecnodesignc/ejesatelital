@@ -69,6 +69,7 @@
                   rounded
                   class="permission-toggle"
                   unelevated
+                  @click="triggerEvent"
                   toggle-color="primary"
                   color="white"
                   text-color="primary"
@@ -83,6 +84,7 @@
                   v-model="permissions[`${subPermissionTitle}.${permissionAction}`]"
                   no-caps
                   rounded
+                  @click="triggerEvent"
                   class="permission-toggle"
                   unelevated
                   toggle-color="primary"
@@ -116,7 +118,7 @@ export default {
       default: false,
     }
   },
-  setup(props) {
+  setup(props, contex) {
     const $q = useQuasar();
     const permissions = ref([])
     const permissions_list = ref([])
@@ -127,14 +129,19 @@ export default {
     const changeState = async (permissionPart, actions, state) => {
 
       for (let action in actions) {
-        let module=`${permissionPart}.${action}`;
-        permissions.value[module]=state
+        let module = `${permissionPart}.${action}`;
+        permissions.value[module] = state
       }
+      contex.emit('callPermissions', permissions.value)
     }
     const changeStateForAll = async (state) => {
       for (let moduleName in permissions.value) {
-        permissions.value[moduleName]=state
+        permissions.value[moduleName] = state
       }
+      contex.emit('callPermissions', permissions.value)
+    }
+    const triggerEvent = ()=>{
+      contex.emit('callPermissions', permissions.value)
     }
     const getPermission = async () => {
       $q.loading.show()
@@ -160,12 +167,11 @@ export default {
                 if (valuePermission) {
                   responsePermissions[fullName] = valuePermission
                 } else {
-                  responsePermissions[fullName] = 0
+                  responsePermissions[fullName] = props.isRole?-1:0
                 }
               }
             }
           }
-          console.warn(responsePermissions)
           permissions.value = responsePermissions
           success.value = true
           resolve(true)
@@ -190,6 +196,7 @@ export default {
       success,
       changeStateForAll,
       changeState,
+      triggerEvent
     }
   }
 

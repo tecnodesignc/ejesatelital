@@ -163,7 +163,7 @@ class UserApiController extends BaseApiController
             $data['fields'] = $this->validateFields($data['fields']);
             $data = $this->mergeRequestWithPermissions($data);
 
-            $this->user->updateAndSyncRoles($user->id, $data, $request->roles);
+            $this->user->updateAndSyncRoles($user->id, $data, $data['roles']);
             //Response
             $response = ["data" =>['msg'=>trans('user::messages.user updated')]];
 
