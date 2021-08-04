@@ -100,7 +100,7 @@ const routes = [
       {
         path: '/roles/edit/:id',
         name: 'role.edit',
-        component: () => import('src/modules/user/pages/users/create.vue'),
+        component: () => import('src/modules/user/pages/roles/edit.vue'),
         meta: {
           requireAuth: true
         },

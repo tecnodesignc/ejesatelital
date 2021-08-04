@@ -5,7 +5,7 @@
         <div class="row align-items-center">
           <div class="col-sm-6">
             <div class="page-title">
-              <h4>Usuarios</h4>
+              <h4>Roles</h4>
               <breadcrumb :items="breadcrumb"/>
             </div>
           </div>
@@ -24,13 +24,13 @@
                   label="Nuevo Usuario"
                   color="positive"
                   icon="add"
-                  :to="{name:'user.create'}"
+                  :to="{name:'role.create'}"
                 />
                 <form class="needs-validation" novalidate>
                 </form>
                 <div class="q-pa-md">
                   <q-table
-                    :rows="user_data"
+                    :rows="roles_data"
                     :columns="columns"
                     row-key="id"
                     :loading="loadign"
@@ -54,8 +54,8 @@
                         </q-td>
                         <q-td auto-width class="q-gutter-sm text-center">
                           <q-btn color="positive" icon="edit" dense
-                                 :to="{name:'user.edit',params:{id:props.row.id}}"/>
-                          <q-btn icon="delete" color="negative" dense @click="deleteUser(props.row.id)"/>
+                                 :to="{name:'role.edit',params:{id:props.row.id}}"/>
+                          <q-btn icon="delete" color="negative" dense @click="deleteRol(props.row.id)"/>
                         </q-td>
                       </q-tr>
                     </template>
@@ -95,8 +95,8 @@ export default {
         active: false
       },
       {
-        name: "Usuarios",
-        to: 'user.index',
+        name: "Roles",
+        to: 'role.index',
         active: true
       }
     ]
@@ -109,35 +109,19 @@ export default {
       format: val => `${val}`,
       sortable: true
     }, {
-      name: 'first_name',
+      name: 'name',
       required: true,
       label: 'Nombres',
       align: 'left',
-      field: row => row.first_name,
+      field: row => row.name,
       format: val => `${val}`,
       sortable: true
     }, {
-      name: 'last_name',
+      name: 'slug',
       required: true,
-      label: 'Apellidos',
+      label: 'URL Amigable',
       align: 'left',
-      field: row => row.last_name,
-      format: val => `${val}`,
-      sortable: true
-    }, {
-      name: 'last_name',
-      required: true,
-      label: 'Apellidos',
-      align: 'left',
-      field: row => row.last_name,
-      format: val => `${val}`,
-      sortable: true
-    }, {
-      name: 'email',
-      required: true,
-      label: 'Correo E.',
-      align: 'left',
-      field: row => row.email,
+      field: row => row.slug,
       format: val => `${val}`,
       sortable: true
     }, {
@@ -148,14 +132,9 @@ export default {
       field: row => row.created_at,
       format: val => `${val}`,
       sortable: true
-    }, {
-      name: 'actions',
-      label: 'Acciones',
-      required: true,
-      align: 'left',
-    },
+    }
     ]
-    const user_data = ref([])
+    const roles_data = ref([])
     const initialPagination = {
       sortBy: 'desc',
       descending: false,
@@ -167,34 +146,23 @@ export default {
       way: 'desc'
     })
     const status = ref(null)
-    const role_id = ref(null)
     const search = ref(null)
-
-    const roles_list = ref([])
     const loadign = ref(true)
     const success = ref(false)
     //const store = useStore();
     const router = useRouter()
-    const onReset = () => {
-      first_name.value = null,
-        last_name.value = null,
-        email.value = null,
-        is_activated.value = null,
-        password.value = null
-    }
-    const getUsers = () => {
+    const getRoles = () => {
       return new Promise(async (resolve, reject) => {
         let params = {
           filters: {
             status: status.value,
-            roleId: role_id.value,
             search: search.value,
           },
           page: initialPagination.page.value,
           take: initialPagination.rowsPerPage.value
         }
-        api.get('/user/v1/users', params).then(response => {
-          user_data.value = response.data.data
+        api.get('/user/v1/roles', params).then(response => {
+          roles_data.value = response.data.data
           success.value = true
           loadign.value = false
         }).catch(error => {
@@ -209,15 +177,14 @@ export default {
         });
       })
     }
-    const deleteUser = async (id) => {
+    const deleteRole = async (id) => {
       $q.loading.show()
       return new Promise(async (resolve, reject) => {
         try {
           let criteria = id
-
-          api.delete('/user/v1/users/'+criteria).then(response => {
+          api.delete('/user/v1/roles/'+criteria).then(response => {
             $q.loading.hide()
-            getUsers()
+            getRoles()
             $q.notify({
               color: 'negative',
               position: 'bottom-right',
@@ -240,38 +207,18 @@ export default {
         }
       })
     }
-    const getRoles = () => {
-      return new Promise(async (resolve, reject) => {
-        api.get('/user/v1/roles').then(response => {
-          roles_list.value = array.select(response.data.data, {label: 'name', id: 'id'})
-        }).catch(error => {
-          $q.notify({
-            color: 'negative',
-            position: 'bottom-right',
-            message: 'Error en la consulta de Roles',
-            icon: 'report_problem'
-          })
-          $q.loading.hide()
-          reject(error)
-        });
-      })
-    }
     onMounted(() => {
       getRoles()
-      getUsers()
     });
     return {
       columns,
-      user_data,
-      roles_list,
+      roles_data,
       breadcrumb,
       loadign,
       order,
       status,
-      role_id,
       search,
-      deleteUser,
-      onReset
+      deleteRole,
     };
   }
 };

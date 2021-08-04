@@ -11,13 +11,10 @@
           @click="drawer=!drawer"
         />
         <header-left/>
-
-
         <div><header-right/></div>
         <q-btn dense flat icon="fas fa-cog" color="secondary" @click="rightDrawerOpen=!rightDrawerOpen" />
       </q-toolbar>
     </q-header>
-
     <q-drawer
       v-model="drawer"
       show-if-above

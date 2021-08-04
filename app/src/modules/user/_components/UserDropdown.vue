@@ -1,13 +1,13 @@
 <template>
-  <div class="">
+  <div class="text-primary">
     <q-btn-dropdown flat unelevated  no-caps color="secondary">
       <template v-slot:label>
         <div class="row items-center">
           <q-avatar rounded size="28px">
-            <img src="https://cdn.quasar.dev/logo-v2/svg/logo.svg"/>
+            <img :src="userData.main_image.path"/>
           </q-avatar>
           <div class="text-center q-ml-sm">
-            Custom Content
+            {{ userData.full_name }}
           </div>
         </div>
       </template>
@@ -37,16 +37,18 @@
 </template>
 
 <script lang="ts">
-//import {defineComponent} from 'vue';
+
 import {useStore} from 'vuex'
+import { computed} from 'vue'
 export default {
   name: 'UserDropdown',
   setup() {
     const store = useStore();
+    const userData=computed(() =>store.state.auth.user)
     const logut=async () =>{
       await store.dispatch('auth/authLogout')
     }
-    return {logut};
+    return {logut,userData};
   },
 };
 </script>

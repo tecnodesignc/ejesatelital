@@ -5,7 +5,7 @@
         <div class="row align-items-center">
           <div class="col-sm-6">
             <div class="page-title">
-              <h4>Roles</h4>
+              <h4>Crear Rol</h4>
               <breadcrumb :items="breadcrumb"/>
             </div>
           </div>
@@ -82,7 +82,7 @@
                   </q-tab-panels>
                   <div class="q-pa-md q-gutter-sm">
                     <q-btn unelevated color="primary" @click="register" label="Guardar"/>
-                    <q-btn outline color="primary" label="Cancelar"/>
+                    <q-btn :to="{name:'role.index'}" outline color="primary" label="Cancelar"/>
                   </div>
                 </form>
               </q-card-section>

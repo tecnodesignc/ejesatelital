@@ -95,7 +95,7 @@
           Usuarios
         </q-item-section>
       </q-item>
-      <q-item clickable v-ripple :to="{name:'role.create'}" active-class="active" exact class="q-pl-lg">
+      <q-item clickable v-ripple :to="{name:'role.index'}" active-class="active" exact class="q-pl-lg">
         <q-item-section avatar>
           <q-icon name="arrow_right"/>
         </q-item-section>

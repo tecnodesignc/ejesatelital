@@ -1,5 +1,5 @@
 <template>
-  <q-page padding class="row">
+  <q-page class="row">
     <div class="page-title-box">
       <div class="container-fluid">
         <div class="row align-items-center">

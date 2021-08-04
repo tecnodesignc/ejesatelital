@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 //import { ref } from 'vue'
 
 import UserDropdown from "src/modules/user/_components/UserDropdown.vue";
