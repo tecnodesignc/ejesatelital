@@ -13,7 +13,7 @@
       icon="business"
       label="Compañias"
     >
-      <q-item clickable v-ripple :to="{name:'user.create'}" active-class="active" exact class="q-pl-lg">
+      <q-item clickable v-ripple :to="{name:'company.account.index'}" active-class="active" exact class="q-pl-lg">
         <q-item-section avatar>
           <q-icon name="arrow_right"/>
         </q-item-section>
@@ -21,7 +21,7 @@
           Empresas
         </q-item-section>
       </q-item>
-      <q-item clickable v-ripple :to="{name:'user.create'}" active-class="active" exact class="q-pl-lg">
+      <q-item clickable v-ripple :to="{name:'company.account-type.index'}" active-class="active" exact class="q-pl-lg">
         <q-item-section avatar>
           <q-icon name="arrow_right"/>
         </q-item-section>

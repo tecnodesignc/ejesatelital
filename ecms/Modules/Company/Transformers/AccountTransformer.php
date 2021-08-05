@@ -31,6 +31,8 @@ class AccountTransformer extends JsonResource
             'country' => new CountryTransformer($this->whenLoaded('country')),
             'province' => new ProvinceTransformer($this->whenLoaded('province')),
             'city' => new CityTransformer($this->whenLoaded('city')),
+            'created_at' => $this->when($this->created_at, $this->created_at),
+            'updated_at' => $this->when($this->updated_at, $this->updated_at),
             'links' => [
                 'delete' => route('api.company.account.destroy', $this->resource->id),
                 'edit' => route('api.company.account.edit', $this->resource->id),

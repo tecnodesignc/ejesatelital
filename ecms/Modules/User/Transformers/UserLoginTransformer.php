@@ -18,7 +18,7 @@ class UserLoginTransformer extends JsonResource
             'full_name' => $this->when($this->present()->fullname, $this->present()->fullname),
             'email' => $this->email,
             'is_activated' => $this->isActivated(),
-            'main_image' => $this->mainImage,
+            'main_image' => $this->present()->gravatar(),
             'last_login' => $this->last_login,
             'created_at' => $this->created_at,
             'permissions' => $permissions,

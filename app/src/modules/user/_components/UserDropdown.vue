@@ -4,7 +4,7 @@
       <template v-slot:label>
         <div class="row items-center">
           <q-avatar rounded size="28px">
-            <img :src="userData.main_image.path"/>
+            <img :src="userData.main_image"/>
           </q-avatar>
           <div class="text-center q-ml-sm">
             {{ userData.full_name }}

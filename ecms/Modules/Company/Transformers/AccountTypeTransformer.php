@@ -15,6 +15,8 @@ class AccountTypeTransformer extends JsonResource
          'id' => $this->when($this->id, $this->id),
          'name' => $this->when($this->name, $this->name),
          'options' => $this->when($this->options, $this->options),
+          'created_at' => $this->when($this->created_at, $this->created_at),
+          'updated_at' => $this->when($this->updated_at, $this->updated_at),
          'accounts' => AccountTransformer::collection($this->whenLoaded('accounts')),
       ];
 

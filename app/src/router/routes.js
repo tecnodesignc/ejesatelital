@@ -64,7 +64,7 @@ const routes = [
         },
       },
       {
-        path: '/users/edit/:id',
+        path: '/users/:id/edit',
         name: 'user.edit',
         component: () => import('src/modules/user/pages/users/edit.vue'),
         meta: {
@@ -98,7 +98,7 @@ const routes = [
         },
       },
       {
-        path: '/roles/edit/:id',
+        path: '/roles/:id/edit',
         name: 'role.edit',
         component: () => import('src/modules/user/pages/roles/edit.vue'),
         meta: {
@@ -107,6 +107,75 @@ const routes = [
       }
     ]
   },
+  {
+    path: '/company/account-type',
+    meta: {
+      requireAuth: true
+    },
+    name: 'company.account-type',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      {
+        path: '/company/account-type',
+        name: 'company.account-type.index',
+        component: () => import('src/modules/company/_pages/accountType/Index.vue'),
+        meta: {
+          requireAuth: true
+        },
+      },
+      {
+        path: '/company/account-type/create',
+        name: 'company.account-type.create',
+        component: () => import('src/modules/company/_pages/accountType/create.vue'),
+        meta: {
+          requireAuth: true
+        },
+      },
+      {
+        path: '/company/account-type/:id/edit',
+        name: 'company.account-type.edit',
+        component: () => import('src/modules/company/_pages/accountType/edit.vue'),
+        meta: {
+          requireAuth: true
+        },
+      }
+    ]
+  },
+  {
+    path: '/company/account',
+    meta: {
+      requireAuth: true
+    },
+    name: 'company.account',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      {
+        path: '/company/account',
+        name: 'company.account.index',
+        component: () => import('src/modules/user/pages/roles/index.vue'),
+        meta: {
+          requireAuth: true
+        },
+      },
+      {
+        path: '/company/account/create',
+        name: 'company.account.create',
+        component: () => import('src/modules/user/pages/roles/create.vue'),
+        meta: {
+          requireAuth: true
+        },
+      },
+      {
+        path: '/company/account/:id/edit',
+        name: 'company.account.edit',
+        component: () => import('src/modules/user/pages/roles/edit.vue'),
+        meta: {
+          requireAuth: true
+        },
+      }
+    ]
+  },
+
   // Always leave this as last one,
   // but you can also remove it
   {

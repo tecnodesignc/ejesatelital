@@ -2,7 +2,7 @@
   <q-img class="absolute-top user-sidebar text-center" src="~assets/user-img.png" style="height: 150px">
     <div class="absolute-bottom bg-transparent">
       <q-avatar size="56px" class="q-mb-sm">
-        <img :src="userData.main_image.path">
+        <img :src="userData.main_image">
       </q-avatar>
       <div class="text-weight-bold"> {{ userData.full_name }}</div>
       <div>{{ userData.email }}</div>
