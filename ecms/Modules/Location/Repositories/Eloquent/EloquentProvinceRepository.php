@@ -45,6 +45,18 @@ class EloquentProvinceRepository extends EloquentBaseRepository implements Provi
                     $query->whereDate($date->field, '<=', $date->to);
             }
 
+            //add filter by search
+            if (isset($filter->search) && $filter->search) {
+                //find search in columns
+                $term = $filter->search;
+                $query->where(function ($subQuery) use ($term) {
+                    $subQuery->whereHas('translations', function ($q) use ($term) {
+                        $q->where('name', 'LIKE', "%{$term}%");
+                    })->orWhere('id', $term);
+                });
+
+            }
+
             //Order by
             if (isset($filter->order)) {
                 $orderByField = $filter->order->field ?? 'created_at';//Default field

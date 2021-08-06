@@ -152,7 +152,7 @@ const routes = [
       {
         path: '/company/account',
         name: 'company.account.index',
-        component: () => import('src/modules/user/pages/roles/index.vue'),
+        component: () => import('src/modules/company/_pages/account/index.vue'),
         meta: {
           requireAuth: true
         },
@@ -160,7 +160,7 @@ const routes = [
       {
         path: '/company/account/create',
         name: 'company.account.create',
-        component: () => import('src/modules/user/pages/roles/create.vue'),
+        component: () => import('src/modules/company/_pages/account/create.vue'),
         meta: {
           requireAuth: true
         },
@@ -168,7 +168,7 @@ const routes = [
       {
         path: '/company/account/:id/edit',
         name: 'company.account.edit',
-        component: () => import('src/modules/user/pages/roles/edit.vue'),
+        component: () => import('src/modules/company/_pages/account/edit.vue'),
         meta: {
           requireAuth: true
         },

@@ -5,7 +5,7 @@
         <div class="row align-items-center">
           <div class="col-sm-6">
             <div class="page-title">
-              <h4>Editar Tipo de Cuenta: {{name }}</h4>
+              <h4>Editar Rol: {{name }}</h4>
               <breadcrumb :items="breadcrumb"/>
             </div>
           </div>
@@ -88,12 +88,12 @@ export default {
       },
       {
         name: "Tipo de Cuenta",
-        to: 'company.account-type.index',
+        to: 'company.account.index',
         active: true
       },
       {
         name: "Crear Tipo de Cuenta",
-        to: 'company.account-type.create',
+        to: 'company.account.create',
         active: true
       }
     ]
@@ -115,7 +115,7 @@ export default {
               options:[]
             }
           }
-          api.put('/company/v1/account-types/' + criteria, params).then(response => {
+          api.put('/company/v1/account-types' + criteria, params).then(response => {
             $q.loading.hide()
             $q.notify({
               color: 'positive',

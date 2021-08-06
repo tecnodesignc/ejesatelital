@@ -110,10 +110,8 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
                     $query->where('id', 'like', '%' . $filter->search . '%')
                         ->orWhere('name', 'like', '%' . $filter->search . '%')
                         ->orWhere('nit', 'like', '%' . $filter->search . '%')
-                        ->orWhere('phone', 'like', '%' . $filter->search . '%')
-                        ->orWhere('state', 'like', '%' . $filter->search . '%')
-                        ->orWhere('country', 'like', '%' . $filter->search . '%')
-                        ->orWhere('city', 'like', '%' . $filter->search . '%');
+                        ->orWhere('phone', 'like', '%' . $filter->search . '%');
+
                 });
 
             }

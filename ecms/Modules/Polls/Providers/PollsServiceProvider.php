@@ -7,6 +7,7 @@ use Modules\Core\Traits\CanPublishConfiguration;
 use Modules\Core\Events\BuildingSidebar;
 use Modules\Core\Events\LoadingBackendTranslations;
 use Modules\Polls\Events\Handlers\RegisterPollsSidebar;
+use Illuminate\Support\Arr;
 
 class PollsServiceProvider extends ServiceProvider
 {
