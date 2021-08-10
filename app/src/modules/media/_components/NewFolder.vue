@@ -1,105 +1,147 @@
 <template>
-
   <q-btn
     label="Nueva Carpeta"
     color="positive"
     icon="add"
-    @click="newFolder"
+    @click="dialogNF= true"
   />
+  <q-dialog v-model="dialogNF">
+    <q-card style="width: 600px">
+      <form class="needs-validation" novalidate>
+        <q-toolbar>
+          <q-toolbar-title><span class="text-weight-bold">Nueva </span> Carpeta</q-toolbar-title>
+          <q-btn flat round dense icon="close" v-close-popup/>
+        </q-toolbar>
 
+        <q-card-section>
+          <div class="row">
+            <div class="col-12 q-pt-sm">
+              <p class="text-subtitle2">Nombre de Carpeta</p>
+              <q-input
+                outlined
+                v-model="name"
+                stack-label
+                dense
+                placeholder="Nombre de Carpeta"
+                lazy-rules
+                :rules="[val => !!val || 'Campo requerido']"
+              />
+            </div>
+          </div>
+
+          <div class="row" v-if="helper.hasAccess('company.account.index')">
+            <div class="col-12 q-pt-sm">
+              <p class="text-subtitle2">Asignar usuario</p>
+              <q-select
+                outlined
+                dense
+                v-model="user_id"
+                multiple
+                emit-value
+                map-options
+                :options="users_list"
+              />
+            </div>
+          </div>
+
+        </q-card-section>
+        <q-card-actions align="right">
+          <q-btn flat label="cancelar" color="primary" v-close-popup/>
+          <q-btn flat label="Crear Carpeta" color="primary" @click="newFolder"/>
+        </q-card-actions>
+      </form>
+    </q-card>
+  </q-dialog>
 </template>
 
-<script lang="ts">
-//import {defineComponent} from 'vue';
+<script>
 
-import {ref} from "vue";
-import { useQuasar } from 'quasar'
+import {computed, ref} from "vue";
+import {useQuasar} from 'quasar'
+import {api} from "boot/axios";
+import array from "src/plugins/array";
+import {useStore} from "vuex";
+import helper from "src/plugins/helpers";
+
 export default {
   name: 'NewFolder',
-  setup() {
-    const notification = ref(null)
+
+  props: {
+    parent_id: {
+      type: Number,
+      default: 0
+    }
+  },
+
+  setup(props, contex) {
     const $q = useQuasar()
-    const folder=ref(null)
-    function newFolder () {
-      $q.dialog({
-        title: 'Nueva Carpeta',
-        message: 'Nombre de Carpeta',
-        prompt: {
-          model: folder,
-          type: 'text' // optional
-        },
-        cancel: true,
-        persistent: true
-      }).onOk(data => {
-
-        return new Promise(async (resolve, reject) => {
-          api.get('/media/v1/folders').then(response => {
-            $q.loading.hide()
-            permissions_list.value = response.data.permissions;
-            let permissionsData = response.data.permissions
-            let responsePermissions = {}
-            //Format permissions with format to backend
-            for (let moduleName in permissionsData) {
-              for (let entityName in permissionsData[moduleName]) {
-                for (let permissionName in permissionsData[moduleName][entityName]) {
-                  //Get fullName of permission
-                  let fullName = (entityName.toLowerCase() == 'dashboard') ?
-                    (`${moduleName}.${permissionName}`).toLowerCase() :
-                    (`${entityName}.${permissionName}`).toLowerCase()
-                  let valuePermission = null
-                  if (props.permissionsStatus.length) {
-                    valuePermission = permissionsStatus.value[fullName]
-                  }
-                  //If allow inherit, only set item with different value 0(inherit)
-                  if (valuePermission) {
-                    responsePermissions[fullName] = valuePermission
-                  } else {
-                    responsePermissions[fullName] = props.isRole?-1:0
-                  }
-                }
-              }
-            }
-            permissions.value = responsePermissions
-            success.value = true
-            resolve(true)
-          }).catch(error => {
-            $q.notify({
-              color: 'negative',
-              position: 'bottom-right',
-              message: 'Error en la consulta de permisos',
-              icon: 'report_problem'
-            })
-            $q.loading.hide()
-            reject(error)
+    const store = useStore();
+    const name = ref(null)
+    const user_id = ref(null)
+    const users_list = ref([])
+    const dialogNF = ref(false)
+    const newFolder = () => {
+      return new Promise(async (resolve, reject) => {
+        console.warn(props)
+        let params = {
+          attributes: {
+            name: name.value,
+            user_id: user_id.value?user_id.value:store.state.auth.userId,
+            parent_id: props.parent_id,
+          }
+        }
+        api.post('/media/v1/folders', params).then(response => {
+          $q.loading.hide()
+          $q.notify({
+            color: 'positive',
+            position: 'bottom-right',
+            message: 'Carpeta Creada',
           })
-        })
+          contex.emit('upload', true)
+          dialogNF.value = false
+          resolve(true)
+        }).catch(error => {
+          $q.notify({
+            color: 'negative',
+            position: 'bottom-right',
+            message: 'Error al crear la carpeta: ' + error.errors,
+            icon: 'report_problem'
+          })
+          $q.loading.hide()
+          reject(error)
+        });
+      })
 
-      }).onCancel(() => {
-
-      }).onDismiss(() => {
-        // console.log('I am triggered on both OK and Cancel')
+    }
+    const getUser = (val, update, abort) => {
+      return new Promise(async (resolve, reject) => {
+        if (val.length < 2) return abort()
+        let params = {
+          params: {
+            take: 20,
+            filter: {search: val}
+          }
+        }
+        api.get('/user/v1/users', params).then(response => {
+          let options = array.select(response.data.data, {label: 'full_name', id: 'id'})
+          users_list.value = options
+        }).catch(error => {
+          $q.notify({
+            color: 'negative',
+            position: 'bottom-right',
+            message: 'Error en la consulta de Roles',
+            icon: 'report_problem'
+          })
+          $q.loading.hide()
+          reject(error)
+        });
       })
     }
-    return {};
+
+    return {name, user_id, users_list, dialogNF, helper, getUser, newFolder};
   },
 };
 </script>
 <style lang="scss">
-.notification-bell {
-  .q-btn-dropdown__arrow {
-    display: none;
-  }
-}
 
-.list-notification {
-  .q-toolbar__title {
-    font-weight: 500;
-    line-height: 1.2;
-    font-size: .875rem;
-  }
-
-  .view-more {
-    font-size: 80%;
-  }
-}
 </style>

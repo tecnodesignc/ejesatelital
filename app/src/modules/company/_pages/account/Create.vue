@@ -213,6 +213,42 @@
                   </div>
                 </q-card-section>
               </q-card>
+              <q-card class="q-mb-sm">
+                <q-card-section>
+                  <div class="row">
+                    <div class="col-12 q-pt-sm">
+                      <p class="text-subtitle2">Imagen</p>
+                     <single-media zone="logo" entity="Company\Entities\Account" @selectedImage="selectedImage"/>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 q-pt-sm">
+                      <p class="text-subtitle2">Tipo de Cuenta</p>
+                      <q-select
+                        outlined
+                        dense
+                        v-model="account_type_id"
+                        emit-value
+                        map-options
+                        use-input
+                        :options="account_type_list"
+                        @filter="getAccountType"
+                        placeholder="Tipo de Cuenta"
+                      />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 q-pt-sm">
+                      <q-toggle
+                        name="is_activate"
+                        v-model="active"
+                        :true-value="true"
+                        label="Activar Cuenta"
+                      />
+                    </div>
+                  </div>
+                </q-card-section>
+              </q-card>
             </div>
           </div>
         </form>
@@ -233,10 +269,11 @@ import {api} from "boot/axios";
 import {computed, onMounted} from 'vue'
 import Permissions from "src/modules/user/_components/admin/Permissions";
 import array from "src/plugins/array";
+import SingleMedia from "src/modules/media/_components/SingleMedia";
 
 export default {
   name: 'Create Account Type',
-  components: {Breadcrumb, Permissions},
+  components: {SingleMedia, Breadcrumb, Permissions},
   setup() {
     const $q = useQuasar();
     const breadcrumb = [
@@ -262,6 +299,7 @@ export default {
     const parent_id = ref(0)
     const active = ref(false)
     const account_type_id = ref(null)
+    const medias_single=ref(null)
     const phone = ref(null)
     const street = ref(null)
     const city_id = ref(null)
@@ -454,6 +492,10 @@ export default {
         console.error(error)
       });
     }
+
+    const selectedImage = (selectedImage) => {
+      medias_single.value=selectedImage
+    }
     onMounted(() => {
       getCountries()
     });
@@ -467,6 +509,7 @@ export default {
       phone,
       street,
       city_id,
+      medias_single,
       province_id,
       country_id,
       options,
@@ -486,6 +529,7 @@ export default {
       getCountries,
       getProvince,
       getCities,
+      selectedImage,
     };
   }
 };

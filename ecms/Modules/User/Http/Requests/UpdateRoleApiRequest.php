@@ -10,7 +10,7 @@ class UpdateRoleApiRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'slug' => 'required|unique:roles,slug,' . $this->id . ',id',
+            //'slug' => "required|unique:roles,slug,{$this->id}",
         ];
     }
 

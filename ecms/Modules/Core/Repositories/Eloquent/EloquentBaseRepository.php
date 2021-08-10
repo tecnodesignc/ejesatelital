@@ -274,6 +274,9 @@ abstract class EloquentBaseRepository implements BaseRepository
         if (isset($params->filter)) {
             $filter = $params->filter;
 
+
+
+
             if (isset($filter->field))//Filter by specific field
                 $field = $filter->field;
         }

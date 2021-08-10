@@ -8,6 +8,7 @@ export function authSuccess (state,payload){
   state.user = payload.userData
   state.token = payload.userToken
   state.userId = payload.userData.id
+  state.selectedRoleId=payload.userData.roles[0]
   state.authStatus = true
 }
 

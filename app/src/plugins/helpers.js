@@ -1,3 +1,5 @@
+import {useStore} from "vuex";
+
 class Helper {
   _construct() {
   }
@@ -259,6 +261,19 @@ class Helper {
       .replace(/-+/g, '-'); // collapse dashes
 
     return str;
+  }
+
+  hasAccess(permission){
+    const store=useStore();
+    const permissions= store.state.auth.permissions
+
+    for (let item in permissions) {
+      if(permission==item){
+        return  permissions[item]
+      }
+    }
+    return false
+
   }
 
 }

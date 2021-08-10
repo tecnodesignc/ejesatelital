@@ -14,6 +14,9 @@
         </div>
       </div>
     </div>
+
+    <div>
+    </div>
   </q-page>
 </template>
 
@@ -21,6 +24,7 @@
 
 import {defineComponent, ref} from 'vue';
 import Breadcrumb from 'src/components/Breadcrumb.vue'
+
 
 
 export default {
@@ -34,8 +38,12 @@ export default {
         active: false
       }
     ]
+    const imageData = (selectedImage) => {
+      alert(selectedImage);
+    }
     return {
-      breadcrumb
+      breadcrumb,
+      imageData
     };
   }
 };

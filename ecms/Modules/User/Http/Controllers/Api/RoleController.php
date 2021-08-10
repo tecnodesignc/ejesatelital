@@ -63,6 +63,7 @@ class RoleController extends Controller
 
     public function update(EloquentRole $role, UpdateRoleRequest $request)
     {
+
         $data = $this->mergeRequestWithPermissions($request);
 
         $this->role->update($role->id, $data);
@@ -90,7 +91,6 @@ class RoleController extends Controller
     private function mergeRequestWithPermissions(Request $request)
     {
         $permissions = $this->permissions->clean($request->get('permissions'));
-
         return array_merge($request->all(), ['permissions' => $permissions]);
     }
 }

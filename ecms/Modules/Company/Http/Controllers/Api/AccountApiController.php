@@ -99,6 +99,7 @@ class AccountApiController extends BaseApiController
     {
         \DB::beginTransaction();
         try {
+
             //Validate permissions
             $this->validatePermission($request, 'company.accounts.create');
 

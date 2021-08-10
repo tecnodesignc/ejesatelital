@@ -39,7 +39,6 @@ class BaseApiController extends BasePublicController
         $this->user = Auth::user();
         $roles = $this->user ? $this->user->roles()->get() : false;//Role data
         $role = ($roles && isset($setting->roleId)) ? $roles->where("id", $setting->roleId)->first() : false;
-
         //Return params
         $params = (object)[
             "page" => is_numeric($request->input('page')) ? $request->input('page') : $default->page,
@@ -50,7 +49,8 @@ class BaseApiController extends BasePublicController
             "fields" => $request->input('fields') ? explode(",", $request->input('fields')) : $default->fields,
             'role' => $role,
             'roles' => $roles,
-            "user" => $this->user
+            "user" => $this->user,
+            'permissions' =>array_merge($this->user->permissions??[], $role->permissions??[]),
         ];
         return $params;//Response
     }

@@ -7,6 +7,7 @@ use Modules\Core\Traits\CanPublishConfiguration;
 use Modules\Core\Events\BuildingSidebar;
 use Modules\Core\Events\LoadingBackendTranslations;
 use Modules\Vehicle\Events\Handlers\RegisterVehicleSidebar;
+use Illuminate\Support\Arr;
 
 class VehicleServiceProvider extends ServiceProvider
 {

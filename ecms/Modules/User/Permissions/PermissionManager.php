@@ -44,8 +44,7 @@ class PermissionManager
      */
     public function clean($permissions)
     {
-
-        if (!empty($permissions)) {
+        if (!$permissions) {
             return [];
         }
         $cleanedPermissions = [];
@@ -77,7 +76,7 @@ class PermissionManager
 
     /**
      * Are all of the permissions passed of false value?
-     * @param array $permissions    Permissions array
+     * @param array $permissions Permissions array
      * @return bool
      */
     public function permissionsAreAllFalse(array $permissions)
@@ -95,21 +94,21 @@ class PermissionManager
         return $cleanedPermission === false;
     }
 
-    public function buildPermissionList($user_id=null,$role_id=null)
+    public function buildPermissionList($user_id = null, $role_id = null)
     {
         $roleRepository = app(RoleRepository::class);
         $userRepository = app(UserRepository::class);
-        if (isset($user_id) && !empty($user_id)){
-            $user=$userRepository->find($user_id);
-        }else{
-            $user= auth()->user();
+        if (isset($user_id) && !empty($user_id)) {
+            $user = $userRepository->find($user_id);
+        } else {
+            $user = auth()->user();
         }
-        if (isset($role_id) && !empty($role_id)){
-        $role=$roleRepository->find($role_id);
-        }else{
-            $role=$user->roles->first();
+        if (isset($role_id) && !empty($role_id)) {
+            $role = $roleRepository->find($role_id);
+        } else {
+            $role = $user->roles->first();
         }
-        $list =  $user->permissions + $role->permissions;
+        $list = $user->permissions + $role->permissions;
 
         return $list;
     }

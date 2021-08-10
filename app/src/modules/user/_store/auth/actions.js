@@ -103,6 +103,7 @@ export function authLogout({commit, dispatch, state}) {
         })
       await commit('reset')//Reset Store
       await cache.restore()//Reset cache
+
       resolve(true)
     } catch (e) {
       console.error('[AUTH LOGOUT] ', e)
