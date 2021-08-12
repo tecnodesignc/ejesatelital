@@ -47,9 +47,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
      */
     public function destroy($model)
     {
-
         event(new AccountWasDeleted($model->id, get_class($model)));
-
         return $model->delete();
     }
 

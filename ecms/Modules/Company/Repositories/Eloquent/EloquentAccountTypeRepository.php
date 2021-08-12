@@ -4,6 +4,7 @@ namespace Modules\Company\Repositories\Eloquent;
 
 use Modules\Company\Repositories\AccountTypeRepository;
 use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
+use Illuminate\Database\Eloquent\Builder;
 
 class EloquentAccountTypeRepository extends EloquentBaseRepository implements AccountTypeRepository
 {

@@ -95,12 +95,6 @@ export default {
             imagePath.value= response.data.data
             resolve(true)
           }).catch(error => {
-            $q.notify({
-              color: 'negative',
-              position: 'bottom-right',
-              message: 'Error al consultar la imagen ',
-              icon: 'report_problem'
-            })
             $q.loading.hide()
             reject(error)
           });

@@ -5,7 +5,7 @@
         <div class="row align-items-center">
           <div class="col-sm-6">
             <div class="page-title">
-              <h4>Tipos de Cuentas</h4>
+              <h4>Contactos</h4>
               <breadcrumb :items="breadcrumb"/>
             </div>
           </div>
@@ -21,10 +21,10 @@
             <q-card>
               <q-card-section>
                 <q-btn
-                  label="Nuevo Tipo de Cuenta"
+                  label="Nuevo Contacto"
                   color="positive"
                   icon="add"
-                  :to="{name:'company.account-type.create'}"
+                  :to="{name:'company.contact.create'}"
                 />
                 <form class="needs-validation" novalidate>
                 </form>
@@ -33,7 +33,7 @@
                     :rows="rows"
                     :columns="columns"
                     row-key="id"
-                    :loading="loadign"
+                    :loading="loading"
                     :filter="search"
                     @request="onRequest"
                     binary-state-sort
@@ -51,16 +51,25 @@
                         <q-td key="id" :props="props">
                           {{ props.row.id }}
                         </q-td>
-                        <q-td key="name" :props="props">
-                          {{ props.row.name }}
+                        <q-td key="first_name" :props="props">
+                          {{ props.row.first_name }} {{ props.row.last_name }}
+                        </q-td>
+                        <q-td key="email" :props="props">
+                          {{props.row.email}}
+                        </q-td>
+                        <q-td key="account" :props="props">
+                          {{props.row.account.name}}
+                        </q-td>
+                        <q-td key="mobile" :props="props">
+                          {{props.row.mobile}}
                         </q-td>
                         <q-td key="created_at" :props="props">
                           {{ props.row.created_at }}
                         </q-td>
-                        <q-td auto-width class="q-gutter-sm text-center">
+                        <q-td key="actions" :props="props" auto-width class="q-gutter-sm text-center">
                           <q-btn color="positive" icon="edit" dense
-                                 :to="{name:'company.account-type.edit',params:{id:props.row.id}}"/>
-                          <q-btn icon="delete" color="negative" dense @click="deleteAccountType(props.row.id)"/>
+                                 :to="{name:'company.contact.edit',params:{id:props.row.id}}"/>
+                          <q-btn icon="delete" color="negative" dense @click="deleteContact(props.row.id)"/>
                         </q-td>
                       </q-tr>
                     </template>
@@ -100,8 +109,8 @@ export default {
         active: false
       },
       {
-        name: "Tipos de cuentas",
-        to: 'company.account-type.index',
+        name: "Cuentas",
+        to: 'company.account.index',
         active: true
       }
     ]
@@ -114,14 +123,37 @@ export default {
       format: val => `${val}`,
       sortable: true
     }, {
-      name: 'name',
+      name: 'first_name',
       required: true,
       label: 'Nombre',
       align: 'left',
-      field: row => row.name,
+      field: row => row.first_name,
+      format: val => `${val}`,
+      sortable: true
+    }, {
+      name: 'email',
+      required: true,
+      label: 'Correo Electronico',
+      align: 'left',
+      field: row => row.email,
       format: val => `${val}`,
       sortable: true
     },{
+      name: 'account',
+      required: true,
+      label: 'Cuenta',
+      align: 'left',
+      field: row => row.account.name,
+      format: val => `${val}`,
+      sortable: true
+    }, {
+      name: 'mobile',
+      required: true,
+      label: 'Telefono',
+      align: 'left',
+      field: row => row.mobile,
+      sortable: true
+    }, {
       name: 'created_at',
       required: true,
       label: 'Creado el',
@@ -154,7 +186,7 @@ export default {
     const success = ref(false)
     //const store = useStore();
     const router = useRouter()
-    const getAccountTypes = () => {
+    const getContact = () => {
       return new Promise(async (resolve, reject) => {
         $q.loading.show()
         let params = {
@@ -162,11 +194,11 @@ export default {
             status: status.value,
             search: search.value,
           },
-          include: [],
+          include: 'account',
           page: initialPagination.value.page,
           take: initialPagination.value.rowsPerPage
         }
-        api.get('/company/v1/account-types', {params:params}).then(response => {
+        api.get('/company/v1/contacts', {params: params}).then(response => {
           rows.value = response.data.data
           initialPagination.value.rowsNumber = response.data.meta.page.total
           $q.loading.hide()
@@ -174,7 +206,7 @@ export default {
           $q.notify({
             color: 'negative',
             position: 'bottom-right',
-            message: 'Error en la consulta de Tipos de Cuenta',
+            message: 'Error en la consulta de  Cuentas',
             icon: 'report_problem'
           })
           $q.loading.hide()
@@ -182,26 +214,26 @@ export default {
         });
       })
     }
-    const deleteAccountType = async (id) => {
+    const deleteContact = async (id) => {
       $q.loading.show()
       return new Promise(async (resolve, reject) => {
         try {
           let criteria = id
 
-          api.delete('/company/v1/account-types/'+criteria).then(response => {
+          api.delete('/company/v1/contacts/' + criteria).then(response => {
             $q.loading.hide()
-            getAccountTypes()
+            getContact()
             $q.notify({
               color: 'negative',
               position: 'bottom-right',
-              message: 'Tipo de Empresa a sido eliminada',
+              message: 'La Cuenta a sido eliminada',
               icon: 'report_problem'
             })
           }).catch(error => {
             $q.notify({
               color: 'negative',
               position: 'bottom-right',
-              message: 'Error al Eliminar el Tipo de Empresa: ' + error.errors,
+              message: 'Error al Eliminar La Cuenta ' + error.errors,
               icon: 'report_problem'
             })
             $q.loading.hide()
@@ -223,7 +255,7 @@ export default {
       initialPagination.value.rowsPerPage = rowsPerPage
       initialPagination.value.sortBy = sortBy
       initialPagination.value.descending = descending
-      getAccountTypes()
+      getContact()
       // ...and turn of loading indicator
       loading.value = false
 
@@ -243,7 +275,7 @@ export default {
       order,
       status,
       search,
-      deleteAccountType,
+      deleteContact,
       onRequest
     };
   }

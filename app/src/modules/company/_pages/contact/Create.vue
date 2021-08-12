@@ -5,7 +5,7 @@
         <div class="row align-items-center">
           <div class="col-sm-6">
             <div class="page-title">
-              <h4>Crear Cuenta</h4>
+              <h4>Crear Contacto</h4>
               <breadcrumb :items="breadcrumb"/>
             </div>
           </div>
@@ -29,7 +29,7 @@
                       <p class="text-subtitle2">Nombre</p>
                       <q-input
                         outlined
-                        v-model="name"
+                        v-model="first_name"
                         stack-label
                         dense
                         placeholder="Nombre"
@@ -40,13 +40,13 @@
                   </div>
                   <div class="row">
                     <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">NIT:</p>
+                      <p class="text-subtitle2">Apellido</p>
                       <q-input
                         outlined
-                        v-model="nit"
+                        v-model="last_name"
                         stack-label
                         dense
-                        placeholder="Número de Identificación Tributaria"
+                        placeholder="Apellido"
                         lazy-rules
                         :rules="[val => !!val || 'Campo requerido']"
                       />
@@ -54,15 +54,14 @@
                   </div>
                   <div class="row">
                     <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">Sitio de Cuenta</p>
+                      <p class="text-subtitle2">Correo Electronico</p>
                       <q-input
                         outlined
-                        v-model="account_site"
+                        v-model="email"
                         stack-label
+                        type="email"
                         dense
-                        placeholder="Nombre"
-                        lazy-rules
-                        :rules="[val => !!val || 'Campo requerido']"
+                        placeholder="Correo Electronico"
                       />
                     </div>
                   </div>
@@ -76,6 +75,18 @@
                 <q-card-section>
                   <div class="row">
                     <div class="col-12 q-pt-sm">
+                      <p class="text-subtitle2">Celular</p>
+                      <q-input
+                        outlined
+                        v-model="mobile"
+                        stack-label
+                        dense
+                        placeholder="Dirección"
+                      />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 q-pt-sm">
                       <p class="text-subtitle2">Telefono</p>
                       <q-input
                         outlined
@@ -84,7 +95,6 @@
                         dense
                         placeholder="+57 312 5455444"
                         lazy-rules
-                        :rules="[val => !!val || 'Campo requerido']"
                       />
                     </div>
                   </div>
@@ -96,13 +106,15 @@
                         v-model="street"
                         stack-label
                         dense
-                        placeholder="Dirección"
-                        lazy-rules
-                        :rules="[val => !!val || 'Campo requerido']"
+                        placeholder="+57 312 5455444"
                       />
                     </div>
                   </div>
-                  <location/>
+                  <div class="row">
+                    <div class="col-12 q-pt-sm">
+                      <location @location="emitLocation"/>
+                    </div>
+                  </div>
                 </q-card-section>
               </q-card>
             </div>
@@ -111,52 +123,17 @@
                 <q-card-section>
                   <div class="row">
                     <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">Cuenta Padre</p>
+                      <p class="text-subtitle2">Cuenta</p>
                       <q-select
                         outlined
                         dense
-                        v-model="parent_id"
+                        v-model="account_id"
                         emit-value
                         map-options
                         use-input
                         :options="account_list"
                         @filter="getAccount"
-                        placeholder="Cuenta principal"
                       />
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">Tipo de Cuenta</p>
-                      <q-select
-                        outlined
-                        dense
-                        v-model="account_type_id"
-                        emit-value
-                        map-options
-                        :options="account_type_list"
-                        placeholder="Tipo de Cuenta"
-                      />
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 q-pt-sm">
-                      <q-toggle
-                        name="is_activate"
-                        v-model="active"
-                        :true-value="true"
-                        label="Activar Cuenta"
-                      />
-                    </div>
-                  </div>
-                </q-card-section>
-              </q-card>
-              <q-card class="q-mb-sm">
-                <q-card-section>
-                  <div class="row">
-                    <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">Imagen</p>
-                      <single-media zone="logo" entity="Modules\Company\Entities\Account" @selectedImage="selectedImage"/>
                     </div>
                   </div>
                 </q-card-section>
@@ -168,7 +145,7 @@
               <q-card-section>
                 <div class="q-pa-md q-gutter-sm">
                   <q-btn unelevated color="primary" @click="register" label="Guardar"/>
-                  <q-btn outline color="primary" :to="{name:'company.account-type.index'}" label="Cancelar"/>
+                  <q-btn outline color="primary" :to="{name:'company.contact.index'}" label="Cancelar"/>
                 </div>
               </q-card-section>
             </q-card>
@@ -195,7 +172,7 @@ import SingleMedia from "src/modules/media/_components/SingleMedia";
 import Location from "src/modules/location/_components/Location";
 
 export default {
-  name: 'Create Account Type',
+  name: 'Create Contact',
   components: {SingleMedia, Breadcrumb, Location},
   setup() {
     const $q = useQuasar();
@@ -206,33 +183,30 @@ export default {
         active: false
       },
       {
-        name: "Cuentas",
-        to: 'company.account.index',
+        name: "Contactos",
+        to: 'company.contact.index',
         active: true
       },
       {
-        name: "Crear Cuenta",
-        to: 'company.account.create',
+        name: "Crear Contacto",
+        to: 'company.contact.create',
         active: true
       }
     ]
-    const name = ref(null)
-    const nit = ref(null)
-    const account_site = ref(null)
-    const parent_id = ref(null)
-    const active = ref(false)
-    const account_type_id = ref(null)
-    const medias_single = ref(null)
-    const phone = ref(null)
+    const first_name = ref(null)
+    const last_name = ref(null)
+    const identification = ref(null)
+    const email = ref(null)
+    const phone = ref(false)
+    const mobile = ref(null)
     const street = ref(null)
     const city_id = ref(null)
     const province_id = ref(null)
     const country_id = ref(null)
+    const account_id = ref(null)
     const options = ref([])
     const users = ref([])
     const account_list = ref([])
-    const account_type_list = ref([])
-    const users_list = ref([])
     const success = ref(false)
     const router = useRouter()
     const register = async () => {
@@ -241,13 +215,12 @@ export default {
         return new Promise(async (resolve, reject) => {
           let params = {
             attributes: {
-              name: name.value,
-              nit: nit.value,
-              account_site: account_site.value,
-              parent_id: parent_id.value ? parent_id.value : 0,
-              active: active.value,
-              account_type_id: account_type_id.value,
-              medias_single: medias_single.value,
+              first_name: first_name.value,
+              last_name: last_name.value,
+              identification: identification.value,
+              email: email.value,
+              mobile: mobile.value,
+              account_id: account_id.value,
               phone: phone.value,
               street: street.value,
               city_id: city_id.value,
@@ -256,20 +229,20 @@ export default {
               options: options.value,
             }
           }
-          api.post('/company/v1/accounts', params).then(response => {
+          api.post('/company/v1/contacts', params).then(response => {
             $q.loading.hide()
             $q.notify({
               color: 'positive',
               position: 'bottom-right',
-              message: 'Empresa Guardado Corectamente',
+              message: 'Contacto Guardado Corectamente',
               icon: 'report_problem'
             })
-            router.push({name: 'company.account-type.index'})
+            router.push({name: 'company.contact.index'})
           }).catch(error => {
             $q.notify({
               color: 'negative',
               position: 'bottom-right',
-              message: 'Error al guardar el Tipo de Empresa: ' + error.errors,
+              message: 'Error al guardar el Contacto: ' + error.errors,
               icon: 'report_problem'
             })
             $q.loading.hide()
@@ -278,102 +251,53 @@ export default {
         })
       } catch (error) {
         $q.loading.hide()
-        console.error('Error en guardar Tipo de Empresa', error)
+        console.error('Error en guardar el Contacto', error)
       }
     }
     const getAccounts = async (val, update, abort) => {
-      if (val.length < 2) return abort()
-      let params = {
-        params: {
-          take: 20,
-          filter: {search: val}
-        }
-      }
-      api.get('/company/v1/accounts', {params:params}).then(response => {
-        update(() => {
-          let options = array.select(response.data.data, {label: 'name', id: 'id'})
-          account_list.value = options
-        })
-      }).catch(error => {
-        $q.notify({
-          color: 'negative',
-          position: 'bottom-right',
-          message: 'Error en la Consulta de Cuentas',
-          icon: 'report_problem'
-        })
-        $q.loading.hide()
-        reject(error)
-      });
-    }
-    const getAccountType = () => {
-
       return new Promise(async (resolve, reject) => {
+        if (val.length < 2) return abort()
         let params = {
           params: {
             take: 20,
-            filter: {}
+            filter: {search: val}
           }
         }
-        api.get('/company/v1/account-types', params).then(response => {
-          let options = array.select(response.data.data, {label: 'name', id: 'id'})
-          account_type_list.value = options
-          resolve(true)
-
+        api.get('/company/v1/accounts', {params: params}).then(response => {
+          update(() => {
+            account_list.value = array.select(response.data.data, {label: 'name', id: 'id'})
+          })
         }).catch(error => {
           $q.notify({
             color: 'negative',
             position: 'bottom-right',
-            message: 'Error en la Consulta de Tipos Cuentas',
+            message: 'Error en la Consulta de Cuentas',
             icon: 'report_problem'
           })
-          console.error(error)
           $q.loading.hide()
+          abort(error)
           reject(error)
         });
       });
     }
-    const getUsers = async (val, update, abort) => {
-      if (val.length < 2) return abort()
-      let params = {
-        params: {
-          take: 20,
-          filter: {search: val}
-        }
-      }
-      api.get('/users/v1/users', {params:params}).then(response => {
-        update(() => {
-          let options = array.select(response.data.data, {label: 'full_name', id: 'id'})
-          users_list.value = options
-        })
-      }).catch(error => {
-        $q.notify({
-          color: 'negative',
-          position: 'bottom-right',
-          message: 'Error en la Consulta de Usuarios',
-          icon: 'report_problem'
-        })
-        $q.loading.hide()
-        reject(error)
-      });
+    const emitLocation = (location) => {
+      country_id.value = location.country_id
+      province_id.value = location.province_id
+      city_id.value = location.city_id
     }
-    const selectedImage = (selectedImage) => {
-      medias_single.value = selectedImage
-    }
-    onMounted(() => {
-      getAccountType()
-      getAccounts()
+    onMounted(async () => {
+      await getAccounts()
     });
     return {
-      name,
-      nit,
-      account_site,
-      parent_id,
-      active,
-      account_type_id,
+      first_name,
+      last_name,
+      identification,
+      email,
+      mobile,
+      account_id,
       phone,
       street,
       city_id,
-      medias_single,
       province_id,
       country_id,
       options,
@@ -381,13 +305,9 @@ export default {
       breadcrumb,
       success,
       account_list,
-      account_type_list,
-      users_list,
       register,
       getAccounts,
-      getAccountType,
-      getUsers,
-      selectedImage,
+      emitLocation
     };
   }
 };

@@ -33,8 +33,10 @@
                     :rows="rows"
                     :columns="columns"
                     row-key="id"
-                    :loading="loadign"
+                    :loading="loading"
                     :filter="search"
+                    @request="onRequest"
+                    binary-state-sort
                   >
                     <template v-slot:top-right>
                       <q-input borderless dense debounce="300" v-model="search" placeholder="Buscar">
@@ -45,17 +47,26 @@
                     </template>
                     <template v-slot:body="props">
                       <q-tr :props="props">
-                        <q-td
-                          v-for="col in props.cols"
-                          :key="col.name"
-                          :props="props"
-                        >
-                          {{ col.value }}
+
+                        <q-td key="id" :props="props">
+                          {{ props.row.id }}
                         </q-td>
-                        <q-td auto-width class="q-gutter-sm text-center">
+                        <q-td key="name" :props="props">
+                          {{ props.row.name }}
+                        </q-td>
+                        <q-td key="nit" :props="props">
+                          {{ props.row.nit }}
+                        </q-td>
+                        <q-td key="status" class="text-center" :props="props">
+                          <q-badge rounded :color="props.row.status?'green':'red'"/>
+                        </q-td>
+                        <q-td key="created_at" :props="props">
+                          {{ props.row.created_at }}
+                        </q-td>
+                        <q-td key="actions" :props="props" auto-width class="q-gutter-sm text-center">
                           <q-btn color="positive" icon="edit" dense
-                                 :to="{name:'company.account-type.edit',params:{id:props.row.id}}"/>
-                          <q-btn icon="delete" color="negative" dense @click="deleteAccountType(props.row.id)"/>
+                                 :to="{name:'company.account.edit',params:{id:props.row.id}}"/>
+                          <q-btn icon="delete" color="negative" dense @click="deleteAccount(props.row.id)"/>
                         </q-td>
                       </q-tr>
                     </template>
@@ -116,23 +127,22 @@ export default {
       field: row => row.name,
       format: val => `${val}`,
       sortable: true
-    },{
-        name: 'nit',
-        required: true,
-        label: 'NIT',
-        align: 'left',
-        field: row => row.nit,
-        format: val => `${val}`,
-        sortable: true
-      },{
-        name: 'active',
-        required: true,
-        label: 'Estado',
-        align: 'left',
-        field: row => row.active,
-        format: val => `${val}`,
-        sortable: true
-      },{
+    }, {
+      name: 'nit',
+      required: true,
+      label: 'NIT',
+      align: 'left',
+      field: row => row.nit,
+      format: val => `${val}`,
+      sortable: true
+    }, {
+      name: 'status',
+      required: true,
+      label: 'Estado',
+      align: 'left',
+      field: row => row.status,
+      sortable: true
+    }, {
       name: 'created_at',
       required: true,
       label: 'Creado el',
@@ -148,36 +158,39 @@ export default {
     },
     ]
     const rows = ref([])
-    const initialPagination = {
+    const initialPagination = ref({
       sortBy: 'desc',
       descending: false,
       page: 1,
-      rowsPerPage: 20
-    }
+      rowsPerPage: 20,
+      rowsNumber: false
+    })
     const order = ref({
       field: 'created_at',
       way: 'desc'
     })
     const status = ref(null)
     const search = ref(null)
-    const loadign = ref(true)
+    const loading = ref(true)
     const success = ref(false)
     //const store = useStore();
     const router = useRouter()
     const getAccount = () => {
       return new Promise(async (resolve, reject) => {
+        $q.loading.show()
         let params = {
-          filters: {
+          filter: {
             status: status.value,
             search: search.value,
           },
-          page: initialPagination.page.value,
-          take: initialPagination.rowsPerPage.value
+          include: [],
+          page: initialPagination.value.page,
+          take: initialPagination.value.rowsPerPage
         }
-        api.get('/company/v1/account', params).then(response => {
+        api.get('/company/v1/accounts', {params: params}).then(response => {
           rows.value = response.data.data
-          success.value = true
-          loadign.value = false
+          initialPagination.value.rowsNumber = response.data.meta.page.total
+          $q.loading.hide()
         }).catch(error => {
           $q.notify({
             color: 'negative',
@@ -185,7 +198,7 @@ export default {
             message: 'Error en la consulta de  Cuentas',
             icon: 'report_problem'
           })
-          loadign.value = false
+          $q.loading.hide()
           reject(error)
         });
       })
@@ -196,7 +209,7 @@ export default {
         try {
           let criteria = id
 
-          api.delete('/company/v1/account/'+criteria).then(response => {
+          api.delete('/company/v1/account/' + criteria).then(response => {
             $q.loading.hide()
             getAccountTypes()
             $q.notify({
@@ -221,18 +234,38 @@ export default {
         }
       })
     }
-    onMounted(() => {
+
+    function onRequest(props) {
+      const {page, rowsPerPage, sortBy, descending} = props.pagination
+      const filter = props.filter
+      loading.value = true
+      // don't forget to update local pagination object
+      initialPagination.value.page = page
+      initialPagination.value.rowsPerPage = rowsPerPage
+      initialPagination.value.sortBy = sortBy
+      initialPagination.value.descending = descending
       getAccount()
+      // ...and turn of loading indicator
+      loading.value = false
+
+    }
+
+    onMounted(() => {
+      onRequest({
+        pagination: initialPagination.value,
+        filter: undefined
+      })
     });
     return {
       columns,
       rows,
       breadcrumb,
-      loadign,
+      loading,
       order,
       status,
       search,
       deleteAccount,
+      onRequest
     };
   }
 };

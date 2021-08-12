@@ -175,6 +175,40 @@ const routes = [
       }
     ]
   },
+  {
+    path: '/company/contact',
+    meta: {
+      requireAuth: true
+    },
+    name: 'company.contact',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      {
+        path: '/company/contact',
+        name: 'company.contact.index',
+        component: () => import('src/modules/company/_pages/contact/index.vue'),
+        meta: {
+          requireAuth: true
+        },
+      },
+      {
+        path: '/company/contact/create',
+        name: 'company.contact.create',
+        component: () => import('src/modules/company/_pages/contact/create.vue'),
+        meta: {
+          requireAuth: true
+        },
+      },
+      {
+        path: '/company/contact/:id/edit',
+        name: 'company.contact.edit',
+        component: () => import('src/modules/company/_pages/contact/edit.vue'),
+        meta: {
+          requireAuth: true
+        },
+      }
+    ]
+  },
 
   // Always leave this as last one,
   // but you can also remove it

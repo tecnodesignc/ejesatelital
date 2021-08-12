@@ -48,6 +48,19 @@ class EloquentCityRepository extends EloquentBaseRepository implements CityRepos
                 $orderWay = $filter->order->way ?? 'desc';//Default way
                 $query->orderBy($orderByField, $orderWay);//Add order to query
             }
+
+            //add filter by search
+            if (isset($filter->search) && $filter->search) {
+                //find search in columns
+                $term = $filter->search;
+                $query->where(function ($subQuery) use ($term) {
+                    $subQuery->whereHas('translations', function ($q) use ($term) {
+                        $q->where('name', 'LIKE', "%{$term}%");
+                    })->orWhere('id', $term);
+                });
+
+            }
+
         }
 
         /*== FIELDS ==*/
