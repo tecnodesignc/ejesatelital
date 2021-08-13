@@ -15,7 +15,7 @@
 
     <div class="container-fluid">
       <div class="page-content-wrapper">
-        <form class="needs-validation" novalidate>
+        <q-form class="needs-validation">
           <div class="row">
             <div class="col-md-9 q-px-sm">
               <q-card class="q-mb-sm">
@@ -174,7 +174,7 @@
             </q-card>
           </q-footer>
 
-        </form>
+        </q-form>
         <!-- end row -->
       </div>
     </div>
@@ -193,10 +193,11 @@ import {computed, onMounted} from 'vue'
 import array from "src/plugins/array";
 import SingleMedia from "src/modules/media/_components/SingleMedia";
 import Location from "src/modules/location/_components/Location";
+import ContactList from "src/modules/company/_components/ContactList";
 
 export default {
   name: 'Create Account Type',
-  components: {SingleMedia, Breadcrumb, Location},
+  components: {ContactList, SingleMedia, Breadcrumb, Location},
   setup() {
     const $q = useQuasar();
     const breadcrumb = [

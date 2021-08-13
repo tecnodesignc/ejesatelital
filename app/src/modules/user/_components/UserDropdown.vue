@@ -29,26 +29,28 @@
           <q-item-section avatar>
             <q-icon name="power" />
           </q-item-section>
-          <q-item-section @click="logut">Cerrar Sesión</q-item-section>
+          <q-item-section @click="logout">Cerrar Sesión</q-item-section>
         </q-item>
       </q-list>
     </q-btn-dropdown>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 
 import {useStore} from 'vuex'
-import { computed} from 'vue'
+import {computed, onMounted} from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 export default {
   name: 'UserDropdown',
   setup() {
+    const router = useRouter()
     const store = useStore();
     const userData=computed(() =>store.state.auth.user)
-    const logut=async () =>{
+    const logout=async () =>{
       await store.dispatch('auth/authLogout')
     }
-    return {logut,userData};
+    return {logout,userData};
   },
 };
 </script>

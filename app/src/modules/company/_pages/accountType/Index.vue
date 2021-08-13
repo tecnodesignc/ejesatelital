@@ -26,8 +26,8 @@
                   icon="add"
                   :to="{name:'company.account-type.create'}"
                 />
-                <form class="needs-validation" novalidate>
-                </form>
+                <q-form class="needs-validation">
+                </q-form>
                 <div class="q-pa-md">
                   <q-table
                     :rows="rows"

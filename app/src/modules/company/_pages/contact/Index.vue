@@ -26,8 +26,8 @@
                   icon="add"
                   :to="{name:'company.contact.create'}"
                 />
-                <form class="needs-validation" novalidate>
-                </form>
+                <q-form class="needs-validation">
+                </q-form>
                 <div class="q-pa-md">
                   <q-table
                     :rows="rows"
@@ -245,7 +245,6 @@ export default {
         }
       })
     }
-
     function onRequest(props) {
       const {page, rowsPerPage, sortBy, descending} = props.pagination
       const filter = props.filter
@@ -260,7 +259,6 @@ export default {
       loading.value = false
 
     }
-
     onMounted(() => {
       onRequest({
         pagination: initialPagination.value,

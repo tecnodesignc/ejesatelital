@@ -15,7 +15,7 @@
 
     <div class="container-fluid">
       <div class="page-content-wrapper" v-if="success">
-        <form class="needs-validation" novalidate>
+        <q-form class="needs-validation">
           <div class="row">
             <div class="col-md-9 q-px-sm">
               <q-card class="q-mb-sm">
@@ -106,6 +106,13 @@
                   <location :city="city" :country="country" :province="province" @location="emitLocation"/>
                 </q-card-section>
               </q-card>
+              <q-card class="q-mb-sm">
+                <q-card-section>
+                  <div class="text-h6">Contactos</div>
+                </q-card-section>
+                <q-separator/>
+                <contact-list :acount="id"/>
+              </q-card>
             </div>
             <div class="col-md-3 q-px-sm">
               <q-card class="q-mb-sm">
@@ -157,7 +164,8 @@
                   <div class="row">
                     <div class="col-12 q-pt-sm">
                       <p class="text-subtitle2">Imagen</p>
-                      <single-media zone="logo" entity="Modules\Company\Entities\Account" :entity_id="id" @selectedImage="selectedImage"/>
+                      <single-media zone="logo" entity="Modules\Company\Entities\Account" :entity_id="id"
+                                    @selectedImage="selectedImage"/>
                     </div>
                   </div>
                 </q-card-section>
@@ -175,7 +183,7 @@
             </q-card>
           </q-footer>
 
-        </form>
+        </q-form>
         <!-- end row -->
       </div>
     </div>
@@ -194,10 +202,11 @@ import {computed, onMounted} from 'vue'
 import array from "src/plugins/array";
 import SingleMedia from "src/modules/media/_components/SingleMedia";
 import Location from "src/modules/location/_components/Location";
+import ContactList from "src/modules/company/_components/ContactList";
 
 export default {
   name: 'Editar Account Type',
-  components: {Location, Breadcrumb, SingleMedia},
+  components: {ContactList, Location, Breadcrumb, SingleMedia},
   setup() {
     const $q = useQuasar();
     const breadcrumb = [
@@ -265,7 +274,7 @@ export default {
             }
           }
 
-          if(media) params.attributes.medias_single=media
+          if (media) params.attributes.medias_single = media
           api.put('/company/v1/accounts/' + criteria, params).then(response => {
             $q.loading.hide()
             $q.notify({
@@ -274,7 +283,7 @@ export default {
               message: 'Empresa Editada Corectamente',
               icon: 'report_problem'
             })
-            router.push({name:'company.account.index'})
+            router.push({name: 'company.account.index'})
           }).catch(error => {
             $q.notify({
               color: 'negative',
@@ -329,7 +338,7 @@ export default {
           nit.value = data.nit
           account_site.value = data.account_site
           parent_id.value = data.parent_id
-          active.value = data.status?data.status:false
+          active.value = data.status ? data.status : false
           account_type_id.value = data.account_type_id
           phone.value = data.phone
           street.value = data.street
@@ -340,7 +349,7 @@ export default {
           city.value = data.city
           province.value = data.province
           country.value = data.country
-          success.value=true
+          success.value = true
           $q.loading.hide()
           resolve(true)
         }).catch(error => {
@@ -410,13 +419,12 @@ export default {
       medias_single.value = selectedImage
     }
     const emitLocation = (location) => {
-      country_id.value=location.country_id
-      province_id.value=location.province_id
-      city_id.value=location.city_id
+      country_id.value = location.country_id
+      province_id.value = location.province_id
+      city_id.value = location.city_id
     }
     onMounted(() => {
       getAccountType()
-      getAccounts()
       getAccount()
     });
     return {

@@ -20,7 +20,7 @@
           <div class="col-lg-12">
             <q-card>
               <q-card-section>
-                <form class="needs-validation" novalidate>
+                <q-form class="needs-validation">
                   <q-tabs
                     v-model="tab"
                     align="left"
@@ -162,7 +162,7 @@
                     <q-btn unelevated color="primary" @click="update" label="Guardar"/>
                     <q-btn outline color="primary" label="Cancelar"/>
                   </div>
-                </form>
+                </q-form>
               </q-card-section>
             </q-card>
           </div>

@@ -17,7 +17,7 @@
         </q-card-section>
         <q-card-section>
           <q-form
-            @submit="login"
+            @submit.prevent="login"
             @reset="onReset"
             class=" row q-col-gutter-md "
           >

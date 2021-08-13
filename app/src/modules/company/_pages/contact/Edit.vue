@@ -15,7 +15,7 @@
 
     <div class="container-fluid">
       <div class="page-content-wrapper" v-if="success">
-        <form class="needs-validation" novalidate>
+        <q-form class="needs-validation" >
           <div class="row">
             <div class="col-md-9 q-px-sm">
               <q-card class="q-mb-sm">
@@ -154,7 +154,7 @@
             </q-card>
           </q-footer>
 
-        </form>
+        </q-form>
         <!-- end row -->
       </div>
     </div>

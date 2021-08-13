@@ -7,7 +7,7 @@
   />
   <q-dialog v-model="dialogNF">
     <q-card style="width: 600px">
-      <form class="needs-validation" novalidate>
+      <q-form class="needs-validation" >
         <q-toolbar>
           <q-toolbar-title><span class="text-weight-bold">Nueva </span> Carpeta</q-toolbar-title>
           <q-btn flat round dense icon="close" v-close-popup/>
@@ -49,7 +49,7 @@
           <q-btn flat label="cancelar" color="primary" v-close-popup/>
           <q-btn flat label="Crear Carpeta" color="primary" @click="newFolder"/>
         </q-card-actions>
-      </form>
+      </q-form>
     </q-card>
   </q-dialog>
 </template>

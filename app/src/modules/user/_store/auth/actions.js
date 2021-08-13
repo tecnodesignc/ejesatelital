@@ -31,7 +31,8 @@ export function login({commit, dispatch, state}, data) {
     Loading.show()
     //Request
     api.post('/user/v1/auth/login', data).then(async response => {
-      await dispatch('authSuccess', response.data)
+    let auth=  await dispatch('authSuccess', response.data)
+      if (!auth) reject(false)
       Loading.hide()
       resolve(true)
     }).catch(error => {
@@ -61,10 +62,11 @@ export function authSuccess({commit, dispatch, state}, data = {}) {
         //Set default headers to axios
         axios.defaults.headers.common['Authorization'] = data.userToken
         if (!await cache.get('LocalDataUser')) {
+          console.log(cache.set('LocalDataUser', data))
           await cache.set('LocalDataUser', data)//Save session data in storage
         }
         return resolve(true)//Resolve
-      } else {
+      } else{
         console.info('[authSuccess]::logout')
         dispatch('authLogout')//Logout
         return reject(false)
@@ -98,14 +100,16 @@ export function authUpdate({commit,dispatch, state}, data) {
 export function authLogout({commit, dispatch, state}) {
   return new Promise(async (resolve, reject) => {
     try {
+      Loading.show()
       if (state.authStatus)//Request to Logout in backend
         await api.get('/user/v1/auth/logout').catch(() => {
         })
       await commit('reset')//Reset Store
       await cache.restore()//Reset cache
-
+      Loading.hide()
       resolve(true)
     } catch (e) {
+      Loading.hide()
       console.error('[AUTH LOGOUT] ', e)
       reject(e)
     }
@@ -135,7 +139,7 @@ export function setSettings({dispatch, commit, state}) {
       const roleId = state.selectedRoleId//Get role selected
       let settings = {}//All settings
       //Save in store the settins
-      commit('setSettings', Object.values(settings))
+     // commit('setSettings', Object.values(settings))
       resolve(true)//Resolve
     } catch (e) {
       console.error('Auth Get Settings] ', e)
