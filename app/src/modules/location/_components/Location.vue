@@ -8,6 +8,7 @@
         v-model="country_id"
         emit-value
         map-options
+        name="country_id"
         use-input
         :options="country_list"
         @filter="getCountries"
@@ -25,6 +26,7 @@
         v-model="province_id"
         emit-value
         map-options
+        name="province_id"
         use-input
         clearable
         :options="province_list"
@@ -41,6 +43,7 @@
         dense
         v-model="city_id"
         emit-value
+        name="city_id"
         map-options
         use-input
         clearable

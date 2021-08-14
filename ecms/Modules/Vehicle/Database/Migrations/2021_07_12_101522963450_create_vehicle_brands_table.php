@@ -15,7 +15,7 @@ class CreateVehicleBrandsTable extends Migration
         Schema::create('vehicle__brands', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('status')->default(0);
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

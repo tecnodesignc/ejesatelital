@@ -67,6 +67,18 @@ class VehicleServiceProvider extends ServiceProvider
                 return new \Modules\Vehicle\Repositories\Cache\CacheVehicleDecorator($repository);
             }
         );
+        $this->app->bind(
+            'Modules\Vehicle\Repositories\BrandRepository',
+            function () {
+                $repository = new \Modules\Vehicle\Repositories\Eloquent\EloquentBrandRepository(new \Modules\Vehicle\Entities\Brand());
+
+                if (! config('app.cache')) {
+                    return $repository;
+                }
+
+                return new \Modules\Vehicle\Repositories\Cache\CacheBrandDecorator($repository);
+            }
+        );
 // add bindings
 
     }

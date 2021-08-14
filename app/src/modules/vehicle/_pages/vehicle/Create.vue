@@ -5,7 +5,7 @@
         <div class="row align-items-center">
           <div class="col-sm-6">
             <div class="page-title">
-              <h4>Crear Contacto</h4>
+              <h4>Crear Marca</h4>
               <breadcrumb :items="breadcrumb"/>
             </div>
           </div>

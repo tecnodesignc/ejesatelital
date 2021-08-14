@@ -209,7 +209,74 @@ const routes = [
       }
     ]
   },
-
+  {
+    path: '/vehicle/brand',
+    meta: {
+      requireAuth: true
+    },
+    name: 'vehicle.brand',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      {
+        path: '/vehicle/brand',
+        name: 'vehicle.brand.index',
+        component: () => import('src/modules/vehicle/_pages/brand/index.vue'),
+        meta: {
+          requireAuth: true
+        },
+      },
+      {
+        path: '/vehicle/brand/create',
+        name: 'vehicle.brand.create',
+        component: () => import('src/modules/vehicle/_pages/brand/create.vue'),
+        meta: {
+          requireAuth: true
+        },
+      },
+      {
+        path: '/vehicle/brand/:id/edit',
+        name: 'vehicle.brand.edit',
+        component: () => import('src/modules/vehicle/_pages/brand/edit.vue'),
+        meta: {
+          requireAuth: true
+        },
+      }
+    ]
+  },
+  {
+    path: '/vehicle/vehicles',
+    meta: {
+      requireAuth: true
+    },
+    name: 'vehicle.vehicle',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      {
+        path: '/vehicle/vehicle',
+        name: 'vehicle.vehicle.index',
+        component: () => import('src/modules/vehicle/_pages/vehicle/index.vue'),
+        meta: {
+          requireAuth: true
+        },
+      },
+      {
+        path: '/vehicle/vehicle/create',
+        name: 'vehicle.vehicle.create',
+        component: () => import('src/modules/vehicle/_pages/vehicle/create.vue'),
+        meta: {
+          requireAuth: true
+        },
+      },
+      {
+        path: '/vehicle/vehicle/:id/edit',
+        name: 'vehicle.vehicle.edit',
+        component: () => import('src/modules/vehicle/_pages/vehicle/edit.vue'),
+        meta: {
+          requireAuth: true
+        },
+      }
+    ]
+  },
   // Always leave this as last one,
   // but you can also remove it
   {

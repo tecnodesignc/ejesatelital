@@ -13,13 +13,13 @@ class BrandTransformer extends JsonResource
 
         $data = [
             'id' => $this->when($this->id,$this->id),
-            'name' => $this->when($this->board,$this->board),
-            'status'=> $this->when($this->brand_id,$this->brand_id),
+            'name' => $this->when($this->name,$this->name),
+            'status'=> boolval($this->status),
             'vehicles'=> VehicleTransformer::collection($this->whenLoaded('vehicles')),
             'created_at' => $this->when($this->created_at,$this->created_at),
             'updated_at' => $this->when($this->updated_at,$this->updated_at),
             'urls' => [
-                'delete_url' => route('api.vehicle.bram.destroy', $this->id??'0'),
+                'delete_url' => route('api.vehicle.brand.delete', $this->id??'0'),
             ],
         ];
 
@@ -33,7 +33,7 @@ class BrandTransformer extends JsonResource
 
             foreach ($languages as $lang => $value) {
                 $data[$lang]['name'] = $this->hasTranslation($lang) ?
-                    $this->translate("$lang")['title'] : '';
+                    $this->translate("$lang")['name'] : '';
             }
         }
 

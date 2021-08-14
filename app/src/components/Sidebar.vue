@@ -43,7 +43,7 @@
       icon="commute"
       label="Vehiculos"
     >
-      <q-item clickable v-ripple  active-class="active" exact class="q-pl-lg">
+      <q-item clickable v-ripple :to="{name:'vehicle.vehicle.index'}"  active-class="active" exact class="q-pl-lg">
         <q-item-section avatar>
           <q-icon name="arrow_right"/>
         </q-item-section>
@@ -51,20 +51,12 @@
           Vehiculos
         </q-item-section>
       </q-item>
-      <q-item clickable v-ripple :to="{name:'user.create'}" active-class="active" exact class="q-pl-lg">
+      <q-item clickable v-ripple :to="{name:'vehicle.brand.index'}" active-class="active" exact class="q-pl-lg">
         <q-item-section avatar>
           <q-icon name="arrow_right"/>
         </q-item-section>
         <q-item-section>
           Marcas
-        </q-item-section>
-      </q-item>
-      <q-item clickable v-ripple :to="{name:'user.create'}" active-class="active" exact class="q-pl-lg">
-        <q-item-section avatar>
-          <q-icon name="arrow_right"/>
-        </q-item-section>
-        <q-item-section>
-          Contactos
         </q-item-section>
       </q-item>
     </q-expansion-item>
