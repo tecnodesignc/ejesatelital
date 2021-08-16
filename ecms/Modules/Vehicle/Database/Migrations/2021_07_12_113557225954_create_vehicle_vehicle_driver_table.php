@@ -14,12 +14,12 @@ class CreateVehicleVehicleDriverTable extends Migration
     public function up()
     {
         Schema::create('vehicle__vehicle_driver', function (Blueprint $table) {
-            $table->id();
+            $table->engine = 'InnoDB';
+            $table->increments('id');
             $table->integer('vehicle_id')->unsigned();
-            $table->integer('driver_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->foreign('vehicle_id')->references('id')->on('vehicle__vehicles')->onDelete('cascade');
-            $table->foreign('driver_id')->references('id')->on(config('auth.table', 'users'))->onDelete('cascade');
-
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -33,7 +33,7 @@ class CreateVehicleVehicleDriverTable extends Migration
     {
         Schema::table('vehicle__vehicle_driver', function (Blueprint $table) {
             $table->dropForeign(['vehicle_id']);
-            $table->dropForeign(['driver_id']);
+            $table->dropForeign(['user_id']);
         });
         Schema::dropIfExists('vehicle__vehicle_driver');
     }

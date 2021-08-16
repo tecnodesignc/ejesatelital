@@ -3,7 +3,7 @@
 use Illuminate\Routing\Router;
 /** @var Router $router */
 
-$router->group(['prefix' =>'/vehicles'], function (Router $router) {
+$router->group(['prefix' =>'/vehicle-type'], function (Router $router) {
 
     //Route index
     $router->get('/', [

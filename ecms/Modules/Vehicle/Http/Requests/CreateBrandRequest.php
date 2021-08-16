@@ -13,7 +13,7 @@ class CreateBrandRequest extends BaseFormRequest
 
     public function translationRules()
     {
-        return [];
+        return ['name'=>'required|unique:vehicle__brand_translations,name'];
     }
 
     public function authorize()

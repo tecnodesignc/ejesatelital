@@ -6,7 +6,6 @@ use Modules\Core\Http\Controllers\BasePublicController;
 use Modules\Core\Http\Controllers\Api\PermissionsApiController;
 use Mockery\CountValidator\Exception;
 use Illuminate\Support\Facades\Auth;
-use Modules\Iprofile\Entities\Role;
 use Validator;
 
 class BaseApiController extends BasePublicController

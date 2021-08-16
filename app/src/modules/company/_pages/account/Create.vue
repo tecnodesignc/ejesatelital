@@ -270,7 +270,7 @@ export default {
             $q.notify({
               color: 'negative',
               position: 'bottom-right',
-              message: 'Error al guardar el Tipo de Empresa: ' + error.errors,
+              message: 'Error al guardar La Empresa: ' + error.errors,
               icon: 'report_problem'
             })
             $q.loading.hide()

@@ -3,7 +3,7 @@
 use Illuminate\Routing\Router;
 /** @var Router $router */
 
-$router->group(['prefix' =>'/vehicle'], function (Router $router) {
+$router->group(['prefix' =>'/vehicles'], function (Router $router) {
 
     //Route create
     $router->post('/', [

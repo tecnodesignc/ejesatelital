@@ -5,7 +5,7 @@
         <div class="row align-items-center">
           <div class="col-sm-6">
             <div class="page-title">
-              <h4>Crear Marca</h4>
+              <h4>Crear Vehiculo</h4>
               <breadcrumb :items="breadcrumb"/>
             </div>
           </div>
@@ -26,14 +26,14 @@
                 <q-card-section>
                   <div class="row">
                     <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">Nombre</p>
+                      <p class="text-subtitle2">Placa</p>
                       <q-input
                         outlined
-                        v-model="first_name"
+                        v-model="board"
                         stack-label
                         dense
-                        name="first_name"
-                        placeholder="Nombre"
+                        name="board"
+                        placeholder="Placa"
                         lazy-rules
                         :rules="[val => !!val || 'Campo requerido']"
                       />
@@ -41,17 +41,25 @@
                   </div>
                   <div class="row">
                     <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">Apellido</p>
-                      <q-input
+                      <p class="text-subtitle2">Modelo</p>
+                      <q-select
                         outlined
-                        v-model="last_name"
-                        stack-label
                         dense
-                        name="last_name"
-                        placeholder="Apellido"
-                        lazy-rules
-                        :rules="[val => !!val || 'Campo requerido']"
-                      />
+                        v-model="model"
+                        name="model"
+                        use-input
+                        no-option="model"
+                        :options="model_options"
+                        @filter="(val, update)=>update(()=>{model_options = helper.filterOptions(val,model_list,model)})"
+                        clearable
+                      ><template v-slot:no-option>
+                        <q-item>
+                          <q-item-section class="text-grey">
+                            No results
+                          </q-item-section>
+                        </q-item>
+                      </template>
+                      </q-select>
                     </div>
                   </div>
                   <div class="row">
@@ -118,7 +126,7 @@
                   </div>
                   <div class="row">
                     <div class="col-12 q-pt-sm">
-                      <location @location="emitLocation"/>
+                      sfdfsdf
                     </div>
                   </div>
                 </q-card-section>
@@ -152,7 +160,7 @@
               <q-card-section>
                 <div class="q-pa-md q-gutter-sm">
                   <q-btn unelevated color="primary" type="submit" label="Guardar"/>
-                  <q-btn outline color="primary" :to="{name:'company.contact.index'}" label="Cancelar"/>
+                  <q-btn outline color="primary" :to="{name:'vehicle.vehicle.index'}" label="Cancelar"/>
                 </div>
               </q-card-section>
             </q-card>
@@ -177,6 +185,7 @@ import {computed, onMounted} from 'vue'
 import array from "src/plugins/array";
 import SingleMedia from "src/modules/media/_components/SingleMedia";
 import Location from "src/modules/location/_components/Location";
+import helper from "src/plugins/helpers";
 
 export default {
   name: 'Create Contact',
@@ -190,30 +199,29 @@ export default {
         active: false
       },
       {
-        name: "Contactos",
-        to: 'company.contact.index',
+        name: "Vehìculos",
+        to: 'vehicle.vehicle.index',
         active: true
       },
       {
-        name: "Crear Contacto",
-        to: 'company.contact.create',
+        name: "Crear Vehìculos",
+        to: 'vehicle.vehicle.create',
         active: true
       }
     ]
-    const first_name = ref(null)
-    const last_name = ref(null)
-    const identification = ref(null)
-    const email = ref(null)
-    const phone = ref(null)
-    const mobile = ref(null)
-    const street = ref(null)
-    const city_id = ref(null)
-    const province_id = ref(null)
-    const country_id = ref(null)
-    const account_id = ref(null)
+    const board = ref(null)
+    const brand_id = ref(null)
+    const model = ref(null)
+    const type_vehicle = ref(null)
+    const insurance_expiration = ref(null)
+    const technomechanical_expiration = ref(null)
+    const accounts = ref([])
+    const drivers = ref([])
     const options = ref([])
     const users = ref([])
     const account_list = ref([])
+    const driver_list = ref([])
+    const model_list=ref([])
     const success = ref(false)
     const router = useRouter()
     const register = async () => {
@@ -222,34 +230,32 @@ export default {
         return new Promise(async (resolve, reject) => {
           let params = {
             attributes: {
-              first_name: first_name.value,
-              last_name: last_name.value,
-              identification: identification.value,
-              email: email.value,
-              mobile: mobile.value,
-              account_id: account_id.value,
-              phone: phone.value,
-              street: street.value,
-              city_id: city_id.value,
-              province_id: province_id.value,
-              country_id: country_id.value,
+              board: board.value,
+              brand_id: brand_id.value,
+              model: model.value,
+              type_vehicle: type_vehicle.value,
+              insurance_expiration: insurance_expiration.value,
+              technomechanical_expiration: technomechanical_expiration.value,
+              accounts: accounts.value,
+              drivers: drivers.value,
               options: options.value,
+
             }
           }
-          api.post('/company/v1/contacts', params).then(response => {
+          api.post('/vehicle/v1/vehicles', params).then(response => {
             $q.loading.hide()
             $q.notify({
               color: 'positive',
               position: 'bottom-right',
-              message: 'Contacto Guardado Corectamente',
+              message: 'Vehiculo Guardado Corectamente',
               icon: 'report_problem'
             })
-            router.push({name: 'company.contact.index'})
+            router.push({name: 'vehicle.vehicle.index'})
           }).catch(error => {
             $q.notify({
               color: 'negative',
               position: 'bottom-right',
-              message: 'Error al guardar el Contacto: ' + error.errors,
+              message: 'Error al guardar el Vehiculo: ' + error.errors,
               icon: 'report_problem'
             })
             $q.loading.hide()
@@ -258,7 +264,7 @@ export default {
         })
       } catch (error) {
         $q.loading.hide()
-        console.error('Error en guardar el Contacto', error)
+        console.error('Error en guardar el Vehiculo', error)
       }
     }
     const getAccounts = async (val, update, abort) => {
@@ -287,34 +293,56 @@ export default {
         });
       });
     }
-    const emitLocation = (location) => {
-      country_id.value = location.country_id
-      province_id.value = location.province_id
-      city_id.value = location.city_id
+    const getUsers = async (val, update, abort) => {
+      return new Promise(async (resolve, reject) => {
+        if (val.length < 2) return abort()
+        let params = {
+          params: {
+            take: 20,
+            filter: {search: val}
+          }
+        }
+        api.get('/user/v1/users', {params: params}).then(response => {
+          update(() => {
+            driver_list.value = array.select(response.data.data, {label: 'full_name', id: 'id'})
+          })
+        }).catch(error => {
+          $q.notify({
+            color: 'negative',
+            position: 'bottom-right',
+            message: 'Error en la Consulta de Cuentas',
+            icon: 'report_problem'
+          })
+          $q.loading.hide()
+          abort(error)
+          reject(error)
+        });
+      });
     }
+    const model_options=ref(model_list.value)
     onMounted(async () => {
-      await getAccounts()
+    model_list.value=helper.yearList(null ,1920)
     });
     return {
-      first_name,
-      last_name,
-      identification,
-      email,
-      mobile,
-      account_id,
-      phone,
-      street,
-      city_id,
-      province_id,
-      country_id,
+      board,
+      brand_id,
+      model,
+      type_vehicle,
+      insurance_expiration,
+      technomechanical_expiration,
+      accounts,
+      drivers,
+      driver_list,
+      model_list,
+      model_options,
       options,
-      users,
       breadcrumb,
       success,
       account_list,
       register,
       getAccounts,
-      emitLocation
+      getUsers,
+      helper
     };
   }
 };

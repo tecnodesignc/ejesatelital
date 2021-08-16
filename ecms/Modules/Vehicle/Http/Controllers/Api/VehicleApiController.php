@@ -1,12 +1,13 @@
 <?php
 
-namespace Modules\Vehicle\Http\Controllers\Admin;
+namespace Modules\Vehicle\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use Modules\Core\Http\Controllers\Api\BaseApiController;
 use Modules\Vehicle\Http\Requests\CreateVehicleRequest;
 use Modules\Vehicle\Http\Requests\UpdateVehicleRequest;
 use Modules\Vehicle\Repositories\VehicleRepository;
+use Modules\Vehicle\Transformers\VehicleTransformer;
 
 class VehicleApiController extends BaseApiController
 {
@@ -45,46 +46,46 @@ class VehicleApiController extends BaseApiController
             //If request pagination add meta-page
             $params->page ? $response["meta"] = ["page" => $this->pageTransformer($vehicles)] : false;
         } catch (\Exception $e) {
-            Log::Error($e);
+            \Log::Error($e);
             $status = $this->getStatusError($e->getCode());
             $response = ["errors" => $e->getMessage()];
-    }
+        }
 
         //Return response
         return response()->json($response ?? ["data" => "Request successful"], $status ?? 200);
     }
 
-  /**
+    /**
      * GET A ITEM
      *
      * @param $criteria
      * @return mixed
      */
-    public function show($criteria,Request $request)
+    public function show($criteria, Request $request)
     {
-      try {
-          //Validate permissions
-          $this->validatePermission($request, 'vehicle.vehicles.index');
-        //Get Parameters from URL.
-        $params = $this->getParamsRequest($request);
+        try {
+            //Validate permissions
+            $this->validatePermission($request, 'vehicle.vehicles.index');
+            //Get Parameters from URL.
+            $params = $this->getParamsRequest($request);
 
-        //Request to Repository
-        $vehicle = $this->vehicle->getItem($criteria, $params);
+            //Request to Repository
+            $vehicle = $this->vehicle->getItem($criteria, $params);
 
-        //Break if no found item
-        if(!$vehicle) throw new \Exception(trans('vehicle::vehicles.messages.vehicle not found'),404);
+            //Break if no found item
+            if (!$vehicle) throw new \Exception(trans('vehicle::vehicles.messages.vehicle not found'), 404);
 
-        //Response
-        $response = ["data" => new VehicleTransformer($vehicle)];
+            //Response
+            $response = ["data" => new VehicleTransformer($vehicle)];
 
-      } catch (\Exception $e) {
+        } catch (\Exception $e) {
             \Log::error($e);
-        $status = $this->getStatusError($e->getCode());
-        $response = ["errors" => $e->getMessage()];
-      }
+            $status = $this->getStatusError($e->getCode());
+            $response = ["errors" => $e->getMessage()];
+        }
 
-      //Return response
-      return response()->json($response, $status ?? 200);
+        //Return response
+        return response()->json($response, $status ?? 200);
     }
 
     /**
@@ -101,8 +102,10 @@ class VehicleApiController extends BaseApiController
             $this->validatePermission($request, 'vehicle.vehicles.create');
 
             $data = $request->input('attributes') ?? [];//Get data
+
+
             //Validate Request
-            $this->validateRequestApi(new CreateVehicleRequest($data));
+            $this->validateRequestApi(new CreateVehicleRequest($request));
 
             //Create item
             $vehicle = $this->vehicle->create($data);
@@ -111,7 +114,7 @@ class VehicleApiController extends BaseApiController
             $response = ["data" => ['msg' => trans('vehicle::vehicles.messages.vehicle created')]];
             \DB::commit(); //Commit to Data Base
         } catch (\Exception $e) {
-            Log::Error($e);
+            \Log::Error($e);
             \DB::rollback();//Rollback to Data Base
             $status = $this->getStatusError($e->getCode());
             $response = ["errors" => $e->getMessage()];
@@ -146,7 +149,7 @@ class VehicleApiController extends BaseApiController
             $vehicle = $this->vehicle->getItem($criteria, $params);
 
             //Break if no found item
-            if(!$vehicle) throw new \Exception(trans('vehicle::vehicles.messages.vehicle not found'),404);
+            if (!$vehicle) throw new \Exception(trans('vehicle::vehicles.messages.vehicle not found'), 404);
 
             //Request to Repository
             $this->vehicle->update($vehicle, $data);
@@ -184,7 +187,7 @@ class VehicleApiController extends BaseApiController
             $vehicle = $this->vehicle->getItem($criteria, $params);
 
             //Break if no found item
-            if(!$vehicle) throw new \Exception(trans('vehicle::vehicles.messages.vehicle not found'),404);
+            if (!$vehicle) throw new \Exception(trans('vehicle::vehicles.messages.vehicle not found'), 404);
 
             //call Method delete
             $this->vehicle->destroy($vehicle);
@@ -193,11 +196,11 @@ class VehicleApiController extends BaseApiController
             $response = ["data" => ['msg' => trans('vehicle::vehicles.messages.vehicle destroy')]];
             \DB::commit();//Commit to Data Base
         } catch (\Exception $e) {
-            Log::error($e);
+            \Log::error($e);
             \DB::rollback();//Rollback to Data Base
             $status = $this->getStatusError($e->getCode());
             $response = ["errors" => $e->getMessage()];
-    }
+        }
 
         //Return response
         return response()->json($response ?? ["data" => "Request successful"], $status ?? 200);

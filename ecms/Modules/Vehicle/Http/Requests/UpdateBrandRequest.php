@@ -13,7 +13,7 @@ class UpdateBrandRequest extends BaseFormRequest
 
     public function translationRules()
     {
-        return [];
+        return ['name' => "required|unique:vehicle__brand_translations,name,{$this->id}",];
     }
 
     public function authorize()

@@ -49,6 +49,6 @@ class Type
             return $this->type[$statusId];
         }
 
-        return $this->type[self::DRAFT];
+        return $this->type[self::VEHICLES];
     }
 }

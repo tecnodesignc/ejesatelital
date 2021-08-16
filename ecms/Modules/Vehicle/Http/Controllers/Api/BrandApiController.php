@@ -112,7 +112,7 @@ class BrandApiController extends BaseApiController
             $response = ["data" => ['msg' => trans('brand::brands.messages.brand created')]];
             \DB::commit(); //Commit to Data Base
         } catch (\Exception $e) {
-            Log::Error($e);
+            \Log::Error($e);
             \DB::rollback();//Rollback to Data Base
             $status = $this->getStatusError($e->getCode());
             $response = ["errors" => $e->getMessage()];
@@ -194,7 +194,7 @@ class BrandApiController extends BaseApiController
             $response = ["data" => ['msg' => trans('brand::brands.messages.brand destroy')]];
             \DB::commit();//Commit to Data Base
         } catch (\Exception $e) {
-            Log::error($e);
+            \Log::error($e);
             \DB::rollback();//Rollback to Data Base
             $status = $this->getStatusError($e->getCode());
             $response = ["errors" => $e->getMessage()];

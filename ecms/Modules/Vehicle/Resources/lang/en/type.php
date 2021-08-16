@@ -1,10 +1,10 @@
 <?php
 
 return [
-    'list resource' => 'List vehicles',
-    'create resource' => 'Create vehicles',
-    'edit resource' => 'Edit vehicles',
-    'destroy resource' => 'Destroy vehicles',
+    'heavy machinery'=>'Heavy Machinery',
+    'vehicle'=>'Vehicle',
+    'motorcycle'=>'Motorcycle',
+    'other'=>'Other',
     'title' => [
         'vehicles' => 'Vehicle',
         'create vehicle' => 'Create a vehicle',

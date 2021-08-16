@@ -21,7 +21,7 @@
             <q-card>
               <q-card-section>
                 <q-btn
-                  label="Nuevo Contacto"
+                  label="Nuevo Vehìclulo"
                   color="positive"
                   icon="add"
                   :to="{name:'vehicle.vehicle.create'}"
@@ -51,17 +51,14 @@
                         <q-td key="id" :props="props">
                           {{ props.row.id }}
                         </q-td>
-                        <q-td key="first_name" :props="props">
-                          {{ props.row.first_name }} {{ props.row.last_name }}
+                        <q-td key="board" :props="props">
+                          {{ props.row.board }} {{ props.row.board }}
                         </q-td>
-                        <q-td key="email" :props="props">
-                          {{props.row.email}}
+                        <q-td key="type_vehicle" :props="props">
+                          {{props.row.type_vehicle}}
                         </q-td>
-                        <q-td key="account" :props="props">
-                          {{props.row.account.name}}
-                        </q-td>
-                        <q-td key="mobile" :props="props">
-                          {{props.row.mobile}}
+                        <q-td key="brand" :props="props">
+                          {{props.row.brand.name}}
                         </q-td>
                         <q-td key="created_at" :props="props">
                           {{ props.row.created_at }}
@@ -121,7 +118,7 @@ export default {
       format: val => `${val}`,
       sortable: true
     }, {
-      name: 'first_name',
+      name: 'board',
       required: true,
       label: 'Placa',
       align: 'left',
@@ -137,11 +134,11 @@ export default {
       format: val => `${val}`,
       sortable: true
     },{
-      name: 'type',
+      name: 'type_vehicle',
       required: true,
       label: 'Tipo de Auto',
       align: 'left',
-      field: row => row.type_name,
+      field: row => row.type_vehicle,
       format: val => `${val}`,
       sortable: true
     }, {
@@ -185,7 +182,7 @@ export default {
             status: status.value,
             search: search.value,
           },
-          include: 'account',
+          include: 'brand',
           page: initialPagination.value.page,
           take: initialPagination.value.rowsPerPage
         }
@@ -264,7 +261,7 @@ export default {
       order,
       status,
       search,
-      deleteContact,
+      deleteVehicle,
       onRequest
     };
   }

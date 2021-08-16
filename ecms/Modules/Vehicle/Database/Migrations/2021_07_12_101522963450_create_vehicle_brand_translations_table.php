@@ -20,6 +20,7 @@ class CreateVehicleBrandTranslationsTable extends Migration
             $table->integer('brand_id')->unsigned();
             $table->string('locale')->index();
             $table->unique(['brand_id', 'locale']);
+            $table->unique('name');
             $table->foreign('brand_id')->references('id')->on('vehicle__brands')->onDelete('cascade');
         });
     }

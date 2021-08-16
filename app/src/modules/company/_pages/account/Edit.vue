@@ -82,6 +82,7 @@
                         outlined
                         v-model="phone"
                         stack-label
+                          name="phone"
                         dense
                         placeholder="+57 312 5455444"
                         lazy-rules
@@ -105,13 +106,6 @@
                   </div>
                   <location :city="city" :country="country" :province="province" @location="emitLocation"/>
                 </q-card-section>
-              </q-card>
-              <q-card class="q-mb-sm">
-                <q-card-section>
-                  <div class="text-h6">Contactos</div>
-                </q-card-section>
-                <q-separator/>
-                <contact-list :acount="id"/>
               </q-card>
             </div>
             <div class="col-md-3 q-px-sm">

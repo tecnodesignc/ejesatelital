@@ -8,7 +8,12 @@ class CreateVehicleRequest extends BaseFormRequest
 {
     public function rules()
     {
-        return [];
+        return [
+            'board' => 'required|unique:vehicle__vehicles,board',
+            'brand_id' => 'required|exists:vehicle__brands,id',
+            'accounts'=>'exists:company__accounts,id',
+            'drivers'=>'exists:users,id'
+        ];
     }
 
     public function translationRules()

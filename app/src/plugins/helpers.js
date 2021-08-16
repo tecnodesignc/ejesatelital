@@ -1,4 +1,5 @@
 import {useStore} from "vuex";
+import { date } from 'quasar'
 
 class Helper {
   _construct() {
@@ -224,7 +225,9 @@ class Helper {
 
   //Filter options to select
   filterOptions(val, options, permitValues) {
-    if (val === '') return options
+    console.log(options,val)
+
+    if (val === null) return options
     let responseOptions = []//Response options
     //Filter
     for (let opt of options) {
@@ -274,6 +277,17 @@ class Helper {
     }
     return false
 
+  }
+
+  yearList(init, end=2000){
+    const timeStamp = Date.now()
+    if(!init) init=date.formatDate(timeStamp, 'YYYY')
+    let year=[]
+    parseInt(init)
+    for (var i = init; i >= end; i--) {
+      year.push(i)
+    }
+    return year
   }
 
 }

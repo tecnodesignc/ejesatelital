@@ -29,6 +29,7 @@ class TypeApiController extends BaseApiController
     public function index(Request $request)
     {
         try {
+            dd('sfdsa232222');
             //Get Parameters from URL.
             $params = $this->getParamsRequest($request);
 

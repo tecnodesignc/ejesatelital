@@ -2,14 +2,67 @@
 
 namespace Modules\Vehicle\Repositories\Eloquent;
 
+use Modules\Vehicle\Events\VehicleWasCreated;
+use Modules\Vehicle\Events\VehicleWasDeleted;
+use Modules\Vehicle\Events\VehicleWasUpdated;
 use Modules\Vehicle\Repositories\VehicleRepository;
 use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
+use Illuminate\Support\Arr;
 
 class EloquentVehicleRepository extends EloquentBaseRepository implements VehicleRepository
 {
 
+
+    /**
+     * create a resource
+     * Create a blog vehicle
+     * @param array $data
+     * @return Post
+     */
+    public function create($data)
+    {
+        $vehicle = $this->model->create($data);
+        $vehicle->drivers()->sync(Arr::get($data, 'drivers', []));
+        $vehicle->accounts()->sync(Arr::get($data, 'accounts', []));
+        event(new VehicleWasCreated($vehicle, $data));
+
+        return $vehicle;
+    }
+
+    /**
+     * Update a resource
+     * @param $vehicle
+     * @param array $data
+     * @return mixed
+     */
+    public function update($vehicle, $data)
+    {
+        $vehicle->update($data);
+        $vehicle->drivers()->sync(Arr::get($data, 'drivers', []));
+        $vehicle->accounts()->sync(Arr::get($data, 'accounts', []));
+        event(new VehicleWasUpdated($vehicle, $data));
+
+
+        return $vehicle;
+    }
+
+    /**
+     * Delete a resource
+     * @param $model
+     * @return mixed
+     */
+    public function destroy($model)
+    {
+
+        event(new VehicleWasDeleted($model->id, get_class($model)));
+
+        return $model->delete();
+    }
+
+
     public function getItemsBy($params = false)
     {
+
         /*== initialize query ==*/
         $query = $this->model->query();
 
@@ -23,14 +76,15 @@ class EloquentVehicleRepository extends EloquentBaseRepository implements Vehicl
             $query->with($includeDefault);//Add Relationships to query
         }
 
+
         /*== FILTERS ==*/
         if (isset($params->filter)) {
             $filter = $params->filter;//Short filter
 
 
-            if (isset($filter->status)) {
-                $query->whereStatus($filter->status);
-            }
+            /*   if (isset($filter->status)) {
+                   $query->whereStatus($filter->status);
+               }*/
 
 
             //Filter by date
@@ -41,6 +95,17 @@ class EloquentVehicleRepository extends EloquentBaseRepository implements Vehicl
                     $query->whereDate($date->field, '>=', $date->from);
                 if (isset($date->to))//to a date
                     $query->whereDate($date->field, '<=', $date->to);
+            }
+            if (isset($filter->accounts)) {
+                $accounts = is_array($filter->accounts) ? $filter->accounts : [$filter->accounts];
+                $query->whereHas('accounts', function ($q) use ($accounts) {
+                    $q->whereIn('account_id', $accounts);
+                });
+            } elseif (!isset($params->permissions['vehicle.vehicles.all'])||!$params->permissions['vehicle.vehicles.all']) {
+                $query->whereHas('accounts', function ($q) use ($params) {
+
+                    $q->where('account_id', $params->user->accounts[0]->id??0);
+                });
             }
 
             //Order by
@@ -54,12 +119,7 @@ class EloquentVehicleRepository extends EloquentBaseRepository implements Vehicl
             if (isset($filter->search) && $filter->search) {
                 //find search in columns
                 $term = $filter->search;
-                $query->where(function ($subQuery) use ($term) {
-                    $subQuery->whereHas('translations', function ($q) use ($term) {
-                        $q->where('name', 'LIKE', "%{$term}%");
-                    })->orWhere('id', $term);
-                });
-
+                $query->where('board', 'LIKE', "%{$term}%")->orWhere('id', $term);
             }
         }
 
@@ -75,6 +135,7 @@ class EloquentVehicleRepository extends EloquentBaseRepository implements Vehicl
             return $query->get();
         }
     }
+
     /**
      * @inheritdoc
      */
@@ -97,8 +158,6 @@ class EloquentVehicleRepository extends EloquentBaseRepository implements Vehicl
         /*== FILTER ==*/
         if (isset($params->filter)) {
             $filter = $params->filter;
-
-
 
 
             if (isset($filter->field))//Filter by specific field
