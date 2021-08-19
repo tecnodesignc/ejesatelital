@@ -8,7 +8,7 @@ class CreateQuestionRequest extends BaseFormRequest
 {
     public function rules()
     {
-        return [];
+        return ['poll_id'=>'exists:polls__polls,id'];
     }
 
     public function translationRules()

@@ -43,12 +43,13 @@ class Type
      * @param int $statusId
      * @return string
      */
-    public function get($statusId)
+    public function get($typeId)
     {
-        if (isset($this->type[$statusId])) {
-            return $this->type[$statusId];
+
+        if (isset($this->type[$typeId])) {
+            return $this->type[$typeId];
         }
 
-        return $this->type[self::VEHICLES];
+        return $this->type[self::HEAVYMACHINERY];
     }
 }

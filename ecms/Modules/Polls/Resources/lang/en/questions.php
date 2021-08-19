@@ -18,6 +18,10 @@ return [
     'form' => [
     ],
     'messages' => [
+        'question created'=>'Question successfully created.',
+        'question not found' => 'Question not found.',
+        'question updated' => 'Question successfully updated.',
+        'question deleted' => 'Question successfully deleted.',
     ],
     'validation' => [
     ],

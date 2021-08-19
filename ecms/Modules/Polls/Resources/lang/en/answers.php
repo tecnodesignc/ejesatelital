@@ -18,6 +18,10 @@ return [
     'form' => [
     ],
     'messages' => [
+        'answer created'=>'Answer successfully created.',
+        'answer not found' => 'Answer not found.',
+        'answer updated' => 'Answer successfully updated.',
+        'answer deleted' => 'Answer successfully deleted.',
     ],
     'validation' => [
     ],

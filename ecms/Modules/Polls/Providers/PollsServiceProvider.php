@@ -30,12 +30,11 @@ class PollsServiceProvider extends ServiceProvider
         $this->app['events']->listen(BuildingSidebar::class, RegisterPollsSidebar::class);
 
         $this->app['events']->listen(LoadingBackendTranslations::class, function (LoadingBackendTranslations $event) {
-            $event->load('questiontypes', Arr::dot(trans('polls::questiontypes')));
             $event->load('questions', Arr::dot(trans('polls::questions')));
             $event->load('answers', Arr::dot(trans('polls::answers')));
+            $event->load('polls', Arr::dot(trans('polls::polls')));
+            $event->load('results', Arr::dot(trans('polls::results')));
             // append translations
-
-
 
         });
     }
@@ -95,7 +94,33 @@ class PollsServiceProvider extends ServiceProvider
                 return new \Modules\Polls\Repositories\Cache\CacheAnswerDecorator($repository);
             }
         );
+        $this->app->bind(
+            'Modules\Polls\Repositories\PollRepository',
+            function () {
+                $repository = new \Modules\Polls\Repositories\Eloquent\EloquentPollRepository(new \Modules\Polls\Entities\Poll());
+
+                if (! config('app.cache')) {
+                    return $repository;
+                }
+
+                return new \Modules\Polls\Repositories\Cache\CachePollDecorator($repository);
+            }
+        );
+        $this->app->bind(
+            'Modules\Polls\Repositories\ResultRepository',
+            function () {
+                $repository = new \Modules\Polls\Repositories\Eloquent\EloquentResultRepository(new \Modules\Polls\Entities\Result());
+
+                if (! config('app.cache')) {
+                    return $repository;
+                }
+
+                return new \Modules\Polls\Repositories\Cache\CacheResultDecorator($repository);
+            }
+        );
 // add bindings
+
+
 
 
 

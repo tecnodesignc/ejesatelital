@@ -15,10 +15,10 @@ class CreatePollsQuestionsTable extends Migration
         Schema::create('polls__questions', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->integer('type');
             $table->text('options')->nullable();
-            $table->integer('type_id')->unsigned();
-            $table->integer('account_id')->unsigned()->nullable();
-            $table->foreign('type_id')->references('id')->on('polls__question_types')->onDelete('cascade');
+            $table->integer('poll_id')->unsigned();
+            $table->foreign('poll_id')->references('id')->on('polls__polls')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +30,9 @@ class CreatePollsQuestionsTable extends Migration
      */
     public function down()
     {
+        Schema::table('polls__questions', function (Blueprint $table) {
+            $table->dropForeign(['poll_id']);
+        });
         Schema::dropIfExists('polls__questions');
     }
 }

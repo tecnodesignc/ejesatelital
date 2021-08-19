@@ -19,7 +19,7 @@ class CreateVehicleVehiclesTable extends Migration
             $table->string('model');
             $table->integer('brand_id')->unsigned();
             $table->foreign('brand_id')->references('id')->on('vehicle__brands')->onDelete('cascade');
-            $table->integer('type_vehicle')->unsigned();
+            $table->integer('type_vehicle')->default(0);
             $table->date('insurance_expiration');
             $table->date('technomechanical_expiration');
             $table->text('options')->nullable();

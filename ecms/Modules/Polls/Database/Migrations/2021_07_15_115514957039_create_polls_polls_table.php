@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePollsQuestionTypesTable extends Migration
+class CreatePollsPollsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,12 @@ class CreatePollsQuestionTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('polls__question_types', function (Blueprint $table) {
+        Schema::create('polls__polls', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->text('options')->nullable();
+            $table->boolean('active')->default(false);
+            $table->integer('account_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +29,11 @@ class CreatePollsQuestionTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('polls__question_types');
+
+        Schema::table('polls__polls', function (Blueprint $table) {
+            $table->dropForeign(['account_id']);
+        });
+
+        Schema::dropIfExists('polls__polls');
     }
 }

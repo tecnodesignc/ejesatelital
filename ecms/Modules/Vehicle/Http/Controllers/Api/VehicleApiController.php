@@ -105,7 +105,7 @@ class VehicleApiController extends BaseApiController
 
 
             //Validate Request
-            $this->validateRequestApi(new CreateVehicleRequest($request));
+            $this->validateRequestApi(new CreateVehicleRequest($data));
 
             //Create item
             $vehicle = $this->vehicle->create($data);

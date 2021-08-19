@@ -1,11 +1,12 @@
 <?php
 
 return [
-    'polls.questiontypes' => [
-        'index' => 'polls::questiontypes.list resource',
-        'create' => 'polls::questiontypes.create resource',
-        'edit' => 'polls::questiontypes.edit resource',
-        'destroy' => 'polls::questiontypes.destroy resource',
+    'polls.polls' => [
+        'all' => 'polls::polls.list all resource',
+        'index' => 'polls::polls.list resource',
+        'create' => 'polls::polls.create resource',
+        'edit' => 'polls::polls.edit resource',
+        'destroy' => 'polls::polls.destroy resource',
     ],
     'polls.questions' => [
         'index' => 'polls::questions.list resource',
@@ -19,8 +20,13 @@ return [
         'edit' => 'polls::answers.edit resource',
         'destroy' => 'polls::answers.destroy resource',
     ],
+
+    'polls.results' => [
+        'index' => 'polls::results.list resource',
+        'create' => 'polls::results.create resource',
+        'edit' => 'polls::results.edit resource',
+        'destroy' => 'polls::results.destroy resource',
+    ],
 // append
-
-
 
 ];

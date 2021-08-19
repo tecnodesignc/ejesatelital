@@ -120,7 +120,7 @@
                         map-options
                         use-input
                         :options="account_list"
-                        @filter="getAccount"
+                        @filter="getAccounts"
                         placeholder="Cuenta principal"
                       />
                     </div>

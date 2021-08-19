@@ -103,7 +103,75 @@ $router->group(['prefix' =>'/polls'], function (Router $router) {
         'uses' => 'AnswerController@destroy',
         'middleware' => 'can:polls.answers.destroy'
     ]);
+    $router->bind('poll', function ($id) {
+        return app('Modules\Polls\Repositories\PollRepository')->find($id);
+    });
+    $router->get('polls', [
+        'as' => 'admin.polls.poll.index',
+        'uses' => 'PollController@index',
+        'middleware' => 'can:polls.polls.index'
+    ]);
+    $router->get('polls/create', [
+        'as' => 'admin.polls.poll.create',
+        'uses' => 'PollController@create',
+        'middleware' => 'can:polls.polls.create'
+    ]);
+    $router->post('polls', [
+        'as' => 'admin.polls.poll.store',
+        'uses' => 'PollController@store',
+        'middleware' => 'can:polls.polls.create'
+    ]);
+    $router->get('polls/{poll}/edit', [
+        'as' => 'admin.polls.poll.edit',
+        'uses' => 'PollController@edit',
+        'middleware' => 'can:polls.polls.edit'
+    ]);
+    $router->put('polls/{poll}', [
+        'as' => 'admin.polls.poll.update',
+        'uses' => 'PollController@update',
+        'middleware' => 'can:polls.polls.edit'
+    ]);
+    $router->delete('polls/{poll}', [
+        'as' => 'admin.polls.poll.destroy',
+        'uses' => 'PollController@destroy',
+        'middleware' => 'can:polls.polls.destroy'
+    ]);
+    $router->bind('result', function ($id) {
+        return app('Modules\Polls\Repositories\ResultRepository')->find($id);
+    });
+    $router->get('results', [
+        'as' => 'admin.polls.result.index',
+        'uses' => 'ResultController@index',
+        'middleware' => 'can:polls.results.index'
+    ]);
+    $router->get('results/create', [
+        'as' => 'admin.polls.result.create',
+        'uses' => 'ResultController@create',
+        'middleware' => 'can:polls.results.create'
+    ]);
+    $router->post('results', [
+        'as' => 'admin.polls.result.store',
+        'uses' => 'ResultController@store',
+        'middleware' => 'can:polls.results.create'
+    ]);
+    $router->get('results/{result}/edit', [
+        'as' => 'admin.polls.result.edit',
+        'uses' => 'ResultController@edit',
+        'middleware' => 'can:polls.results.edit'
+    ]);
+    $router->put('results/{result}', [
+        'as' => 'admin.polls.result.update',
+        'uses' => 'ResultController@update',
+        'middleware' => 'can:polls.results.edit'
+    ]);
+    $router->delete('results/{result}', [
+        'as' => 'admin.polls.result.destroy',
+        'uses' => 'ResultController@destroy',
+        'middleware' => 'can:polls.results.destroy'
+    ]);
 // append
+
+
 
 
 

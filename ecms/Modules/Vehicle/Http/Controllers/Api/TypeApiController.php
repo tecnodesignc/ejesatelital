@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Modules\Core\Http\Controllers\Api\BaseApiController;
 use Modules\Vehicle\Entities\Type;
 use Modules\Vehicle\Transformers\TypeVehicleTransformer;
+use function MongoDB\BSON\toJSON;
 
 class TypeApiController extends BaseApiController
 {
@@ -29,18 +30,18 @@ class TypeApiController extends BaseApiController
     public function index(Request $request)
     {
         try {
-            dd('sfdsa232222');
             //Get Parameters from URL.
             $params = $this->getParamsRequest($request);
 
             //Request to Repository
-            $types = $this->type->lists();
+            $types = [];
 
+            foreach ($this->type->lists() as $i=>$type){
+                    array_push($types,["id"=>$i,"name"=>$type]);
+            }
             //Response
-            $response = ["data" => TypeVehicleTransformer::collection($types)];
+            $response = ["data" => $types];
 
-            //If request pagination add meta-page
-            $params->page ? $response["meta"] = ["page" => $this->pageTransformer($types)] : false;
         } catch (\Exception $e) {
             \Log::Error($e);
             $status = $this->getStatusError($e->getCode());

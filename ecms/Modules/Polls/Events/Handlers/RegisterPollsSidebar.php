@@ -70,7 +70,27 @@ class RegisterPollsSidebar implements \Maatwebsite\Sidebar\SidebarExtender
                         $this->auth->hasAccess('polls.answers.index')
                     );
                 });
+                $item->item(trans('polls::polls.title.polls'), function (Item $item) {
+                    $item->icon('fa fa-copy');
+                    $item->weight(0);
+                    $item->append('admin.polls.poll.create');
+                    $item->route('admin.polls.poll.index');
+                    $item->authorize(
+                        $this->auth->hasAccess('polls.polls.index')
+                    );
+                });
+                $item->item(trans('polls::results.title.results'), function (Item $item) {
+                    $item->icon('fa fa-copy');
+                    $item->weight(0);
+                    $item->append('admin.polls.result.create');
+                    $item->route('admin.polls.result.index');
+                    $item->authorize(
+                        $this->auth->hasAccess('polls.results.index')
+                    );
+                });
 // append
+
+
 
 
 

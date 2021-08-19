@@ -4,7 +4,7 @@ namespace Modules\Polls\Http\Requests;
 
 use Modules\Core\Internationalisation\BaseFormRequest;
 
-class UpdateQuestionTypeRequest extends BaseFormRequest
+class UpdatePollRequest extends BaseFormRequest
 {
     public function rules()
     {

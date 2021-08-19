@@ -4,14 +4,15 @@ namespace Modules\Polls\Entities;
 
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Media\Support\Traits\MediaRelation;
 
 class Answer extends Model
 {
-    use Translatable;
+    use Translatable, MediaRelation;
 
     protected $table = 'polls__answers';
     public $translatedAttributes = ['title','caption'];
-    protected $fillable = ['title','caption','type', 'question_id','options'];
+    protected $fillable = ['title','caption', 'question_id','options'];
 
 
     /**
@@ -30,5 +31,46 @@ class Answer extends Model
     }
 
 
+    public function results()
+    {
+        return $this->hasMany(Result::class);
+    }
+
+    /**
+     * |--------------------------------------------------------------------------
+     * | MUTATORS
+     * |--------------------------------------------------------------------------
+     */
+    public function getOptionsAttribute($value)
+    {
+        try {
+            return json_decode(json_decode($value));
+        } catch (\Exception $e) {
+            return json_decode($value);
+        }
+    }
+
+
+    /**
+     * Magic Method modification to allow dynamic relations to other entities.
+     * @return string
+     * @var $destination_path
+     * @var $value
+     */
+    public function __call($method, $parameters)
+    {
+        #i: Convert array to dot notation
+        $config = implode('.', ['encore.polls.config.relations.answer', $method]);
+
+        #i: Relation method resolver
+        if (config()->has($config)) {
+            $function = config()->get($config);
+
+            return $function($this);
+        }
+
+        #i: No relation found, return the call to parent (Eloquent) to handle it.
+        return parent::__call($method, $parameters);
+    }
 
 }

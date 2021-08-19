@@ -32,7 +32,7 @@ class VehiclePresenter extends Presenter
 
      public function type_vehicle():string
      {
-         return $this->type->get($this->entity->type);
+         return $this->type->get($this->entity->type_vehicle);
      }
 
 }

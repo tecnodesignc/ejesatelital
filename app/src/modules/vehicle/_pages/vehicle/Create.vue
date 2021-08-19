@@ -26,12 +26,29 @@
                 <q-card-section>
                   <div class="row">
                     <div class="col-12 q-pt-sm">
+                      <p class="text-subtitle2">Tipo de Vehìculo</p>
+                      <q-select
+                        outlined
+                        dense
+                        emit-value
+                        map-options
+                        v-model="type_vehicle"
+                        name="type_vehicle"
+                        use-input
+                        :options="type_vehicle_option"
+                        @filter="(val, update)=>update(()=>{type_vehicle_option = helper.filterOptions(val,type_vehicle_list,type_vehicle)})"
+                      />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 q-pt-sm">
                       <p class="text-subtitle2">Placa</p>
                       <q-input
                         outlined
                         v-model="board"
                         stack-label
                         dense
+                        mask="XXXXXXX"
                         name="board"
                         placeholder="Placa"
                         lazy-rules
@@ -52,81 +69,65 @@
                         :options="model_options"
                         @filter="(val, update)=>update(()=>{model_options = helper.filterOptions(val,model_list,model)})"
                         clearable
-                      ><template v-slot:no-option>
-                        <q-item>
-                          <q-item-section class="text-grey">
-                            No results
-                          </q-item-section>
-                        </q-item>
-                      </template>
+                      >
+                        <template v-slot:no-option>
+                          <q-item>
+                            <q-item-section class="text-grey">
+                              No results
+                            </q-item-section>
+                          </q-item>
+                        </template>
                       </q-select>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">Correo Electronico</p>
-                      <q-input
-                        outlined
-                        v-model="email"
-                        stack-label
-                        name="email"
-                        type="email"
-                        dense
-                        placeholder="Correo Electronico"
-                      />
-                    </div>
-                  </div>
-                </q-card-section>
-              </q-card>
-              <q-card class="q-mb-sm">
-                <q-card-section>
-                  <div class="text-h6">Dirección</div>
-                </q-card-section>
-                <q-separator/>
-                <q-card-section>
-                  <div class="row">
-                    <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">Celular</p>
-                      <q-input
-                        outlined
-                        v-model="mobile"
-                        stack-label
-                        name="mobile"
-                        dense
-                        placeholder="57 312 5455444"
-                      />
+                      <p class="text-subtitle2">Fecha de Vencimiento SOAT</p>
+                      <q-input outlined
+                               stack-label
+                               mask="####-##-##"
+                               dense
+                               v-model="insurance_expiration"
+                               :rules="[val => !!val || 'Campo requerido']"
+                               placeholder="SOAT"
+                      >
+                        <template v-slot:append>
+                          <q-icon name="event" class="cursor-pointer">
+                            <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
+                              <q-date v-model="insurance_expiration" mask="YYYY-MM-DD">
+                                <div class="row items-center justify-end">
+                                  <q-btn v-close-popup label="Close" color="primary" flat/>
+                                </div>
+                              </q-date>
+                            </q-popup-proxy>
+                          </q-icon>
+                        </template>
+                      </q-input>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">Telefono</p>
-                      <q-input
-                        outlined
-                        v-model="phone"
-                        stack-label
-                        dense
-                        name="phone"
-                        placeholder="+57 1 5455444"
-                        lazy-rules
-                      />
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">Dirección</p>
-                      <q-input
-                        outlined
-                        v-model="street"
-                        stack-label
-                        dense
-                        name="address"
-                        placeholder="Dirección"
-                      />
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 q-pt-sm">
-                      sfdfsdf
+                      <p class="text-subtitle2">Fecha de Vencimiento Revisión Técnico Mecánica</p>
+                      <q-input outlined
+                               stack-label
+                               mask="####-##-##"
+                               dense
+                               v-model="technomechanical_expiration"
+                               :rules="[val => !!val || 'Campo requerido']"
+                               placeholder="Revisión Técnico Mecánica"
+                      >
+                        <template v-slot:append>
+                          <q-icon name="event" class="cursor-pointer">
+                            <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
+                              <q-date v-model="technomechanical_expiration" mask="YYYY-MM-DD">
+                                <div class="row items-center justify-end">
+                                  <q-btn v-close-popup label="Close" color="primary" flat/>
+                                </div>
+                              </q-date>
+                            </q-popup-proxy>
+                          </q-icon>
+                        </template>
+                      </q-input>
                     </div>
                   </div>
                 </q-card-section>
@@ -137,18 +138,80 @@
                 <q-card-section>
                   <div class="row">
                     <div class="col-12 q-pt-sm">
+                      <p class="text-subtitle2">Marca</p>
+                      <q-select
+                        outlined
+                        dense
+                        v-model="brand_id"
+                        emit-value
+                        map-options
+                        use-input
+                        :options="brand_list"
+                        @filter="getBrands"
+                        placeholder="Marca del Vehìculo"
+                      />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 q-pt-sm">
                       <p class="text-subtitle2">Cuenta</p>
                       <q-select
                         outlined
                         dense
-                        v-model="account_id"
+                        v-model="accounts"
                         emit-value
-                        name="account_id"
+                        name="accounts"
                         map-options
+                        multiple
                         use-input
                         :options="account_list"
                         @filter="getAccounts"
-                      />
+                      >
+                        <template v-slot:selected-item="scope">
+                          <q-chip
+                            removable
+                            dense
+                            @remove="scope.removeAtIndex(scope.index)"
+                            :tabindex="scope.tabindex"
+                            color="secondary"
+                            text-color="white"
+                            class="q-ma-xs"
+                          >
+                            {{ scope.opt.label }}
+                          </q-chip>
+                        </template>
+                      </q-select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 q-pt-sm">
+                      <p class="text-subtitle2">Conductores</p>
+                      <q-select
+                        outlined
+                        dense
+                        v-model="drivers"
+                        emit-value
+                        name="drivers"
+                        map-options
+                        multiple
+                        use-input
+                        :options="driver_list"
+                        @filter="getDrivers"
+                      >
+                        <template v-slot:selected-item="scope">
+                          <q-chip
+                            removable
+                            dense
+                            @remove="scope.removeAtIndex(scope.index)"
+                            :tabindex="scope.tabindex"
+                            color="secondary"
+                            text-color="white"
+                            class="q-ma-xs"
+                          >
+                            {{ scope.opt.label }}
+                          </q-chip>
+                        </template>
+                      </q-select>
                     </div>
                   </div>
                 </q-card-section>
@@ -218,12 +281,15 @@ export default {
     const accounts = ref([])
     const drivers = ref([])
     const options = ref([])
-    const users = ref([])
     const account_list = ref([])
+    const type_vehicle_list = ref([])
+    const type_vehicle_option = ref([])
     const driver_list = ref([])
-    const model_list=ref([])
+    const model_list = ref([])
+    const brand_list = ref([])
     const success = ref(false)
     const router = useRouter()
+    const model_options = ref(model_list.value)
     const register = async () => {
       try {
         $q.loading.show()
@@ -269,7 +335,6 @@ export default {
     }
     const getAccounts = async (val, update, abort) => {
       return new Promise(async (resolve, reject) => {
-        if (val.length < 2) return abort()
         let params = {
           params: {
             take: 20,
@@ -293,9 +358,8 @@ export default {
         });
       });
     }
-    const getUsers = async (val, update, abort) => {
+    const getDrivers = async (val, update, abort) => {
       return new Promise(async (resolve, reject) => {
-        if (val.length < 2) return abort()
         let params = {
           params: {
             take: 20,
@@ -319,9 +383,57 @@ export default {
         });
       });
     }
-    const model_options=ref(model_list.value)
+    const getTypeVehicles = async () => {
+      return new Promise(async (resolve, reject) => {
+        let params = {
+          params: {
+            take: 20,
+            filter: {}
+          }
+        }
+        api.get('/vehicle/v1/vehicle-type', {params: params}).then(response => {
+          type_vehicle_list.value = array.select(response.data.data, {label: 'name', id: 'id'})
+          type_vehicle_option.value = type_vehicle_list.value
+          resolve(true)
+        }).catch(error => {
+          $q.notify({
+            color: 'negative',
+            position: 'bottom-right',
+            message: 'Error en la Consulta de Tipos de Vehìculos',
+            icon: 'report_problem'
+          })
+          $q.loading.hide()
+          reject(error)
+        });
+      });
+    }
+    const getBrands = async (val, update, abort) => {
+      let params = {
+        take: 20,
+        filter: {
+          search: val,
+          status: true
+        }
+      }
+      api.get('/vehicle/v1/brands', {params:params}).then(response => {
+        update(() => {
+          let options = array.select(response.data.data, {label: 'name', id: 'id'})
+          brand_list.value = options
+        })
+      }).catch(error => {
+        $q.notify({
+          color: 'negative',
+          position: 'bottom-right',
+          message: 'Error en la Consulta de Marcas',
+          icon: 'report_problem'
+        })
+        $q.loading.hide()
+        reject(error)
+      });
+    }
     onMounted(async () => {
-    model_list.value=helper.yearList(null ,1920)
+      model_list.value = helper.yearList(null, 1920)
+      await getTypeVehicles()
     });
     return {
       board,
@@ -335,13 +447,17 @@ export default {
       driver_list,
       model_list,
       model_options,
+      brand_list,
       options,
       breadcrumb,
       success,
       account_list,
+      type_vehicle_list,
+      type_vehicle_option,
       register,
       getAccounts,
-      getUsers,
+      getDrivers,
+      getBrands,
       helper
     };
   }
