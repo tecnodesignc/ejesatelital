@@ -190,7 +190,7 @@ export default {
           id.value=roleData.id
           name.value=roleData.name
           slug.value = roleData.slug
-          permissions.value = userData.permissions
+          permissions.value = roleData.permissions
           $q.loading.hide()
           resolve(true)
         }).catch(error => {

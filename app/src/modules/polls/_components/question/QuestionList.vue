@@ -1,9 +1,17 @@
 <template>
   <div class="row q-ma-md">
     <div class="col-md-12">
-          <single-contact :poll="poll" @upload="refreshList"/>
+      <q-btn
+        label="Nueva pregunta"
+        color="primary"
+        icon="add"
+        dense
+        @click="savePoll"
+        v-if="!poll"
+      />
+          <single-question :poll="poll" @upload="refreshList" v-else/>
           <div class="q-pa-md" v-if="success">
-            <q-table
+            <q-table style="max-width: 100%"
               :rows="rows"
               :columns="columns"
               v-model:pagination="initialPagination"
@@ -39,7 +47,7 @@
                     {{ props.row.created_at }}
                   </q-td>
                   <q-td key="actions" :props="props" auto-width class="q-gutter-sm text-center">
-                    <single-contact :question="props.row.id" :poll="poll" @upload="refreshList"/>
+                    <single-question :question="props.row.id" :poll="poll" @upload="refreshList"/>
                     <q-btn icon="delete" color="negative" dense @click="deleteQuestion(props.row.id)"/>
                   </q-td>
                 </q-tr>
@@ -56,19 +64,17 @@ import {api} from "boot/axios";
 import {onMounted, ref} from 'vue'
 import {useQuasar} from "quasar";
 import {useStore} from "vuex";
-import Breadcrumb from "../../../components/Breadcrumb.vue";
-
+import SingleQuestion from "src/modules/polls/_components/question/SingleQuestion";
 
 export default {
   name: 'QuestionList',
   components: {
-    SingleQuestion,
-    Breadcrumb
+    SingleQuestion
   },
   props: {
-    account: {
+    poll: {
       type: Number,
-      default: 0
+      required:true
     }
   },
   setup(props, contex) {
@@ -83,27 +89,27 @@ export default {
       format: val => `${val}`,
       sortable: true
     }, {
-      name: 'first_name',
+      name: 'statement',
       required: true,
-      label: 'Nombre',
+      label: 'Enunciado',
       align: 'left',
-      field: row => row.first_name,
+      field: row => row.statement,
       format: val => `${val}`,
       sortable: true
     }, {
-      name: 'email',
+      name: 'type',
       required: true,
-      label: 'Correo Electronico',
+      label: 'Typo de pregunta',
       align: 'left',
       field: row => row.email,
       format: val => `${val}`,
       sortable: true
     },{
-      name: 'mobile',
+      name: 'answers',
       required: true,
-      label: 'Telefono',
+      label: 'Respuestas',
       align: 'left',
-      field: row => row.mobile,
+      field: row => row.answers.length,
       sortable: true
     }, {
       name: 'created_at',
@@ -135,20 +141,19 @@ export default {
       field: 'created_at',
       way: 'desc'
     })
-    const getContact = () => {
+    const getQuestions = () => {
       return new Promise(async (resolve, reject) => {
         $q.loading.show()
         let params = {
           filter: {
-            status: status.value,
             search: search.value,
-            account:props.account?props.account:null
+            poll:props.poll
           },
-          include: '',
+          include: 'answers',
           page: initialPagination.value.page,
           take: initialPagination.value.rowsPerPage
         }
-        api.get('/company/v1/contacts', {params: params}).then(response => {
+        api.get('/polls/v1/questions', {params: params}).then(response => {
           rows.value = response.data.data
           initialPagination.value.rowsNumber = response.data.meta.page.total
           success.value=true
@@ -165,26 +170,26 @@ export default {
         });
       })
     }
-    const deleteContact = async (id) => {
+    const deleteQuestion = async (id) => {
       $q.loading.show()
       return new Promise(async (resolve, reject) => {
         try {
           let criteria = id
 
-          api.delete('/company/v1/contacts/' + criteria).then(response => {
+          api.delete('/polls/v1/questions/' + criteria).then(response => {
             $q.loading.hide()
-            getContact()
+            getQuestion()
             $q.notify({
               color: 'negative',
               position: 'bottom-right',
-              message: 'La Cuenta a sido eliminada',
+              message: 'La Pregunta a sido eliminada',
               icon: 'report_problem'
             })
           }).catch(error => {
             $q.notify({
               color: 'negative',
               position: 'bottom-right',
-              message: 'Error al Eliminar La Cuenta ' + error.errors,
+              message: 'Error al Eliminar La pregunta ' + error.errors,
               icon: 'report_problem'
             })
             $q.loading.hide()
@@ -196,9 +201,15 @@ export default {
         }
       })
     }
+    const savePoll = () => {
+      contex.emit('savePoll', true)
+    }
     function refreshList(upload) {
       if(upload){
-        getContact()
+        onRequest({
+          pagination: initialPagination.value,
+          filter: undefined
+        })
       }
     }
     function onRequest(props) {
@@ -210,7 +221,7 @@ export default {
       initialPagination.value.rowsPerPage = rowsPerPage
       initialPagination.value.sortBy = sortBy
       initialPagination.value.descending = descending
-      getContact()
+      getQuestions()
       // ...and turn of loading indicator
       loading.value = false
 
@@ -229,9 +240,10 @@ export default {
       order,
       search,
       success,
-      deleteContact,
+      deleteQuestion,
       onRequest,
-      refreshList
+      refreshList,
+      savePoll
     };
   },
 };

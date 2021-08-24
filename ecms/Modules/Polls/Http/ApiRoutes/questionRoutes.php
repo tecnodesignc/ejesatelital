@@ -14,14 +14,14 @@ $router->group(['prefix' =>'/questions'], function (Router $router) {
     $router->get('/', [
         'as' => 'api.polls.question.get.items.by',
         'uses' => 'QuestionApiController@index',
-        //'middleware' => ['auth:api']
+        'middleware' => ['auth:api']
     ]);
 
     //Route show
     $router->get('/{criteria}', [
         'as' => 'api.polls.question.get.item',
         'uses' => 'QuestionApiController@show',
-        //'middleware' => ['auth:api']
+        'middleware' => ['auth:api']
     ]);
 
     //Route update

@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '946bc93296c112bb3bd06b2aade2517e09cc36c2',
+    'reference' => 'a851da8cbbad48bc4fcc6cd3226b78f732ed50be',
     'name' => 'tecnodes/encore',
   ),
   'versions' => 
@@ -937,6 +937,15 @@ private static $installed = array (
       ),
       'reference' => '996434e5492cb4c3edcb9168db6fbb1359ef965a',
     ),
+    'paragonie/sodium_compat' => 
+    array (
+      'pretty_version' => 'v1.17.0',
+      'version' => '1.17.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c59cac21abbcc0df06a3dd18076450ea4797b321',
+    ),
     'phar-io/manifest' => 
     array (
       'pretty_version' => '2.0.1',
@@ -1186,6 +1195,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'e4573f47750dd6c92dca5aee543fa77513cbd8d3',
+    ),
+    'pusher/pusher-php-server' => 
+    array (
+      'pretty_version' => '7.0.1',
+      'version' => '7.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7757a09209d20ff95b077ae48dc25f49a6ad94a2',
     ),
     'ralouphie/getallheaders' => 
     array (
@@ -1760,7 +1778,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '946bc93296c112bb3bd06b2aade2517e09cc36c2',
+      'reference' => 'a851da8cbbad48bc4fcc6cd3226b78f732ed50be',
     ),
     'tecnodesignc/adminlte-theme' => 
     array (

@@ -2,11 +2,13 @@
 
 namespace Modules\Notification\Services;
 
+use Modules\Notification\Events\BroadcastAllNotification;
+use Modules\Notification\Events\BroadcastCompanyNotification;
 use Modules\Notification\Events\BroadcastNotification;
 use Modules\Notification\Repositories\NotificationRepository;
 use Modules\User\Contracts\Authentication;
 
-final class AsgardNotification implements Notification
+final class EncoreNotification implements Notification
 {
     /**
      * @var NotificationRepository
@@ -19,7 +21,13 @@ final class AsgardNotification implements Notification
     /**
      * @var int
      */
-    private $userId;
+    private int $user_id;
+
+    /**
+     * @var int
+     */
+    private int $account_id;
+
 
     public function __construct(NotificationRepository $notification, Authentication $auth)
     {
@@ -34,17 +42,18 @@ final class AsgardNotification implements Notification
      * @param string $icon
      * @param string|null $link
      */
-    public function push($title, $message, $icon, $link = null)
+    public function push(string $title, string $message, $icon, $link = null)
     {
         $notification = $this->notification->create([
-            'user_id' => $this->userId ?: $this->auth->id(),
+            'user_id' => $this->user_id??null,
+            'account_id' => $this->account_id ?? null,
             'icon_class' => $icon,
             'link' => $link,
             'title' => $title,
             'message' => $message,
         ]);
 
-        if (true === config('asgard.notification.config.real-time', false)) {
+        if (true === config('encore.notification.config.real-time', false)) {
             $this->triggerEventFor($notification);
         }
     }
@@ -55,17 +64,34 @@ final class AsgardNotification implements Notification
      */
     private function triggerEventFor(\Modules\Notification\Entities\Notification $notification)
     {
-        event(new BroadcastNotification($notification));
+        if (isset($this->account_id))
+            event(new BroadcastCompanyNotification($notification));
+        elseif(isset($this->user_id))
+            event(new BroadcastNotification($notification));
+        else
+            event(new BroadcastAllNotification($notification));
+
     }
 
     /**
      * Set a user id to set the notification to
-     * @param int $userId
+     * @param int $user_id
      * @return $this
      */
-    public function to($userId)
+    public function to(int $user_id)
     {
-        $this->userId = $userId;
+        $this->user_id = $user_id;
+
+        return $this;
+    }
+    /**
+     * Set a user id to set the notification to
+     * @param int $account_id
+     * @return $this
+     */
+    public function account(int $account_id)
+    {
+        $this->account_id = $account_id;
 
         return $this;
     }

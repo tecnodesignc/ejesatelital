@@ -12,8 +12,9 @@
       expand-separator
       icon="business"
       label="Compañias"
+      v-if="helper.hasAccess('company.accounts.index')||helper.hasAccess('company.accounttypes.index')||helper.hasAccess('company.contacts.index')"
     >
-      <q-item clickable v-ripple :to="{name:'company.account.index'}" active-class="active" exact class="q-pl-lg">
+      <q-item clickable v-ripple :to="{name:'company.account.index'}" v-if="helper.hasAccess('company.accounts.index')" active-class="active" exact class="q-pl-lg">
         <q-item-section avatar>
           <q-icon name="arrow_right"/>
         </q-item-section>
@@ -21,7 +22,7 @@
           Empresas
         </q-item-section>
       </q-item>
-      <q-item clickable v-ripple :to="{name:'company.account-type.index'}" active-class="active" exact class="q-pl-lg">
+      <q-item clickable v-ripple :to="{name:'company.account-type.index'}" v-if="helper.hasAccess('company.accounttypes.index')" active-class="active" exact class="q-pl-lg">
         <q-item-section avatar>
           <q-icon name="arrow_right"/>
         </q-item-section>
@@ -29,7 +30,7 @@
           Tipos de Empresas
         </q-item-section>
       </q-item>
-      <q-item clickable v-ripple :to="{name:'company.contact.index'}" active-class="active" exact class="q-pl-lg">
+      <q-item clickable v-ripple :to="{name:'company.contact.index'}" v-if="helper.hasAccess('company.contacts.index')" active-class="active" exact class="q-pl-lg">
         <q-item-section avatar>
           <q-icon name="arrow_right"/>
         </q-item-section>
@@ -42,8 +43,9 @@
       expand-separator
       icon="commute"
       label="Vehiculos"
+      v-if="helper.hasAccess('vehicle.vehicles.index') || helper.hasAccess('vehicle.brands.index')"
     >
-      <q-item clickable v-ripple :to="{name:'vehicle.vehicle.index'}"  active-class="active" exact class="q-pl-lg">
+      <q-item clickable v-ripple :to="{name:'vehicle.vehicle.index'}" v-if="helper.hasAccess('vehicle.vehicles.index')" active-class="active" exact class="q-pl-lg">
         <q-item-section avatar>
           <q-icon name="arrow_right"/>
         </q-item-section>
@@ -51,7 +53,7 @@
           Vehiculos
         </q-item-section>
       </q-item>
-      <q-item clickable v-ripple :to="{name:'vehicle.brand.index'}" active-class="active" exact class="q-pl-lg">
+      <q-item clickable v-ripple :to="{name:'vehicle.brand.index'}" active-class="active" v-if="helper.hasAccess('vehicle.brands.index')" exact class="q-pl-lg">
         <q-item-section avatar>
           <q-icon name="arrow_right"/>
         </q-item-section>
@@ -60,26 +62,29 @@
         </q-item-section>
       </q-item>
     </q-expansion-item>
-    <q-expansion-item
-      expand-separator
-      icon="poll"
-      label="Encuestas"
-    >
-      <q-item clickable v-ripple :to="{name:'user.create'}" active-class="active" exact class="q-pl-lg">
-        <q-item-section avatar>
-          <q-icon name="arrow_right"/>
-        </q-item-section>
-        <q-item-section>
-          Preguntas
-        </q-item-section>
-      </q-item>
-    </q-expansion-item>
+    <q-item clickable v-ripple :to="{name:'polls.index'}" active-class="active" v-if="helper.hasAccess('polls.polls.index')"  exact>
+      <q-item-section avatar>
+        <q-icon name="poll"/>
+      </q-item-section>
+      <q-item-section>
+        Formularios
+      </q-item-section>
+    </q-item>
+    <q-item clickable v-ripple :to="{name:'polls.fill'}" active-class="active" exact>
+      <q-item-section avatar>
+        <q-icon name="poll"/>
+      </q-item-section>
+      <q-item-section>
+        Formularios Disponibles
+      </q-item-section>
+    </q-item>
     <q-expansion-item
       expand-separator
       icon="people_outline"
       label="Usuarios"
+      v-if="helper.hasAccess('user.users.index')||helper.hasAccess('user.roles.index')"
     >
-      <q-item clickable v-ripple :to="{name:'user.index'}" active-class="active" exact class="q-pl-lg">
+      <q-item clickable v-ripple :to="{name:'user.index'}" active-class="active" v-if="helper.hasAccess('user.users.index')" exact class="q-pl-lg">
         <q-item-section avatar>
           <q-icon name="arrow_right"/>
         </q-item-section>
@@ -87,7 +92,7 @@
           Usuarios
         </q-item-section>
       </q-item>
-      <q-item clickable v-ripple :to="{name:'role.index'}" active-class="active" exact class="q-pl-lg">
+      <q-item clickable v-ripple :to="{name:'role.index'}"  v-if="helper.hasAccess('user.roles.index')" active-class="active" exact class="q-pl-lg">
         <q-item-section avatar>
           <q-icon name="arrow_right"/>
         </q-item-section>
@@ -100,30 +105,15 @@
   </q-list>
 </template>
 
-<script lang="ts">
+<script>
 //import { ref } from 'vue'
-
+import helper from "src/plugins/helpers";
 export default {
   name: 'Sidebar',
-  props: {
-    title: {
-      type: String,
-      required: true
-    },
-
-    caption: {
-      type: String,
-      default: ''
-    },
-
-    link: {
-      type: String,
-      default: '#'
-    },
-
-    icon: {
-      type: String,
-      default: ''
+  props: {},
+  setup(){
+    return{
+      helper
     }
   }
 }
@@ -138,7 +128,7 @@ export default {
 }
 
 #sidebar-menu {
- .q-item {
+  .q-item {
     color: $secondary;
     font-size: 14.5px;
     transition: all .4s;

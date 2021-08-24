@@ -9,7 +9,11 @@ $router->group(['prefix' =>'/results'], function (Router $router) {
         'uses' => 'ResultApiController@create',
         'middleware' => ['auth:api']
     ]);
-
+    $router->post('/save-fill', [
+        'as' => 'api.polls.result.create.multiple',
+        'uses' => 'ResultApiController@createMultiple',
+        'middleware' => ['auth:api']
+    ]);
     //Route index
     $router->get('/', [
         'as' => 'api.polls.result.get.items.by',

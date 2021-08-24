@@ -16,7 +16,7 @@ class CreatePollsAnswerTranslationsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->text('title');
-            $table->text('caption');
+            $table->text('caption')->nullable();
             $table->integer('answer_id')->unsigned();
             $table->string('locale')->index();
             $table->unique(['answer_id', 'locale']);

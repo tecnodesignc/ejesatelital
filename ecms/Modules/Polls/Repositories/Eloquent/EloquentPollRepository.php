@@ -29,14 +29,15 @@ class EloquentPollRepository extends EloquentBaseRepository implements PollRepos
             $filter = $params->filter;//Short filter
 
 
-            //Filter by date
+            //Filter by account
             if (isset($filter->account)) {
+                $query->where('account_id', null);
                 $query->orWhere('account_id', $filter->account);
             }
 
-            //Filter by date
+            //Filter by status
             if (isset($filter->status)) {
-                $query->WhereActive($filter->status);
+                $query->where('active',$filter->status);
             }
             //Filter by date
             if (isset($filter->date)) {

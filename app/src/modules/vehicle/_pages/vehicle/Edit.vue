@@ -48,6 +48,7 @@
                         v-model="board"
                         stack-label
                         dense
+                        mask="XXXXXXX"
                         name="board"
                         placeholder="Placa"
                         lazy-rules
@@ -68,7 +69,8 @@
                         :options="model_options"
                         @filter="(val, update)=>update(()=>{model_options = helper.filterOptions(val,model_list,model)})"
                         clearable
-                      ><template v-slot:no-option>
+                      >
+                        <template v-slot:no-option>
                           <q-item>
                             <q-item-section class="text-grey">
                               No results
@@ -76,6 +78,22 @@
                           </q-item>
                         </template>
                       </q-select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 q-pt-sm">
+                      <p class="text-subtitle2">Marca</p>
+                      <q-select
+                        outlined
+                        dense
+                        v-model="brand_id"
+                        emit-value
+                        map-options
+                        use-input
+                        :options="brand_list"
+                        @filter="getBrands"
+                        placeholder="Marca del Vehìculo"
+                      />
                     </div>
                   </div>
                   <div class="row">
@@ -134,21 +152,6 @@
             <div class="col-md-3 q-px-sm">
               <q-card class="q-mb-sm">
                 <q-card-section>
-                  <div class="row">
-                    <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">Marca</p>
-                      <q-select
-                        outlined
-                        dense
-                        v-model="brand_id"
-                        emit-value
-                        map-options
-                        use-input
-                        :options="brand_list"
-                        @filter="getBrands"
-                      />
-                    </div>
-                  </div>
                   <div class="row">
                     <div class="col-12 q-pt-sm">
                       <p class="text-subtitle2">Cuenta</p>
@@ -450,14 +453,12 @@ export default {
     }
     const getBrands = async (val, update, abort) => {
       let params = {
-        params: {
           take: 20,
           filter: {
             search: val,
             status:true
           }
         }
-      }
       api.get('/vehicle/v1/brands', {params:params}).then(response => {
         update(() => {
           let options = array.select(response.data.data, {label: 'name', id: 'id'})

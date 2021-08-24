@@ -5,7 +5,7 @@
         <div class="row align-items-center">
           <div class="col-sm-6">
             <div class="page-title">
-              <h4>Vehiculos</h4>
+              <h4>Formularios</h4>
               <breadcrumb :items="breadcrumb"/>
             </div>
           </div>
@@ -21,10 +21,10 @@
             <q-card>
               <q-card-section>
                 <q-btn
-                  label="Nuevo Vehìclulo"
+                  label="Nueva Encuesta"
                   color="positive"
                   icon="add"
-                  :to="{name:'vehicle.vehicle.create'}"
+                  :to="{name:'polls.create'}"
                 />
                 <q-form class="needs-validation">
                 </q-form>
@@ -51,22 +51,22 @@
                         <q-td key="id" :props="props">
                           {{ props.row.id }}
                         </q-td>
-                        <q-td key="board" :props="props">
-                          {{ props.row.board }}
+                        <q-td key="title" :props="props">
+                          {{ props.row.title }}
                         </q-td>
-                        <q-td key="type_vehicle" :props="props">
-                          {{props.row.type_vehicle}}
+                        <q-td key="status" class="text-center" :props="props">
+                          <q-badge rounded :color="props.row.status?'green':'red'"/>
                         </q-td>
-                        <q-td key="brand" :props="props">
-                          {{props.row.brand.name}}
+                        <q-td key="account" :props="props">
+                          {{props.row.account?props.row.account.name:''}}
                         </q-td>
                         <q-td key="created_at" :props="props">
                           {{ props.row.created_at }}
                         </q-td>
                         <q-td key="actions" :props="props" auto-width class="q-gutter-sm text-center">
                           <q-btn color="positive" icon="edit" dense
-                                 :to="{name:'vehicle.vehicle.edit',params:{id:props.row.id}}"/>
-                          <q-btn icon="delete" color="negative" dense @click="deleteContact(props.row.id)"/>
+                                 :to="{name:'polls.edit',params:{id:props.row.id}}"/>
+                          <q-btn icon="delete" color="negative" dense @click="deletePoll(props.row.id)"/>
                         </q-td>
                       </q-tr>
                     </template>
@@ -93,7 +93,7 @@ import {api} from "boot/axios";
 import {computed, onMounted} from 'vue'
 
 export default {
-  name: 'Index Vehicle',
+  name: 'IndexPoll',
   components: {Breadcrumb},
   setup() {
     const $q = useQuasar();
@@ -104,12 +104,13 @@ export default {
         active: false
       },
       {
-        name: "Vehículos",
-        to: 'vehicle.vehicle.index',
+        name: "Encuestas",
+        to: 'polls.index',
         active: true
       }
     ]
-    const columns = [{
+    const columns = [
+      {
       name: 'id',
       required: true,
       label: 'Id',
@@ -118,29 +119,28 @@ export default {
       format: val => `${val}`,
       sortable: true
     }, {
-      name: 'board',
+      name: 'title',
       required: true,
-      label: 'Placa',
+      label: 'Titulo',
       align: 'left',
-      field: row => row.first_name,
+      field: row => row.title,
       format: val => `${val}`,
       sortable: true
     }, {
-      name: 'brand',
+      name: 'status',
       required: true,
-      label: 'Marca',
+      label: 'Estado',
       align: 'left',
-      field: row => row.brand.name,
+      field: row => row.status,
       format: val => `${val}`,
       sortable: true
     },{
-      name: 'type_vehicle',
+      name: 'account',
       required: true,
-      label: 'Tipo de Auto',
+      label: 'Asignado a Cuenta',
       align: 'left',
-      field: row => row.type_vehicle,
+      field: row => row.account,
       format: val => `${val}`,
-      sortable: true
     }, {
       name: 'created_at',
       required: true,
@@ -174,7 +174,7 @@ export default {
     const success = ref(false)
     //const store = useStore();
     const router = useRouter()
-    const getVehicles = () => {
+    const getPolls = () => {
       return new Promise(async (resolve, reject) => {
         $q.loading.show()
         let params = {
@@ -182,11 +182,11 @@ export default {
             status: status.value,
             search: search.value,
           },
-          include: 'brand',
+          include: 'account',
           page: initialPagination.value.page,
           take: initialPagination.value.rowsPerPage
         }
-        api.get('/vehicle/v1/vehicles', {params: params}).then(response => {
+        api.get('/polls/v1/polls', {params: params}).then(response => {
           rows.value = response.data.data
           initialPagination.value.rowsNumber = response.data.meta.page.total
           $q.loading.hide()
@@ -194,7 +194,7 @@ export default {
           $q.notify({
             color: 'negative',
             position: 'bottom-right',
-            message: 'Error en la consulta de  Vehiculos',
+            message: 'Error en la consulta de  Encuentas',
             icon: 'report_problem'
           })
           $q.loading.hide()
@@ -202,26 +202,26 @@ export default {
         });
       })
     }
-    const deleteVehicle = async (id) => {
+    const deletePoll = async (id) => {
       $q.loading.show()
       return new Promise(async (resolve, reject) => {
         try {
           let criteria = id
 
-          api.delete('/vehicle/v1/vehicles/' + criteria).then(response => {
+          api.delete('/polls/v1/polls/' + criteria).then(response => {
             $q.loading.hide()
             getContact()
             $q.notify({
               color: 'negative',
               position: 'bottom-right',
-              message: 'El Vehìculo a sido eliminada',
+              message: 'La Encuenta a sido eliminada',
               icon: 'report_problem'
             })
           }).catch(error => {
             $q.notify({
               color: 'negative',
               position: 'bottom-right',
-              message: 'Error al Eliminar El Vehìculo ' + error.errors,
+              message: 'Error al Eliminar La Encuesta ' + error.errors,
               icon: 'report_problem'
             })
             $q.loading.hide()
@@ -242,7 +242,7 @@ export default {
       initialPagination.value.rowsPerPage = rowsPerPage
       initialPagination.value.sortBy = sortBy
       initialPagination.value.descending = descending
-      getVehicles()
+      getPolls()
       // ...and turn of loading indicator
       loading.value = false
 
@@ -261,7 +261,7 @@ export default {
       order,
       status,
       search,
-      deleteVehicle,
+      deletePoll,
       onRequest
     };
   }

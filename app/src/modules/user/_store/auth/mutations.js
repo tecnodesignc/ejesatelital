@@ -8,12 +8,17 @@ export function authSuccess (state,payload){
   state.user = payload.userData
   state.token = payload.userToken
   state.userId = payload.userData.id
-  state.selectedRoleId=payload.userData.roles[0]
+  state.role=payload.userData.roles[0]
+  state.roles=payload.userData.roles
   state.authStatus = true
 }
 
-export function setRoleId(state,payload){
-  state.selectedRoleId = payload
+export function setRole(state,payload){
+  state.role = payload
+}
+
+export function setRoles(state,payload){
+  state.roles = payload
 }
 
 export function setImpersonate(state,payload = true){
@@ -41,7 +46,8 @@ export function reset(state, payload){
   state.user = null
   state.permissions = null
   state.settings = null
-  state.selectedRoleId = false
+  state.role = false
+  state.roles = []
   state.authStatus = false
   state.impersonating = false
 }

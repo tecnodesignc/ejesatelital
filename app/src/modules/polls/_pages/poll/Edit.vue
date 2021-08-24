@@ -5,210 +5,103 @@
         <div class="row align-items-center">
           <div class="col-sm-6">
             <div class="page-title">
-              <h4>Editar Vehìculo: {{ board }}</h4>
+              <h4>Editar Formularo: {{ title }}</h4>
               <breadcrumb :items="breadcrumb"/>
             </div>
           </div>
         </div>
       </div>
     </div>
-
     <div class="container-fluid">
       <div class="page-content-wrapper" v-if="success">
         <q-form class="needs-validation" @submit.prevent="update">
           <div class="row">
-            <div class="col-md-9 q-px-sm">
+                <div class="col-md-12 q-px-sm">
+              <q-card class="row q-mb-sm">
+                <div class="col-12">
+                  <q-card-section>
+                    <div class="text-h6">Datos</div>
+                  </q-card-section>
+                  <q-separator/>
+                </div>
+
+                <div class="col-md-9">
+                  <q-card-section>
+                    <div class="row">
+                      <div class="col-12 q-pt-sm">
+                        <p class="text-subtitle2">Nombre de la Encuesta</p>
+                        <q-input
+                          outlined
+                          v-model="title"
+                          stack-label
+                          dense
+                          name="board"
+                          placeholder="titulo"
+                          lazy-rules
+                          :rules="[val => !!val || 'Campo requerido']"
+                        />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 q-pt-sm">
+                        <p class="text-subtitle2">Informacion Adicional</p>
+                        <q-editor
+                          ref="descriptionRef"
+                          :definitions="{bold: {label: 'Bold', icon: null, tip: 'My bold tooltip'}}"
+                          v-model="description"
+                          lazy-rules
+                          :rules="[val => !!val || 'Campo requerido']"
+                        />
+                      </div>
+                    </div>
+                  </q-card-section>
+                </div>
+                <div class="col-md-3">
+                  <q-card-section>
+                    <div class="row">
+                      <div class="col-12 q-pt-sm">
+                        <div class="row">
+                          <div class="col-12 q-pt-sm">
+                            <p class="text-subtitle2">Cuenta</p>
+                            <q-select
+                              outlined
+                              dense
+                              v-model="account_id"
+                              emit-value
+                              name="account_id"
+                              map-options
+                              use-input
+                              clearable
+                              :options="account_list"
+                              @filter="getAccounts"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 q-pt-sm">
+                        <q-toggle
+                          name="is_activate"
+                          v-model="active"
+                          :true-value="true"
+                          label="Activar Pregunta"
+                        />
+                      </div>
+                    </div>
+                  </q-card-section>
+                </div>
+
+              </q-card>
               <q-card class="q-mb-sm">
                 <q-card-section>
-                  <div class="text-h6">Datos</div>
+                  <div class="text-h6">Preguntas</div>
                 </q-card-section>
                 <q-separator/>
                 <q-card-section>
                   <div class="row">
                     <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">Tipo de Vehìculo</p>
-                      <q-select
-                        outlined
-                        dense
-                        emit-value
-                        map-options
-                        v-model="type_vehicle"
-                        name="type_vehicle"
-                        use-input
-                        :options="type_vehicle_option"
-                        @filter="(val, update)=>update(()=>{type_vehicle_option = helper.filterOptions(val,type_vehicle_list,type_vehicle)})"
-                      />
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">Placa</p>
-                      <q-input
-                        outlined
-                        v-model="board"
-                        stack-label
-                        dense
-                        name="board"
-                        placeholder="Placa"
-                        lazy-rules
-                        :rules="[val => !!val || 'Campo requerido']"
-                      />
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">Modelo</p>
-                      <q-select
-                        outlined
-                        dense
-                        v-model="model"
-                        name="model"
-                        use-input
-                        no-option="model"
-                        :options="model_options"
-                        @filter="(val, update)=>update(()=>{model_options = helper.filterOptions(val,model_list,model)})"
-                        clearable
-                      ><template v-slot:no-option>
-                          <q-item>
-                            <q-item-section class="text-grey">
-                              No results
-                            </q-item-section>
-                          </q-item>
-                        </template>
-                      </q-select>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">Fecha de Vencimiento SOAT</p>
-                      <q-input outlined
-                               stack-label
-                               mask="####-##-##"
-                               dense
-                               v-model="insurance_expiration"
-                               :rules="[val => !!val || 'Campo requerido']"
-                               placeholder="SOAT"
-                      >
-                        <template v-slot:append>
-                          <q-icon name="event" class="cursor-pointer">
-                            <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
-                              <q-date v-model="insurance_expiration" mask="YYYY-MM-DD">
-                                <div class="row items-center justify-end">
-                                  <q-btn v-close-popup label="Close" color="primary" flat/>
-                                </div>
-                              </q-date>
-                            </q-popup-proxy>
-                          </q-icon>
-                        </template>
-                      </q-input>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">Fecha de Vencimiento Revisión Técnico Mecánica</p>
-                      <q-input outlined
-                               stack-label
-                               mask="####-##-##"
-                               dense
-                               v-model="technomechanical_expiration"
-                               :rules="[val => !!val || 'Campo requerido']"
-                               placeholder="Revisión Técnico Mecánica"
-                      >
-                        <template v-slot:append>
-                          <q-icon name="event" class="cursor-pointer">
-                            <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
-                              <q-date v-model="technomechanical_expiration" mask="YYYY-MM-DD">
-                                <div class="row items-center justify-end">
-                                  <q-btn v-close-popup label="Close" color="primary" flat/>
-                                </div>
-                              </q-date>
-                            </q-popup-proxy>
-                          </q-icon>
-                        </template>
-                      </q-input>
-                    </div>
-                  </div>
-                </q-card-section>
-              </q-card>
-            </div>
-            <div class="col-md-3 q-px-sm">
-              <q-card class="q-mb-sm">
-                <q-card-section>
-                  <div class="row">
-                    <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">Marca</p>
-                      <q-select
-                        outlined
-                        dense
-                        v-model="brand_id"
-                        emit-value
-                        map-options
-                        use-input
-                        :options="brand_list"
-                        @filter="getBrands"
-                      />
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">Cuenta</p>
-                      <q-select
-                        outlined
-                        dense
-                        v-model="accounts"
-                        emit-value
-                        name="accounts"
-                        map-options
-                        multiple
-                        use-input
-                        :options="account_list"
-                        @filter="getAccounts"
-                      >
-                        <template v-slot:selected-item="scope">
-                          <q-chip
-                            removable
-                            dense
-                            @remove="scope.removeAtIndex(scope.index)"
-                            :tabindex="scope.tabindex"
-                            color="secondary"
-                            text-color="white"
-                            class="q-ma-xs"
-                          >
-                            {{ scope.opt.label }}
-                          </q-chip>
-                        </template>
-                      </q-select>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">Conductores</p>
-                      <q-select
-                        outlined
-                        dense
-                        v-model="drivers"
-                        emit-value
-                        name="drivers"
-                        map-options
-                        multiple
-                        use-input
-                        :options="driver_list"
-                        @filter="getDrivers"
-                      >
-                        <template v-slot:selected-item="scope">
-                          <q-chip
-                            removable
-                            dense
-                            @remove="scope.removeAtIndex(scope.index)"
-                            :tabindex="scope.tabindex"
-                            color="secondary"
-                            text-color="white"
-                            class="q-ma-xs"
-                          >
-                            {{ scope.opt.label }}
-                          </q-chip>
-                        </template>
-                      </q-select>
+                      <question-list :poll="id"/>
                     </div>
                   </div>
                 </q-card-section>
@@ -220,7 +113,7 @@
               <q-card-section>
                 <div class="q-pa-md q-gutter-sm">
                   <q-btn unelevated color="primary" type="submit" label="Actualizar"/>
-                  <q-btn outline color="primary" :to="{name:'vehicle.vehicle.index'}" label="Cancelar"/>
+                  <q-btn outline color="primary" :to="{name:'polls.index'}" label="Cancelar"/>
                 </div>
               </q-card-section>
             </q-card>
@@ -242,13 +135,12 @@ import {useQuasar} from "quasar";
 import Breadcrumb from 'src/components/Breadcrumb.vue'
 import {api} from "boot/axios";
 import array from "src/plugins/array";
-import SingleMedia from "src/modules/media/_components/SingleMedia";
-import Location from "src/modules/location/_components/Location";
 import helper from "src/plugins/helpers";
+import QuestionList from "src/modules/polls/_components/question/QuestionList";
 
 export default {
-  name: 'Edit Vehicle',
-  components: {Location, Breadcrumb, SingleMedia},
+  name: 'EditPoll',
+  components: {Breadcrumb, QuestionList},
   setup() {
     const $q = useQuasar();
     const breadcrumb = [
@@ -258,35 +150,26 @@ export default {
         active: false
       },
       {
-        name: "Vehìculos",
-        to: 'vehicle.vehicle.index',
+        name: "Encuetas",
+        to: 'polls.index',
         active: true
       },
       {
-        name: "Editar Vehìculo",
-        to: 'vehicle.vehicle.edit',
+        name: "Editar Encuesta",
+        to: 'polls.edit',
         active: true
       }
     ]
     const id = ref(null)
-    const board = ref(null)
-    const brand_id = ref(null)
-    const model = ref(null)
-    const type_vehicle = ref(null)
-    const insurance_expiration = ref(null)
-    const technomechanical_expiration = ref(null)
-    const accounts = ref([])
-    const drivers = ref([])
-    const options = ref([])
+    const title = ref(null)
+    const slug = ref(null)
+    const description = ref(" ")
+    const account_id = ref(null)
+    const active = ref(false)
+    const options = ref(null)
     const account_list = ref([])
-    const type_vehicle_list = ref([])
-    const type_vehicle_option = ref([])
-    const driver_list = ref([])
-    const model_list = ref([])
-    const brand_list=ref([])
     const success = ref(false)
     const router = useRouter()
-    const model_options = ref(model_list.value)
     const route = useRoute()
     const update = async () => {
       try {
@@ -295,32 +178,30 @@ export default {
           let criteria = id.value
           let params = {
             attributes: {
-              board: board.value,
-              brand_id: brand_id.value,
-              model: model.value,
-              type_vehicle: type_vehicle.value,
-              insurance_expiration: insurance_expiration.value,
-              technomechanical_expiration: technomechanical_expiration.value,
-              accounts: accounts.value,
-              drivers: drivers.value,
+              title: title.value,
+              slug: slug.value,
+              description: description.value,
+              account_id: account_id.value,
+              active: active.value,
               options: options.value,
 
             }
           }
-          api.put('/vehicle/v1/vehicles/' + criteria, params).then(response => {
+          api.put('/polls/v1/polls/' + criteria, params).then(response => {
             $q.loading.hide()
             $q.notify({
               color: 'positive',
               position: 'bottom-right',
-              message: 'Vehiculo Editado Corectamente',
+              message: 'Encuesta Editado Corectamente',
               icon: 'report_problem'
             })
-            router.push({name: 'vehicle.vehicle.index'})
+            router.push({name: 'polls.index'})
+            resolve(true)
           }).catch(error => {
             $q.notify({
               color: 'negative',
               position: 'bottom-right',
-              message: 'Error al Actualizar el Vehiculo: ' + error.errors,
+              message: 'Error al Actualizar La Encuesta: ' + error.errors,
               icon: 'report_problem'
             })
             $q.loading.hide()
@@ -329,7 +210,7 @@ export default {
         })
       } catch (error) {
         $q.loading.hide()
-        console.error('Error en guardar el Vehiculo', error)
+        console.error('Error en guardar La Encuesta', error)
       }
     }
     const getAccounts = async (val, update, abort) => {
@@ -357,33 +238,24 @@ export default {
         });
       });
     }
-    const getVehicle = () => {
+    const getPoll = () => {
       return new Promise(async (resolve, reject) => {
         $q.loading.show()
         let criteria = route.params.id
         let params = {
-          include: 'accounts,drivers,brand'
+          include: 'account'
         }
-        api.get('/vehicle/v1/vehicles/' + criteria, {params: params}).then(response => {
+        api.get('/polls/v1/polls/' + criteria, {params: params}).then(response => {
           let data = response.data.data;
           let type_vehicle_id = data.type_vehicle_id
           id.value = data.id
-          board.value = data.board
-          brand_id.value = data.brand_id
-          model.value = data.model
-          type_vehicle.value = data.type_vehicle_id
-          insurance_expiration.value = data.insurance_expiration
-          technomechanical_expiration.value = data.technomechanical_expiration
-          accounts.value = data.accounts.map(item => {
-            return item.id
-          })
-          drivers.value = data.drivers.map(item => {
-            return item.id
-          })
+          title.value = data.title
+          slug.value = data.slug
+          description.value = data.description
+          account_id.value = data.account_id
+          active.value = data.status
           options.value = data.options
-          account_list.value = array.select(data.accounts, {label: 'name', id: 'id'})
-          brand_list.value = array.select([data.brand], {label: 'name', id: 'id'})
-          driver_list.value = array.select(data.drivers, {label: 'fullname', id: 'id'})
+          if(data.account) account_list.value = array.select([data.account], {label: 'name', id: 'id'})
           success.value = true
           $q.loading.hide()
           resolve(true)
@@ -399,109 +271,22 @@ export default {
         });
       })
     }
-    const getDrivers = async (val, update, abort) => {
-      return new Promise(async (resolve, reject) => {
-        let params = {
-          params: {
-            take: 20,
-            filter: {search: val}
-          }
-        }
-        api.get('/user/v1/users', {params: params}).then(response => {
-          update(() => {
-            driver_list.value = array.select(response.data.data, {label: 'full_name', id: 'id'})
-          })
-        }).catch(error => {
-          $q.notify({
-            color: 'negative',
-            position: 'bottom-right',
-            message: 'Error en la Consulta de Cuentas',
-            icon: 'report_problem'
-          })
-          $q.loading.hide()
-          abort(error)
-          reject(error)
-        });
-      });
-    }
-    const getTypeVehicles = async () => {
-      return new Promise(async (resolve, reject) => {
-        let params = {
-          params: {
-            take: 20,
-            filter: {}
-          }
-        }
-        api.get('/vehicle/v1/vehicle-type', {params: params}).then(response => {
-          type_vehicle_list.value = array.select(response.data.data, {label: 'name', id: 'id'})
-          type_vehicle_option.value = type_vehicle_list.value
-          resolve(true)
-        }).catch(error => {
-          $q.notify({
-            color: 'negative',
-            position: 'bottom-right',
-            message: 'Error en la Consulta de Tipos de Vehìculos',
-            icon: 'report_problem'
-          })
-          $q.loading.hide()
-          reject(error)
-        });
-      });
-    }
-    const getBrands = async (val, update, abort) => {
-      let params = {
-        params: {
-          take: 20,
-          filter: {
-            search: val,
-            status:true
-          }
-        }
-      }
-      api.get('/vehicle/v1/brands', {params:params}).then(response => {
-        update(() => {
-          let options = array.select(response.data.data, {label: 'name', id: 'id'})
-          brand_list.value = options
-        })
-      }).catch(error => {
-        $q.notify({
-          color: 'negative',
-          position: 'bottom-right',
-          message: 'Error en la Consulta de Marcas',
-          icon: 'report_problem'
-        })
-        $q.loading.hide()
-        reject(error)
-      });
-    }
     onMounted(async () => {
-      model_list.value = helper.yearList(null, 1920)
-      await getTypeVehicles()
-      await getVehicle()
+      await getPoll()
     });
     return {
-      board,
-      brand_id,
-      model,
-      type_vehicle,
-      insurance_expiration,
-      technomechanical_expiration,
-      accounts,
-      drivers,
-      driver_list,
-      model_list,
-      model_options,
-      brand_list,
+      id,
+      title,
+      slug,
+      description,
+      account_id,
+      active,
       options,
       breadcrumb,
       success,
       account_list,
-      type_vehicle_list,
-      type_vehicle_option,
       update,
       getAccounts,
-      getDrivers,
-      getBrands,
       helper
     };
   }

@@ -266,13 +266,12 @@ class Helper {
     return str;
   }
 
-  hasAccess(permission){
+  hasAccess (permission){
     const store=useStore();
     const permissions= store.state.auth.permissions
-
     for (let item in permissions) {
-      if(permission==item){
-        return  permissions[item]
+      if(permission===item){
+        return  permissions[permission]
       }
     }
     return false

@@ -38,7 +38,8 @@ class PollApiController extends BaseApiController
             //Validate permissions
             $this->validatePermission($params, 'polls.polls.index');
 
-            if(!$params->permissions['polls.polls.all']) $params->filter->account=$params->user->account->id;
+            dd($params->user);
+            if(!$params->permissions['polls.polls.all']) $params->filter->account=$params->user->accounts[0]->id;
 
 
             //Request to Repository
@@ -114,7 +115,7 @@ class PollApiController extends BaseApiController
             $poll = $this->poll->create($data);
 
             //Response
-            $response = ["data" => ['msg' => trans('polls::polls.messages.poll created')]];
+            $response = ["data" => new PollTransformer($poll)];
             \DB::commit(); //Commit to Data Base
         } catch (\Exception $e) {
             Log::Error($e);

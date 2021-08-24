@@ -277,6 +277,56 @@ const routes = [
       }
     ]
   },
+  {
+    path: '/polls',
+    meta: {
+      requireAuth: true
+    },
+    name: 'poll',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      {
+        path: '/polls',
+        name: 'polls.index',
+        component: () => import('src/modules/polls/_pages/poll/index.vue'),
+        meta: {
+          requireAuth: true
+        },
+      },
+      {
+        path: '/polls/create',
+        name: 'polls.create',
+        component: () => import('src/modules/polls/_pages/poll/create.vue'),
+        meta: {
+          requireAuth: true
+        },
+      },
+      {
+        path: '/polls/:id/edit',
+        name: 'polls.edit',
+        component: () => import('src/modules/polls/_pages/poll/edit.vue'),
+        meta: {
+          requireAuth: true
+        },
+      },
+      {
+        path: '/polls/fill',
+        name: 'polls.fill',
+        component: () => import('src/modules/polls/_pages/front/Index.vue'),
+        meta: {
+          requireAuth: true
+        }
+      },
+      {
+        path: '/polls/question/:id/fill',
+        name: 'polls.questions.fill',
+        component: () => import('src/modules/polls/_pages/front/question/list.vue'),
+        meta: {
+          requireAuth: true
+        },
+      }
+    ]
+  },
   // Always leave this as last one,
   // but you can also remove it
   {

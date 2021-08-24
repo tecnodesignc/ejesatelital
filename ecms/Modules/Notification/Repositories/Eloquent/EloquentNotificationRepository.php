@@ -95,9 +95,9 @@ final class EloquentNotificationRepository extends EloquentBaseRepository implem
 
         /*== RELATIONSHIPS ==*/
         if (in_array('*', $params->include)) {//If Request all relationships
-            $query->with(['user']);
+            $query->with(['user','account']);
         } else {//Especific relationships
-            $includeDefault = ['user'];//Default relationships
+            $includeDefault = [];//Default relationships
             if (isset($params->include))//merge relations with default relationships
                 $includeDefault = array_merge($includeDefault, $params->include);
             $query->with($includeDefault);//Add Relationships to query
@@ -115,21 +115,22 @@ final class EloquentNotificationRepository extends EloquentBaseRepository implem
                     if ($filter->me) {
                         $query->where(function ($query) use ($params) {
                             $query->where('user_id', $params->user->id);
-                            $query->orWhere('user_id', 0);
+                            $query->orWhere('user_id', null);
+                            $query->orWhere('account_id',$params->user->account->id??null);
                         });
                     } else {
-                        $query->where('user_id', 0);
+                        $query->where('user_id', null);
                     }
                 }
                 if (isset($filter->user)) {
                     if ($params->user->hasAccess('notification.notifications.manage')) {
-                        $query->where('user_id', 0);
+                        $query->where('user_id', null);
                     } else {
                         $query->whereUserId($filter->user);
                     }
                 }
             } else {
-                $query->where('user_id', 0);
+                $query->where('user_id', null);
             }
 
             //Filter by date
@@ -164,8 +165,7 @@ final class EloquentNotificationRepository extends EloquentBaseRepository implem
         }
     }
 
-    public
-    function getItem($criteria, $params = false)
+    public function getItem($criteria, $params = false)
     {
         //Initialize query
         $query = $this->model->query();

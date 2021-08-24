@@ -81,6 +81,7 @@
                         outlined
                         v-model="phone"
                         stack-label
+                        name="phone"
                         dense
                         placeholder="+57 312 5455444"
                         lazy-rules
@@ -149,6 +150,45 @@
                       />
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="col-12 q-pt-sm">
+                      <p class="text-subtitle2">Users</p>
+                      <div class="row">
+                        <div class="col-10">
+                          <q-select
+                            outlined
+                            dense
+                            v-model="users"
+                            emit-value
+                            name="users"
+                            map-options
+                            multiple
+                            use-input
+                            :options="users_list"
+                            @filter="getUsers"
+                          >
+                            <template v-slot:selected-item="scope">
+                              <q-chip
+                                removable
+                                dense
+                                @remove="scope.removeAtIndex(scope.index)"
+                                :tabindex="scope.tabindex"
+                                color="secondary"
+                                text-color="white"
+                                class="q-ma-xs"
+                              >
+                                {{ scope.opt.label }}
+                              </q-chip>
+                            </template>
+                          </q-select>
+                        </div>
+                        <div class="col-2">
+                          <single-user/>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
                 </q-card-section>
               </q-card>
               <q-card class="q-mb-sm">
@@ -156,7 +196,8 @@
                   <div class="row">
                     <div class="col-12 q-pt-sm">
                       <p class="text-subtitle2">Imagen</p>
-                      <single-media zone="logo" entity="Modules\Company\Entities\Account" @selectedImage="selectedImage"/>
+                      <single-media zone="logo" entity="Modules\Company\Entities\Account"
+                                    @selectedImage="selectedImage"/>
                     </div>
                   </div>
                 </q-card-section>
@@ -184,20 +225,20 @@
 
 <script>
 
-import {ref} from 'vue';
-import {useRouter, useRoute} from 'vue-router'
+import {onMounted, ref} from 'vue';
+import {useRouter} from 'vue-router'
 import {useQuasar} from "quasar";
 import Breadcrumb from 'src/components/Breadcrumb.vue'
 import {api} from "boot/axios";
-import {computed, onMounted} from 'vue'
 import array from "src/plugins/array";
 import SingleMedia from "src/modules/media/_components/SingleMedia";
 import Location from "src/modules/location/_components/Location";
 import ContactList from "src/modules/company/_components/ContactList";
+import SingleUser from "src/modules/user/_components/user/SingleUser";
 
 export default {
   name: 'Create Account Type',
-  components: {ContactList, SingleMedia, Breadcrumb, Location},
+  components: {SingleUser, ContactList, SingleMedia, Breadcrumb, Location},
   setup() {
     const $q = useQuasar();
     const breadcrumb = [
@@ -248,6 +289,7 @@ export default {
               parent_id: parent_id.value ? parent_id.value : 0,
               active: active.value,
               account_type_id: account_type_id.value,
+              users:users.value,
               medias_single: medias_single.value,
               phone: phone.value,
               street: street.value,
@@ -283,31 +325,32 @@ export default {
       }
     }
     const getAccounts = async (val, update, abort) => {
-      if (val.length < 2) return abort()
-      let params = {
-        params: {
-          take: 20,
-          filter: {search: val}
+      return new Promise(async (resolve, reject) => {
+        let params = {
+          params: {
+            take: 20,
+            filter: {search: val}
+          }
         }
-      }
-      api.get('/company/v1/accounts', {params:params}).then(response => {
-        update(() => {
-          let options = array.select(response.data.data, {label: 'name', id: 'id'})
-          account_list.value = options
-        })
-      }).catch(error => {
-        $q.notify({
-          color: 'negative',
-          position: 'bottom-right',
-          message: 'Error en la Consulta de Cuentas',
-          icon: 'report_problem'
-        })
-        $q.loading.hide()
-        reject(error)
+        api.get('/company/v1/accounts', {params: params}).then(response => {
+          update(() => {
+            account_list.value = array.select(response.data.data, {label: 'name', id: 'id'})
+          })
+          resolve(true)
+        }).catch(error => {
+          console.error(error)
+          $q.notify({
+            color: 'negative',
+            position: 'bottom-right',
+            message: 'Error en la Consulta de Cuentas',
+            icon: 'report_problem'
+          })
+          $q.loading.hide()
+          reject(error)
+        });
       });
     }
     const getAccountType = () => {
-
       return new Promise(async (resolve, reject) => {
         let params = {
           params: {
@@ -334,27 +377,28 @@ export default {
       });
     }
     const getUsers = async (val, update, abort) => {
-      if (val.length < 2) return abort()
-      let params = {
-        params: {
-          take: 20,
-          filter: {search: val}
+      return new Promise(async (resolve, reject) => {
+        let params = {
+          params: {
+            take: 20,
+            filter: {search: val,roleSlug:'customer'}
+          }
         }
-      }
-      api.get('/users/v1/users', {params:params}).then(response => {
-        update(() => {
-          let options = array.select(response.data.data, {label: 'full_name', id: 'id'})
-          users_list.value = options
-        })
-      }).catch(error => {
-        $q.notify({
-          color: 'negative',
-          position: 'bottom-right',
-          message: 'Error en la Consulta de Usuarios',
-          icon: 'report_problem'
-        })
-        $q.loading.hide()
-        reject(error)
+        api.get('/user/v1/users', {params: params}).then(response => {
+          update(() => {
+            users_list.value = array.select(response.data.data, {label: 'full_name', id: 'id'})
+          })
+          resolve(true)
+        }).catch(error => {
+          $q.notify({
+            color: 'negative',
+            position: 'bottom-right',
+            message: 'Error en la Consulta de Usuarios',
+            icon: 'report_problem'
+          })
+          $q.loading.hide()
+          reject(error)
+        });
       });
     }
     const selectedImage = (selectedImage) => {
@@ -362,7 +406,6 @@ export default {
     }
     onMounted(() => {
       getAccountType()
-      getAccounts()
     });
     return {
       name,

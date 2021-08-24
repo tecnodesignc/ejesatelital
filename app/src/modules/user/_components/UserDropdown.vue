@@ -41,14 +41,19 @@
 import {useStore} from 'vuex'
 import {computed, onMounted} from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import {useQuasar} from "quasar";
+
 export default {
   name: 'UserDropdown',
   setup() {
     const router = useRouter()
     const store = useStore();
+    const $q = useQuasar();
     const userData=computed(() =>store.state.auth.user)
     const logout=async () =>{
+      $q.loading.show()
       await store.dispatch('auth/authLogout')
+      router.go()
     }
     return {logout,userData};
   },

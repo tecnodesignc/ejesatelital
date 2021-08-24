@@ -136,6 +136,50 @@ class ResultApiController extends BaseApiController
         return response()->json($response ?? ["data" => "Request successful"], $status ?? 200);
     }
 
+
+    public function createMultple(Request $request)
+    {
+        \DB::beginTransaction();
+        try {
+            //Validate permissions
+            $params = $this->getParamsRequest($request);
+            $this->validatePermission($params, 'polls.results.create');
+
+            $datas = $request->input('attributes') ?? [];//Get data
+
+            foreach ($datas as $data){
+                $data['ip'] = $request->getClientIp();
+                $data['user_id'] = $params->user->id;
+                $params = json_decode(json_encode(["filter"=>["question"=>$data['question_id'],"answer"=>$data['answer_id'] ,'fields'=>'id'],'include'=>[],"take"=>1]));
+                //Request to Repository
+                $result = $this->result->getItemsBy($params);
+                if(count($result))
+                    $data['fill'] = $result[0]->fill + 1;
+                else {
+                    $this->result->getItemsBy(json_decode(json_encode(['include'=>[],"take"=>1])));
+                    $data['fill'] = $result[0]->fill??0 + 1;
+                }
+                //Validate Request
+                $this->validateRequestApi(new CreateResultRequest($data));
+
+                //Create item
+                $result = $this->result->create($data);
+            }
+
+            //Response
+            $response = ["data" => ['msg' => trans('polls::results.messages.result created')]];
+            \DB::commit(); //Commit to Data Base
+        } catch (\Exception $e) {
+            Log::Error($e);
+            \DB::rollback();//Rollback to Data Base
+            $status = $this->getStatusError($e->getCode());
+            $response = ["errors" => $e->getMessage()];
+        }
+        //Return response
+        return response()->json($response ?? ["data" => "Request successful"], $status ?? 200);
+    }
+
+
     /**
      * UPDATE ITEM
      *

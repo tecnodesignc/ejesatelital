@@ -9,7 +9,7 @@ $router->group(['prefix' =>'/vehicle-type'], function (Router $router) {
     $router->get('/', [
         'as' => 'api.vehicle.type.get.items.by',
         'uses' => 'TypeApiController@index',
-        //'middleware' => ['auth:api']
+        'middleware' => ['auth:api']
     ]);
 
     //Route show

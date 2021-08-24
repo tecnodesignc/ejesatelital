@@ -3,7 +3,7 @@
 
 namespace Modules\Polls\Presenters;
 use Laracasts\Presenter\Presenter;
-use Modules\Polls\Repositories\QuestionRepository;
+use Modules\Polls\Repositories\AnswerRepository;
 
 class QuestionPresenter extends Presenter
 {
@@ -16,13 +16,13 @@ class QuestionPresenter extends Presenter
      /**
       * @var QuestionRepository
       */
-     private $vehicle;
+     private $answer;
 
      public function __construct($entity)
      {
          parent::__construct($entity);
          $this->type= app('Modules\Polls\Entities\Type');
-         $this->vehicle= app('Modules\Polls\Repositories\QuestionRepository');
+         $this->answer= app('Modules\Polls\Repositories\AnswerRepository');
      }
 
      /**

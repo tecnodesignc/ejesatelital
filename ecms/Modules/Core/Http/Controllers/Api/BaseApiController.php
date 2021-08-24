@@ -37,7 +37,9 @@ class BaseApiController extends BasePublicController
         // set current auth user
         $this->user = Auth::user();
         $roles = $this->user ? $this->user->roles()->get() : false;//Role data
-        $role = ($roles && isset($setting->roleId)) ? $roles->where("id", $setting->roleId)->first() : false;
+        $role = ($roles && isset($setting->roleId)) ? $roles->where("id", $setting->roleId)->first() : $roles[0];
+
+
         //Return params
         $params = (object)[
             "page" => is_numeric($request->input('page')) ? $request->input('page') : $default->page,

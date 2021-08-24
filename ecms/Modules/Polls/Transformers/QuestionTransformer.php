@@ -13,10 +13,8 @@ class QuestionTransformer extends JsonResource
 
         $data = [
             'id' => $this->when($this->id,$this->id),
-            'statement' => $this->when($this->title,$this->title),
-            'description' => $this->when($this->slug,$this->slug),
-            'type_id' => $this->when($this->type,$this->type),
-            'type'=>$this->present()->type_question(),
+            'statement' => $this->when($this->statement,$this->statement),
+            'description' => $this->when($this->description,$this->description),
             'options' => $this->when($this->options,$this->options),
             'poll_id' => $this->when($this->account_id,$this->account_id),
             'poll'=> new PollTransformer($this->whenLoaded('poll')),

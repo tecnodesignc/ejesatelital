@@ -2,6 +2,7 @@
 
 return [
     'polls.polls' => [
+        'fill' => 'polls::polls.fill survey',
         'all' => 'polls::polls.list all resource',
         'index' => 'polls::polls.list resource',
         'create' => 'polls::polls.create resource',

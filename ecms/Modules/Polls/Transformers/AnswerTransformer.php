@@ -15,6 +15,8 @@ class AnswerTransformer extends JsonResource
             'id' => $this->when($this->id,$this->id),
             'title' => $this->when($this->title,$this->title),
             'caption' => $this->when($this->slug,$this->slug),
+            'type_id' => $this->when($this->type,$this->type),
+            'type'=>$this->present()->type_question(),
             'options' => $this->when($this->options,$this->options),
             'question_id' => $this->when($this->account_id,$this->account_id),
             'question'=> new QuestionTransformer($this->whenLoaded('question')),

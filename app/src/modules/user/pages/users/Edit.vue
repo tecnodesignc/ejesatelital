@@ -20,7 +20,7 @@
           <div class="col-lg-12">
             <q-card>
               <q-card-section>
-                <q-form class="needs-validation">
+                <q-form class="needs-validation" @submit.prevent="update">
                   <q-tabs
                     v-model="tab"
                     align="left"
@@ -103,8 +103,19 @@
                         </div>
                       </div>
                       <div class="row">
+                      <div class="col-12 q-pt-sm">
+                        <q-toggle
+                          name="changepassword"
+                          v-model="change_password"
+                          :true-value="true"
+                          label="Cambiar Contraseña"
+                        />
+                      </div>
+                    </div>
+                      <div class="row" v-if="change_password">
                         <div class="col-12 q-pt-sm">
                           <p class="text-subtitle2">Contraseña</p>
+
                           <q-input
                             outlined
                             v-model="password"
@@ -118,7 +129,7 @@
                           />
                         </div>
                       </div>
-                      <div class="row">
+                      <div class="row" v-if="change_password">
                         <div class="col-12 q-pt-sm">
                           <p class="text-subtitle2">Confirmación de contraseña</p>
                           <q-input
@@ -159,8 +170,8 @@
                     </q-tab-panel>
                   </q-tab-panels>
                   <div class="q-pa-md q-gutter-sm">
-                    <q-btn unelevated color="primary" @click="update" label="Guardar"/>
-                    <q-btn outline color="primary" label="Cancelar"/>
+                    <q-btn unelevated color="primary" type="submit" label="Guardar"/>
+                    <q-btn outline color="primary" :to="{name:'user.index'}" label="Cancelar"/>
                   </div>
                 </q-form>
               </q-card-section>
@@ -197,8 +208,13 @@ export default {
         active: false
       },
       {
-        name: "user",
-        to: 'user.create',
+        name: "Usuarios",
+        to: 'user.index',
+        active: true
+      },
+      {
+        name: "Editar usuario",
+        to: 'user.edit',
         active: true
       }
     ]
@@ -215,10 +231,11 @@ export default {
     const password_confirmation = ref(null)
     const roles_list = ref([])
     const success = ref(false)
+    const change_password=ref(false)
     //const store = useStore();
     const router = useRouter()
     const route = useRoute()
-    const fields= ref([])
+    const fields = ref([])
 
 
     const tab = ref('pane-0')
@@ -226,13 +243,10 @@ export default {
       try {
         $q.loading.show()
         return new Promise(async (resolve, reject) => {
-          let criteria =id.value
-
-          fields.value.identification=identification.value
-
+          let criteria = id.value
           let params = {
             attributes: {
-              id:id.value,
+              id: id.value,
               first_name: first_name.value,
               last_name: last_name.value,
               email: email.value,
@@ -241,7 +255,7 @@ export default {
               is_activated: is_activated.value,
               roles: roles.value,
               permissions: permissions.value,
-              fields:fields.value
+              fields: {identification:identification.value}
             }
           }
 
@@ -270,17 +284,9 @@ export default {
         console.error('Register Login', error)
       }
     }
-    const onReset = () => {
-      first_name.value = null,
-        last_name.value = null,
-        email.value = null,
-        is_activated.value = null,
-        password.value = null
-    }
 
     function callPermissions(getPermissions) {
       permissions.value = getPermissions
-
     }
 
     const getRoles = () => {
@@ -305,17 +311,16 @@ export default {
       return new Promise(async (resolve, reject) => {
         api.get('/user/v1/users/' + criteria).then(response => {
           let userData = response.data.data;
-          id.value=userData.id
-          full_name.value=userData.full_name
+          id.value = userData.id
+          full_name.value = userData.full_name
           first_name.value = userData.first_name
           last_name.value = userData.last_name
           email.value = userData.email
           is_activated.value = userData.is_activated
           roles.value = userData.roles_id
           permissions.value = userData.permissions
-          identification.value = userData.fields.identification
-          fields.value=userData.fields
-
+          identification.value = userData.fields ? userData.fields.identification : ''
+          fields.value = userData.fields
           $q.loading.hide()
           resolve(true)
         }).catch(error => {
@@ -349,9 +354,9 @@ export default {
       tab,
       roles_list,
       success,
+      change_password,
       callPermissions,
-      update,
-      onReset
+      update
     };
   }
 };

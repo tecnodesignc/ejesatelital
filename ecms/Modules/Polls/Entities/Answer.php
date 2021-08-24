@@ -5,14 +5,16 @@ namespace Modules\Polls\Entities;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Media\Support\Traits\MediaRelation;
+use Laracasts\Presenter\PresentableTrait;
+use Modules\Polls\Presenters\QuestionPresenter;
 
 class Answer extends Model
 {
-    use Translatable, MediaRelation;
+    use Translatable, MediaRelation, PresentableTrait;
 
     protected $table = 'polls__answers';
     public $translatedAttributes = ['title','caption'];
-    protected $fillable = ['title','caption', 'question_id','options'];
+    protected $fillable = ['title','caption','type', 'question_id','options'];
 
 
     /**
@@ -23,6 +25,8 @@ class Answer extends Model
     protected $casts = [
         'options' => 'array'
     ];
+
+    protected $presenter = QuestionPresenter::class;
 
 
     public function question()

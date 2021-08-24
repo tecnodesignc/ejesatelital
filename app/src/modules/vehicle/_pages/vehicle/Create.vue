@@ -82,6 +82,22 @@
                   </div>
                   <div class="row">
                     <div class="col-12 q-pt-sm">
+                      <p class="text-subtitle2">Marca</p>
+                      <q-select
+                        outlined
+                        dense
+                        v-model="brand_id"
+                        emit-value
+                        map-options
+                        use-input
+                        :options="brand_list"
+                        @filter="getBrands"
+                        placeholder="Marca del Vehìculo"
+                      />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 q-pt-sm">
                       <p class="text-subtitle2">Fecha de Vencimiento SOAT</p>
                       <q-input outlined
                                stack-label
@@ -136,22 +152,6 @@
             <div class="col-md-3 q-px-sm">
               <q-card class="q-mb-sm">
                 <q-card-section>
-                  <div class="row">
-                    <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">Marca</p>
-                      <q-select
-                        outlined
-                        dense
-                        v-model="brand_id"
-                        emit-value
-                        map-options
-                        use-input
-                        :options="brand_list"
-                        @filter="getBrands"
-                        placeholder="Marca del Vehìculo"
-                      />
-                    </div>
-                  </div>
                   <div class="row">
                     <div class="col-12 q-pt-sm">
                       <p class="text-subtitle2">Cuenta</p>

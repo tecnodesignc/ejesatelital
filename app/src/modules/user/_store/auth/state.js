@@ -7,5 +7,7 @@ export default function () {
     userId: null,
     permissions: null,
     selectedRoleId : false,
+    roles:[],
+    role:null
   }
 }

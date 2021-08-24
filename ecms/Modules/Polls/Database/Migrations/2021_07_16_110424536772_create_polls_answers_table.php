@@ -15,6 +15,7 @@ class CreatePollsAnswersTable extends Migration
         Schema::create('polls__answers', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->integer('type')->default(4);
             $table->text('options');
             $table->integer('question_id')->unsigned();
             $table->timestamps();

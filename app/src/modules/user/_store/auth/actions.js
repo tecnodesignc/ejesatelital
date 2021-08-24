@@ -148,4 +148,17 @@ export function setSettings({dispatch, commit, state}) {
   })
 }
 
+//Set permission of user
+export function setRole({dispatch, commit, state}, data) {
+  return new Promise(async (resolve, reject) => {
+    try {
 
+
+      commit('setPermissions', userPermissions)
+      resolve(true)//Resolve
+    } catch (error) {
+      console.error('[Auth Set Permissions] ', error)
+      reject(error)
+    }
+  })
+}

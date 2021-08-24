@@ -19,7 +19,7 @@ export function fullName(state){
 
 export function userRolesSelect (state){
   let roles = state.roles
-  return array.tree(roles, {label: 'name', id: 'id'})
+  return array.select(roles, {label: 'name', id: 'id'})
 }
 
 export function hasAccess(state, can) {

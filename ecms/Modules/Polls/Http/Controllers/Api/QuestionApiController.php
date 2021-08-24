@@ -110,9 +110,9 @@ class QuestionApiController extends BaseApiController
 
             //Create item
             $question = $this->question->create($data);
-
+            $response = ["data" => new QuestionTransformer($question)];
             //Response
-            $response = ["data" => ['msg' => trans('polls::questions.messages.question created')]];
+
             \DB::commit(); //Commit to Data Base
         } catch (\Exception $e) {
             Log::Error($e);

@@ -28,7 +28,7 @@
       <user-sidebar/>
     </q-drawer>
     <q-drawer show-if-above v-model="rightDrawerOpen" behavior="mobile" side="right" bordered>
-      <pre>{{rightDrawerOpen}}</pre>
+      <drawer-right/>
     </q-drawer>
     <q-page-container>
       <router-view/>
@@ -36,19 +36,21 @@
   </q-layout>
 </template>
 
-<script lang="ts">
+<script>
 import Sidebar from 'components/Sidebar.vue'
 import UserSidebar from 'src/modules/user/_components/UserSidebar.vue'
 import HeaderLeft from "components/HeaderLeft.vue";
 import HeaderRight from "components/HeaderRight.vue";
 
 import {ref} from 'vue'
+import DrawerRight from "components/DrawerRight";
 
 
 export default{
   name: 'MainLayout',
 
   components: {
+    DrawerRight,
     HeaderRight,
     HeaderLeft,
     Sidebar,

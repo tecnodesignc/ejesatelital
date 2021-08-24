@@ -15,7 +15,6 @@ class CreatePollsQuestionsTable extends Migration
         Schema::create('polls__questions', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('type');
             $table->text('options')->nullable();
             $table->integer('poll_id')->unsigned();
             $table->foreign('poll_id')->references('id')->on('polls__polls')->onDelete('cascade');

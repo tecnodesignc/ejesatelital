@@ -218,7 +218,7 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         Modules\Core\Providers\EncoreServiceProvider::class,
         App\Providers\RouteServiceProvider::class,

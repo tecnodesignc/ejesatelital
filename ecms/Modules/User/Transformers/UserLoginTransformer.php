@@ -4,6 +4,7 @@ namespace Modules\User\Transformers;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Modules\User\Permissions\PermissionManager;
+use Modules\User\Transformers\News\RoleTransformer;
 
 class UserLoginTransformer extends JsonResource
 {
@@ -22,7 +23,8 @@ class UserLoginTransformer extends JsonResource
             'last_login' => $this->last_login,
             'created_at' => $this->created_at,
             'permissions' => $permissions,
-            'roles' => $this->roles->pluck('id'),
+            'roles_id' => $this->roles->pluck('id'),
+            'roles' => RoleTransformer::collection($this->roles),
             'urls' => [
                 'logout' => route('api.user.logout'),
             ],

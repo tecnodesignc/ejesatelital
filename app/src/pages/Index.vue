@@ -14,7 +14,6 @@
         </div>
       </div>
     </div>
-
     <div>
     </div>
   </q-page>
@@ -24,6 +23,7 @@
 
 import {defineComponent, ref} from 'vue';
 import Breadcrumb from 'src/components/Breadcrumb.vue'
+import SelectAccount from "src/modules/company/_components/widget/SelectAccount";
 
 
 
@@ -38,12 +38,15 @@ export default {
         active: false
       }
     ]
-    const imageData = (selectedImage) => {
-      alert(selectedImage);
+    const data=ref(null)
+    const imageData = (update) => {
+      console.warn(update)
+      data.value=update
     }
     return {
       breadcrumb,
-      imageData
+      imageData,
+      data,
     };
   }
 };

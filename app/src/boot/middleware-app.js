@@ -26,6 +26,7 @@ export default boot(async ({router, store, Vue}) => {
         if (to.name != 'auth-login') redirectTo = {name: 'auth-login'}
 
       }
+
     }
 
     store.commit('app/setCurrentRoute', (redirectTo || to))//Update current route
@@ -48,5 +49,6 @@ export default boot(async ({router, store, Vue}) => {
     } else {
       return next()
     }
+
   })
 })

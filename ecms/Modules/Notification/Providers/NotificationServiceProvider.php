@@ -13,7 +13,7 @@ use Modules\Notification\Events\Handlers\RegisterNotificationSidebar;
 use Modules\Notification\Repositories\Cache\CacheNotificationDecorator;
 use Modules\Notification\Repositories\Eloquent\EloquentNotificationRepository;
 use Modules\Notification\Repositories\NotificationRepository;
-use Modules\Notification\Services\AsgardNotification;
+use Modules\Notification\Services\EncoreNotification;
 use Modules\User\Contracts\Authentication;
 use Illuminate\Support\Arr;
 
@@ -78,7 +78,7 @@ class NotificationServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(\Modules\Notification\Services\Notification::class, function ($app) {
-            return new AsgardNotification($app[NotificationRepository::class], $app[Authentication::class]);
+            return new EncoreNotification($app[NotificationRepository::class], $app[Authentication::class]);
         });
     }
 

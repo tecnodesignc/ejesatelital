@@ -1,6 +1,7 @@
 import { store } from 'quasar/wrappers'
 import { createStore } from 'vuex'
 import  auth  from "src/modules/user/_store/auth";
+import account from "src/modules/company/_store/account"
 import app from './app'
 
 // import example from './module-example'
@@ -18,6 +19,7 @@ export default store(function (/* { ssrContext } */) {
   const Store = createStore({
     modules: {
       auth,
+      account,
       app
     },
 
