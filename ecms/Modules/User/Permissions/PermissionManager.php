@@ -103,12 +103,13 @@ class PermissionManager
         } else {
             $user = auth()->user();
         }
+
         if (isset($role_id) && !empty($role_id)) {
             $role = $roleRepository->find($role_id);
         } else {
             $role = $user->roles->first();
         }
-        $list = $user->permissions + $role->permissions;
+        $list = array_merge($user->permission??[], $role->permissions);
 
         return $list;
     }

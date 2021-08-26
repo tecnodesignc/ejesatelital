@@ -54,15 +54,14 @@
                   </div>
                   <div class="row">
                     <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">Sitio de Cuenta</p>
+                      <p class="text-subtitle2">Sitio Web</p>
                       <q-input
                         outlined
                         v-model="account_site"
                         stack-label
                         dense
-                        placeholder="Nombre"
+                        placeholder="account_site"
                         lazy-rules
-                        :rules="[val => !!val || 'Campo requerido']"
                       />
                     </div>
                   </div>
@@ -133,6 +132,7 @@
                         outlined
                         dense
                         v-model="account_type_id"
+                        name="account_type"
                         emit-value
                         map-options
                         :options="account_type_list"
@@ -152,7 +152,7 @@
                   </div>
                   <div class="row">
                     <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">Users</p>
+                      <p class="text-subtitle2">Adminstradores de la Cuenta</p>
                       <div class="row">
                         <div class="col-10">
                           <q-select
@@ -166,6 +166,44 @@
                             use-input
                             :options="users_list"
                             @filter="getUsers"
+                          >
+                            <template v-slot:selected-item="scope">
+                              <q-chip
+                                removable
+                                dense
+                                @remove="scope.removeAtIndex(scope.index)"
+                                :tabindex="scope.tabindex"
+                                color="secondary"
+                                text-color="white"
+                                class="q-ma-xs"
+                              >
+                                {{ scope.opt.label }}
+                              </q-chip>
+                            </template>
+                          </q-select>
+                        </div>
+                        <div class="col-2">
+                          <single-user/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 q-pt-sm">
+                      <p class="text-subtitle2">Conductores</p>
+                      <div class="row">
+                        <div class="col-10">
+                          <q-select
+                            outlined
+                            dense
+                            v-model="drivers"
+                            emit-value
+                            name="users"
+                            map-options
+                            multiple
+                            use-input
+                            :options="drivers_list"
+                            @filter="getDriver"
                           >
                             <template v-slot:selected-item="scope">
                               <q-chip
@@ -274,9 +312,11 @@ export default {
     const country_id = ref(null)
     const options = ref([])
     const users = ref([])
+    const drivers = ref([])
     const account_list = ref([])
     const account_type_list = ref([])
     const users_list = ref([])
+    const drivers_list = ref([])
     const country = ref([])
     const province = ref([])
     const city = ref([])
@@ -385,11 +425,20 @@ export default {
           city.value = data.city
           province.value = data.province
           country.value = data.country
-          console.log(data.users)
           users.value = data.users ? data.users.map(item => {
-            return item.id
+           let roles= item.roles_id
+            if(roles.find(element => element = 3)){
+              return item.id
+            }
           }) : []
           users_list.value = array.select(data.users, {label: 'full_name', id: 'id'})
+          drivers.value = data.users ? data.users.map(item => {
+            let roles= item.roles_id
+            if(roles.find(element => element = 3)){
+              return item.id
+            }
+          }) : []
+          drivers_list.value = array.select(data.users, {label: 'full_name', id: 'id'})
           success.value = true
           $q.loading.hide()
           resolve(true)
@@ -415,10 +464,8 @@ export default {
           }
         }
         api.get('/company/v1/account-types', params).then(response => {
-          let options = array.select(response.data.data, {label: 'name', id: 'id'})
-          account_type_list.value = options
+          account_type_list.value = array.select(response.data.data, {label: 'name', id: 'id'})
           resolve(true)
-
         }).catch(error => {
           $q.notify({
             color: 'negative',
@@ -435,16 +482,37 @@ export default {
     const getUsers = async (val, update, abort) => {
       return new Promise(async (resolve, reject) => {
         let params = {
-          params: {
             take: 20,
-            filter: {search: val}
+            filter: {search: val,roleSlug:'customer'}
           }
-        }
         api.get('/user/v1/users', {params: params}).then(response => {
           update(() => {
-            let options = array.select(response.data.data, {label: 'full_name', id: 'id'})
-            users_list.value = options
+            users_list.value = array.select(response.data.data, {label: 'full_name', id: 'id'})
           })
+          resolve(true)
+        }).catch(error => {
+          $q.notify({
+            color: 'negative',
+            position: 'bottom-right',
+            message: 'Error en la Consulta de Usuarios',
+            icon: 'report_problem'
+          })
+          $q.loading.hide()
+          reject(error)
+        });
+      });
+    }
+    const getDriver = async (val, update, abort) => {
+      return new Promise(async (resolve, reject) => {
+        let params = {
+            take: 20,
+            filter: {search: val,roleSlug:'conductor'}
+          }
+        api.get('/user/v1/users', {params: params}).then(response => {
+          update(() => {
+            drivers_list.value = array.select(response.data.data, {label: 'full_name', id: 'id'})
+          })
+          resolve(true)
         }).catch(error => {
           $q.notify({
             color: 'negative',
@@ -465,9 +533,9 @@ export default {
       province_id.value = location.province_id
       city_id.value = location.city_id
     }
-    onMounted(() => {
-      getAccountType()
-      getAccount()
+    onMounted(async () => {
+     await getAccountType()
+     await getAccount()
     });
     return {
       id,
@@ -485,6 +553,8 @@ export default {
       country_id,
       options,
       users,
+      drivers,
+      drivers_list,
       breadcrumb,
       success,
       account_list,
@@ -497,6 +567,7 @@ export default {
       getAccounts,
       getAccountType,
       getUsers,
+      getDriver,
       selectedImage,
       emitLocation
     };

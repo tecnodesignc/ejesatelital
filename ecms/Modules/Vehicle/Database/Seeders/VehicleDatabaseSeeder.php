@@ -4,6 +4,7 @@ namespace Modules\Vehicle\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Vehicle\Database\Seeders\BrandTableSeeder;
 
 class VehicleDatabaseSeeder extends Seeder
 {
@@ -16,6 +17,10 @@ class VehicleDatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        // $this->call("OthersTableSeeder");
+        \DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        \DB::table('vehicle__brands')->truncate();
+        \DB::table('vehicle__brand_translations')->truncate();
+        \DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        $this->call(BrandTableSeeder::class);
     }
 }

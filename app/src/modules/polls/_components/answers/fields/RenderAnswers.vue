@@ -1,9 +1,10 @@
 <template>
   <div class="q-ma-md">
     <div class="row">
-      <div class="col" v-for="(answer, i) in question.answers" :key="i">
+      <div class="col-12 col-md" v-for="(answer, i) in question.answers" :key="i">
+
         <q-btn-toggle
-          v-if="answer.type_id===8"
+          v-if="answer.type_id==='8'"
           v-model="result[answer.id]"
           class="yesno-toggle"
           no-caps
@@ -23,7 +24,7 @@
           </q-tooltip>
         </q-btn-toggle>
         <q-input
-          v-if="answer.type_id===4"
+          v-if="answer.type_id==='4'"
           outlined
           v-model="result[answer.id]"
           stack-label
@@ -35,7 +36,7 @@
           {{answer.caption}}
         </q-tooltip></q-input>
 
-        <div class="q-gutter-sm" v-if="answer.type_id===0">
+        <div class="q-gutter-sm" v-if="answer.type_id==='0'">
           <q-option-group
             v-model="result[answer.id]"
             :options="answer.options.fiels"
@@ -43,21 +44,21 @@
             @update:model-value="changValue(answer.id,result[answer.id])"
           />
         </div>
-        <div class="q-gutter-sm" v-if="answer.type_id===1">
+        <div class="q-gutter-sm" v-if="answer.type_id==='1'">
           <q-option-group
             v-model="result[answer.id]"
             :options="options_rating_scale"
             color="primary"
           />
         </div>
-        <div class="q-gutter-sm" v-if="answer.type_id===2">
+        <div class="q-gutter-sm" v-if="answer.type_id==='2'">
           <q-option-group
             v-model="result[answer.id]"
             :options="options_likert_scales"
             color="primary"
           />
         </div>
-        <div class="q-gutter-sm" v-if="answer.type_id===3 && answer.options && answer.options.fields">
+        <div class="q-gutter-sm" v-if="answer.type_id==='3' && answer.options && answer.options.fields">
           <q-option-group
             v-model="result[answer.id]"
             :options="answer.options.fields"

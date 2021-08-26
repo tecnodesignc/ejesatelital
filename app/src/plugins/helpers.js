@@ -1,5 +1,5 @@
 import {useStore} from "vuex";
-import { date } from 'quasar'
+import {date} from 'quasar'
 
 class Helper {
   _construct() {
@@ -215,6 +215,18 @@ class Helper {
     } else /* else use Google */{
       window.open('https://maps.google.com/maps?q=' + encodeURI(address))
     }
+  }
+
+  async geoPosition(){
+    let position={}
+   navigator.geolocation.getCurrentPosition( await function(coordinates) {
+      position={
+        lat: coordinates.coords.latitude,
+        lng: coordinates.coords.longitude
+      } ;
+    });
+console.warn(position)
+    return position
   }
 
   //Validate Format of email

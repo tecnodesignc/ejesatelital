@@ -51,8 +51,8 @@ class PermissionsApiController extends BasePublicController
         if (!isset($params->role->id) || !$params->role->id) $role = $user->roles()->first();//Validate roleId
         $role = $params->role;
         //Get settings per entity
-        $userPermissions = $user->permissions;
-        $rolePermissions = $role->permissions;
+        $userPermissions = $user->permissions??[];
+        $rolePermissions = $role->permissions??[];
 
         //Merge all settings with priority
         $permissions = array_merge($rolePermissions, $userPermissions);

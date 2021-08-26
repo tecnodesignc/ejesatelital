@@ -327,6 +327,24 @@ const routes = [
       }
     ]
   },
+  {
+    path: '/History',
+    meta: {
+      requireAuth: true
+    },
+    name: 'history',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      {
+        path: '/history/:id/view',
+        name: 'history.view',
+        component: () => import('src/modules/history/_pages/view.vue'),
+        meta: {
+          requireAuth: true
+        },
+      },
+    ]
+  },
   // Always leave this as last one,
   // but you can also remove it
   {

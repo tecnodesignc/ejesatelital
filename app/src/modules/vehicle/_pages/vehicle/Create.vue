@@ -52,7 +52,8 @@
                         name="board"
                         placeholder="Placa"
                         lazy-rules
-                        :rules="[val => !!val || 'Campo requerido']"
+                        @blur="verifyVehicle(board)"
+                        :rules="[val => !!val || 'Campo requerido', val => alert || 'El vehiculo ya existe']"
                       />
                     </div>
                   </div>
@@ -287,6 +288,7 @@ export default {
     const driver_list = ref([])
     const model_list = ref([])
     const brand_list = ref([])
+    const alert=ref(false)
     const success = ref(false)
     const router = useRouter()
     const model_options = ref(model_list.value)
@@ -431,6 +433,29 @@ export default {
         reject(error)
       });
     }
+    const verifyVehicle = (board) => {
+        return new Promise(async (resolve, reject) => {
+          $q.loading.show()
+          let criteria = board
+          let params = {
+            include: ''
+          }
+          api.get('/vehicle/v1/vehicles/' + criteria, {params: params}).then(response => {
+            alert.value = true
+            $q.loading.hide()
+            resolve(true)
+          }).catch(error => {
+            $q.notify({
+              color: 'negative',
+              position: 'bottom-right',
+              message: 'Error en la consulta del Vehìculo ',
+              icon: 'report_problem'
+            })
+            $q.loading.hide()
+            reject(error)
+          });
+        })
+    }
     onMounted(async () => {
       model_list.value = helper.yearList(null, 1920)
       await getTypeVehicles()
@@ -458,6 +483,7 @@ export default {
       getAccounts,
       getDrivers,
       getBrands,
+      verifyVehicle,
       helper
     };
   }

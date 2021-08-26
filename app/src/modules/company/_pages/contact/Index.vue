@@ -28,13 +28,14 @@
                 />
                 <q-form class="needs-validation">
                 </q-form>
-                <div class="q-pa-md">
+                <div class="q-pa-md" v-if="success">
                   <q-table
                     :rows="rows"
                     :columns="columns"
                     row-key="id"
                     :loading="loading"
                     :filter="search"
+                    v-model:pagination="initialPagination"
                     @request="onRequest"
                     binary-state-sort
                   >
@@ -94,12 +95,11 @@ import {useQuasar} from "quasar";
 import Breadcrumb from 'src/components/Breadcrumb.vue'
 import {api} from "boot/axios";
 import {computed, onMounted} from 'vue'
-import Permissions from "src/modules/user/_components/admin/Permissions";
 import array from "src/plugins/array";
 
 export default {
-  name: 'Create User',
-  components: {Breadcrumb, Permissions},
+  name: 'IndexContact',
+  components: {Breadcrumb},
   setup() {
     const $q = useQuasar();
     const breadcrumb = [
@@ -201,7 +201,9 @@ export default {
         api.get('/company/v1/contacts', {params: params}).then(response => {
           rows.value = response.data.data
           initialPagination.value.rowsNumber = response.data.meta.page.total
+          success.value=true
           $q.loading.hide()
+          resolve(true)
         }).catch(error => {
           $q.notify({
             color: 'negative',
@@ -273,6 +275,8 @@ export default {
       order,
       status,
       search,
+      initialPagination,
+      success,
       deleteContact,
       onRequest
     };
@@ -281,7 +285,4 @@ export default {
 </script>
 
 <style lang="scss">
-.permission-toggle {
-  border: 1px solid $primary
-}
 </style>

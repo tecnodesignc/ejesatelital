@@ -57,7 +57,7 @@ class Account extends Model
 
     public function users()
     {
-       return $this->belongsToMany(User::class,'company__account_user');
+       return $this->belongsToMany(User::class,'company__account_user')->with('roles');
     }
 
     public function country()

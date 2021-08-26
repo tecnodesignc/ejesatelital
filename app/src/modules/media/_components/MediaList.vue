@@ -146,7 +146,7 @@ export default {
         let params = {
           setting: {
             locale: 'es',
-            roleId: store.state.auth.selectedRoleId
+            roleId: store.state.auth.role.id
           },
           filter: {
             folder: folderfield,

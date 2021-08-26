@@ -361,7 +361,13 @@ class SentinelUserRepository implements UserRepository
 
             //add filter by search
             if (isset($filter->search) && $filter->search) {
-                $query->search($filter->search);
+                $query->where(function ($query) use ($filter) {
+                    $query->where('users.id', 'like', '%' . $filter->search . '%')
+                        ->orWhere('first_name', 'like', '%' . $filter->search . '%')
+                        ->orWhereRaw('CONCAT(first_name,\' \',last_name) like ?', ['%' . $filter->search . '%'])
+                        ->orWhere('last_name', 'like', '%' . $filter->search . '%')
+                        ->orWhere('email', 'like', '%' . $filter->search . '%');
+                });
             }
             if (isset($filter->age)) {
                 $age = $filter->age;//Short filter date

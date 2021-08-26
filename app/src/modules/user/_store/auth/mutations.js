@@ -16,6 +16,9 @@ export function authSuccess (state,payload){
 export function setRole(state,payload){
   state.role = payload
 }
+export function setRoleId(state,payload){
+  state.selectedRoleId = payload
+}
 
 export function setRoles(state,payload){
   state.roles = payload

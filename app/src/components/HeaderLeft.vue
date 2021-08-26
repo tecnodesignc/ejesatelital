@@ -1,20 +1,7 @@
 <template>
-  <div v-if="$store.state.auth.selectedRoleId===3">
-    <q-btn-toggle
-      v-model="model"
-      class="my-custom-toggle"
-      no-caps
-      rounded
-      unelevated
-      toggle-color="primary"
-      color="white"
-      text-color="primary"
-      :options="[
-          {label: 'Option 1', value: 'one'},
-          {label: 'Option 2', value: 'two'}
-        ]"
-    />
-  </div>
+  <q-toolbar-title v-if="$store.state.auth.role.id===3">
+    <toggles-status/>
+  </q-toolbar-title>
   <q-toolbar-title v-else>
     <q-btn flat color="secondary" icon="email"/>
     <q-btn flat color="secondary" icon="mark_chat_unread"/>
@@ -22,14 +9,32 @@
   </q-toolbar-title>
 </template>
 
-<script lang="ts">
-//import { ref } from 'vue'
+<script>
+
+import {ref} from "vue";
+import TogglesStatus from "src/modules/history/_components/widgets/TogglesStatus";
 
 export default {
   name: 'HeaderLeft',
-  props: {}
+  components: {TogglesStatus},
+  props: {},
+  setup(){
+    const status= ref(1)
+    const setStatus=()=>{
+
+    }
+    return {
+      status,
+      setStatus
+    }
+  }
 }
 </script>
 
 <style lang="scss">
+
+.status-toggle{
+  border: 1px solid $primary
+}
+
 </style>

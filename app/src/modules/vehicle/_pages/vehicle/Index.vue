@@ -35,6 +35,7 @@
                     row-key="id"
                     :loading="loading"
                     :filter="search"
+                    v-model:pagination="initialPagination"
                     @request="onRequest"
                     binary-state-sort
                   >
@@ -189,7 +190,9 @@ export default {
         api.get('/vehicle/v1/vehicles', {params: params}).then(response => {
           rows.value = response.data.data
           initialPagination.value.rowsNumber = response.data.meta.page.total
+          success.value=true
           $q.loading.hide()
+          resolve(true)
         }).catch(error => {
           $q.notify({
             color: 'negative',
@@ -261,6 +264,7 @@ export default {
       order,
       status,
       search,
+      initialPagination,
       deleteVehicle,
       onRequest
     };

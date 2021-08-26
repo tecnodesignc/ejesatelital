@@ -15,6 +15,8 @@ class UserTransformer extends JsonResource
             'full_name' => $this->when($this->present()->fullname,$this->present()->fullname),
             'email' => $this->when($this->email,$this->email),
             'is_activated' => $this->isActivated(),
+            'roles_id' => $this->roles->pluck('id'),
+            'roles' => RoleTransformer::collection($this->roles),
             'created_at' => $this->when($this->created_at,$this->created_at),
             'updated_at' => $this->when($this->updated_at,$this->updated_at),
             'last_login' => $this->when($this->last_login,$this->last_login),

@@ -25,8 +25,8 @@ class FullUserTransformer extends JsonResource
             'updated_at' => $this->when($this->updated_at,$this->updated_at),
             'last_login' => $this->when($this->last_login,$this->last_login),
             'permissions' => $permissions,
-            'roles_id' => $this->roles->pluck('id'),
-            'roles' => RoleTransformer::collection($this->roles),
+            'roles_id' => $this->when($this->roles,$this->roles->pluck('id')),
+            'roles' => RoleTransformer::collection($this->whenLoaded('roles')),
             'urls' => [
                 'delete_url' => route('api.user.user.destroy', $this->id??0),
             ],

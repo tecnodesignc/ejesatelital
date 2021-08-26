@@ -35,6 +35,9 @@
                     row-key="id"
                     :loading="loadign"
                     :filter="search"
+                    v-model:pagination="initialPagination"
+                    @request="onRequest"
+                    binary-state-sort
                   >
                     <template v-slot:top-right>
                       <q-input borderless dense debounce="300" v-model="search" placeholder="Buscar">
@@ -52,7 +55,7 @@
                         >
                           {{ col.value }}
                         </q-td>
-                        <q-td auto-width class="q-gutter-sm text-center">
+                        <q-td key="actions" auto-width class="q-gutter-sm text-center">
                           <q-btn color="positive" icon="edit" dense
                                  :to="{name:'role.edit',params:{id:props.row.id}}"/>
                           <q-btn icon="delete" color="negative" dense @click="deleteRol(props.row.id)"/>
@@ -80,12 +83,10 @@ import {useQuasar} from "quasar";
 import Breadcrumb from 'src/components/Breadcrumb.vue'
 import {api} from "boot/axios";
 import {computed, onMounted} from 'vue'
-import Permissions from "src/modules/user/_components/admin/Permissions";
-import array from "src/plugins/array";
 
 export default {
   name: 'Create User',
-  components: {Breadcrumb, Permissions},
+  components: {Breadcrumb},
   setup() {
     const $q = useQuasar();
     const breadcrumb = [
@@ -135,36 +136,40 @@ export default {
     }
     ]
     const roles_data = ref([])
-    const initialPagination = {
+    const initialPagination = ref({
       sortBy: 'desc',
       descending: false,
       page: 1,
-      rowsPerPage: 20
-    }
+      rowsPerPage: 20,
+      rowsNumber: false
+    })
     const order = ref({
       field: 'created_at',
       way: 'desc'
     })
     const status = ref(null)
     const search = ref(null)
-    const loadign = ref(true)
+    const loading = ref(true)
     const success = ref(false)
     //const store = useStore();
     const router = useRouter()
     const getRoles = () => {
       return new Promise(async (resolve, reject) => {
+        $q.loading.show()
         let params = {
-          filters: {
+          filter: {
             status: status.value,
             search: search.value,
           },
-          page: initialPagination.page.value,
-          take: initialPagination.rowsPerPage.value
+          page: initialPagination.value.page,
+          take: initialPagination.value.rowsPerPage
         }
         api.get('/user/v1/roles', params).then(response => {
           roles_data.value = response.data.data
+          initialPagination.value.rowsNumber = response.data.meta.page.total
           success.value = true
-          loadign.value = false
+          $q.loading.hide()
+          resolve(true)
         }).catch(error => {
           $q.notify({
             color: 'negative',
@@ -207,18 +212,36 @@ export default {
         }
       })
     }
-    onMounted(() => {
+    function onRequest(props) {
+      const {page, rowsPerPage, sortBy, descending} = props.pagination
+      const filter = props.filter
+      loading.value = true
+      // don't forget to update local pagination object
+      initialPagination.value.page = page
+      initialPagination.value.rowsPerPage = rowsPerPage
+      initialPagination.value.sortBy = sortBy
+      initialPagination.value.descending = descending
       getRoles()
+      // ...and turn of loading indicator
+      loading.value = false
+
+    }
+    onMounted(() => {
+      onRequest({
+        pagination: initialPagination.value,
+        filter: undefined
+      })
     });
     return {
       columns,
       roles_data,
       breadcrumb,
-      loadign,
+      loading,
       order,
       status,
       search,
       deleteRole,
+      onRequest
     };
   }
 };

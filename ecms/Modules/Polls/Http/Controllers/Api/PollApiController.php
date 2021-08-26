@@ -38,9 +38,7 @@ class PollApiController extends BaseApiController
             //Validate permissions
             $this->validatePermission($params, 'polls.polls.index');
 
-            dd($params->user);
             if(!$params->permissions['polls.polls.all']) $params->filter->account=$params->user->accounts[0]->id;
-
 
             //Request to Repository
             $polls = $this->poll->getItemsBy($params);

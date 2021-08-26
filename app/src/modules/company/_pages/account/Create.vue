@@ -54,15 +54,14 @@
                   </div>
                   <div class="row">
                     <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">Sitio de Cuenta</p>
+                      <p class="text-subtitle2">Sitio Web</p>
                       <q-input
                         outlined
                         v-model="account_site"
                         stack-label
                         dense
-                        placeholder="Nombre"
+                        placeholder="account_site"
                         lazy-rules
-                        :rules="[val => !!val || 'Campo requerido']"
                       />
                     </div>
                   </div>
@@ -103,7 +102,7 @@
                       />
                     </div>
                   </div>
-                  <location/>
+                  <location @location="emitLocation"/>
                 </q-card-section>
               </q-card>
             </div>
@@ -152,7 +151,7 @@
                   </div>
                   <div class="row">
                     <div class="col-12 q-pt-sm">
-                      <p class="text-subtitle2">Users</p>
+                      <p class="text-subtitle2">Adminstradores de la Cuenta</p>
                       <div class="row">
                         <div class="col-10">
                           <q-select
@@ -166,6 +165,45 @@
                             use-input
                             :options="users_list"
                             @filter="getUsers"
+                          >
+                            <template v-slot:selected-item="scope">
+                              <q-chip
+                                removable
+                                dense
+                                @remove="scope.removeAtIndex(scope.index)"
+                                :tabindex="scope.tabindex"
+                                color="secondary"
+                                text-color="white"
+                                class="q-ma-xs"
+                              >
+                                {{ scope.opt.label }}
+                              </q-chip>
+                            </template>
+                          </q-select>
+                        </div>
+                        <div class="col-2">
+                          <single-user/>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 q-pt-sm">
+                      <p class="text-subtitle2">Conductores</p>
+                      <div class="row">
+                        <div class="col-10">
+                          <q-select
+                            outlined
+                            dense
+                            v-model="drivers"
+                            emit-value
+                            name="users"
+                            map-options
+                            multiple
+                            use-input
+                            :options="drivers_list"
+                            @filter="getDriver"
                           >
                             <template v-slot:selected-item="scope">
                               <q-chip
@@ -272,15 +310,19 @@ export default {
     const country_id = ref(null)
     const options = ref([])
     const users = ref([])
+    const drivers = ref([])
     const account_list = ref([])
     const account_type_list = ref([])
     const users_list = ref([])
+    const drivers_list = ref([])
     const success = ref(false)
     const router = useRouter()
     const register = async () => {
       try {
         $q.loading.show()
         return new Promise(async (resolve, reject) => {
+          let media = medias_single.value
+
           let params = {
             attributes: {
               name: name.value,
@@ -289,8 +331,7 @@ export default {
               parent_id: parent_id.value ? parent_id.value : 0,
               active: active.value,
               account_type_id: account_type_id.value,
-              users:users.value,
-              medias_single: medias_single.value,
+              users: users.value,
               phone: phone.value,
               street: street.value,
               city_id: city_id.value,
@@ -299,6 +340,8 @@ export default {
               options: options.value,
             }
           }
+
+          if (media) params.attributes.medias_single = media
           api.post('/company/v1/accounts', params).then(response => {
             $q.loading.hide()
             $q.notify({
@@ -307,7 +350,7 @@ export default {
               message: 'Empresa Guardado Corectamente',
               icon: 'report_problem'
             })
-            router.push({name: 'company.account-type.index'})
+            router.push({name: 'company.account.index'})
           }).catch(error => {
             $q.notify({
               color: 'negative',
@@ -379,10 +422,8 @@ export default {
     const getUsers = async (val, update, abort) => {
       return new Promise(async (resolve, reject) => {
         let params = {
-          params: {
-            take: 20,
-            filter: {search: val,roleSlug:'customer'}
-          }
+          take: 20,
+          filter: {search: val, roleSlug: 'customer'}
         }
         api.get('/user/v1/users', {params: params}).then(response => {
           update(() => {
@@ -401,8 +442,36 @@ export default {
         });
       });
     }
+    const getDriver = async (val, update, abort) => {
+      return new Promise(async (resolve, reject) => {
+        let params = {
+          take: 20,
+          filter: {search: val, roleSlug: 'conductor'}
+        }
+        api.get('/user/v1/users', {params: params}).then(response => {
+          update(() => {
+            drivers_list.value = array.select(response.data.data, {label: 'full_name', id: 'id'})
+          })
+          resolve(true)
+        }).catch(error => {
+          $q.notify({
+            color: 'negative',
+            position: 'bottom-right',
+            message: 'Error en la Consulta de Usuarios',
+            icon: 'report_problem'
+          })
+          $q.loading.hide()
+          reject(error)
+        });
+      });
+    }
     const selectedImage = (selectedImage) => {
       medias_single.value = selectedImage
+    }
+    const emitLocation = (location) => {
+      country_id.value = location.country_id
+      province_id.value = location.province_id
+      city_id.value = location.city_id
     }
     onMounted(() => {
       getAccountType()
@@ -422,6 +491,8 @@ export default {
       country_id,
       options,
       users,
+      drivers,
+      drivers_list,
       breadcrumb,
       success,
       account_list,
@@ -431,7 +502,9 @@ export default {
       getAccounts,
       getAccountType,
       getUsers,
+      getDriver,
       selectedImage,
+      emitLocation
     };
   }
 };

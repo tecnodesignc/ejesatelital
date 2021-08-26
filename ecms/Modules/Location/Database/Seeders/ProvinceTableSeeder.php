@@ -19,7 +19,7 @@ class ProvinceTableSeeder extends Seeder
         Model::unguard();
         $province = app(ProvinceRepository::class);
         $country = app(CountryRepository::class);
-        $path = base_path('/Modules/Location/Assets/js/provinces.json');
+        $path = base_path('Modules/Location/Assets/js/provinces.json');
         $provinces = json_decode(file_get_contents($path), true);
         $countries = $country->all();
 

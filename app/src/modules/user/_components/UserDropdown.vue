@@ -6,7 +6,7 @@
           <q-avatar rounded size="28px">
             <img :src="userData.main_image"/>
           </q-avatar>
-          <div class="text-center q-ml-sm">
+          <div class="text-center q-ml-sm" v-if="$q.screen.gt.xs">
             {{ userData.full_name }}
           </div>
         </div>

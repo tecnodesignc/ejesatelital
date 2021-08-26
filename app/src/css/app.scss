@@ -43,7 +43,7 @@ body{
 
 .page-title-box{
   background: $primary url(~assets/title-img.png) center;
-  margin: 0 -24px 23px -24px;
+  margin: 0 -24px 23px 0px;
   padding: 24px 24px 92px 24px;
   background-size: cover;
   width: 100%;
@@ -63,4 +63,10 @@ body{
 }
 .page-content-wrapper {
   margin-top: -90px;
+}
+
+@media screen and (max-width: $breakpoint-xs){
+  .q-btn .q-icon, .q-btn .q-spinner {
+    font-size: 1.4em;
+  }
 }

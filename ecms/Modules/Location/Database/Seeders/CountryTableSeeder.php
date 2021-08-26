@@ -20,7 +20,7 @@ class CountryTableSeeder extends Seeder
         Model::unguard();
 
         $country = app(CountryRepository::class);
-        $path = base_path('/Modules/location/Assets/js/countries.json');
+        $path = base_path('Modules/Location/Assets/js/countries.json');
         $countries = json_decode(file_get_contents($path), true);
 
 

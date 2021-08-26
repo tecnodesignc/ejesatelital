@@ -137,27 +137,27 @@ class ResultApiController extends BaseApiController
     }
 
 
-    public function createMultple(Request $request)
+    public function createMultiple(Request $request)
     {
         \DB::beginTransaction();
         try {
             //Validate permissions
             $params = $this->getParamsRequest($request);
             $this->validatePermission($params, 'polls.results.create');
-
             $datas = $request->input('attributes') ?? [];//Get data
-
             foreach ($datas as $data){
                 $data['ip'] = $request->getClientIp();
+
                 $data['user_id'] = $params->user->id;
-                $params = json_decode(json_encode(["filter"=>["question"=>$data['question_id'],"answer"=>$data['answer_id'] ,'fields'=>'id'],'include'=>[],"take"=>1]));
+
+                $queryParams = json_decode(json_encode(["filter"=>["question"=>$data['question_id'],"answer"=>$data['answer_id'] ,'fields'=>'id'],'include'=>[],"take"=>1]));
                 //Request to Repository
-                $result = $this->result->getItemsBy($params);
-                if(count($result))
-                    $data['fill'] = $result[0]->fill + 1;
+                $entity = $this->result->getItemsBy($queryParams);
+                if(count($entity))
+                    $data['fill'] = $entity[0]->fill + 1;
                 else {
                     $this->result->getItemsBy(json_decode(json_encode(['include'=>[],"take"=>1])));
-                    $data['fill'] = $result[0]->fill??0 + 1;
+                    $data['fill'] = $entity[0]->fill??0 + 1;
                 }
                 //Validate Request
                 $this->validateRequestApi(new CreateResultRequest($data));

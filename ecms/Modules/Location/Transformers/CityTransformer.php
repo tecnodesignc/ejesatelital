@@ -13,7 +13,7 @@ class CityTransformer extends JsonResource
     {
         $data = [
             'id' => $this->when($this->id, $this->id),
-            'name' => $this->when($this->name, $this->name),
+            'name' => $this->when($this->name, ucwords(strtolower($this->name))),
             'code' => $this->when($this->code, $this->code),
             'province_id' => $this->when($this->province_id, $this->province_id),
             'country_id' => $this->when($this->country_id, $this->country_id),

@@ -22,7 +22,7 @@ class CityTableSeeder extends Seeder
         Model::unguard();
         $city = app(CityRepository::class);
 
-        $path = base_path('/Modules/Location/Assets/js/citiesCO.json');
+        $path = base_path('Modules/Location/Assets/js/citiesCO.json');
         $cities = json_decode(file_get_contents($path), true);
 
         foreach ($cities as $key => $item) {

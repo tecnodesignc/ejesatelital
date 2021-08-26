@@ -35,6 +35,7 @@
                     row-key="id"
                     :loading="loading"
                     :filter="search"
+                    v-model:pagination="initialPagination"
                     @request="onRequest"
                     binary-state-sort
                   >
@@ -261,6 +262,7 @@ export default {
       order,
       status,
       search,
+      initialPagination,
       deletePoll,
       onRequest
     };

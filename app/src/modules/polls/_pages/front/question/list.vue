@@ -5,7 +5,7 @@
         <div class="row align-items-center">
           <div class="col-sm-6">
             <div class="page-title">
-              <h4>{{title}}</h4>
+              <h4>{{ title }}</h4>
               <breadcrumb :items="breadcrumb"/>
             </div>
           </div>
@@ -29,34 +29,35 @@
                   <q-list padding>
                     <q-item v-for="(question, i) in questions" :key="i">
                       <q-item-section avatar>
-                        <q-icon color="primary" name="help_outline" />
+                        <q-icon color="primary" name="help_outline"/>
                       </q-item-section>
                       <q-item-section>
-                        {{question.statement}}
-                        <q-tooltip v-if="question.description" anchor="bottom middle" self="top middle" :offset="[10, 10]">
-                          {{question.description}}
+                        {{ question.statement }}
+                        <q-tooltip v-if="question.description" anchor="bottom middle" self="top middle"
+                                   :offset="[10, 10]">
+                          {{ question.description }}
                         </q-tooltip>
                       </q-item-section>
-                      <q-item-section top >
+                      <q-item-section top>
                         <render-answers :question="question" @result="emitAnswer"/>
                       </q-item-section>
                     </q-item>
                   </q-list>
                 </q-card-section>
               </div>
-              </q-card>
-            </div>
-          </div>
-          <q-footer>
-            <q-card class="q-mb-sm">
-              <q-card-section>
-                <div class="q-pa-md q-gutter-sm">
-                  <q-btn unelevated color="primary" @click="" label="Enviar"/>
-                  <q-btn outline color="primary" :to="{name:'polls.fill'}" label="Cancelar"/>
-                </div>
-              </q-card-section>
             </q-card>
-          </q-footer>
+          </div>
+        </div>
+        <q-footer>
+          <q-card class="q-mb-sm">
+            <q-card-section>
+              <div class="q-pa-md q-gutter-sm">
+                <q-btn unelevated color="primary" @click="setResult" label="Enviar"/>
+                <q-btn outline color="primary" :to="{name:'polls.fill'}" label="Cancelar"/>
+              </div>
+            </q-card-section>
+          </q-card>
+        </q-footer>
         <!-- end row -->
       </div>
     </div>
@@ -100,15 +101,15 @@ export default {
       }
     ]
     const questions = ref([])
-    const title=ref(null)
-    const active=ref(null)
-    const answers=ref([])
+    const title = ref(null)
+    const active = ref(null)
+    const answers = ref([])
     const success = ref(false)
     const router = useRouter()
     const initialPagination = ref({
       page: 1,
-      rowsPerPage:12,
-      totalPage:1
+      rowsPerPage: 12,
+      totalPage: 1
     })
     const order = ref({
       field: 'created_at',
@@ -124,7 +125,7 @@ export default {
         }
         api.get('/polls/v1/polls/' + criteria, {params: params}).then(response => {
           let data = response.data.data;
-          if(!data.status || (data.account_id && data.account_id !== store.state.account.account_id)) router.push({name:'polls.fill'})
+          if (!data.status || (data.account_id && data.account_id !== store.state.account.account_id)) router.push({name: 'polls.fill'})
           title.value = data.title
           active.value = data.status
           success.value = true
@@ -156,7 +157,7 @@ export default {
           take: initialPagination.value.rowsPerPage
         }
         api.get('/polls/v1/questions', {params: params}).then(response => {
-         questions.value = response.data.data;
+          questions.value = response.data.data;
           initialPagination.value.totalPage = response.data.meta.page.total
           $q.loading.hide()
           resolve(true)
@@ -172,19 +173,53 @@ export default {
         });
       })
     }
+
     function emitAnswer(result) {
-      if(answers.value.length){
+      if (answers.value.length) {
         let objIndex = answers.value.findIndex((obj => obj.answer_id == result.answer_id));
-        if(objIndex===-1)answers.value.push(result)
+        if (objIndex === -1) answers.value.push(result)
         else
-          answers.value[objIndex]=result
-      }else{
+          answers.value[objIndex] = result
+      } else {
         answers.value.push(result)
       }
     }
 
+    const setResult = async () => {
+      try {
+        $q.loading.show()
+        return new Promise(async (resolve, reject) => {
+          let params = {
+            attributes: answers.value,
+          }
+          api.post('/polls/v1/results/save-fill', params).then(response => {
+            $q.loading.hide()
+            $q.notify({
+              color: 'positive',
+              position: 'bottom-right',
+              message: 'Envio de Corectamente',
+              icon: 'report_problem'
+            })
+            router.push({name:polls.fill})
+            resolve(true)
+          }).catch(error => {
+            $q.notify({
+              color: 'negative',
+              position: 'bottom-right',
+              message: 'Error al guardar los Datos: ' + error.errors,
+              icon: 'report_problem'
+            })
+            $q.loading.hide()
+            reject(error)
+          });
+        })
+      } catch (error) {
+        $q.loading.hide()
+        console.error('Error en guardar La Encuesta', error)
+      }
+    }
     onMounted(async () => {
-      await store.dispatch('account/SetAccounts',false)
+      await store.dispatch('account/SetAccounts', false)
       await getPoll()
       await getQuestions()
     });
@@ -195,6 +230,7 @@ export default {
       initialPagination,
       answers,
       emitAnswer,
+      setResult,
       helper
     };
   }

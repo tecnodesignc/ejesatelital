@@ -35,6 +35,9 @@
                     row-key="id"
                     :loading="loadign"
                     :filter="search"
+                    v-model:pagination="initialPagination"
+                    @request="onRequest"
+                    binary-state-sort
                   >
                     <template v-slot:top-right>
                       <q-input borderless dense debounce="300" v-model="search" placeholder="Buscar">
@@ -80,12 +83,10 @@ import {useQuasar} from "quasar";
 import Breadcrumb from 'src/components/Breadcrumb.vue'
 import {api} from "boot/axios";
 import {computed, onMounted} from 'vue'
-import Permissions from "src/modules/user/_components/admin/Permissions";
-import array from "src/plugins/array";
 
 export default {
   name: 'Create User',
-  components: {Breadcrumb, Permissions},
+  components: {Breadcrumb},
   setup() {
     const $q = useQuasar();
     const breadcrumb = [
@@ -156,12 +157,13 @@ export default {
     },
     ]
     const user_data = ref([])
-    const initialPagination = {
+    const initialPagination = ref({
       sortBy: 'desc',
       descending: false,
       page: 1,
-      rowsPerPage: 20
-    }
+      rowsPerPage: 20,
+      rowsNumber: false
+    })
     const order = ref({
       field: 'created_at',
       way: 'desc'
@@ -171,7 +173,7 @@ export default {
     const search = ref(null)
 
     const roles_list = ref([])
-    const loadign = ref(true)
+    const loading = ref(true)
     const success = ref(false)
     //const store = useStore();
     const router = useRouter()
@@ -190,13 +192,15 @@ export default {
             roleId: role_id.value,
             search: search.value,
           },
-          page: initialPagination.page.value,
-          take: initialPagination.rowsPerPage.value
+          page: initialPagination.value.page,
+          take: initialPagination.value.rowsPerPage
         }
         api.get('/user/v1/users', params).then(response => {
           user_data.value = response.data.data
+          initialPagination.value.rowsNumber = response.data.meta.page.total
           success.value = true
-          loadign.value = false
+          $q.loading.hide()
+          resolve(true)
         }).catch(error => {
           $q.notify({
             color: 'negative',
@@ -256,22 +260,39 @@ export default {
         });
       })
     }
+
+    function onRequest(props) {
+      const {page, rowsPerPage, sortBy, descending} = props.pagination
+      const filter = props.filter
+      loading.value = true
+      // don't forget to update local pagination object
+      initialPagination.value.page = page
+      initialPagination.value.rowsPerPage = rowsPerPage
+      initialPagination.value.sortBy = sortBy
+      initialPagination.value.descending = descending
+      getVehicles()
+      // ...and turn of loading indicator
+      loading.value = false
+
+    }
     onMounted(() => {
-      getRoles()
-      getUsers()
+      onRequest({
+        pagination: initialPagination.value,
+        filter: undefined
+      })
     });
     return {
       columns,
       user_data,
       roles_list,
       breadcrumb,
-      loadign,
+      loading,
       order,
       status,
       role_id,
       search,
       deleteUser,
-      onReset
+      onRequest
     };
   }
 };

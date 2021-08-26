@@ -1,8 +1,6 @@
 <template>
-  <div class="q-gutter-x-sm row">
-    <notification-dropdown/>
-   <user-dropdown/>
-  </div>
+  <notification-dropdown/>
+  <user-dropdown/>
 </template>
 
 <script>
@@ -10,6 +8,7 @@
 
 import UserDropdown from "src/modules/user/_components/UserDropdown.vue";
 import NotificationDropdown from "src/modules/notification/_components/NotificationDropdown.vue";
+
 export default {
   name: 'HeaderRight',
   components: {NotificationDropdown, UserDropdown},

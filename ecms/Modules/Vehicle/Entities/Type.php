@@ -10,10 +10,8 @@ namespace Modules\Vehicle\Entities;
 
 class Type
 {
-    const HEAVYMACHINERY = 0;
-    const VEHICLES = 1;
-    const MOTORCYCLE = 2;
-    const OTHER = 3;
+    const OWN = 0;
+    const THIRDPARTY = 1;
     /**
      * @var array
      */
@@ -22,10 +20,8 @@ class Type
     public function __construct()
     {
         $this->type = [
-            self::HEAVYMACHINERY => trans('vehicle::type.heavy machinery'),
-            self::VEHICLES => trans('vehicle::type.vehicle'),
-            self::MOTORCYCLE => trans('vehicle::type.motorcycle'),
-            self::OTHER => trans('vehicle::type.other'),
+            self::OWN => trans('vehicle::type.own'),
+            self::THIRDPARTY => trans('vehicle::type.third party'),
         ];
     }
 
@@ -50,6 +46,6 @@ class Type
             return $this->type[$typeId];
         }
 
-        return $this->type[self::HEAVYMACHINERY];
+        return $this->type[self::THIRDPARTY];
     }
 }

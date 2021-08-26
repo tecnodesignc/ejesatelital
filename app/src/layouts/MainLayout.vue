@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header  class="bg-white q-py-lg">
-      <q-toolbar>
+    <q-header class="bg-white q-py-lg"  height-hint="58">
+      <q-toolbar class="row" >
         <q-btn
           flat
           dense
@@ -11,7 +11,7 @@
           @click="drawer=!drawer"
         />
         <header-left/>
-        <div><header-right/></div>
+        <div class="q-gutter-sm row items-center no-wrap"><header-right/></div>
         <q-btn dense flat icon="fas fa-cog" color="secondary" @click="rightDrawerOpen=!rightDrawerOpen" />
       </q-toolbar>
     </q-header>

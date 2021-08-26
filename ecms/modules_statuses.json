@@ -9,11 +9,11 @@
     "Translation": true,
     "User": true,
     "Workshop": true,
-    "Blog": true,
     "Custom": true,
     "Company": true,
     "Location": true,
     "Notification": true,
     "Vehicle": true,
-    "Polls": true
+    "Polls": true,
+    "History": true
 }
