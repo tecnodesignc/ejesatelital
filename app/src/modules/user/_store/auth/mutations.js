@@ -13,6 +13,11 @@ export function authSuccess (state,payload){
   state.authStatus = true
 }
 
+export function profileSuccess (state,payload){
+  console.log(payload)
+  state.user = payload
+}
+
 export function setRole(state,payload){
   state.role = payload
 }

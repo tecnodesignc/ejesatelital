@@ -338,7 +338,7 @@ export default {
               parent_id: parent_id.value ? parent_id.value : 0,
               active: active.value,
               account_type_id: account_type_id.value,
-              users:users.value,
+              users: users.value.concat(drivers.value),
               phone: phone.value,
               street: street.value,
               city_id: city_id.value,
@@ -362,7 +362,7 @@ export default {
             $q.notify({
               color: 'negative',
               position: 'bottom-right',
-              message: 'Error al Actualizar La Cuenta: ' + error.errors,
+              message: 'Error al Actualizar La Cuenta',
               icon: 'report_problem'
             })
             $q.loading.hide()
@@ -371,7 +371,7 @@ export default {
         })
       } catch (error) {
         $q.loading.hide()
-        console.error('Error en guardar Tipo de Empresa', error)
+        reject('Error al Actualizar La Cuenta', error)
       }
     }
     const getAccounts = async (val, update, abort) => {
@@ -425,20 +425,28 @@ export default {
           city.value = data.city
           province.value = data.province
           country.value = data.country
-          users.value = data.users ? data.users.map(item => {
-           let roles= item.roles_id
-            if(roles.find(element => element = 3)){
-              return item.id
-            }
-          }) : []
-          users_list.value = array.select(data.users, {label: 'full_name', id: 'id'})
-          drivers.value = data.users ? data.users.map(item => {
-            let roles= item.roles_id
-            if(roles.find(element => element = 3)){
-              return item.id
-            }
-          }) : []
           drivers_list.value = array.select(data.users, {label: 'full_name', id: 'id'})
+          users_list.value = array.select(data.users, {label: 'full_name', id: 'id'})
+
+          let user=[]
+
+           data.users ? data.users.forEach(item => {
+            let roles = item.roles_id
+            if (roles.includes(4)) {
+              user.push(item.id)
+            }
+          }) : []
+          users.value = user
+          let driver=[]
+          data.users ? data.users.forEach(item => {
+            let roles = item.roles_id
+            if (roles.includes(3)) {
+              driver.push(item.id)
+            }
+            return 0
+          }) : []
+
+          drivers.value =driver
           success.value = true
           $q.loading.hide()
           resolve(true)
@@ -482,9 +490,9 @@ export default {
     const getUsers = async (val, update, abort) => {
       return new Promise(async (resolve, reject) => {
         let params = {
-            take: 20,
-            filter: {search: val,roleSlug:'customer'}
-          }
+          take: 20,
+          filter: {search: val, roleSlug: 'customer'}
+        }
         api.get('/user/v1/users', {params: params}).then(response => {
           update(() => {
             users_list.value = array.select(response.data.data, {label: 'full_name', id: 'id'})
@@ -505,9 +513,9 @@ export default {
     const getDriver = async (val, update, abort) => {
       return new Promise(async (resolve, reject) => {
         let params = {
-            take: 20,
-            filter: {search: val,roleSlug:'conductor'}
-          }
+          take: 20,
+          filter: {search: val, roleSlug: 'conductor'}
+        }
         api.get('/user/v1/users', {params: params}).then(response => {
           update(() => {
             drivers_list.value = array.select(response.data.data, {label: 'full_name', id: 'id'})
@@ -534,8 +542,8 @@ export default {
       city_id.value = location.city_id
     }
     onMounted(async () => {
-     await getAccountType()
-     await getAccount()
+      await getAccountType()
+      await getAccount()
     });
     return {
       id,

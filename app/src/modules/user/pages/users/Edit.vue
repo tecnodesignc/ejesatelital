@@ -30,6 +30,7 @@
                     <q-tab name="pane-0" label="Datos"/>
                     <q-tab name="pane-1" label="Roles"/>
                     <q-tab name="pane-2" label="Permisos"/>
+                    <q-tab name="pane-3" label="Historial"/>
                   </q-tabs>
                   <q-separator/>
                   <q-tab-panels v-model="tab" animated>
@@ -168,6 +169,10 @@
                       <div class="text-h6">Permisos</div>
                       <permissions @callPermissions="callPermissions"/>
                     </q-tab-panel>
+                    <q-tab-panel name="pane-3">
+                      <div class="text-h6">Historial</div>
+                      <history-user :user_id="id"/>
+                    </q-tab-panel>
                   </q-tab-panels>
                   <div class="q-pa-md q-gutter-sm">
                     <q-btn unelevated color="primary" type="submit" label="Guardar"/>
@@ -195,10 +200,11 @@ import {api} from "boot/axios";
 import {computed, onMounted} from 'vue'
 import Permissions from "src/modules/user/_components/admin/Permissions";
 import array from "src/plugins/array";
+import HistoryUser from "src/modules/history/_components/widgets/HistoryUser";
 
 export default {
   name: 'Create User',
-  components: {Breadcrumb, Permissions},
+  components: {HistoryUser, Breadcrumb, Permissions},
   setup() {
     const $q = useQuasar();
     const breadcrumb = [
@@ -236,8 +242,6 @@ export default {
     const router = useRouter()
     const route = useRoute()
     const fields = ref([])
-
-
     const tab = ref('pane-0')
     const update = async () => {
       try {
@@ -284,7 +288,6 @@ export default {
         console.error('Register Login', error)
       }
     }
-
     function callPermissions(getPermissions) {
       permissions.value = getPermissions
     }
@@ -340,6 +343,7 @@ export default {
       getRoles()
     });
     return {
+      id,
       first_name,
       last_name,
       full_name,

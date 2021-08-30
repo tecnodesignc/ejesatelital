@@ -74,6 +74,24 @@ const routes = [
     ]
   },
   {
+    path: '/profile',
+    meta: {
+      requireAuth: true
+    },
+    name: 'profile',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      {
+        path: '/personal',
+        name: 'profile.personal',
+        component: () => import('src/modules/user/pages/profile/Personal'),
+        meta: {
+          requireAuth: true
+        },
+      },
+    ]
+  },
+  {
     path: '/roles',
     meta: {
       requireAuth: true
@@ -105,6 +123,24 @@ const routes = [
           requireAuth: true
         },
       }
+    ]
+  },
+  {
+    path: '/company',
+    meta: {
+      requireAuth: true
+    },
+    name: 'company',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      {
+        path: '/company',
+        name: 'company',
+        component: () => import('src/modules/company/_pages/account/front/Company'),
+        meta: {
+          requireAuth: true
+        },
+      },
     ]
   },
   {

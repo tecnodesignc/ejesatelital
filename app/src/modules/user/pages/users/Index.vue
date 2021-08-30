@@ -101,7 +101,8 @@ export default {
         active: true
       }
     ]
-    const columns = [{
+    const columns = [
+      {
       name: 'id',
       required: true,
       label: 'Id',
@@ -187,7 +188,7 @@ export default {
     const getUsers = () => {
       return new Promise(async (resolve, reject) => {
         let params = {
-          filters: {
+          filter: {
             status: status.value,
             roleId: role_id.value,
             search: search.value,
@@ -195,7 +196,7 @@ export default {
           page: initialPagination.value.page,
           take: initialPagination.value.rowsPerPage
         }
-        api.get('/user/v1/users', params).then(response => {
+        api.get('/user/v1/users', {params:params}).then(response => {
           user_data.value = response.data.data
           initialPagination.value.rowsNumber = response.data.meta.page.total
           success.value = true
@@ -270,7 +271,7 @@ export default {
       initialPagination.value.rowsPerPage = rowsPerPage
       initialPagination.value.sortBy = sortBy
       initialPagination.value.descending = descending
-      getVehicles()
+      getUsers()
       // ...and turn of loading indicator
       loading.value = false
 

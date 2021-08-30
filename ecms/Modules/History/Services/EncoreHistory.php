@@ -68,6 +68,7 @@ final class EncoreHistory implements History
      */
     private function triggerEventFor(\Modules\History\Entities\History $history)
     {
+        \Log::info('evento');
             event(new BroadcastCompanyHistory($history));
     }
 
@@ -82,12 +83,13 @@ final class EncoreHistory implements History
 
         return $this;
     }
+
     /**
      * Set a user id to set the history to
-     * @param int $account_id
+     * @param int|null $account_id
      * @return $this
      */
-    public function account(int $account_id)
+    public function account(int $account_id=null)
     {
         $this->account_id = $account_id;
 

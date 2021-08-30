@@ -3,9 +3,9 @@
     <toggles-status/>
   </q-toolbar-title>
   <q-toolbar-title v-else>
-    <q-btn flat color="secondary" icon="email"/>
+<!--    <q-btn flat color="secondary" icon="email"/>
     <q-btn flat color="secondary" icon="mark_chat_unread"/>
-    <q-btn flat color="secondary" icon="event"/>
+    <q-btn flat color="secondary" icon="event"/>-->
   </q-toolbar-title>
 </template>
 

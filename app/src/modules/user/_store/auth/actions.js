@@ -62,7 +62,6 @@ export function authSuccess({commit, dispatch, state}, data = {}) {
         //Set default headers to axios
         axios.defaults.headers.common['Authorization'] = data.userToken
         if (!await cache.get('LocalDataUser')) {
-          console.log(cache.set('LocalDataUser', data))
           await cache.set('LocalDataUser', data)//Save session data in storage
         }
         return resolve(true)//Resolve
@@ -161,4 +160,20 @@ export function setRole({dispatch, commit, state}, data) {
       reject(error)
     }
   })
+}
+
+export function profileUpdate({commit,dispatch, state}, data) {
+  return new Promise(async (resolve, reject) => {
+    if (data) {
+      commit('profileSuccess', data)//commit userdata in store
+      let localDataUser = await cache.get('LocalDataUser')
+      localDataUser.userData=data
+      await cache.set('LocalDataUser', localDataUser)//Save session data in storage
+      return resolve(true)//Resolve
+    } else {
+      console.info('[authSuccess]::logout')
+      dispatch('authLogout')//Logout
+      return reject(false)
+    }
+  });
 }

@@ -12,17 +12,17 @@
         </div>
       </template>
       <q-list bordered padding class="rounded-borders text-secondary">
-        <q-item clickable v-close-popup v-ripple>
+        <q-item clickable :to="{name:'profile.personal'}" v-close-popup v-ripple>
           <q-item-section avatar>
-            <q-icon name="user" />
+            <q-icon name="person" />
           </q-item-section>
           <q-item-section>Perfil</q-item-section>
         </q-item>
-        <q-item clickable v-close-popup v-ripple>
+        <q-item clickable :to="{name:'company'}" v-close-popup v-ripple>
           <q-item-section avatar>
             <q-icon name="settings" />
           </q-item-section>
-          <q-item-section>Configuracion</q-item-section>
+          <q-item-section>Cuenta</q-item-section>
         </q-item>
         <q-separator spaced />
         <q-item clickable v-close-popup v-ripple>

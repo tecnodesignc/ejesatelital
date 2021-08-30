@@ -24,9 +24,9 @@ interface History
 
     /**
      * Set a user id to set the history to
-     * @param int $account_id
+     * @param int|null $account_id
      * @return $this
      */
 
-    public function account(int $account_id);
+    public function account(int $account_id=null);
 }

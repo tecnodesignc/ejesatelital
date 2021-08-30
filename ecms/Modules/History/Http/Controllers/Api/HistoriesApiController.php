@@ -49,7 +49,6 @@ class HistoriesApiController extends BaseApiController
 
             //Validate permissions
             $this->validatePermission($params, 'history.histories.index');
-
             //Request to Repository
             $histories = $this->history->getItemsBy($params);
 

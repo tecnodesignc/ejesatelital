@@ -1,5 +1,4 @@
 <template>
-  <div class="q-pa-md">
     <q-table
       :rows="rows"
       :columns="columns"
@@ -28,8 +27,10 @@
           <q-td key="title" :props="props">
             {{ props.row.title }}
           </q-td>
-          <q-td key="message" class="text-center" :props="props">
-            {{ props.row.message?props.row.message:'' }}
+          <q-td key="message" :props="props">
+            <q-chip size="sm" :color="colorChip(props.row.message)">
+              {{ props.row.message_value }}
+            </q-chip>
           </q-td>
           <q-td key="time_ago" :props="props">
             {{ props.row.time_ago }}
@@ -41,7 +42,6 @@
         </q-tr>
       </template>
     </q-table>
-  </div>
 </template>
 
 <script>
@@ -53,13 +53,14 @@ import {api} from "boot/axios";
 import array from "src/plugins/array";
 import {useStore} from "vuex";
 import helper from "src/plugins/helpers";
+import {echo} from "boot/laravel-echo";
 
 export default {
   name: 'HistoryUser',
   props: {
     user_id: {
       type: Number,
-      default: {}
+      default: 0
     },
   },
   setup(props) {
@@ -137,6 +138,7 @@ export default {
             filter: {
               user: props.user_id,
               search: search.value,
+              order:order.value
             },
             include: 'user',
             page: initialPagination.value.page,
@@ -163,7 +165,26 @@ export default {
         console.error('Error en la consulta del Historial', error)
       }
     }
+    function colorChip (message){
+      let color ='primary'
 
+      switch (message) {
+
+        case "0":
+          color='negative'
+          break;
+        case "1":
+          color=  'positive'
+          break;
+        case "2":
+          color=  'orange'
+          break;
+        default:
+          break;
+
+      }
+      return  color
+    }
     function onRequest(props) {
       const {page, rowsPerPage, sortBy, descending} = props.pagination
       const filter = props.filter
@@ -178,12 +199,22 @@ export default {
       loading.value = false
 
     }
-
-    onMounted(() => {
+    const init = async () => {
+      console.warn()
+      echo.channel('histories').listen(`.histories.account.${store.state.account.account_id}.user.${props.user_id}`, message => {
+        onRequest({
+          pagination: initialPagination.value,
+          filter: undefined
+        })
+      })
       onRequest({
         pagination: initialPagination.value,
         filter: undefined
       })
+    }
+
+    onMounted(() => {
+      init()
     });
     return {
       columns,
@@ -191,6 +222,7 @@ export default {
       loading,
       order,
       search,
+      colorChip,
       onRequest
     }
   }

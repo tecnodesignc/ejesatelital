@@ -15,7 +15,6 @@
       </div>
     </div>
     <div>
-      <history-user :user_id="1"/>
     </div>
   </q-page>
 </template>
@@ -24,11 +23,10 @@
 
 import {defineComponent, ref} from 'vue';
 import Breadcrumb from 'src/components/Breadcrumb.vue'
-import HistoryUser from "src/modules/history/_components/widgets/HistoryUser";
 
 export default {
   name: 'PageIndex',
-  components: {HistoryUser, Breadcrumb},
+  components: { Breadcrumb},
   setup() {
     const breadcrumb = [
       {

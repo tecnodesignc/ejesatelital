@@ -23,7 +23,7 @@ class BroadcastCompanyHistory implements ShouldBroadcast, ShouldQueue
 
     public function broadcastAs()
     {
-        return 'histories.account.' . $this->history->account_id.$this->history->user_id;
+        return 'histories.account.'.$this->history->account_id.'.user.'.$this->history->user_id;
     }
 
     /**

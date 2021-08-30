@@ -208,7 +208,7 @@ export default {
                   icon: 'report_problem'
                 })
 
-                contex.emit('UserSave', response.data.data)
+                contex.emit('userSave', response.data.data)
                 dialogNF.value=false
               }).catch(error => {
                 $q.notify({

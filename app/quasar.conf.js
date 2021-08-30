@@ -22,7 +22,7 @@ module.exports = configure(function (ctx) {
     boot: [
       'axios',
       'middleware-app',
-      'laravel-echo'
+      'laravel-echo',
     ],
 
     // https://v2.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css

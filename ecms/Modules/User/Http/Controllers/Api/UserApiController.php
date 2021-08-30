@@ -5,6 +5,7 @@ namespace Modules\User\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Modules\Core\Http\Controllers\Api\BaseApiController;
+use Modules\History\Services\History;
 use Modules\User\Contracts\Authentication;
 use Modules\User\Entities\Sentinel\User;
 use Modules\User\Events\UserHasBegunResetProcess;
@@ -31,7 +32,12 @@ class UserApiController extends BaseApiController
      */
     private $permissions;
 
-    public function __construct(UserRepository $user, PermissionManager $permissions)
+    /**
+     * @var History
+     */
+    private $serviceHistory;
+
+    public function __construct(UserRepository $user, PermissionManager $permissions,  History $serviceHistory)
     {
         $this->user = $user;
         $this->permissions = $permissions;
@@ -142,12 +148,15 @@ class UserApiController extends BaseApiController
     {
         \DB::beginTransaction(); //DB Transaction
         try {
-
-            //Validate permissions
-            $this->validatePermission($request, 'profile.user.edit');
             $data = $request->input('attributes');//Get data
             //Get Parameters from URL.
+
+            //Validate permissions
             $params = $this->getParamsRequest($request);
+
+            if ($params->user->id !== $criteria)
+                $this->validatePermission($request, 'user.users.edit');
+
 
             $this->validateRequestApi(new UpdateUserApiRequest($data));
             $this->validateRequestApi(new CreateFieldsUserRequest($data['fields']));
@@ -161,11 +170,20 @@ class UserApiController extends BaseApiController
 
             //Validate Request
             $data['fields'] = $this->validateFields($data['fields']);
-            $data = $this->mergeRequestWithPermissions($data);
 
-            $this->user->updateAndSyncRoles($user->id, $data, $data['roles']);
+            \Log::info(json_encode($data['fields']));
+            if (isset($data['permissions']))
+                $data = $this->mergeRequestWithPermissions($data);
+            if (isset($data['roles']))
+                $this->user->updateAndSyncRoles($user->id, $data, $data['roles']);
+            else
+                $this->user->update($user, $data);
+
+           // $this->serviceHistory->account('a')->to($this->user->id)->push('Actualizacion de Perfil',$this->user->present()->fullName(), null, null,2,$request->getClientIp());
+
+
             //Response
-            $response = ["data" =>['msg'=>trans('user::messages.user updated')]];
+            $response = ["data" => ['msg' => trans('user::messages.user updated')]];
 
             \DB::commit();//Commit to DataBase
         } catch (\Exception $e) {
@@ -206,7 +224,7 @@ class UserApiController extends BaseApiController
             $this->user->delete($user->id);
 
             //Response
-            $response = ["data" =>['msg'=>trans('user::messages.user deleted')]];
+            $response = ["data" => ['msg' => trans('user::messages.user deleted')]];
 
             \DB::commit();//Commit to DataBase
         } catch (\Exception $e) {

@@ -5,6 +5,7 @@ namespace Modules\Polls\Http\Controllers\Api;
 use http\Params;
 use Illuminate\Http\Request;
 use Mockery\CountValidator\Exception;
+use Modules\History\Services\History;
 use Modules\Polls\Http\Requests\CreateResultRequest;
 use Modules\Polls\Repositories\ResultRepository;
 use Modules\Polls\Transformers\ResultTransformer;
@@ -20,10 +21,17 @@ class ResultApiController extends BaseApiController
      */
     private $result;
 
-    public function __construct(ResultRepository $result)
+    /**
+     * @var History
+     */
+    private $serviceHistory;
+
+
+    public function __construct(ResultRepository $result, History $serviceHistory)
     {
         parent::__construct();
         $this->result = $result;
+        $this->serviceHistory = $serviceHistory;
     }
 
     /**
@@ -165,6 +173,10 @@ class ResultApiController extends BaseApiController
                 //Create item
                 $result = $this->result->create($data);
             }
+
+            \Log::info(json_encode($result));
+            //Validate Request
+           $this->serviceHistory->account($result->account_id)->to($result->user_id)->push('Formulario Enviado', $result->question->poll->title, null, null,2,$request->getClientIp());
 
             //Response
             $response = ["data" => ['msg' => trans('polls::results.messages.result created')]];

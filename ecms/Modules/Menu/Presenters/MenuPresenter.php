@@ -16,8 +16,11 @@ class MenuPresenter extends Presenter
         }
         if (LaravelLocalization::hideDefaultLocaleInURL() === false) {
             $item->url = locale() . '/' . preg_replace('%^/?' . locale() . '/%', '$1', $item->url);
+        } else {
+            $item->url = \LaravelLocalization::localizeUrl($item->url);
         }
     }
+
     /**
      * {@inheritdoc }.
      */
@@ -79,7 +82,7 @@ class MenuPresenter extends Presenter
                     ' . $this->getChildMenuItems($item) . '
                   </ul>
                 </li>'
-        . PHP_EOL;
+            . PHP_EOL;
     }
 
     /**
@@ -100,6 +103,6 @@ class MenuPresenter extends Presenter
                     ' . $this->getChildMenuItems($item) . '
                   </ul>
                 </li>'
-        . PHP_EOL;
+            . PHP_EOL;
     }
 }

@@ -138,7 +138,7 @@ export default {
             message: 'Error en la consulta del Vehìculo ',
             icon: 'report_problem'
           })
-          router.push('polls.fill')
+          router.push({name:'polls.fill'})
           $q.loading.hide()
           reject(error)
         });
@@ -200,7 +200,7 @@ export default {
               message: 'Envio de Corectamente',
               icon: 'report_problem'
             })
-            router.push({name:polls.fill})
+            router.push({name:'polls.fill'})
             resolve(true)
           }).catch(error => {
             $q.notify({

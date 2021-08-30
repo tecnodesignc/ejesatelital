@@ -8,6 +8,14 @@
         Dashboard
       </q-item-section>
     </q-item>
+    <q-item clickable v-ripple :to="{name:'company'}" v-if="$store.state.auth.role.id===4" active-class="active" exact class="q-pl-lg">
+      <q-item-section avatar>
+        <q-icon name="business"/>
+      </q-item-section>
+      <q-item-section>
+        Compañia
+      </q-item-section>
+    </q-item>
     <q-expansion-item
       expand-separator
       icon="business"

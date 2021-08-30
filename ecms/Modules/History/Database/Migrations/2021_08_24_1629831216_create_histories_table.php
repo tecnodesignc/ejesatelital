@@ -13,8 +13,8 @@ class CreateHistoriesTable extends Migration
     {
         Schema::create('history__histories', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned()->nullable();
-            $table->integer('account_id')->unsigned()->nullable();
+            $table->integer('user_id')->unsigned();
+            $table->integer('account_id')->nullable();
             $table->string('type')->nullable();
             $table->string('title');
             $table->string('message')->nullable();;
@@ -32,6 +32,9 @@ class CreateHistoriesTable extends Migration
      */
     public function down()
     {
+        Schema::table('history__histories', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+        });
         Schema::drop('history__histories');
     }
 }

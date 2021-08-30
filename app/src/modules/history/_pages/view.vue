@@ -44,7 +44,7 @@
                       <p class="text-subtitle2">Actividad: {{ title }}</p>
                     </div>
                     <div class="col-12  col-sm-6 q-pt-sm">
-                      <p class="text-subtitle2">valor: {{ message }} </p>
+                      <p class="text-subtitle2">valor: {{ message_value }} </p>
                     </div>
                     <div class="col-12  col-sm-6 q-pt-sm">
                       <p class="text-subtitle2">Fecha: {{ time_ago }} </p>
@@ -106,7 +106,7 @@ export default {
     ]
     const id = ref(null)
     const title = ref(null)
-    const message = ref(null)
+    const message_value = ref(null)
     const time_ago = ref(null)
     const full_name = ref(null)
     const email = ref(null)
@@ -127,7 +127,7 @@ export default {
           let data = response.data.data;
           id.value = data.id
           title.value = data.title
-          message.value = data.message
+          message_value.value = data.message_value
           time_ago.value = data.time_ago
           full_name.value = data.user.full_name
           email.value = data.user.email
@@ -155,7 +155,7 @@ export default {
     return {
       id,
       title,
-      message,
+      message_value,
       time_ago,
       full_name,
       email,

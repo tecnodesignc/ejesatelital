@@ -9,14 +9,13 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
-    "@googlemaps/js-api-loader": "^1.12.2",
+    "@fawmi/vue-google-maps": "^0.9.1",
     "@quasar/extras": "^1.0.0",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "laravel-echo": "^1.11.1",
     "pusher-js": "^7.0.3",
     "quasar": "^2.0.0",
-    "vue3-google-map": "^0.8.2",
     "vuex": "^4.0.1"
   },
   "devDependencies": {

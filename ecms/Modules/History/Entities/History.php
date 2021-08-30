@@ -3,6 +3,8 @@
 namespace Modules\History\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Laracasts\Presenter\PresentableTrait;
+use Modules\History\Presenters\HistoryPresenter;
 
 /**
  * @property string type
@@ -18,10 +20,17 @@ use Illuminate\Database\Eloquent\Model;
  */
 class History extends Model
 {
+    use PresentableTrait;
+
     protected $table = 'history__histories';
     protected $fillable = ['user_id', 'type', 'message', 'ip', 'lng', 'lat', 'title','account_id'];
     protected $appends = ['time_ago'];
     protected $casts = [];
+
+
+
+    protected $presenter = HistoryPresenter::class;
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

@@ -164,7 +164,7 @@ export default {
           page: initialPagination.value.page,
           take: initialPagination.value.rowsPerPage
         }
-        api.get('/user/v1/roles', params).then(response => {
+        api.get('/user/v1/roles', {params:params}).then(response => {
           roles_data.value = response.data.data
           initialPagination.value.rowsNumber = response.data.meta.page.total
           success.value = true

@@ -78,6 +78,10 @@ return [
             'type'=>'textarea',
             'description'=>'Biographies',
         ],
+        'phone'=>[
+            'type'=>'text',
+            'description'=>'Phone',
+        ],
         'facebook'=>[
             'type'=>'text',
             'description'=>'Facebook',

@@ -1,27 +1,38 @@
 <template>
-  <q-card class="my-card"  v-if="!imagePath">
-  <q-card-section>
-    <q-btn
-      label="Selecionar Imagen"
-      color="positive"
-      icon="insert_photo"
-      @click="dialogNF= true"
-    />
-  </q-card-section>
-  </q-card>
-  <q-card class="my-card text-center q-py-lg" v-else >
-    <q-img :src="imagePath.path" v-if="imagePath.isImage" style="max-width: 250px"/>
-    <q-icon name="description" v-else class="text-teal" style="font-size: 8.4em;"/>
+  <div v-if="dense">
+    <q-avatar class="image-single-dense" size="60px">
+      <q-img :src="imagePath?imagePath.path:imagePath">
+      </q-img>
+      <div class="absolute-top text-center camera-hover" @click="dialogNF= true">
+        <q-icon name="photo_camera"/>
+      </div>
+    </q-avatar>
+  </div>
+  <div v-else>
+    <q-card class="my-card" v-if="!imagePath">
+      <q-card-section>
+        <q-btn
+          label="Selecionar Imagen"
+          color="positive"
+          icon="insert_photo"
+          @click="dialogNF= true"
+        />
+      </q-card-section>
+    </q-card>
+    <q-card class="my-card text-center q-py-lg" v-else>
+      <q-img :src="imagePath.path" v-if="imagePath.isImage" style="max-width: 250px"/>
+      <q-icon name="description" v-else class="text-teal" style="font-size: 8.4em;"/>
 
-    <q-card-actions>
-      <q-btn
-        label="remover Imagen"
-        color="negative"
-        icon="close"
-        @click="removeImage"
-      />
-    </q-card-actions>
-  </q-card>
+      <q-card-actions>
+        <q-btn
+          label="remover Imagen"
+          color="negative"
+          icon="close"
+          @click="removeImage"
+        />
+      </q-card-actions>
+    </q-card>
+  </div>
   <q-dialog v-model="dialogNF">
 
     <q-card style="width: 1200px; height: auto">
@@ -52,16 +63,20 @@ export default {
   props: {
     zone: {
       type: String,
-      required:true
+      required: true
     },
     entity: {
       type: String,
-      required:true
+      required: true
     },
     entity_id: {
       type: Number,
       default: null
-    }
+    },
+    dense: {
+      type: Boolean,
+      default: false
+    },
   },
   setup(props, contex) {
     const $q = useQuasar()
@@ -69,10 +84,10 @@ export default {
     const imagePath = ref(false)
     const select = (image) => {
       imagePath.value = image
-      let selectedImage= {}
-      selectedImage[props.zone]=image.id
-      contex.emit('selectedImage',selectedImage)
-      dialogNF.value=false
+      let selectedImage = {}
+      selectedImage[props.zone] = image.id
+      contex.emit('selectedImage', selectedImage)
+      dialogNF.value = false
     }
     const removeImage = (image) => {
       contex.emit('selectedImage', null)
@@ -80,19 +95,19 @@ export default {
     }
 
     const onRequest = () => {
-      if(props.entity_id){
+      if (props.entity_id) {
         return new Promise(async (resolve, reject) => {
           let criteria = props.entity_id
-          let params={
-            filter:{
-              zone:props.zone,
+          let params = {
+            filter: {
+              zone: props.zone,
               entity: props.entity,
-              field:'entity_id'
+              field: 'entity_id'
             }
 
           }
-          api.get('/media/v1/files/' + criteria,{params:params}).then(response => {
-            imagePath.value= response.data.data
+          api.get('/media/v1/files/' + criteria, {params: params}).then(response => {
+            imagePath.value = response.data.data
             resolve(true)
           }).catch(error => {
             $q.loading.hide()
@@ -121,5 +136,27 @@ export default {
     font-size: 24px;
     width: 100%;
   }
+}
+
+.camera-hover {
+  display: none;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  pointer-events: all;
+  position: absolute;
+  padding: 16px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.47);
+  border-radius: 100%;
+}
+
+.image-single-dense {
+  &:hover {
+    .camera-hover {
+      display: block;
+    }
+  }
+
 }
 </style>

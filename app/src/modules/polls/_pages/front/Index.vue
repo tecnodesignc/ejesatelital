@@ -19,12 +19,13 @@
             <q-card>
               <q-card-section>
                 <q-list padding>
-                  <q-item clickable :to="{name:'polls.questions.fill',params: {id:poll.id}}" v-ripple v-for="(poll, i) in polls" :key="i">
+                  <q-item clickable :to="{name:'polls.questions.fill',params: {id:poll.id}}" v-ripple
+                          v-for="(poll, i) in polls" :key="i">
                     <q-item-section avatar>
-                      <q-icon color="primary" name="check_circle_outline" />
+                      <q-icon color="primary" name="check_circle_outline"/>
                     </q-item-section>
                     <q-item-section>
-                      {{poll.title}}
+                      {{ poll.title }}
                     </q-item-section>
                   </q-item>
                 </q-list>
@@ -38,7 +39,7 @@
               </q-card-section>
             </q-card>
           </div>
-      </div>
+        </div>
         <!-- end row -->
       </div>
     </div>
@@ -80,8 +81,8 @@ export default {
     const router = useRouter()
     const initialPagination = ref({
       page: 1,
-      rowsPerPage:12,
-      totalPage:1
+      rowsPerPage: 12,
+      totalPage: 1
     })
     const order = ref({
       field: 'created_at',
@@ -91,7 +92,7 @@ export default {
     const getPolls = () => {
       return new Promise(async (resolve, reject) => {
         $q.loading.show()
-     await store.dispatch('account/SetAccounts',false)
+        await store.dispatch('account/SetAccounts', false)
         let params = {
           filter: {
             status: true,
@@ -102,7 +103,7 @@ export default {
           take: initialPagination.value.rowsPerPage
         }
         api.get('/polls/v1/polls', {params: params}).then(response => {
-         polls.value = response.data.data;
+          polls.value = response.data.data;
           initialPagination.value.totalPage = response.data.meta.page.total
           $q.loading.hide()
           resolve(true)
